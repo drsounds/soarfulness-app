@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://h0op280e6ah7"]
+[gd_scene load_steps=3 format=3 uid="uid://h0op280e6ah7"]
 
 [ext_resource type="Script" uid="uid://dhywnvykf1nim" path="res://assets/Aquafulness/Scenes/Coordlux/bather.gd" id="1_x7it8"]
+[ext_resource type="PackedScene" uid="uid://b2ps6m14qrhkv" path="res://assets/Aquafulness/Scenes/Flower/Flower.tscn" id="2_hnjjd"]
 
 [node name="Bather" type="Camera3D"]
 transform = Transform3D(-0.99998933, 0, 0.0046252166, 0, 1, 0, -0.0046252166, 0, -0.99998933, 0, 0, 0)
@@ -10,5 +11,16 @@ script = ExtResource("1_x7it8")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="Flowers" type="Node3D" parent="."]
+
+[node name="Flower" parent="Flowers" instance=ExtResource("2_hnjjd")]
+transform = Transform3D(-0.99998933, 0, -0.0046252166, 0, 1, 0, 0.0046252166, 0, -0.99998933, 0.06379095, -1.6907204, -4.462447)
+
+[node name="Flower2" parent="Flowers" instance=ExtResource("2_hnjjd")]
+transform = Transform3D(-0.99998933, 0, -0.0046252166, 0, 1, 0, 0.0046252166, 0, -0.99998933, -4.269341, -1.6907204, -4.712826)
+
+[node name="Flower3" parent="Flowers" instance=ExtResource("2_hnjjd")]
+transform = Transform3D(-0.99998933, 0, -0.0046252166, 0, 1, 0, 0.0046252166, 0, -0.99998933, 3.1494124, -1.6907204, -4.74714)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

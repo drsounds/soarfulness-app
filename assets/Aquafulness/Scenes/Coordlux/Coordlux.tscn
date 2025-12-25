@@ -1,22 +1,23 @@
-[gd_scene load_steps=15 format=3 uid="uid://ktyco5f0otlm"]
+[gd_scene load_steps=16 format=3 uid="uid://ktyco5f0otlm"]
 
-[ext_resource type="Script" uid="uid://cu7d2vkr04wfc" path="res://assets/Aquafulness/Scenes/Coordlux/coordlux.gd" id="1_0bayb"]
 [ext_resource type="PackedScene" uid="uid://dwfgugk1tvlya" path="res://assets/Aquafulness/Scenes/Coordlux/futuristic_dome.tscn" id="1_0r8s1"]
+[ext_resource type="Script" uid="uid://bmk356m72a0q8" path="res://assets/Aquafulness/Scenes/AquaScene/aqua_scene.gd" id="1_mnt5h"]
 [ext_resource type="PackedScene" uid="uid://bss5uw1f1p0np" path="res://Spoonie.tscn" id="2_67si5"]
-[ext_resource type="Environment" uid="uid://b4xp743lvgb4u" path="res://assets/Aquafulness/Vänern_Present_Day.tres" id="3_mnt5h"]
 [ext_resource type="PackedScene" uid="uid://p2e4bgxha7b0" path="res://assets/Aquafulness/Scenes/Coordlux/RedSeaLine.tscn" id="4_ylyet"]
-[ext_resource type="PackedScene" uid="uid://3q1fmwrua8xf" path="res://assets/Aquafulness/Scenes/Coordlux/bath_place.tscn" id="6_b738n"]
+[ext_resource type="Environment" uid="uid://cfu0oxys6lvva" path="res://floating3.tres" id="7_jh6ua"]
 [ext_resource type="PackedScene" uid="uid://dipu56ykx87ds" path="res://assets/Aquafulness/Scenes/Coordlux/csg_combiner_3d.tscn" id="7_qiydf"]
 [ext_resource type="PackedScene" uid="uid://db0gfh3dgksql" path="res://assets/Aquafulness/Scenes/Bather/bather.tscn" id="8_s0gbc"]
 [ext_resource type="Script" uid="uid://bbr8tw1iges4f" path="res://addons/SunshineVolumetricClouds/CloudsController.gd" id="11_jh6ua"]
 [ext_resource type="Texture2D" uid="uid://rjbn3mellhc1" path="res://addons/SunshineVolumetricClouds/HeightWeightGradient.tres" id="12_v2kci"]
 [ext_resource type="NoiseTexture3D" uid="uid://beujfcx2u0pqg" path="res://addons/SunshineVolumetricClouds/BaseNoiseTexture.tres" id="13_sc3kh"]
+[ext_resource type="PackedScene" uid="uid://ds051alhagcog" path="res://assets/Aquafulness/Scenes/Snow/Snow.tscn" id="14_jh6ua"]
 [ext_resource type="PackedScene" uid="uid://brepba5md3mm1" path="res://assets/Aquafulness/Scenes/Coordlux/Bottom.blend" id="14_s0gbc"]
 [ext_resource type="NoiseTexture3D" uid="uid://dt4lbhlv68dai" path="res://addons/SunshineVolumetricClouds/BaseNoiseDetailTexture.tres" id="14_xv2xv"]
 [ext_resource type="NoiseTexture3D" uid="uid://duqxdvvkivpvw" path="res://addons/SunshineVolumetricClouds/BaseNoiseLargeScaleTexture.tres" id="15_kxxca"]
+[ext_resource type="PackedScene" uid="uid://bf38c65clfohf" path="res://assets/Aquafulness/Scenes/Christmas/Tree.blend" id="15_v2kci"]
 
 [node name="Coordlux" type="Node3D"]
-script = ExtResource("1_0bayb")
+script = ExtResource("1_mnt5h")
 
 [node name="CloudsController" type="Node" parent="." node_paths=PackedStringArray("sunLight", "worldEnvironment")]
 script = ExtResource("11_jh6ua")
@@ -33,26 +34,24 @@ fogColorDefault = Color(0.518, 0.553, 0.608, 1)
 metadata/_custom_type_script = "uid://bbr8tw1iges4f"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("3_mnt5h")
+environment = ExtResource("7_jh6ua")
 
-[node name="Bathing" parent="." instance=ExtResource("8_s0gbc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5974064)
+[node name="Bather" parent="." instance=ExtResource("8_s0gbc")]
 
 [node name="FuturisticDome3" parent="." instance=ExtResource("1_0r8s1")]
 transform = Transform3D(32.06221, 0, 0, 0, 41.042442, 0, 0, 0, 39.339878, 317.03214, -8.590961, 75.52716)
 visible = false
 
 [node name="FuturisticDome4" parent="." instance=ExtResource("1_0r8s1")]
-transform = Transform3D(32.06221, 0, 0, 0, 41.042442, 0, 0, 0, 39.339878, -70.37654, -8.590961, 120.52716)
+transform = Transform3D(32.06221, 0, 0, 0, 41.042442, 0, 0, 0, 39.339878, 83.62346, -8.590961, -755.63055)
 visible = false
 
 [node name="FuturisticDome2" parent="." instance=ExtResource("1_0r8s1")]
-transform = Transform3D(32.06221, 0, 0, 0, 38.77548, 0, 0, 0, 39.339878, -70.5034, -8.590961, 120.4992)
+transform = Transform3D(32.06221, 0, 0, 0, 38.77548, 0, 0, 0, 39.339878, -70.5034, -8.590961, -755.6585)
 visible = false
 
 [node name="Futuristic_Lighthouses" type="Node3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
-visible = false
+transform = Transform3D(-5, 0, 4.371139e-07, 0, 5, 0, -4.371139e-07, 0, -5, -6.4668293, 0, 0)
 
 [node name="Node3D14" parent="Futuristic_Lighthouses" instance=ExtResource("2_67si5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.390474, 5.2520847, 18.52006)
@@ -90,39 +89,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.168406, 7.2877564, 36.943
 
 [node name="MeshInstance3D" parent="." instance=ExtResource("4_ylyet")]
 transform = Transform3D(0.076302856, -0.3355831, 0, 0.02718223, 0.9420106, 0, 0, 0, 0.081, -323.44092, 0, 105.145996)
-visible = false
 skeleton = NodePath("../Futuristic_Lighthouses/Node3D15")
 
 [node name="MeshInstance3D2" parent="." instance=ExtResource("4_ylyet")]
 transform = Transform3D(0.9540157, 3.7154856, 0, -0.2997568, 11.825025, 0, 0, 0, 1, -131.79309, 0, 43.323807)
-visible = false
 skeleton = NodePath("../Futuristic_Lighthouses/Node3D15")
 
 [node name="MeshInstance3D3" parent="." instance=ExtResource("4_ylyet")]
 transform = Transform3D(0.97657096, -2.66735, 0, 0.21519557, 12.104597, 0, 0, 0, 1, -193.08578, 0, 43.323807)
-visible = false
 skeleton = NodePath("../Futuristic_Lighthouses/Node3D15")
 
 [node name="MeshInstance3D4" parent="." instance=ExtResource("4_ylyet")]
 transform = Transform3D(0.9540157, 3.7154856, 0, -0.2997568, 11.825025, 0, 0, 0, 1, -131.79309, 0, 132.86649)
-visible = false
 skeleton = NodePath("../Futuristic_Lighthouses/Node3D15")
 
 [node name="MeshInstance3D5" parent="." instance=ExtResource("4_ylyet")]
 transform = Transform3D(0.97657096, -2.66735, 0, 0.21519557, 12.104597, 0, 0, 0, 1, -193.08578, 0, 132.86649)
-visible = false
 skeleton = NodePath("../Futuristic_Lighthouses/Node3D15")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 36.48156, -28.401964)
+visible = false
 
 [node name="Light" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 36.48156, -28.401964)
 omni_range = 1497.908
 omni_attenuation = -0.134
-
-[node name="BathPlace" parent="." instance=ExtResource("6_b738n")]
-transform = Transform3D(0.84649074, 0, -0.5324036, 0, 1, 0, 0.5324036, 0, 0.84649074, -11.662328, 6.310566, 94.958954)
 
 [node name="CSGCombiner3D" parent="." instance=ExtResource("7_qiydf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.197124, -2.5754538, 16.923536)
@@ -138,7 +130,6 @@ visible = false
 
 [node name="CSGCombiner3D2" parent="." instance=ExtResource("7_qiydf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.200513, -2.5754538, 16.923536)
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -148,3 +139,12 @@ offset_bottom = 41.0
 [node name="Bottom" parent="." instance=ExtResource("14_s0gbc")]
 transform = Transform3D(1.9000001, 0, 0, 0, 1, 0, 0, 0, 2.6, 0, -25.859352, 147.92308)
 visible = false
+
+[node name="Snow" parent="." instance=ExtResource("14_jh6ua")]
+visible = false
+
+[node name="Christmas" type="Node3D" parent="."]
+visible = false
+
+[node name="Tree" parent="Christmas" instance=ExtResource("15_v2kci")]
+transform = Transform3D(0.0060033826, 0, -0.43642613, 0, 0.3857247, 0, 0.5647896, 0, 0.004638954, -11.025063, 22.433342, -189.4022)

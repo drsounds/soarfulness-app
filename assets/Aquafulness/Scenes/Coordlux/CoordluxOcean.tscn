@@ -6,7 +6,7 @@
 [ext_resource type="Material" uid="uid://cmyo0unntq078" path="res://addons/tessarakkt.oceanfft/Ocean.tres" id="4_fdagp"]
 [ext_resource type="Script" uid="uid://cx3twtm5gessr" path="res://addons/tessarakkt.oceanfft/components/Ocean3D.gd" id="5_boe1r"]
 [ext_resource type="PackedScene" uid="uid://rmewe8a2xeoe" path="res://example/FloatingRectangle.tscn" id="6_nj5qc"]
-[ext_resource type="Script" uid="uid://bbr58hrni71p" path="res://assets/Aquafulness/Scenes/Coordlux/bathing.gd" id="7_1fvp3"]
+[ext_resource type="Script" uid="uid://bbr58hrni71p" path="res://assets/Aquafulness/Scenes/Bather/bather.gd" id="7_1fvp3"]
 [ext_resource type="Script" uid="uid://dm0ew8hvv4xqm" path="res://example/Camera.gd" id="8_h1c7f"]
 [ext_resource type="PackedScene" uid="uid://dwfgugk1tvlya" path="res://assets/Aquafulness/Scenes/Coordlux/futuristic_dome.tscn" id="9_h4ig2"]
 [ext_resource type="PackedScene" uid="uid://bss5uw1f1p0np" path="res://Spoonie.tscn" id="10_0r7xy"]
@@ -28,7 +28,7 @@ script = ExtResource("1_84psg")
 environment = ExtResource("3_36dss")
 ocean = SubResource("Resource_mnt5h")
 
-[node name="FloatingRectangle2" parent="OceanEnvironment" node_paths=PackedStringArray("environment") instance=ExtResource("6_nj5qc")]
+[node name="FloatingRectangle2" parent="OceanEnvironment" instance=ExtResource("6_nj5qc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.958008)
 visible = false
 axis_lock_angular_x = true
@@ -36,7 +36,6 @@ axis_lock_angular_y = true
 axis_lock_angular_z = true
 center_of_mass_mode = 0
 center_of_mass = Vector3(0, 0, 0)
-environment = NodePath("..")
 
 [node name="Bathing" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.261026)

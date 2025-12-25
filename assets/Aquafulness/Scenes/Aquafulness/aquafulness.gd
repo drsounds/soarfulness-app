@@ -7,7 +7,7 @@ var coordlux
 func _ready() -> void:
 	controls = get_tree().root.find_child('Controls', true, false)
 	coordlux = get_tree().root.find_child('Coordlux', true, false)
-
+	$VideoStreamPlayer.volume = 1
 
 func _time_of_day_changed(value: String):
 	if value == 'night':

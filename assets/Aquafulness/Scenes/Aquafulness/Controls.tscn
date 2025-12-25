@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://frb38tx0tt4c"]
+[gd_scene load_steps=18 format=3 uid="uid://frb38tx0tt4c"]
 
 [ext_resource type="Script" uid="uid://d3qua6q1j3jxo" path="res://assets/Aquafulness/Scenes/Aquafulness/gs.gd" id="2_510mj"]
 [ext_resource type="Theme" uid="uid://dppbavpctnyxp" path="res://new_theme2.tres" id="3_qqppl"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://brh00g4fiq1ih" path="res://assets/Aquafulness/Scenes/Aquafulness/date_panel.gd" id="11_8iyei"]
 [ext_resource type="Texture2D" uid="uid://gjdtfx87t7oi" path="res://assets/Aquafulness/Weather.png" id="12_8iyei"]
 [ext_resource type="Texture2D" uid="uid://cb7nt5bbppi7x" path="res://assets/Aquafulness/DateTime.png" id="13_hdtcv"]
+[ext_resource type="PackedScene" uid="uid://dlywrigb0i3p1" path="res://assets/Aquafulness/Scenes/Aquafulness/audio_toggle_button.tscn" id="14_1adp4"]
 
 [sub_resource type="Theme" id="Theme_ut41e"]
 default_font_size = 18
@@ -65,19 +66,6 @@ visible = false
 position = Vector2(479.00003, -54.999996)
 scale = Vector2(0.76156396, 1.0614035)
 polygon = PackedVector2Array(550, 446, 550, 674, 766.7201, 564)
-
-[node name="MenuButton" type="MenuButton" parent="."]
-layout_mode = 0
-offset_left = 28.0
-offset_top = 33.0
-offset_right = 217.0
-offset_bottom = 71.0
-text = "Framnäs"
-alignment = 0
-item_count = 1
-popup/item_0/text = "Framnas"
-popup/item_0/checkable = 2
-popup/item_0/id = 0
 
 [node name="YearSlider" type="HSlider" parent="."]
 visible = false
@@ -381,7 +369,6 @@ offset_top = 120.0
 offset_right = 376.0
 offset_bottom = 120.0
 max = 1000.0
-step = 1.0
 text = "Snow amount"
 
 [node name="WaveHeightSpinner" parent="WeatherPanel" instance=ExtResource("10_fjr8b")]
@@ -390,8 +377,6 @@ offset_left = 42.0
 offset_top = 120.0
 offset_right = 42.0
 offset_bottom = 120.0
-max = 10.0
-step = 1.0
 text = "Wave Height"
 
 [node name="WaveLengthSpinner" parent="WeatherPanel" instance=ExtResource("10_fjr8b")]
@@ -400,8 +385,6 @@ offset_left = 208.0
 offset_top = 120.0
 offset_right = 208.0
 offset_bottom = 120.0
-max = 10.0
-step = 1.0
 text = "Wave length"
 
 [node name="Button" type="Button" parent="WeatherPanel"]
@@ -516,12 +499,49 @@ stretch_mode = 4
 layout_mode = 0
 offset_left = 512.0
 offset_top = 22.0
-offset_right = 647.0
+offset_right = 709.0
 offset_bottom = 73.0
 text = "Date"
 flat = true
 alignment = 0
 expand_icon = true
+
+[node name="AudioToggleButton" parent="." instance=ExtResource("14_1adp4")]
+modulate = Color(1, 1, 1, 0.5294118)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -122.0
+offset_top = -68.0
+offset_right = -88.0
+offset_bottom = -39.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.5019608)
+layout_mode = 0
+offset_left = 28.0
+offset_top = 41.0
+offset_right = 95.0
+offset_bottom = 64.0
+text = "Location"
+
+[node name="SceneOptionsButton" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 41.0
+offset_right = 223.0
+offset_bottom = 72.0
+selected = 0
+item_count = 2
+popup/item_0/text = "Framnäs"
+popup/item_0/id = 0
+popup/item_1/text = "Coordlux"
+popup/item_1/id = 1
 
 [connection signal="drag_ended" from="YearSlider" to="." method="_on_year_slider_drag_ended"]
 [connection signal="value_changed" from="WaveHeightSlider" to="." method="_on_wave_height_slider_value_changed"]
@@ -546,3 +566,6 @@ expand_icon = true
 [connection signal="pressed" from="DatePanel/DateTimeButton" to="DatePanel" method="_on_date_time_button_pressed"]
 [connection signal="pressed" from="WeatherButton" to="." method="_on_weather_button_pressed"]
 [connection signal="pressed" from="DateTimeButton" to="." method="_on_date_time_button_pressed"]
+[connection signal="active_changed" from="AudioToggleButton" to="." method="_on_audio_toggle_button_active_changed"]
+[connection signal="focus_exited" from="SceneOptionsButton" to="." method="_on_scene_options_button_focus_exited"]
+[connection signal="item_selected" from="SceneOptionsButton" to="." method="_on_scene_options_button_item_selected"]

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2ps6m14qrhkv"]
+
+[ext_resource type="PackedScene" uid="uid://dpfnuwb0y57fj" path="res://assets/Aquafulness/Scenes/Flower/Leafs.tscn" id="1_yklap"]
+
+[node name="Flower" type="Node3D"]
+
+[node name="Leafs" parent="." instance=ExtResource("1_yklap")]
+transform = Transform3D(0.60911655, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Leafs2" parent="." instance=ExtResource("1_yklap")]
+transform = Transform3D(0.046296198, 0, -0.9971074, 0, 1.3055885, 0, 0.60735464, 0, 0.07600548, 0, 0.11556327, 0)
+
+[node name="Leafs3" parent="." instance=ExtResource("1_yklap")]
+transform = Transform3D(0.29494286, 0, -0.8749495, 0, 1.6513946, 0, 0.5329462, 0, 0.4842142, 0, 0.06350708, 0)

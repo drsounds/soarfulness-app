@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://djpxbrdgwmb5w"]
 
 [ext_resource type="Script" uid="uid://dcx74vvq8r8wu" path="res://assets/Aquafulness/Scenes/Aquafulness/aquafulness.gd" id="1_kj2lw"]
-[ext_resource type="VideoStream" uid="uid://bw043r2hdjd2s" path="res://Vänern_Silent.ogv" id="2_cuigj"]
+[ext_resource type="VideoStream" uid="uid://bhl6cov8lwnos" path="res://Vänern.ogv" id="2_cuigj"]
 [ext_resource type="Texture2D" uid="uid://bccfcb0sytdqr" path="res://assets/Aquafulness/icon.png" id="2_ut41e"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kj2lw"]
@@ -31,6 +31,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stream = ExtResource("2_cuigj")
+volume_db = -80.0
 autoplay = true
 expand = true
 loop = true

@@ -12,13 +12,24 @@ var stream_speed: float = 2
 
 var velocity: Vector3 = Vector3(0, 0, 0)
 
+var flowers
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	self.velocity += wave
+	#self.velocity += wave
+	flowers = $Flowers
 
 
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_up"):
+		self.velocity.z += 1
+	if event.is_action_pressed("ui_down"):
+		self.velocity.z -= 1
+	if event.is_action_pressed('ui_left'):
+		self.velocity.x -= 1
+	if event.is_action_pressed('ui_right'):
+		self.velocity.x = 1
 	if event.is_action_pressed("ui_action_increase_wave_height"):
 		wave_height += 1
 		wave_length = wave_height / 20
@@ -47,7 +58,8 @@ func _process(delta:float) -> void:
 
 	wave.y = sin(time * wave_speed) * wave_height + 2
 	wave.z = sin(time * wave_speed + 2) * -wave_length
-
+	
+	"""
 	if wave.y > 0:
 		if self.velocity.y < 20:
 			self.velocity.y += wave.y * 0.2
@@ -58,6 +70,13 @@ func _process(delta:float) -> void:
 	elif self.transform.origin.y > 0:
 		if self.velocity.y > -23:
 			self.velocity.y -= 1
-			
+	"""
+
 	self.transform.origin.y = wave.y
 	self.transform.origin.z = wave.z * 5
+
+	self.flowers.origin.y = wave.y
+	self.flowers.origin.z = wave.z * 5
+
+	self.transform.origin += velocity
+	self.velocity *= 0.99

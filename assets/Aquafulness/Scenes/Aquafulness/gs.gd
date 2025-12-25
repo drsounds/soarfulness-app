@@ -4,22 +4,43 @@ var bather
 var scene
 var aquafulness
 var config
+var audio_player
+var soarfulness
+var current_scene_id = 'Framnas'
 
 const CONFIG_FILENAME = "user://bath.cfg"
 
-func _ready() -> void:
-	config = ConfigFile.new()
-
+func init() -> void:
+	soarfulness = get_tree().root.find_child('Soarfulness', true, false)
+	soarfulness.connect('scene_loaded', self._on_scene_loaded)
 	aquafulness = get_tree().root.find_child('Aquafulness', true, false)
 	scene = get_tree().root.find_child('SubViewport', true, false).get_child(0)
 	bather = get_tree().root.find_child('Bather', true, false)
+	audio_player = aquafulness.find_child('VideoStreamPlayer')
+	audio_player.volume_db = -80
 	bather.connect('wave_height_changed', self._handle_bather_wave_height_changed)
 	bather.connect('wave_length_changed', self._handle_bather_wave_length_changed)
 	$DateTimeInput.date = Time.get_datetime_dict_from_system()
 	scene.connect("date_changed", self.scene_date_changed)
 	$WeatherPanel.open = false
 	$DatePanel.open = false
+
+
+func _on_scene_loaded(scene_id: String):
+	for i in range($SceneOptionsButton.item_count):
+		var id = $SceneOptionsButton.get_item_id(i)
+		if id == scene_id:
+			$SceneOptionsButton.selected = i
+			current_scene_id = id
+
+
+func _ready() -> void:
+	config = ConfigFile.new()
+	init()
 	load_config()
+	var current_scene = config.get_value('session', 'scene', null)
+	if current_scene != null:
+		load_scene(current_scene)
 
 
 func _handle_bather_wave_height_changed(val):
@@ -127,13 +148,12 @@ func _on_christmas_button_toggled(toggled_on: bool) -> void:
 
 func _on_wave_sound_effect_button_toggled(toggled_on: bool) -> void:
 	var audio_player = aquafulness.find_child('VideoStreamPlayer')
-	var stream_file = null
+
 	if toggled_on:
-		stream_file = "res://Vänern.ogv"
+		audio_player.volume = 1
 	else:
-		stream_file = 'res://Vänern_Silent.ogv'
-	audio_player.stream = load(stream_file)
-	audio_player.play()
+		audio_player.volume = 0
+
 	config.set_value("bath", "sound", toggled_on)
 	save_config()
 
@@ -205,18 +225,10 @@ func _on_wave_length_spinner_after_pressed(value: float) -> void:
 	save_config()
 
 
-func _on_wave_length_spinner_value_changed(value: float) -> void:
-	pass
-
-
 func _on_snow_amount_spinner_after_pressed(value: float) -> void:
 	scene.snow_amount = value
 	config.set_value("weather", "snow_amount", value)
 	save_config()
-
-
-func _on_snow_amount_spinner_value_changed(value: float) -> void:
-	pass
 
 
 func _on_date_time_button_pressed() -> void:
@@ -225,3 +237,34 @@ func _on_date_time_button_pressed() -> void:
 
 func _on_weather_button_pressed() -> void:
 	$WeatherPanel.open = true
+
+
+func _on_audio_toggle_button_active_changed(toggled_on: bool) -> void:
+	if toggled_on:
+		audio_player.volume_db = 0
+	else:
+		audio_player.volume_db = -80
+
+	config.set_value("bath", "sound", toggled_on)
+	save_config()
+
+
+func load_scene(scene_id):
+	if scene_id != current_scene_id and scene_id != null:
+		soarfulness.load_scene(scene_id)
+		config.set_value('session', 'scene', scene_id)
+		save_config()
+		init()
+
+
+func _on_scene_options_button_focus_exited() -> void:
+	pass
+
+
+func _on_scene_options_button_item_selected(index: int) -> void:
+	
+	var scenes = soarfulness.scenes 
+	var scene_name = $SceneOptionsButton.get_item_text(index)
+	for new_scene in scenes:
+		if new_scene['name'] == scene_name:
+			load_scene(new_scene['id'])

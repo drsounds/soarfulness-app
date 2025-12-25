@@ -7,7 +7,7 @@
 [ext_resource type="NoiseTexture3D" uid="uid://dt4lbhlv68dai" path="res://addons/SunshineVolumetricClouds/BaseNoiseDetailTexture.tres" id="5_yej0i"]
 [ext_resource type="NoiseTexture3D" uid="uid://duqxdvvkivpvw" path="res://addons/SunshineVolumetricClouds/BaseNoiseLargeScaleTexture.tres" id="6_yd6rf"]
 [ext_resource type="Environment" uid="uid://b4xp743lvgb4u" path="res://assets/Aquafulness/Vänern_Present_Day.tres" id="7_t8jir"]
-[ext_resource type="Script" uid="uid://bbr58hrni71p" path="res://assets/Aquafulness/Scenes/Coordlux/bathing.gd" id="8_jqejq"]
+[ext_resource type="Script" uid="uid://bbr58hrni71p" path="res://assets/Aquafulness/Scenes/Bather/bather.gd" id="8_jqejq"]
 [ext_resource type="Script" uid="uid://dm0ew8hvv4xqm" path="res://example/Camera.gd" id="9_1ofnv"]
 [ext_resource type="PackedScene" uid="uid://dwfgugk1tvlya" path="res://assets/Aquafulness/Scenes/Coordlux/futuristic_dome.tscn" id="10_jxqdh"]
 [ext_resource type="PackedScene" uid="uid://bss5uw1f1p0np" path="res://Spoonie.tscn" id="11_ur1my"]
