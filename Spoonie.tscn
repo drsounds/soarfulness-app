@@ -1,0 +1,188 @@
+[gd_scene load_steps=5 format=3 uid="uid://bss5uw1f1p0np"]
+
+[ext_resource type="Material" uid="uid://bemh6g0nogb0u" path="res://assets/Aquafulness/Scenes/Coordlux/Window.tres" id="1_3fsfw"]
+[ext_resource type="Script" uid="uid://drd8lp132bjae" path="res://spoonie.gd" id="1_55rqe"]
+[ext_resource type="Material" uid="uid://culu1ruvam3ki" path="res://new_standard_material_3d.tres" id="2_55rqe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_on6em"]
+albedo_color = Color(0.48, 0.826667, 1, 1)
+metallic = 0.81
+roughness = 0.49
+emission_enabled = true
+emission = Color(0.2436, 0.67164, 0.87, 1)
+
+[node name="Spoonie" type="Node3D"]
+script = ExtResource("1_55rqe")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D"]
+transform = Transform3D(2.28721, 0, 0, 0, 2.32495, 0, 0, 0, 2.3432, 0, 0, 0)
+rings = 28
+material = SubResource("StandardMaterial3D_on6em")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.661366, 0.128965, -0.6507, 0.167537)
+operation = 2
+size = Vector3(2.84107, 1.3656, 4.36531)
+
+[node name="CSGCombiner3D3" type="CSGCombiner3D" parent="."]
+transform = Transform3D(-0.680636, 1.07368e-07, 0, -5.95031e-08, -1.22815, 0, 0, 0, 0.650238, 0, -0.00477242, 0)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D3"]
+transform = Transform3D(2.28721, 7.10543e-14, 0, -7.10543e-15, 1.25552, 0, 0, 0, 2.3432, -0.00334769, 0.0653614, 0.000703536)
+radial_segments = 28
+
+[node name="CSGSphere3D16" type="CSGSphere3D" parent="CSGCombiner3D3"]
+transform = Transform3D(2.28721, 1.81899e-12, 0, -2.13163e-14, 13.6531, 0, 0, 0, 2.3432, -0.00334668, 6.45778, 0.000703536)
+radial_segments = 28
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.661366, 0.034111, -0.6507, 0.0325254)
+operation = 2
+size = Vector3(2.17049, 1.3656, 3.58234)
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="CSGCombiner3D3"]
+transform = Transform3D(-0.107393, -1.21245e-08, 0, 5.20314e-09, -0.0768607, 0, 0, 0, 0.137946, -1.0688, 0.184387, 0)
+rings = 28
+material = SubResource("StandardMaterial3D_on6em")
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="CSGCombiner3D3"]
+transform = Transform3D(-0.107393, -1.21245e-08, 0, 5.20314e-09, -0.0768607, 0, 0, 0, 0.137946, -0.944478, 0.184387, 0.50109)
+rings = 28
+material = SubResource("StandardMaterial3D_on6em")
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="CSGCombiner3D3"]
+transform = Transform3D(-0.107393, -1.21245e-08, 0, 5.20314e-09, -0.0768607, 0, 0, 0, 0.137946, -0.638907, 0.184387, 0.882857)
+rings = 28
+material = SubResource("StandardMaterial3D_on6em")
+
+[node name="CSGSphere3D5" type="CSGSphere3D" parent="CSGCombiner3D3"]
+transform = Transform3D(0.0139637, -2.63156e-09, 0.136775, -6.76527e-10, -0.0768607, -6.62665e-09, 0.106482, 8.32936e-09, -0.0179363, 0.156775, 0.184387, 1.07574)
+rings = 28
+material = SubResource("StandardMaterial3D_on6em")
+
+[node name="CSGSphere3D8" type="CSGSphere3D" parent="CSGCombiner3D3"]
+transform = Transform3D(0.0139637, -2.63156e-09, 0.136775, -6.76528e-10, -0.0768607, -6.62665e-09, 0.106482, 8.32936e-09, -0.0179363, -0.167982, 0.184387, 1.08648)
+rings = 28
+material = SubResource("StandardMaterial3D_on6em")
+
+[node name="CSGSphere3D6" type="CSGSphere3D" parent="CSGCombiner3D3"]
+transform = Transform3D(0.0139637, -2.63156e-09, 0.136775, -6.76527e-10, -0.0768607, -6.62665e-09, 0.106482, 8.32936e-09, -0.0179363, 0.615256, 0.184387, 0.881551)
+rings = 28
+material = SubResource("StandardMaterial3D_on6em")
+
+[node name="CSGSphere3D7" type="CSGSphere3D" parent="CSGCombiner3D3"]
+transform = Transform3D(0.0139637, -2.63156e-09, 0.136775, -6.76527e-10, -0.0768607, -6.62665e-09, 0.106482, 8.32936e-09, -0.0179363, 0.937145, 0.184387, 0.514771)
+rings = 28
+material = SubResource("StandardMaterial3D_on6em")
+
+[node name="CSGSphere3D9" type="CSGSphere3D" parent="CSGCombiner3D3"]
+transform = Transform3D(0.107393, 4.67681e-09, -1.20596e-08, -5.20313e-09, -0.0768607, 5.8428e-16, -9.38861e-09, -7.3441e-16, -0.137946, 1.08358, 0.184387, -0.0182214)
+rings = 28
+material = SubResource("StandardMaterial3D_on6em")
+
+[node name="CSGSphere3D10" type="CSGSphere3D" parent="CSGCombiner3D3"]
+transform = Transform3D(0.107393, 4.67681e-09, -1.20596e-08, -5.20313e-09, -0.0768607, 5.8428e-16, -9.38861e-09, -7.3441e-16, -0.137946, 0.894904, 0.184387, -0.519311)
+rings = 28
+material = SubResource("StandardMaterial3D_on6em")
+
+[node name="CSGSphere3D11" type="CSGSphere3D" parent="CSGCombiner3D3"]
+transform = Transform3D(0.107393, 4.67681e-09, -1.20596e-08, -5.20313e-09, -0.0768607, 5.8428e-16, -9.38861e-09, -7.3441e-16, -0.137946, 0.589332, 0.184387, -0.901079)
+rings = 28
+material = SubResource("StandardMaterial3D_on6em")
+
+[node name="CSGSphere3D12" type="CSGSphere3D" parent="CSGCombiner3D3"]
+transform = Transform3D(-0.0139637, -4.81615e-09, -0.136775, 6.76541e-10, -0.0768607, 6.62664e-09, -0.106482, -8.32936e-09, 0.0179363, -0.206349, 0.184387, -1.09396)
+rings = 28
+material = SubResource("StandardMaterial3D_on6em")
+
+[node name="CSGSphere3D13" type="CSGSphere3D" parent="CSGCombiner3D3"]
+transform = Transform3D(-0.0139637, -4.81615e-09, -0.136775, 6.76541e-10, -0.0768607, 6.62664e-09, -0.106482, -8.32936e-09, 0.0179363, 0.118407, 0.184387, -1.1047)
+rings = 28
+material = SubResource("StandardMaterial3D_on6em")
+
+[node name="CSGSphere3D14" type="CSGSphere3D" parent="CSGCombiner3D3"]
+transform = Transform3D(-0.0139637, -4.81615e-09, -0.136775, 6.76542e-10, -0.0768607, 6.62664e-09, -0.106482, -8.32936e-09, 0.0179363, -0.664831, 0.184387, -0.899773)
+rings = 28
+material = SubResource("StandardMaterial3D_on6em")
+
+[node name="CSGSphere3D15" type="CSGSphere3D" parent="CSGCombiner3D3"]
+transform = Transform3D(-0.0139637, -4.81615e-09, -0.136775, 6.76542e-10, -0.0768607, 6.62664e-09, -0.106482, -8.32936e-09, 0.0179363, -0.98672, 0.184387, -0.532992)
+rings = 28
+material = SubResource("StandardMaterial3D_on6em")
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="CSGCombiner3D3"]
+transform = Transform3D(0.81084144, 4.2632564e-14, 0, 0, 1, 0, 0, 0, 0.86441785, 3.1727663e-07, 2.011306, 0)
+operation = 2
+inner_radius = 1.107
+outer_radius = 0.966
+material = ExtResource("1_3fsfw")
+
+[node name="CSGTorus3D2" type="CSGTorus3D" parent="CSGCombiner3D3"]
+transform = Transform3D(0.7176395, 9.947598e-14, 0, 0, 1, 0, 0, 0, 0.7362616, 2.0692632e-07, 1.3117641, 0)
+operation = 2
+inner_radius = 1.107
+outer_radius = 0.966
+material = ExtResource("1_3fsfw")
+
+[node name="CSGTorus3D4" type="CSGTorus3D" parent="CSGCombiner3D3"]
+transform = Transform3D(0.6662315, 1.7053026e-13, 0, -7.1054274e-15, 1, 0, 0, 0, 0.7017919, 1.4906102e-07, 0.94493973, 0)
+operation = 2
+inner_radius = 1.107
+outer_radius = 0.966
+material = ExtResource("1_3fsfw")
+
+[node name="CSGTorus3D5" type="CSGTorus3D" parent="CSGCombiner3D3"]
+transform = Transform3D(1.0494003, 2.1316282e-13, 0, -7.1054274e-15, 0.99999994, 0, 0, 0, 1.0821564, 4.5099523e-07, 2.8589854, 0)
+operation = 2
+inner_radius = 1.107
+outer_radius = 0.9138877
+material = ExtResource("1_3fsfw")
+
+[node name="CSGTorus3D7" type="CSGTorus3D" parent="CSGCombiner3D3"]
+transform = Transform3D(0.930319, 2.842171e-13, 0, -7.1054274e-15, 0.99999994, 0, 0, 0, 1.0006621, 6.42065e-08, 0.40702274, 0)
+operation = 2
+inner_radius = 1.107
+outer_radius = 0.9138877
+material = ExtResource("1_3fsfw")
+
+[node name="CSGTorus3D8" type="CSGTorus3D" parent="CSGCombiner3D3"]
+transform = Transform3D(1.5888654, 5.684342e-13, 0, 0, 1.527664, 0, 0, 0, 1.328631, -6.3138574e-09, -0.04002565, 0)
+inner_radius = 1.107
+outer_radius = 0.9138877
+material = ExtResource("1_3fsfw")
+
+[node name="CSGTorus3D6" type="CSGTorus3D" parent="CSGCombiner3D3"]
+transform = Transform3D(0.8361923, 2.5579538e-13, 0, -7.1054274e-15, 0.99999994, 0, 0, 0, 0.9418735, 3.7900048e-07, 2.4025905, 0)
+operation = 2
+inner_radius = 1.107
+outer_radius = 0.966
+material = ExtResource("1_3fsfw")
+
+[node name="CSGTorus3D3" type="CSGTorus3D" parent="CSGCombiner3D3"]
+transform = Transform3D(0.81084144, 5.684342e-14, 0, 0, 1, 0, 0, 0, 0.8644179, 2.632348e-07, 1.6687195, 0)
+operation = 2
+inner_radius = 1.107
+outer_radius = 0.966
+material = ExtResource("1_3fsfw")
+
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="."]
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1.59936, 0, 0, 0, 0.521505, 0, 0, 0, 1.44236, 0, 0, 0)
+outer_radius = 0.87394
+sides = 28
+material = ExtResource("2_55rqe")
+
+[node name="CSGTorus3D2" type="CSGTorus3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1.59936, 0, 0, 0, 0.521505, 0, 0, 0, 1.44936, 0, 0.440071, 0)
+outer_radius = 0.814991
+sides = 28
+material = ExtResource("2_55rqe")
+
+[node name="CSGTorus3D3" type="CSGTorus3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1.0789, 0, 0, 0, 0.521505, 0, 0, 0, 1.11783, 0, 0.804281, 0)
+outer_radius = 0.814991
+sides = 28
+material = ExtResource("2_55rqe")

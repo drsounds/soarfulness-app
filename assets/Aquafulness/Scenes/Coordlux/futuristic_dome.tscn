@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwfgugk1tvlya"]
+
+[ext_resource type="Script" uid="uid://bvjnjogiyv6ll" path="res://assets/Aquafulness/Scenes/Coordlux/futuristic_dome.gd" id="1_d4eyi"]
+[ext_resource type="Material" uid="uid://bemh6g0nogb0u" path="res://assets/Aquafulness/Scenes/Coordlux/Window.tres" id="1_yvga1"]
+
+[node name="FuturisticDome" type="CSGCombiner3D"]
+script = ExtResource("1_d4eyi")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+radial_segments = 23
+rings = 13
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5015764, 0)
+operation = 2
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="."]
+transform = Transform3D(0.77462107, 0, 0, 0, 0.17671518, 0, 0, 0, 0.8024344, 0.0011978745, 0.11588486, 0)
+operation = 2
+calculate_tangents = false
+inner_radius = 0.548
+outer_radius = 0.7670928
+sides = 19
+ring_sides = 5
+smooth_faces = false
+material = ExtResource("1_yvga1")
+
+[node name="CSGTorus3D3" type="CSGTorus3D" parent="."]
+transform = Transform3D(0.5788228, 0, 0, 0, 0.2606197, 0, 0, 0, 0.5970516, 0.0011978745, 0.29753557, 0)
+operation = 2
+calculate_tangents = false
+inner_radius = 0.548
+outer_radius = 0.7670928
+sides = 19
+ring_sides = 5
+smooth_faces = false
+material = ExtResource("1_yvga1")
+
+[node name="CSGTorus3D2" type="CSGTorus3D" parent="."]
+transform = Transform3D(0.77462107, 0, 0, 0, 0.24926981, 0, 0, 0, 0.8024344, 0.0011978745, 0.20822513, 0)
+operation = 2
+calculate_tangents = false
+inner_radius = 0.5163042
+outer_radius = 0.7670928
+sides = 19
+ring_sides = 5
+smooth_faces = false
+material = ExtResource("1_yvga1")

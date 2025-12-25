@@ -1,0 +1,14 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://tle8sdgkdn67"]
+
+[ext_resource type="Texture2D" uid="uid://d1cvsxog2memd" path="res://Vänern_Futuristic_Night.png" id="1_ysly3"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_2yo8u"]
+panorama = ExtResource("1_ysly3")
+
+[sub_resource type="Sky" id="Sky_rnqo1"]
+sky_material = SubResource("PanoramaSkyMaterial_2yo8u")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_rnqo1")
+sky_rotation = Vector3(0, 1.1309733, -0.034906585)

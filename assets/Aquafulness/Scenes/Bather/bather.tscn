@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://db0gfh3dgksql"]
+
+[ext_resource type="Script" uid="uid://bbr58hrni71p" path="res://assets/Aquafulness/Scenes/Coordlux/bathing.gd" id="1_fjieo"]
+[ext_resource type="Script" uid="uid://dm0ew8hvv4xqm" path="res://example/Camera.gd" id="2_c6aw0"]
+
+[node name="Bather" type="Node3D"]
+script = ExtResource("1_fjieo")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+current = true
+near = 7.196
+far = 16000.0
+script = ExtResource("2_c6aw0")
+speed = 10.0
+sprint_speed = 25.0

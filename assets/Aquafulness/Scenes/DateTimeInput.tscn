@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=3 uid="uid://nhupirheo6wb"]
+
+[ext_resource type="Script" uid="uid://bwybpgaq41x5x" path="res://assets/Aquafulness/Scenes/date_time_input.gd" id="1_my3o1"]
+
+[node name="DateTimeInput" type="Node2D"]
+script = ExtResource("1_my3o1")
+
+[node name="YearEdit" type="SpinBox" parent="."]
+offset_right = 91.0
+offset_bottom = 31.0
+min_value = 1000.0
+max_value = 9999.0
+value = 2025.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MonthEdit" type="SpinBox" parent="."]
+offset_left = 97.0
+offset_right = 183.5625
+offset_bottom = 31.0
+min_value = 1.0
+max_value = 12.0
+value = 12.0
+metadata/_edit_use_anchors_ = true
+
+[node name="DayEdit" type="SpinBox" parent="."]
+offset_left = 189.0
+offset_right = 275.5625
+offset_bottom = 31.0
+min_value = 1.0
+max_value = 31.0
+value = 1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="HourEdit" type="SpinBox" parent="."]
+offset_left = 287.0
+offset_right = 373.5625
+offset_bottom = 31.0
+max_value = 23.0
+value = 1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MinuteEdit" type="SpinBox" parent="."]
+offset_left = 386.0
+offset_right = 472.5625
+offset_bottom = 31.0
+max_value = 59.0
+metadata/_edit_use_anchors_ = true
+
+[node name="SecondEdit" type="SpinBox" parent="."]
+offset_left = 485.0
+offset_right = 571.5625
+offset_bottom = 31.0
+max_value = 59.0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="value_changed" from="YearEdit" to="." method="_on_year_edit_value_changed"]
+[connection signal="value_changed" from="MonthEdit" to="." method="_on_month_edit_value_changed"]
+[connection signal="value_changed" from="DayEdit" to="." method="_on_day_edit_value_changed"]
+[connection signal="value_changed" from="HourEdit" to="." method="_on_hour_edit_value_changed"]
+[connection signal="value_changed" from="MinuteEdit" to="." method="_on_minute_edit_value_changed"]
+[connection signal="value_changed" from="SecondEdit" to="." method="_on_minute_edit_value_changed"]

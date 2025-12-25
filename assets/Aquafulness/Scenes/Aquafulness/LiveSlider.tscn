@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxlxrqtrtbj05"]
+
+[ext_resource type="Script" uid="uid://bherf4wselblb" path="res://assets/Aquafulness/Scenes/Aquafulness/live_slider.gd" id="1_78aih"]
+[ext_resource type="Theme" uid="uid://c4sgcey13tdbx" path="res://assets/Aquafulness/Scenes/Aquafulness/Theme.tres" id="2_adi6r"]
+
+[sub_resource type="Theme" id="Theme_oaobl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_78aih"]
+bg_color = Color(1, 0, 0.016666412, 1)
+
+[node name="LiveSlider" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_78aih")
+max_value = 100.0
+
+[node name="LiveLabel" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = -11.0
+offset_top = 34.0
+offset_right = 29.0
+offset_bottom = 74.0
+
+[node name="LiveText" type="Label" parent="LiveLabel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme = SubResource("Theme_oaobl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_78aih")
+text = "LIVE"
+horizontal_alignment = 1
+
+[node name="Polygon2D" type="Polygon2D" parent="LiveLabel"]
+position = Vector2(13, -31)
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(-3, 53, 5, 61, 12, 53)
+
+[node name="Slider" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -1.0
+offset_top = 66.0
+offset_right = 7.0
+offset_bottom = 82.0
+grow_horizontal = 2
+theme = ExtResource("2_adi6r")
+
+[connection signal="drag_ended" from="Slider" to="." method="_on_h_slider_drag_ended"]
+[connection signal="value_changed" from="Slider" to="." method="_on_h_slider_value_changed"]

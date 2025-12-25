@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds051alhagcog"]
+
+[ext_resource type="Script" uid="uid://cr0tak56js2bm" path="res://assets/Aquafulness/Scenes/Snow/snow.gd" id="1_184qs"]
+[ext_resource type="PackedScene" uid="uid://fll7cu40flak" path="res://assets/Aquafulness/Scenes/Snow/Flake.tscn" id="2_mqoe0"]
+
+[node name="Snow" type="Node3D"]
+script = ExtResource("1_184qs")
+
+[node name="Flake" parent="." instance=ExtResource("2_mqoe0")]
+visible = false

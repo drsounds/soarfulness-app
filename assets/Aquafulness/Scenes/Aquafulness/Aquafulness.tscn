@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://djpxbrdgwmb5w"]
+
+[ext_resource type="Script" uid="uid://dcx74vvq8r8wu" path="res://assets/Aquafulness/Scenes/Aquafulness/aquafulness.gd" id="1_kj2lw"]
+[ext_resource type="VideoStream" uid="uid://bw043r2hdjd2s" path="res://Vänern_Silent.ogv" id="2_cuigj"]
+[ext_resource type="Texture2D" uid="uid://bccfcb0sytdqr" path="res://assets/Aquafulness/icon.png" id="2_ut41e"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kj2lw"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cuigj"]
+
+[node name="Aquafulness" type="Control"]
+show_behind_parent = true
+material = SubResource("CanvasItemMaterial_kj2lw")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_kj2lw")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stream = ExtResource("2_cuigj")
+autoplay = true
+expand = true
+loop = true
+buffering_msec = 1000
+metadata/_edit_use_anchors_ = true
+
+[node name="Icon" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(7.3928623, 7.3928623, 7.3928623, 0.5058824)
+top_level = true
+material = SubResource("CanvasItemMaterial_cuigj")
+position = Vector2(1798.9999, 111.00001)
+scale = Vector2(0.18055561, 0.18981478)
+texture = ExtResource("2_ut41e")

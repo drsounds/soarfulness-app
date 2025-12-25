@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://bn4jvrjglluy0"]
+
+[ext_resource type="Script" path="res://camera_3d.gd" id="1_bvoua"]
+[ext_resource type="Environment" uid="uid://dofr8iri20x5x" path="res://environment.tres" id="2_w2x6o"]
+[ext_resource type="VideoStream" path="res://water_128px.ogv" id="3_c030b"]
+
+[sub_resource type="Gradient" id="Gradient_00hgl"]
+offsets = PackedFloat32Array(0.0515873, 0.0753968, 0.361111, 0.587302, 0.956349)
+colors = PackedColorArray(0.66, 1, 1, 1, 0.457546, 0.877301, 0.877301, 1, 0.404908, 0.845399, 0.845399, 1, 0, 0.6, 0.6, 1, 0.015, 0.483833, 0.5, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5a0i4"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3ggj7"]
+color_ramp = SubResource("Gradient_00hgl")
+noise = SubResource("FastNoiseLite_5a0i4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7x11j"]
+resource_local_to_scene = true
+albedo_texture = SubResource("NoiseTexture2D_3ggj7")
+uv1_scale = Vector3(25.89, 25.89, 25.89)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_j3y37"]
+material = SubResource("StandardMaterial3D_7x11j")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.83985, 0)
+current = true
+far = 314000.0
+script = ExtResource("1_bvoua")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(13000, 0, 0, 0, 44.59, 0, 0, 0, 9939.54, 0, 0, 0)
+mesh = SubResource("PlaneMesh_j3y37")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_w2x6o")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="Node2D" type="Node2D" parent="SubViewport"]
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="SubViewport/Node2D"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewport/Node2D/AspectRatioContainer"]
+layout_mode = 2
+stream = ExtResource("3_c030b")
+autoplay = true
+expand = true

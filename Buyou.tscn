@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://k6k45fx5vs15"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_on6em"]
+resource_local_to_scene = true
+albedo_color = Color(1, 0.653333, 0.48, 1)
+roughness = 0.49
+emission = Color(0.87, 0.3625, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jj45t"]
+albedo_color = Color(0.154876, 0.154876, 0.154876, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D"]
+transform = Transform3D(2.28721, 0, 0, 0, 2.32495, 0, 0, 0, 2.3432, 0, 0, 0)
+material = SubResource("StandardMaterial3D_on6em")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D/CSGSphere3D"]
+transform = Transform3D(0.0671475, 0, 0, 0, 0.458594, 0, 0, 0, 0.0649916, 0, 0.802428, 0)
+height = 2.16574
+material = SubResource("StandardMaterial3D_jj45t")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D/CSGSphere3D"]
+transform = Transform3D(0.148901, 0, 0, 0, 1.01694, 0, 0, 0, 0.144121, 0, 0.471508, 0)
+height = 0.0995683
+material = SubResource("StandardMaterial3D_jj45t")

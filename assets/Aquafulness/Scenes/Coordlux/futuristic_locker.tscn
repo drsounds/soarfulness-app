@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3joxue6nmdvy"]
+
+[ext_resource type="Script" uid="uid://bvjnjogiyv6ll" path="res://assets/Aquafulness/Scenes/Coordlux/futuristic_dome.gd" id="1_0b1ol"]
+[ext_resource type="Material" uid="uid://bemh6g0nogb0u" path="res://assets/Aquafulness/Scenes/Coordlux/Window.tres" id="2_ox0na"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_27bkw"]
+
+[node name="FuturisticLocker" type="CSGCombiner3D"]
+transform = Transform3D(6.3615284, 0, 0, 0, 7.5009084, 0, 0, 0, 5.8252015, 0, 0, 0)
+visible = false
+script = ExtResource("1_0b1ol")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+radial_segments = 23
+rings = 13
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5015764, 0)
+operation = 2
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="."]
+transform = Transform3D(0.77462107, 0, 0, 0, 0.17671518, 0, 0, 0, 0.8024344, 0.0011978745, 0.11588486, 0)
+operation = 2
+calculate_tangents = false
+inner_radius = 0.548
+outer_radius = 0.7670928
+sides = 19
+ring_sides = 5
+smooth_faces = false
+material = ExtResource("2_ox0na")
+
+[node name="CSGTorus3D3" type="CSGTorus3D" parent="."]
+transform = Transform3D(0.5788228, 0, 0, 0, 0.2606197, 0, 0, 0, 0.5970516, 0.0011978745, 0.29753557, 0)
+operation = 2
+calculate_tangents = false
+inner_radius = 0.548
+outer_radius = 0.7670928
+sides = 19
+ring_sides = 5
+smooth_faces = false
+material = ExtResource("2_ox0na")
+
+[node name="CSGTorus3D2" type="CSGTorus3D" parent="."]
+transform = Transform3D(0.77462107, 0, 0, 0, 0.24926981, 0, 0, 0, 0.8024344, 0.0011978745, 0.20822513, 0)
+operation = 2
+calculate_tangents = false
+inner_radius = 0.5163042
+outer_radius = 0.7670928
+sides = 19
+ring_sides = 5
+smooth_faces = false
+material = ExtResource("2_ox0na")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
+transform = Transform3D(0.85233706, 0, 0, 0, 0.3454394, 0, 0, 0, 0.42496789, 0.18648012, 0.03795091, 0)
+operation = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CSGSphere3D2"]
+transform = Transform3D(0.083999194, 0, 0, 0, 0.6951035, 0, 0, 0, 1.0624164, 0.09620409, 0.13919184, 0)
+mesh = SubResource("BoxMesh_27bkw")
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="."]
+transform = Transform3D(0.46103635, 0, 0, 0, 0.80792147, 0, 0, 0, 0.678751, 0.18648012, 0, 0)
+operation = 2

@@ -1,0 +1,160 @@
+[gd_scene load_steps=16 format=3 uid="uid://b5klucsu7u87t"]
+
+[ext_resource type="Script" uid="uid://cu7d2vkr04wfc" path="res://assets/Aquafulness/Scenes/Coordlux/coordlux.gd" id="1_84psg"]
+[ext_resource type="PackedScene" uid="uid://bs1yo1162gltj" path="res://example/Example.tscn" id="2_yhc4o"]
+[ext_resource type="Environment" uid="uid://b4xp743lvgb4u" path="res://assets/Aquafulness/Vänern_Present_Day.tres" id="3_36dss"]
+[ext_resource type="Material" uid="uid://cmyo0unntq078" path="res://addons/tessarakkt.oceanfft/Ocean.tres" id="4_fdagp"]
+[ext_resource type="Script" uid="uid://cx3twtm5gessr" path="res://addons/tessarakkt.oceanfft/components/Ocean3D.gd" id="5_boe1r"]
+[ext_resource type="PackedScene" uid="uid://rmewe8a2xeoe" path="res://example/FloatingRectangle.tscn" id="6_nj5qc"]
+[ext_resource type="Script" uid="uid://bbr58hrni71p" path="res://assets/Aquafulness/Scenes/Coordlux/bathing.gd" id="7_1fvp3"]
+[ext_resource type="Script" uid="uid://dm0ew8hvv4xqm" path="res://example/Camera.gd" id="8_h1c7f"]
+[ext_resource type="PackedScene" uid="uid://dwfgugk1tvlya" path="res://assets/Aquafulness/Scenes/Coordlux/futuristic_dome.tscn" id="9_h4ig2"]
+[ext_resource type="PackedScene" uid="uid://bss5uw1f1p0np" path="res://Spoonie.tscn" id="10_0r7xy"]
+[ext_resource type="PackedScene" uid="uid://p2e4bgxha7b0" path="res://assets/Aquafulness/Scenes/Coordlux/RedSeaLine.tscn" id="11_hcso1"]
+[ext_resource type="PackedScene" uid="uid://3q1fmwrua8xf" path="res://assets/Aquafulness/Scenes/Coordlux/bath_place.tscn" id="12_cryct"]
+[ext_resource type="PackedScene" uid="uid://dipu56ykx87ds" path="res://assets/Aquafulness/Scenes/Coordlux/csg_combiner_3d.tscn" id="13_wvmby"]
+[ext_resource type="PackedScene" uid="uid://brepba5md3mm1" path="res://assets/Aquafulness/Scenes/Coordlux/Bottom.blend" id="14_xald2"]
+
+[sub_resource type="Resource" id="Resource_mnt5h"]
+script = ExtResource("5_boe1r")
+wind_direction_degrees = 90.0
+wave_scroll_speed = 0.1999999999999993
+metadata/_custom_type_script = "uid://cx3twtm5gessr"
+
+[node name="Coordlux" type="Node3D"]
+script = ExtResource("1_84psg")
+
+[node name="OceanEnvironment" parent="." instance=ExtResource("2_yhc4o")]
+environment = ExtResource("3_36dss")
+ocean = SubResource("Resource_mnt5h")
+
+[node name="FloatingRectangle2" parent="OceanEnvironment" node_paths=PackedStringArray("environment") instance=ExtResource("6_nj5qc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.958008)
+visible = false
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+center_of_mass_mode = 0
+center_of_mass = Vector3(0, 0, 0)
+environment = NodePath("..")
+
+[node name="Bathing" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.261026)
+script = ExtResource("7_1fvp3")
+
+[node name="Camera3D" type="Camera3D" parent="Bathing"]
+transform = Transform3D(-0.9999936, 1.1238904e-05, -0.003577835, 0, 0.99999505, 0.0031412432, 0.0035778526, 0.003141223, -0.9999887, -0.4982376, 2.860282, -0.6129713)
+current = true
+near = 7.196
+far = 16000.0
+script = ExtResource("8_h1c7f")
+speed = 10.0
+sprint_speed = 25.0
+
+[node name="FuturisticDome3" parent="." instance=ExtResource("9_h4ig2")]
+transform = Transform3D(32.06221, 0, 0, 0, 41.042442, 0, 0, 0, 39.339878, 317.03214, -8.590961, 75.52716)
+visible = false
+
+[node name="FuturisticDome4" parent="." instance=ExtResource("9_h4ig2")]
+transform = Transform3D(32.06221, 0, 0, 0, 41.042442, 0, 0, 0, 39.339878, -70.37654, -8.590961, 120.52716)
+visible = false
+
+[node name="FuturisticDome2" parent="." instance=ExtResource("9_h4ig2")]
+transform = Transform3D(32.06221, 0, 0, 0, 38.77548, 0, 0, 0, 39.339878, -70.5034, -8.590961, 120.4992)
+visible = false
+
+[node name="Futuristic_Lighthouses" type="Node3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+visible = false
+
+[node name="Node3D14" parent="Futuristic_Lighthouses" instance=ExtResource("10_0r7xy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.390474, 5.2520847, 18.52006)
+visible = false
+
+[node name="Node3D17" parent="Futuristic_Lighthouses" instance=ExtResource("10_0r7xy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.366129, 0.834301, 18.52006)
+visible = false
+
+[node name="Node3D15" parent="Futuristic_Lighthouses" instance=ExtResource("10_0r7xy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.921143, 5.2520847, 18.332205)
+visible = false
+
+[node name="Node3D16" parent="Futuristic_Lighthouses" instance=ExtResource("10_0r7xy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4014997, 1.5034204, 18.88221)
+visible = false
+
+[node name="Node3D4" parent="Futuristic_Lighthouses" instance=ExtResource("10_0r7xy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7721986, 7.2877564, 13.205347)
+
+[node name="Node3D5" parent="Futuristic_Lighthouses" instance=ExtResource("10_0r7xy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8166282, 7.2877564, 12.274515)
+
+[node name="Node3D6" parent="Futuristic_Lighthouses" instance=ExtResource("10_0r7xy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.700357, 7.2877564, 68.477844)
+
+[node name="Node3D7" parent="Futuristic_Lighthouses" instance=ExtResource("10_0r7xy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.168406, 7.2877564, 67.54702)
+
+[node name="Node3D8" parent="Futuristic_Lighthouses" instance=ExtResource("10_0r7xy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.700357, 7.2877564, 37.87441)
+
+[node name="Node3D9" parent="Futuristic_Lighthouses" instance=ExtResource("10_0r7xy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.168406, 7.2877564, 36.943584)
+
+[node name="MeshInstance3D" parent="." instance=ExtResource("11_hcso1")]
+transform = Transform3D(0.076302856, -0.3355831, 0, 0.02718223, 0.9420106, 0, 0, 0, 0.081, -323.44092, 0, 105.145996)
+visible = false
+skeleton = NodePath("../Futuristic_Lighthouses/Node3D15")
+
+[node name="MeshInstance3D2" parent="." instance=ExtResource("11_hcso1")]
+transform = Transform3D(0.9540157, 3.7154856, 0, -0.2997568, 11.825025, 0, 0, 0, 1, -131.79309, 0, 43.323807)
+visible = false
+skeleton = NodePath("../Futuristic_Lighthouses/Node3D15")
+
+[node name="MeshInstance3D3" parent="." instance=ExtResource("11_hcso1")]
+transform = Transform3D(0.97657096, -2.66735, 0, 0.21519557, 12.104597, 0, 0, 0, 1, -193.08578, 0, 43.323807)
+visible = false
+skeleton = NodePath("../Futuristic_Lighthouses/Node3D15")
+
+[node name="MeshInstance3D4" parent="." instance=ExtResource("11_hcso1")]
+transform = Transform3D(0.9540157, 3.7154856, 0, -0.2997568, 11.825025, 0, 0, 0, 1, -131.79309, 0, 132.86649)
+visible = false
+skeleton = NodePath("../Futuristic_Lighthouses/Node3D15")
+
+[node name="MeshInstance3D5" parent="." instance=ExtResource("11_hcso1")]
+transform = Transform3D(0.97657096, -2.66735, 0, 0.21519557, 12.104597, 0, 0, 0, 1, -193.08578, 0, 132.86649)
+visible = false
+skeleton = NodePath("../Futuristic_Lighthouses/Node3D15")
+
+[node name="Light" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 36.48156, -28.401964)
+omni_range = 1497.908
+omni_attenuation = -0.134
+
+[node name="BathPlace" parent="." instance=ExtResource("12_cryct")]
+transform = Transform3D(0.86208946, 0, -0.5067561, 0, 1, 0, 0.5067561, 0, 0.86208946, -10.300965, 10.088694, 45.694996)
+
+[node name="CSGCombiner3D" parent="." instance=ExtResource("13_wvmby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.197124, -2.5754538, 16.923536)
+visible = false
+
+[node name="CSGCombiner3D3" parent="." instance=ExtResource("13_wvmby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.197124, -2.5754538, 38.424965)
+visible = false
+
+[node name="CSGCombiner3D4" parent="." instance=ExtResource("13_wvmby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.075213, -2.5754538, 38.424965)
+visible = false
+
+[node name="CSGCombiner3D2" parent="." instance=ExtResource("13_wvmby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.200513, -2.5754538, 16.923536)
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Bottom" parent="." instance=ExtResource("14_xald2")]
+transform = Transform3D(1.9000001, 0, 0, 0, 1, 0, 0, 0, 2.6, 0, -25.859352, 147.92308)
+visible = false

@@ -1,0 +1,62 @@
+[gd_scene load_steps=12 format=3 uid="uid://c56jb383yhrs2"]
+
+[ext_resource type="Script" path="res://camera_3d.gd" id="1_4m5hw"]
+[ext_resource type="Texture2D" uid="uid://haejh8sy3yfh" path="res://sky3.exr" id="2_sja8d"]
+[ext_resource type="VideoStream" path="res://water_128px.ogv" id="3_peqbf"]
+
+[sub_resource type="Gradient" id="Gradient_00hgl"]
+offsets = PackedFloat32Array(0.0277778, 1)
+colors = PackedColorArray(0.53, 0.445465, 0.3551, 1, 0.3, 0.2623, 0.222, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5a0i4"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3ggj7"]
+color_ramp = SubResource("Gradient_00hgl")
+noise = SubResource("FastNoiseLite_5a0i4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7x11j"]
+resource_local_to_scene = true
+albedo_texture = SubResource("NoiseTexture2D_3ggj7")
+uv1_scale = Vector3(25.89, 25.89, 25.89)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_j3y37"]
+material = SubResource("StandardMaterial3D_7x11j")
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ki33n"]
+panorama = ExtResource("2_sja8d")
+
+[sub_resource type="Sky" id="Sky_kc3ev"]
+sky_material = SubResource("PanoramaSkyMaterial_ki33n")
+
+[sub_resource type="Environment" id="Environment_mu7br"]
+background_mode = 2
+sky = SubResource("Sky_kc3ev")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.83985, 0)
+current = true
+far = 314000.0
+script = ExtResource("1_4m5hw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(13000, 0, 0, 0, 44.59, 0, 0, 0, 9939.54, 0, 0, 0)
+mesh = SubResource("PlaneMesh_j3y37")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mu7br")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="Node2D" type="Node2D" parent="SubViewport"]
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="SubViewport/Node2D"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewport/Node2D/AspectRatioContainer"]
+layout_mode = 2
+stream = ExtResource("3_peqbf")
+autoplay = true
+expand = true

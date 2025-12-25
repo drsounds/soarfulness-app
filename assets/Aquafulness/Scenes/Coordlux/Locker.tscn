@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj8g6v1uc7j5g"]
+
+[ext_resource type="PackedScene" uid="uid://d3joxue6nmdvy" path="res://assets/Aquafulness/Scenes/Coordlux/futuristic_locker.tscn" id="1_7l06l"]
+[ext_resource type="Material" uid="uid://bh42ouuqr504m" path="res://assets/Aquafulness/Scenes/Coordlux/DarkWood.tres" id="2_27bkw"]
+[ext_resource type="PackedScene" uid="uid://dxl5ohti0sks7" path="res://assets/Aquafulness/Scenes/Locker/Locker.glb" id="3_y3bfv"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="FuturisticLocker" parent="." instance=ExtResource("1_7l06l")]
+transform = Transform3D(0.84391826, 0, 0, 0, 0.41277444, 0, 0, 0, 0.91040474, 0, 0, 0)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1.9470965, 0, 0, 0, 0.64846206, 0, 0, 0, 0.6307071, 0, 0, 0)
+visible = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.07497838, 0, 0, 0, 0.09036893, 0, 0, 0, 0.20604093, -0.036737546, -0.102251045, 0.86441827)
+size = Vector3(27.91507, 1, 2.1999512)
+material = ExtResource("2_27bkw")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.12022919, 0, 0, 0, 0.118242845, 0.028813377, 0, -0.01895637, 0.17972723, -0.043016676, 0.37258506, -0.8623277)
+size = Vector3(17.38742, 0.8232422, 1.7174072)
+material = ExtResource("2_27bkw")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.119186446, 0, 0, 0, 0.118242845, 0.028813377, 0, -0.01895637, 0.17972723, -0.033235755, 0.13810205, -0.025937956)
+size = Vector3(17.38742, 6.8690186, 6.9123535)
+material = ExtResource("2_27bkw")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.07497838, 0, 0, 0, 0.118242845, 0.028813377, 0, -0.01895637, 0.17972723, 0.049697652, 0.25875926, 0.31687722)
+operation = 2
+size = Vector3(22.299377, 1.4333496, 5.2143555)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.119186446, 0, 0, 0, 0.118242845, 0.028813377, 0, -0.01895637, 0.17972723, -0.08597515, 0.08144379, -0.117936775)
+operation = 2
+size = Vector3(15.757873, 4.6400146, 5.6067505)
+material = ExtResource("2_27bkw")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.07497838, 0, 0, 0, 0.08814528, -0.005488974, 0, 0.0022927702, 0.21102296, 0.21327443, 0.065571755, -0.3740639)
+operation = 2
+size = Vector3(23.479263, 4.6400146, 1.7701797)
+material = ExtResource("2_27bkw")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.07497838, 0, 0, 0, 0.08814528, -0.005488974, 0, 0.0022927702, 0.21102296, 0.11372838, 0.062363625, -0.32765642)
+size = Vector3(2.0708694, 4.6400146, 2.9391174)
+material = ExtResource("2_27bkw")
+
+[node name="Locker" parent="." instance=ExtResource("3_y3bfv")]
+transform = Transform3D(0.44156268, 0, 0, 0, 0.49115217, 0, 0, 0, 0.8445723, -0.03535533, 0, -0.40193033)

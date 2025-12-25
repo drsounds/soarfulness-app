@@ -1,0 +1,22 @@
+[gd_scene load_steps=0 format=3 uid="uid://bruxb2bucago1"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D"]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(2.28721, 0, 0, 0, 2.32495, 0, 0, 0, 2.3432, 0, 0, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.661366, 0.034111, -0.6507, 0.0325254)
+operation = 2
+size = Vector3(2.17049, 1.3656, 3.58234)
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="."]
+transform = Transform3D(1.59936, 0, 0, 0, 0.521505, 0, 0, 0, 1.59936, 0, 0, 0)
+
+[node name="CSGTorus3D2" type="CSGTorus3D" parent="."]
+transform = Transform3D(1.59936, 0, 0, 0, 0.521505, 0, 0, 0, 1.59936, 0, 0.440071, 0)
+outer_radius = 0.814991
+
+[node name="CSGTorus3D3" type="CSGTorus3D" parent="."]
+transform = Transform3D(1.29523, 0, 0, 0, 0.521505, 0, 0, 0, 1.59936, 0, 0.804281, 0)
+outer_radius = 0.814991

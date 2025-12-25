@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cy6dswdm4wmfb"]
+
+[ext_resource type="Script" uid="uid://cb8u6oh0cvyi7" path="res://assets/Aquafulness/Scenes/Bather_old/bather.gd" id="1_pjgoi"]
+[ext_resource type="PackedScene" uid="uid://djpxbrdgwmb5w" path="res://assets/Aquafulness/Scenes/Aquafulness/Aquafulness.tscn" id="2_ai82t"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ai82t"]
+
+[node name="Bather" type="Camera3D"]
+script = ExtResource("1_pjgoi")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="Aquafulness" parent="SubViewport" instance=ExtResource("2_ai82t")]
+visible = false
+modulate = Color(1, 1, 1, 0.50980395)
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_ai82t")

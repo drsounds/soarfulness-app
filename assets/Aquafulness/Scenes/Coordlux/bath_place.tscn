@@ -1,0 +1,135 @@
+[gd_scene load_steps=11 format=3 uid="uid://3q1fmwrua8xf"]
+
+[ext_resource type="PackedScene" uid="uid://bj8g6v1uc7j5g" path="res://assets/Aquafulness/Scenes/Coordlux/Locker.tscn" id="1_1qiar"]
+[ext_resource type="PackedScene" uid="uid://dy0c714as00se" path="res://assets/Aquafulness/Scenes/Coordlux/sofa.tscn" id="2_60ld8"]
+[ext_resource type="PackedScene" uid="uid://cvjd8ly8q7qjt" path="res://assets/Aquafulness/Scenes/Coordlux/stairs.tscn" id="3_60ld8"]
+[ext_resource type="Texture2D" uid="uid://cspr0457rcay" path="res://assets/Aquafulness/Scenes/Locker/Wall.png" id="4_3jkjo"]
+[ext_resource type="PackedScene" uid="uid://ddxuhe410fx7d" path="res://assets/Aquafulness/Scenes/Coordlux/Pillars.tscn" id="4_ro4dp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60ld8"]
+albedo_texture = ExtResource("4_3jkjo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ro4dp"]
+albedo_texture = ExtResource("4_3jkjo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b738n"]
+albedo_color = Color(0.5, 0.367, 0.215, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e3kn2"]
+albedo_texture = ExtResource("4_3jkjo")
+uv1_scale = Vector3(-2.91, 29.89, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eei75"]
+albedo_texture = ExtResource("4_3jkjo")
+
+[node name="BathPlace" type="Node3D"]
+transform = Transform3D(-0.86716646, 0, 0.49801862, 0, 1, 0, -0.49801862, 0, -0.86716646, 0, 0, 0)
+
+[node name="Locker" parent="." instance=ExtResource("1_1qiar")]
+transform = Transform3D(-4.5476284, 0, 0.0074826395, 0, 6.7508173, 0, -0.0073019597, 0, -4.6601553, 1.5389757, 0.9176836, 1.0575914)
+
+[node name="Locker2" parent="." instance=ExtResource("1_1qiar")]
+transform = Transform3D(-4.5476284, 0, 0.0074826395, 0, 6.7508173, 0, -0.0073019597, 0, -4.6601553, 19.613792, 0.5533161, 1.7814684)
+
+[node name="Sofa" parent="." instance=ExtResource("2_60ld8")]
+transform = Transform3D(-4.547627, 0, 0.007482638, 0, 6.7508154, 0, -0.0073019573, 0, -4.6601543, -15.838265, 0.9176836, 4.8217206)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.5476274, 4.5110937e-10, 0.0074826404, -0.00017832412, 6.750077, -0.10839286, -0.00730098, -0.07483482, -4.659554, -27.82346, -0.009575427, 4.459819)
+size = Vector3(2.3062744, 0.091430664, 0.59802246)
+material = SubResource("StandardMaterial3D_60ld8")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.5476274, 4.5110937e-10, 0.0074826404, -0.00017832412, 6.750077, -0.10839286, -0.00730098, -0.07483482, -4.659554, -39.289703, -0.009575427, 4.459819)
+size = Vector3(2.3062744, 0.091430664, 0.59802246)
+material = SubResource("StandardMaterial3D_60ld8")
+
+[node name="Bridge" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4924011, -0.7911496, 5.838933)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Bridge"]
+transform = Transform3D(0.99994814, 0, -0.010175139, 0, 1, 0, 0.010175139, 0, 0.99994814, 28.759438, -0.4716797, -10.279269)
+size = Vector3(23.271973, 1.9433594, 25.047363)
+material = SubResource("StandardMaterial3D_ro4dp")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Bridge"]
+transform = Transform3D(0.99994814, 0, -0.010175139, 0, 1, 0, 0.010175139, 0, 0.99994814, 21.274933, -0.4716797, -6.4537354)
+size = Vector3(38.162354, 1.9433594, 17.244385)
+material = SubResource("StandardMaterial3D_ro4dp")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Bridge"]
+transform = Transform3D(0.99994826, 0, -0.010175109, 0, 1, 0, 0.010175109, 0, 0.99994826, 25.48157, 0, -10.017719)
+size = Vector3(8.843678, 1, 24.45758)
+material = SubResource("StandardMaterial3D_b738n")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Bridge"]
+transform = Transform3D(0.873458, 0, 0.48689955, 0, 1, 0, -0.48689955, 0, 0.873458, 152.2944, -0.6768341, -91.36573)
+size = Vector3(353.5302, 2.1433105, 14.299316)
+material = SubResource("StandardMaterial3D_e3kn2")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Bridge"]
+transform = Transform3D(0.873458, 0, 0.48689964, 0, 1, 0, -0.48689964, 0, 0.873458, 6.826322, 0.45311308, -17.479519)
+size = Vector3(9.608339, 0.86828613, 4.391716)
+material = SubResource("StandardMaterial3D_e3kn2")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Bridge"]
+transform = Transform3D(0.9998198, 0, 0.018987775, 0, 1, 0, -0.018987775, 0, 0.9998198, -112.80947, -0.6799011, -2.7116518)
+size = Vector3(230.4433, 2.3598022, 13.820801)
+material = SubResource("StandardMaterial3D_eei75")
+
+[node name="Node3D" parent="Bridge" instance=ExtResource("4_ro4dp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.69342, -18.166077, 0)
+
+[node name="Node3D7" parent="Bridge" instance=ExtResource("4_ro4dp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.17099, -18.166077, 0)
+
+[node name="Node3D12" parent="Bridge" instance=ExtResource("4_ro4dp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.08845, -18.166077, 1.3213301)
+
+[node name="Node3D13" parent="Bridge" instance=ExtResource("4_ro4dp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -138.51082, -18.166077, 0.78291607)
+
+[node name="Node3D14" parent="Bridge" instance=ExtResource("4_ro4dp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -179.72176, -18.166077, 1.8779097)
+
+[node name="Node3D15" parent="Bridge" instance=ExtResource("4_ro4dp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -205.16696, -18.166077, -3.7439775)
+
+[node name="Node3D5" parent="Bridge" instance=ExtResource("4_ro4dp")]
+transform = Transform3D(0.8843285, 0, 0.46686518, 0, 1, 0, -0.46686518, 0, 0.8843285, 4.637123, -18.166077, -3.761322)
+
+[node name="Node3D3" parent="Bridge" instance=ExtResource("4_ro4dp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.256851, -18.166077, 0)
+
+[node name="Node3D4" parent="Bridge" instance=ExtResource("4_ro4dp")]
+transform = Transform3D(0.8950745, 0, 0.44591662, 0, 1, 0, -0.44591662, 0, 0.8950745, 32.924477, -18.166077, -20.56755)
+
+[node name="Node3D6" parent="Bridge" instance=ExtResource("4_ro4dp")]
+transform = Transform3D(0.8950745, 0, 0.44591662, 0, 1, 0, -0.44591662, 0, 0.8950745, 62.40228, -18.166077, -36.99846)
+
+[node name="Node3D8" parent="Bridge" instance=ExtResource("4_ro4dp")]
+transform = Transform3D(0.8950745, 0, 0.4459166, 0, 1, 0, -0.4459166, 0, 0.8950745, 101.49969, -18.166077, -59.452324)
+
+[node name="Node3D9" parent="Bridge" instance=ExtResource("4_ro4dp")]
+transform = Transform3D(0.89507455, 0, 0.44591656, 0, 1, 0, -0.44591656, 0, 0.89507455, 139.99525, -18.166077, -81.56055)
+
+[node name="Node3D10" parent="Bridge" instance=ExtResource("4_ro4dp")]
+transform = Transform3D(0.89507455, 0, 0.44591653, 0, 1, 0, -0.44591653, 0, 0.89507455, 184.95538, -18.166077, -107.3814)
+
+[node name="Node3D11" parent="Bridge" instance=ExtResource("4_ro4dp")]
+transform = Transform3D(0.89507455, 0, 0.4459165, 0, 1, 0, -0.4459165, 0, 0.89507455, 233.40845, -18.166077, -135.20825)
+
+[node name="Node3D16" parent="Bridge" instance=ExtResource("4_ro4dp")]
+transform = Transform3D(0.8950746, 0, 0.44591647, 0, 1, 0, -0.44591647, 0, 0.8950746, 278.82465, -18.166077, -161.29102)
+
+[node name="Node3D2" parent="Bridge" instance=ExtResource("4_ro4dp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.69342, -18.166077, 7.7894287)
+
+[node name="Stairs" parent="." instance=ExtResource("3_60ld8")]
+transform = Transform3D(0.8491284, 0, 0.6190345, 0, 0.633, 0, -0.52818644, 0, 0.9951786, 2.4621143, -1.5166024, -17.482452)
+
+[node name="Stairs2" parent="." instance=ExtResource("3_60ld8")]
+transform = Transform3D(0.8491284, 0, 0.6190345, 0, 0.633, 0, -0.52818644, 0, 0.99517864, 138.14815, -1.5166024, -95.4077)
+
+[node name="Stairs3" parent="." instance=ExtResource("3_60ld8")]
+transform = Transform3D(0.8491284, 0, 0.6190345, 0, 0.633, 0, -0.52818644, 0, 0.99517864, 259.33936, -1.5166024, -165.00848)

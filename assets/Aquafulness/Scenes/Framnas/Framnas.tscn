@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://crci7xuewtyqg"]
+
+[ext_resource type="PackedScene" uid="uid://3q1fmwrua8xf" path="res://assets/Aquafulness/Scenes/Coordlux/bath_place.tscn" id="1_47g7c"]
+[ext_resource type="Script" uid="uid://dpdgbp1u6jnln" path="res://assets/Aquafulness/Scenes/Framnas/framnas.gd" id="1_mxpbi"]
+[ext_resource type="PackedScene" uid="uid://db0gfh3dgksql" path="res://assets/Aquafulness/Scenes/Bather/bather.tscn" id="2_mcfkd"]
+[ext_resource type="Environment" uid="uid://b4xp743lvgb4u" path="res://assets/Aquafulness/Vänern_Present_Day.tres" id="3_n0j01"]
+[ext_resource type="PackedScene" uid="uid://ds051alhagcog" path="res://assets/Aquafulness/Scenes/Snow/Snow.tscn" id="5_5y3j2"]
+[ext_resource type="PackedScene" uid="uid://bf38c65clfohf" path="res://assets/Aquafulness/Scenes/Christmas/Tree.blend" id="6_rw81e"]
+
+[node name="Framnas" type="Node3D"]
+script = ExtResource("1_mxpbi")
+
+[node name="BathPlace" parent="." instance=ExtResource("1_47g7c")]
+transform = Transform3D(-0.78111744, 0, 0.62438416, 0, 1, 0, -0.62438416, 0, -0.78111744, 17.0617, 25.834293, -176.47021)
+
+[node name="Bather" parent="." instance=ExtResource("2_mcfkd")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("3_n0j01")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 66.72592, 91.72501)
+omni_range = 4096.0
+
+[node name="Snow" parent="." instance=ExtResource("5_5y3j2")]
+visible = false
+
+[node name="Christmas" type="Node3D" parent="."]
+visible = false
+
+[node name="Tree" parent="Christmas" instance=ExtResource("6_rw81e")]
+transform = Transform3D(0.0060033826, 0, -0.43642613, 0, 0.3857247, 0, 0.5647896, 0, 0.004638954, -11.025063, 22.433342, -189.4022)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,115 @@
+[gd_scene load_steps=4 format=3 uid="uid://fjofla0ll46s"]
+
+[ext_resource type="Texture2D" uid="uid://e4p4gy1kcugq" path="res://assets/Aquafulness/Banner.png" id="1_7axxx"]
+[ext_resource type="VideoStream" uid="uid://bw043r2hdjd2s" path="res://Vänern_Silent.ogv" id="1_aemp3"]
+[ext_resource type="Script" uid="uid://xm1y4wx33ktf" path="res://assets/Aquafulness/Scenes/Splash/splash.gd" id="1_crq37"]
+
+[node name="Splash" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_crq37")
+
+[node name="VideoStreamPlayer2" type="VideoStreamPlayer" parent="."]
+modulate = Color(1, 1, 1, 0.49411765)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stream = ExtResource("1_aemp3")
+autoplay = true
+expand = true
+loop = true
+buffering_msec = 1000
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.5
+offset_top = -127.0
+offset_right = 256.5
+offset_bottom = 127.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -161.0
+offset_top = 53.0
+offset_right = 159.0
+offset_bottom = 139.0
+grow_horizontal = 2
+texture_normal = ExtResource("1_7axxx")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 178.5
+offset_top = 162.0
+offset_right = 339.5
+offset_bottom = 194.0
+text = "Start swimulation"
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -397.0
+offset_top = -110.0
+offset_right = 397.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="Control2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -62.0
+offset_top = -76.0
+offset_right = 61.5
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "View licenses"
+
+[node name="Label" type="Label" parent="Control2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -36.0
+offset_right = 21.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 6
+text = "Copyright (C) 2026 Alexander Forselius. All Rights Reserved. Powered by Godot Engine"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

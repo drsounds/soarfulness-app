@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://h0op280e6ah7"]
+
+[ext_resource type="Script" uid="uid://dhywnvykf1nim" path="res://assets/Aquafulness/Scenes/Coordlux/bather.gd" id="1_x7it8"]
+
+[node name="Bather" type="Camera3D"]
+transform = Transform3D(-0.99998933, 0, 0.0046252166, 0, 1, 0, -0.0046252166, 0, -0.99998933, 0, 0, 0)
+current = true
+near = 0.027
+script = ExtResource("1_x7it8")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

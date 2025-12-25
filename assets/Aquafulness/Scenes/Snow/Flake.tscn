@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://fll7cu40flak"]
+
+[ext_resource type="Script" uid="uid://1yty0qvrfitt" path="res://assets/Aquafulness/Scenes/Snow/flake.gd" id="1_56rwg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3vt7l"]
+shading_mode = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_184qs"]
+material = SubResource("StandardMaterial3D_3vt7l")
+
+[node name="Flake" type="Node3D"]
+script = ExtResource("1_56rwg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.14162076, 0, 0, 0, 1.8077953, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("QuadMesh_184qs")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.110327065, -1.1334599, 0, 0.08879404, 1.40833, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("QuadMesh_184qs")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.10789449, 1.1709954, 0, -0.09173452, 1.377278, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("QuadMesh_184qs")

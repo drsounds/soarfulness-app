@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dy0c714as00se"]
+
+[ext_resource type="Texture2D" uid="uid://cspr0457rcay" path="res://assets/Aquafulness/Scenes/Locker/Wall.png" id="1_tx8cs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_abo88"]
+albedo_texture = ExtResource("1_tx8cs")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1tv4i"]
+albedo_texture = ExtResource("1_tx8cs")
+
+[node name="Sofa" type="CSGCombiner3D"]
+transform = Transform3D(-4.5476274, 0, 0.007482639, 0, 6.7508154, 0, -0.007301959, 0, -4.6601543, 0, 0, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, -0.0005123357, -8.1796315e-05, 0.00051233196, 0.9502979, 0.31137285, -8.179585e-05, -0.31137553, 0.95028794, 0.116182566, -0.043484986, -0.37662995)
+size = Vector3(2.3062744, 0.44482422, 0.24511719)
+material = SubResource("StandardMaterial3D_abo88")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 2.64223e-05, -2.1222513e-07, -2.6415195e-05, 0.99989045, -0.01605626, -2.1012966e-07, 0.016058402, 0.9998712, 0.1166389, -0.1373551, 0.077475905)
+size = Vector3(2.3062744, 0.091430664, 0.59802246)
+material = SubResource("StandardMaterial3D_1tv4i")

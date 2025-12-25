@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddxuhe410fx7d"]
+
+[ext_resource type="Material" uid="uid://mdcdkes1crbp" path="res://assets/Aquafulness/Scenes/Coordlux/Pillars.tres" id="1_f0uui"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.121805, -31.937319, -8.217799)
+radius = 2.0
+height = 100.64624
+material = ExtResource("1_f0uui")
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.66902685, 0.7432382, 0, -0.7432382, 0.66902685, 0, 0, 0, 1, 1.9762611, -0.36102438, -8.217799)
+radius = 0.75341797
+height = 37.493652
+material = ExtResource("1_f0uui")
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.7338366, -0.67932606, 0, 0.67932606, 0.7338366, 0, 0, 0, 1, 1.9762611, -0.36102438, -8.217799)
+radius = 0.75341797
+height = 37.493652
+material = ExtResource("1_f0uui")
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.66902685, 0.7432382, 0, -0.7432382, 0.66902685, 0, 0, 0, 1, 1.9762611, -32.816353, -8.217799)
+radius = 0.75341797
+height = 37.493652
+material = ExtResource("1_f0uui")
+
+[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.7338366, -0.67932606, 0, 0.67932606, 0.7338366, 0, 0, 0, 1, 1.9762611, -32.816353, -8.217799)
+radius = 0.75341797
+height = 37.493652
+material = ExtResource("1_f0uui")
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.605442, -41.69391, -7.0804987)
+radius = 2.0
+height = 120.159424
+material = ExtResource("1_f0uui")

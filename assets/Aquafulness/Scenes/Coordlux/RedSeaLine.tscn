@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://p2e4bgxha7b0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0hq6f"]
+albedo_color = Color(1, 0.22000003, 0.22000003, 1)
+roughness = 0.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_sdc4b"]
+material = SubResource("StandardMaterial3D_0hq6f")
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+transform = Transform3D(0.081, 0, 0, 0, 1, 0, 0, 0, 0.081, 0, 0, 0)
+mesh = SubResource("CylinderMesh_sdc4b")
+skeleton = NodePath("../Node3D2/Node3D15")

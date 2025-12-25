@@ -1,0 +1,42 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://dppbavpctnyxp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhsyr"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.04000002, 1, 0.04000002, 0.4)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2bnas"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6t40w"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.38928655, 0.38928664, 0.38928658, 0.6)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[resource]
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_qhsyr")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_2bnas")
+HSlider/styles/slider = SubResource("StyleBoxFlat_6t40w")

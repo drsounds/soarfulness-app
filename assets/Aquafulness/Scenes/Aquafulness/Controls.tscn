@@ -1,0 +1,494 @@
+[gd_scene load_steps=15 format=3 uid="uid://frb38tx0tt4c"]
+
+[ext_resource type="Texture2D" uid="uid://npifmwyjjmdb" path="res://assets/Aquafulness/Scenes/Aquafulness/Glass.tres" id="1_01e25"]
+[ext_resource type="Script" uid="uid://d3qua6q1j3jxo" path="res://assets/Aquafulness/Scenes/Aquafulness/gs.gd" id="2_510mj"]
+[ext_resource type="Theme" uid="uid://dppbavpctnyxp" path="res://new_theme2.tres" id="3_qqppl"]
+[ext_resource type="PackedScene" uid="uid://nhupirheo6wb" path="res://assets/Aquafulness/Scenes/DateTimeInput.tscn" id="4_olqir"]
+[ext_resource type="Texture2D" uid="uid://mfe4b844vml0" path="res://assets/Aquafulness/cog.png" id="5_wr146"]
+[ext_resource type="Texture2D" uid="uid://hpexj2jhs2su" path="res://assets/Aquafulness/waves.png" id="6_qqppl"]
+[ext_resource type="Texture2D" uid="uid://cy7628oea8rvv" path="res://assets/Aquafulness/holiday2.png" id="7_7dhwk"]
+[ext_resource type="Texture2D" uid="uid://bhwxtw4b6kian" path="res://assets/Aquafulness/stop.png" id="9_7dhwk"]
+[ext_resource type="PackedScene" uid="uid://dxlxrqtrtbj05" path="res://assets/Aquafulness/Scenes/Aquafulness/LiveSlider.tscn" id="9_fjr8b"]
+[ext_resource type="PackedScene" uid="uid://bte1akycisd78" path="res://assets/Aquafulness/Scenes/Aquafulness/Spinner.tscn" id="10_fjr8b"]
+[ext_resource type="Script" uid="uid://16iexbb01rnb" path="res://assets/Aquafulness/Scenes/Aquafulness/weather_panel.gd" id="10_gl2ew"]
+
+[sub_resource type="Theme" id="Theme_ut41e"]
+default_font_size = 18
+
+[sub_resource type="Gradient" id="Gradient_510mj"]
+colors = PackedColorArray(0.8326583, 0.8326583, 0.8326583, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dalsr"]
+gradient = SubResource("Gradient_510mj")
+
+[node name="Controls" type="TextureButton"]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture_normal = ExtResource("1_01e25")
+texture_pressed = ExtResource("1_01e25")
+stretch_mode = 0
+script = ExtResource("2_510mj")
+
+[node name="Label3" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1713.0
+offset_top = 114.0
+offset_right = 1809.0
+offset_bottom = 153.0
+theme = SubResource("Theme_ut41e")
+theme_type_variation = &"HeaderMedium"
+text = "DIRECT"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="StopButton" type="TextureButton" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.5
+offset_top = -122.0
+offset_right = 120.5
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("GradientTexture1D_dalsr")
+stretch_mode = 0
+
+[node name="PlayButton" type="Polygon2D" parent="."]
+visible = false
+position = Vector2(479.00003, -54.999996)
+scale = Vector2(0.76156396, 1.0614035)
+polygon = PackedVector2Array(550, 446, 550, 674, 766.7201, 564)
+
+[node name="MenuButton" type="MenuButton" parent="."]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 33.0
+offset_right = 217.0
+offset_bottom = 71.0
+text = "Framnäs"
+alignment = 0
+item_count = 1
+popup/item_0/text = "Framnas"
+popup/item_0/checkable = 2
+popup/item_0/id = 0
+
+[node name="YearSlider" type="HSlider" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -121.0
+offset_bottom = -105.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_qqppl")
+max_value = 366.0
+value = 17.0
+
+[node name="WaveHeightSlider" type="VSlider" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -98.0
+offset_top = 87.0
+offset_right = -82.0
+offset_bottom = -516.0
+grow_horizontal = 0
+grow_vertical = 2
+max_value = 200.0
+step = 0.1
+value = 1.0
+
+[node name="WaveLengthSlider" type="VSlider" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 33.0
+offset_top = 87.0
+offset_right = 49.0
+offset_bottom = -516.0
+grow_vertical = 2
+max_value = 10.0
+step = 0.1
+value = 0.3
+
+[node name="WaveHeightLabel" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -134.0
+offset_top = 228.0
+offset_right = -44.0
+offset_bottom = 251.0
+grow_horizontal = 0
+text = "waveheight"
+
+[node name="WaveLengthLabel" type="Label" parent="."]
+visible = false
+layout_mode = 1
+offset_left = 34.0
+offset_top = 238.0
+offset_right = 99.0
+offset_bottom = 261.0
+text = "z_speed"
+
+[node name="DateTimeInput" parent="." instance=ExtResource("4_olqir")]
+visible = false
+position = Vector2(52, 141)
+
+[node name="SettingsPanel" type="Panel" parent="."]
+visible = false
+top_level = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -388.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Snow" type="Label" parent="SettingsPanel"]
+layout_mode = 1
+offset_left = 143.0
+offset_top = 63.0
+offset_right = 208.0
+offset_bottom = 86.0
+text = "z_speed"
+
+[node name="Label" type="Label" parent="SettingsPanel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -151.0
+offset_top = -52.0
+offset_right = -61.0
+offset_bottom = -29.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "waveheight"
+
+[node name="Label4" type="Label" parent="SettingsPanel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 34.0
+offset_top = -52.0
+offset_right = 99.0
+offset_bottom = -29.0
+grow_vertical = 0
+text = "z_speed"
+
+[node name="AquaOverlayCheckButton" type="CheckButton" parent="SettingsPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -52.0
+offset_right = 160.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 0
+button_pressed = true
+text = "Aquafulness waves"
+
+[node name="ChristmasButton" type="CheckButton" parent="SettingsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.47400004
+anchor_top = 1.0
+anchor_right = 0.47400004
+anchor_bottom = 1.0
+offset_left = -358.05408
+offset_top = -52.0
+offset_right = -231.05408
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Christmas"
+
+[node name="WaveSoundEffectButton" type="CheckButton" parent="SettingsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -253.0
+offset_top = -52.0
+offset_right = -62.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Wave sound effect"
+
+[node name="CloseSettingsPanelButton" type="Button" parent="SettingsPanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -108.0
+offset_top = 15.0
+offset_right = -44.0
+offset_bottom = 46.0
+grow_horizontal = 0
+text = "X Close"
+
+[node name="SnowSlider" type="VSlider" parent="SettingsPanel"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 162.0
+offset_top = 120.0
+offset_right = 178.0
+offset_bottom = -72.0
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="SettingsPanel"]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 336.0
+offset_right = 191.0
+offset_bottom = 359.0
+text = "Snow"
+
+[node name="OptionsButton" type="TextureButton" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -134.0
+offset_top = -71.0
+offset_right = -98.0
+offset_bottom = -36.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("5_wr146")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="OptionsButton2" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -78.0
+offset_top = -71.0
+offset_right = -42.0
+offset_bottom = -36.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("5_wr146")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -187.0
+offset_top = -71.0
+offset_right = -145.0
+offset_bottom = -36.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("6_qqppl")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton3" type="TextureButton" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -236.0
+offset_top = -71.0
+offset_right = -202.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("7_7dhwk")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Timer2" type="Timer" parent="."]
+
+[node name="TextureButton" type="TextureButton" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = -76.0
+offset_right = 69.470825
+offset_bottom = 70.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("9_7dhwk")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="DateTimeLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -79.0
+offset_top = 33.0
+offset_right = 84.0
+offset_bottom = 62.0
+grow_horizontal = 2
+text = "0000-00-00 --:--:--"
+horizontal_alignment = 1
+
+[node name="StartLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 33.0
+offset_top = -166.0
+offset_right = 196.0
+offset_bottom = -137.0
+grow_vertical = 0
+text = "0000-00-00 --:--:--"
+
+[node name="EndLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -202.0
+offset_top = -166.0
+offset_right = -39.0
+offset_bottom = -137.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0000-00-00 --:--:--"
+horizontal_alignment = 2
+
+[node name="DaySlider" parent="." instance=ExtResource("9_fjr8b")]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = -172.0
+offset_right = -45.0
+offset_bottom = -172.0
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 86400.0
+
+[node name="WeatherPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_top = -258.0
+offset_right = 1280.0
+offset_bottom = 26.0
+script = ExtResource("10_gl2ew")
+
+[node name="SnowAmountSpinner" parent="WeatherPanel" instance=ExtResource("10_fjr8b")]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 120.0
+offset_right = 376.0
+offset_bottom = 120.0
+max = 1000.0
+step = 1.0
+text = "Snow amount"
+
+[node name="WaveHeightSpinner" parent="WeatherPanel" instance=ExtResource("10_fjr8b")]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 120.0
+offset_right = 42.0
+offset_bottom = 120.0
+max = 10.0
+step = 1.0
+text = "Wave Height"
+
+[node name="WaveLengthSpinner" parent="WeatherPanel" instance=ExtResource("10_fjr8b")]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 120.0
+offset_right = 208.0
+offset_bottom = 120.0
+max = 10.0
+step = 1.0
+text = "Wave length"
+
+[node name="Button" type="Button" parent="WeatherPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -115.0
+offset_top = -15.0
+offset_right = 112.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "^ WEATHER SETTINGS"
+
+[connection signal="drag_ended" from="YearSlider" to="." method="_on_year_slider_drag_ended"]
+[connection signal="value_changed" from="WaveHeightSlider" to="." method="_on_wave_height_slider_value_changed"]
+[connection signal="value_changed" from="WaveLengthSlider" to="." method="_on_wave_length_slider_value_changed"]
+[connection signal="on_date_changed" from="DateTimeInput" to="." method="_on_date_time_input_on_date_changed"]
+[connection signal="toggled" from="SettingsPanel/AquaOverlayCheckButton" to="." method="_on_aqua_overlay_check_button_toggled"]
+[connection signal="toggled" from="SettingsPanel/ChristmasButton" to="." method="_on_christmas_button_toggled"]
+[connection signal="toggled" from="SettingsPanel/WaveSoundEffectButton" to="." method="_on_wave_sound_effect_button_toggled"]
+[connection signal="pressed" from="SettingsPanel/CloseSettingsPanelButton" to="." method="_on_close_settings_panel_button_pressed"]
+[connection signal="drag_ended" from="SettingsPanel/SnowSlider" to="." method="_on_snow_slider_drag_ended"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="OptionsButton2" to="." method="_on_options_button_pressed"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="drag_ended" from="DaySlider" to="." method="_on_day_slider_drag_ended"]
+[connection signal="after_pressed" from="WeatherPanel/SnowAmountSpinner" to="." method="_on_snow_amount_spinner_after_pressed"]
+[connection signal="value_changed" from="WeatherPanel/SnowAmountSpinner" to="." method="_on_snow_amount_spinner_value_changed"]
+[connection signal="after_pressed" from="WeatherPanel/WaveHeightSpinner" to="." method="_on_wave_height_spinner_after_pressed"]
+[connection signal="value_changed" from="WeatherPanel/WaveHeightSpinner" to="." method="_on_wave_height_spinner_value_changed"]
+[connection signal="after_pressed" from="WeatherPanel/WaveLengthSpinner" to="." method="_on_wave_length_spinner_after_pressed"]
+[connection signal="value_changed" from="WeatherPanel/WaveLengthSpinner" to="." method="_on_wave_length_spinner_value_changed"]
+[connection signal="pressed" from="WeatherPanel/Button" to="WeatherPanel" method="_on_button_pressed"]

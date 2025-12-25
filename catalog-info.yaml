@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: soarfulness
+  annotations:
+    github.com/project-slug: Buddhalow/soarfulness
+    backstage.io/techdocs-ref: ./
+spec:
+  type: experience
+  lifecycle: production
+  owner: spacify
+  system: meditation-infrastructure
