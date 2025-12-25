@@ -9,6 +9,7 @@ func get_open():
 
 func set_open(value: bool):
 	_open = value
+	visible = _open
 	if _open:
 		self.position.y = 0
 		$Button.text = "^ Weather settings"

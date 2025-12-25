@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://frb38tx0tt4c"]
+[gd_scene load_steps=17 format=3 uid="uid://frb38tx0tt4c"]
 
 [ext_resource type="Script" uid="uid://d3qua6q1j3jxo" path="res://assets/Aquafulness/Scenes/Aquafulness/gs.gd" id="2_510mj"]
 [ext_resource type="Theme" uid="uid://dppbavpctnyxp" path="res://new_theme2.tres" id="3_qqppl"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://bte1akycisd78" path="res://assets/Aquafulness/Scenes/Aquafulness/Spinner.tscn" id="10_fjr8b"]
 [ext_resource type="Script" uid="uid://16iexbb01rnb" path="res://assets/Aquafulness/Scenes/Aquafulness/weather_panel.gd" id="10_gl2ew"]
 [ext_resource type="Script" uid="uid://brh00g4fiq1ih" path="res://assets/Aquafulness/Scenes/Aquafulness/date_panel.gd" id="11_8iyei"]
+[ext_resource type="Texture2D" uid="uid://gjdtfx87t7oi" path="res://assets/Aquafulness/Weather.png" id="12_8iyei"]
+[ext_resource type="Texture2D" uid="uid://cb7nt5bbppi7x" path="res://assets/Aquafulness/DateTime.png" id="13_hdtcv"]
 
 [sub_resource type="Theme" id="Theme_ut41e"]
 default_font_size = 18
@@ -364,10 +366,12 @@ ignore_texture_size = true
 stretch_mode = 4
 
 [node name="WeatherPanel" type="Panel" parent="."]
-layout_mode = 0
-offset_top = -258.0
-offset_right = 1280.0
-offset_bottom = 26.0
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 228.0
+grow_horizontal = 2
 script = ExtResource("10_gl2ew")
 
 [node name="SnowAmountSpinner" parent="WeatherPanel" instance=ExtResource("10_fjr8b")]
@@ -469,12 +473,55 @@ grow_vertical = 0
 max_value = 86400.0
 
 [node name="DateTimeButton" type="Button" parent="DatePanel"]
-layout_mode = 0
-offset_left = 578.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -71.0
 offset_top = -17.0
-offset_right = 721.0
+offset_right = 72.0
 offset_bottom = 20.0
+grow_horizontal = 2
 text = "V Time"
+
+[node name="WeatherButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 86.0
+offset_top = 33.0
+offset_right = 126.0
+offset_bottom = 73.0
+grow_horizontal = 2
+texture_normal = ExtResource("12_8iyei")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="WeatherButton2" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -163.0
+offset_top = 33.0
+offset_right = -133.0
+offset_bottom = 62.0
+grow_horizontal = 2
+texture_normal = ExtResource("13_hdtcv")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="DateTimeButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 22.0
+offset_right = 647.0
+offset_bottom = 73.0
+text = "Date"
+flat = true
+alignment = 0
+expand_icon = true
 
 [connection signal="drag_ended" from="YearSlider" to="." method="_on_year_slider_drag_ended"]
 [connection signal="value_changed" from="WaveHeightSlider" to="." method="_on_wave_height_slider_value_changed"]
@@ -497,3 +544,5 @@ text = "V Time"
 [connection signal="pressed" from="WeatherPanel/Button" to="WeatherPanel" method="_on_button_pressed"]
 [connection signal="drag_ended" from="DatePanel/DaySlider" to="." method="_on_day_slider_drag_ended"]
 [connection signal="pressed" from="DatePanel/DateTimeButton" to="DatePanel" method="_on_date_time_button_pressed"]
+[connection signal="pressed" from="WeatherButton" to="." method="_on_weather_button_pressed"]
+[connection signal="pressed" from="DateTimeButton" to="." method="_on_date_time_button_pressed"]

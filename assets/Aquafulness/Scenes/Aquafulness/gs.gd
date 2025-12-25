@@ -17,6 +17,8 @@ func _ready() -> void:
 	bather.connect('wave_length_changed', self._handle_bather_wave_length_changed)
 	$DateTimeInput.date = Time.get_datetime_dict_from_system()
 	scene.connect("date_changed", self.scene_date_changed)
+	$WeatherPanel.open = false
+	$DatePanel.open = false
 	load_config()
 
 
@@ -67,6 +69,7 @@ func scene_date_changed(date):
 	$YearSlider.value = day_of_year
 	$DatePanel/DaySlider.value = (now['hour'] * 60 * 60) + (now['minute'] * 60) + now['second']
 	$DatePanel.text = Time.get_datetime_string_from_datetime_dict(date, true)
+	$DateTimeButton.text = Time.get_datetime_string_from_datetime_dict(date, true)
 	$DatePanel/StartLabel.text = Time.get_datetime_string_from_datetime_dict({
 		'year': date['year'],
 		'month': date['month'],
@@ -217,4 +220,8 @@ func _on_snow_amount_spinner_value_changed(value: float) -> void:
 
 
 func _on_date_time_button_pressed() -> void:
-	pass # Replace with function body.
+	$DatePanel.open = true # Replace with function body.
+
+
+func _on_weather_button_pressed() -> void:
+	$WeatherPanel.open = true

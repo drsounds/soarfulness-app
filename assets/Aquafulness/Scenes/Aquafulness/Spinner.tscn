@@ -6,6 +6,9 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_r2axe")
+max = 10.0
+step = 1.0
+text = "Label"
 
 [node name="ValueLabel" type="Label" parent="."]
 layout_mode = 1
@@ -49,6 +52,7 @@ offset_bottom = 108.0
 grow_horizontal = 0
 grow_vertical = 2
 text = "-"
+flat = true
 
 [node name="Label" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0.5019608)
