@@ -56,11 +56,11 @@ func _ready() -> void:
 		get_parent().add_child(swim_area)
 		swim_area.global_transform = self.global_transform
 
-		swimmed_x_minus = self.transform.origin.x
-		swimmed_x_plus = self.transform.origin.x
-		swimmed_z_minus = self.transform.origin.z
-		swimmed_z_plus = self.transform.origin.z
-		
+		swimmed_x_minus = self.transform.origin.x + 100
+		swimmed_x_plus = self.transform.origin.x - 100
+		swimmed_z_minus = self.transform.origin.z + 100
+		swimmed_z_plus = self.transform.origin.z - 100
+
 		expand_left()
 		expand_forward()
 		expand_backward()
@@ -78,11 +78,11 @@ func _input(event: InputEvent) -> void:
 		if self.velocify.z > 1:
 			self.velocify.z = 1
 	if event.is_action_pressed('ui_left'):
-		self.velocify.x -= 0.01
+		self.velocify.x -= 0.05
 		if self.velocify.x < -1:
 			self.velocify.x = -1
 	if event.is_action_pressed('ui_right'):
-		self.velocify.x += 0.01
+		self.velocify.x += 0.05
 		if self.velocify.x > 1:
 			self.velocify.x = 1
 	if event.is_action_pressed("ui_action_increase_wave_height"):
@@ -115,67 +115,64 @@ func create_flower():
 
 
 func expand_left():
-	swimmed_x_minus -= 200
+	swimmed_x_minus = transform.origin.z - 100
 	for z in range(1):
-		for x in range(1):
+		for x in range(6):
 			var new_flower = create_flower()
-			get_parent().add_child.call_deferred(new_flower)
-			new_flower.global_position = Vector3(
-				global_position.x + x * 320 - 16 * 320,
-				-520,
-				global_position.z - (z * 1520)
-			)
-			new_flower.scale *= 200
-			new_flower.scale.y *= 3
+			get_parent().add_child(new_flower)
+			new_flower.transform.origin.x = swimmed_x_minus - 200
+			new_flower.transform.origin.y = -200
+			new_flower.transform.origin.z = transform.origin.z - 250 + (z * 100)
+
+			new_flower.scale *= 1
+			new_flower.scale.y *= 1
 			new_flower.visible = true
 			flowers.append(new_flower)
 
+
 func expand_right():
-	swimmed_x_plus += 200
+	swimmed_x_plus = transform.origin.x + 100
 	for z in range(1):
-		for x in range(1):
+		for x in range(6):
 			var new_flower = create_flower()
-			get_parent().add_child.call_deferred(new_flower)
-			new_flower.global_position = Vector3(
-				global_position.x + x * 320,
-				-520,
-				global_position.z - (z * 1520)
-			)
-			new_flower.scale *= 200
-			new_flower.scale.y *= 3
+			get_parent().add_child(new_flower)
+			new_flower.transform.origin.x = transform.origin.x + 200
+			new_flower.transform.origin.y =  -200
+			new_flower.transform.origin.z = transform.origin.z + 250 - (z * 100)
+			new_flower.scale *= 1
+			new_flower.scale.y *= 1
 			new_flower.visible = true
 			flowers.append(new_flower)
 
 func expand_backward():
-	swimmed_z_plus += 200
+	swimmed_z_plus =  transform.origin.z + 100
 	for z in range(1):
-		for x in range(1):
+		for x in range(6):
 			var new_flower = create_flower()
-			get_parent().add_child.call_deferred(new_flower)
-			new_flower.global_position = Vector3(
-				global_position.x + x * 320 - 320 * 15,
-				-520,
-				global_position.z + 500 + (z * 1520)
-			)
-			new_flower.scale *= 200
-			new_flower.scale.y *= 3
+			get_parent().add_child(new_flower)
+			new_flower.transform.origin.x = transform.origin.x - 250 - (x * 100)
+			new_flower.transform.origin.y = -200
+			new_flower.transform.origin.z = transform.origin.z + 200
+
+			new_flower.scale *= 1
+			new_flower.scale.y *= 1
 			new_flower.visible = true
 			flowers.append(new_flower)
 
 
 func expand_forward():
-	swimmed_z_minus -= 200
-	for z in range(1):
-		for x in range(1):
+	swimmed_z_minus -= 100
+	for z in range(3):
+		for x in range(6):
 			var new_flower = create_flower()
-			get_parent().add_child.call_deferred(new_flower)
-			new_flower.global_position = Vector3(
-				global_position.x + (x * 520) - 320,
-				-520,
-				swimmed_z_minus - 500 - (z * 520)
-			)
-			new_flower.scale *= 200
-			new_flower.scale.y *= 3
+			get_parent().add_child(new_flower)
+			new_flower.transform.origin.x = transform.origin.x - 250 + (x * 100)
+			new_flower.transform.origin.y = -200
+			new_flower.transform.origin.z = swimmed_z_minus - 200 - (z * 100)
+
+			print("new_flower.global_position", new_flower.transform.origin.z)
+			new_flower.scale *= 1
+			new_flower.scale.y *= 1
 			new_flower.visible = true
 			flowers.append(new_flower)
 
@@ -183,6 +180,7 @@ func expand_forward():
 func _process(delta:float) -> void:
 	time += delta
 	self.location += velocify
+	self.velocify *= 0.99
 
 	wave.y = sin(time * wave_speed) * wave_height + 2
 	wave.z = sin(time * wave_speed + 2) * -wave_length
@@ -205,11 +203,13 @@ func _process(delta:float) -> void:
 	
 	print("Transform origin z", self.transform.origin)
 	var transform_origin = self.transform.origin
-	if transform_origin.z > swimmed_z_plus:
-		expand_backward()
-
+	
+	print("swimmed_z_minus", swimmed_z_minus)
 	if transform_origin.z < swimmed_z_minus:
 		expand_forward()
+
+	if transform_origin.z > swimmed_z_plus:
+		expand_backward()
 
 	if transform_origin.x > swimmed_x_plus:
 		expand_right()
@@ -217,9 +217,9 @@ func _process(delta:float) -> void:
 	if transform_origin.x < swimmed_x_minus:
 		expand_left()
 
-	$Camera3D.transform.origin.y = -wave.y * 0.2 + 1
-	$Camera3D.transform.origin.z = wave.z * 10
-	$Camera3D.transform.origin += location
+	#$Camera3D.transform.origin.y = -wave.y * 0.2 + 1
+	#$Camera3D.transform.origin.z = wave.z * 10
+	#$Camera3D.transform.origin += location
 	if ocean_environment == null:
 		ocean_environment = get_parent().find_child('OceanEnvironment')
 	if ocean_environment != null and quad_tree_3d == null:	

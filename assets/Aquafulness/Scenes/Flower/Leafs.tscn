@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpfnuwb0y57fj"]
+[gd_scene load_steps=7 format=3 uid="uid://dpfnuwb0y57fj"]
+
+[ext_resource type="Script" uid="uid://v4n0raddrprx" path="res://assets/Aquafulness/Scenes/Flower/leafs.gd" id="1_wp6f3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0yyh"]
 albedo_color = Color(0.2833333, 1, 0, 1)
@@ -216,13 +218,18 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0)
 }
 
+[sub_resource type="Animation" id="Animation_ylj7r"]
+resource_name = "jerk"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wp6f3"]
 _data = {
 &"Flowing": SubResource("Animation_m0yyh"),
-&"RESET": SubResource("Animation_wp6f3")
+&"RESET": SubResource("Animation_wp6f3"),
+&"jerk": SubResource("Animation_ylj7r")
 }
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_wp6f3")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.87672544, 0)
