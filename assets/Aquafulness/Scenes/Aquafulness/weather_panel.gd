@@ -13,8 +13,8 @@ func set_open(value: bool):
 		self.position.y = 0
 		$Button.text = "^ Weather settings"
 	else:
-		self.position.y = -self.size.y + 2
-		$Button.text = "V Weather settings"
+		self.position.y = -self.size.y + 32
+		$Button.text = "v Weather settings"
 
 
 func _on_button_pressed() -> void:

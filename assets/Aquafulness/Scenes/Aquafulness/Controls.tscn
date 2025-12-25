@@ -1,6 +1,5 @@
 [gd_scene load_steps=15 format=3 uid="uid://frb38tx0tt4c"]
 
-[ext_resource type="Texture2D" uid="uid://npifmwyjjmdb" path="res://assets/Aquafulness/Scenes/Aquafulness/Glass.tres" id="1_01e25"]
 [ext_resource type="Script" uid="uid://d3qua6q1j3jxo" path="res://assets/Aquafulness/Scenes/Aquafulness/gs.gd" id="2_510mj"]
 [ext_resource type="Theme" uid="uid://dppbavpctnyxp" path="res://new_theme2.tres" id="3_qqppl"]
 [ext_resource type="PackedScene" uid="uid://nhupirheo6wb" path="res://assets/Aquafulness/Scenes/DateTimeInput.tscn" id="4_olqir"]
@@ -11,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dxlxrqtrtbj05" path="res://assets/Aquafulness/Scenes/Aquafulness/LiveSlider.tscn" id="9_fjr8b"]
 [ext_resource type="PackedScene" uid="uid://bte1akycisd78" path="res://assets/Aquafulness/Scenes/Aquafulness/Spinner.tscn" id="10_fjr8b"]
 [ext_resource type="Script" uid="uid://16iexbb01rnb" path="res://assets/Aquafulness/Scenes/Aquafulness/weather_panel.gd" id="10_gl2ew"]
+[ext_resource type="Script" uid="uid://brh00g4fiq1ih" path="res://assets/Aquafulness/Scenes/Aquafulness/date_panel.gd" id="11_8iyei"]
 
 [sub_resource type="Theme" id="Theme_ut41e"]
 default_font_size = 18
@@ -24,8 +24,6 @@ gradient = SubResource("Gradient_510mj")
 [node name="Controls" type="TextureButton"]
 offset_right = 1280.0
 offset_bottom = 720.0
-texture_normal = ExtResource("1_01e25")
-texture_pressed = ExtResource("1_01e25")
 stretch_mode = 0
 script = ExtResource("2_510mj")
 
@@ -365,61 +363,6 @@ texture_normal = ExtResource("9_7dhwk")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="DateTimeLabel" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -79.0
-offset_top = 33.0
-offset_right = 84.0
-offset_bottom = 62.0
-grow_horizontal = 2
-text = "0000-00-00 --:--:--"
-horizontal_alignment = 1
-
-[node name="StartLabel" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 33.0
-offset_top = -166.0
-offset_right = 196.0
-offset_bottom = -137.0
-grow_vertical = 0
-text = "0000-00-00 --:--:--"
-
-[node name="EndLabel" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -202.0
-offset_top = -166.0
-offset_right = -39.0
-offset_bottom = -137.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "0000-00-00 --:--:--"
-horizontal_alignment = 2
-
-[node name="DaySlider" parent="." instance=ExtResource("9_fjr8b")]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 28.0
-offset_top = -172.0
-offset_right = -45.0
-offset_bottom = -172.0
-grow_horizontal = 2
-grow_vertical = 0
-max_value = 86400.0
-
 [node name="WeatherPanel" type="Panel" parent="."]
 layout_mode = 0
 offset_top = -258.0
@@ -470,7 +413,68 @@ offset_right = 112.0
 offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "^ WEATHER SETTINGS"
+text = "vWEATHER SETTINGS"
+
+[node name="DatePanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -209.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("11_8iyei")
+
+[node name="StartLabel" type="Label" parent="DatePanel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 33.0
+offset_top = -166.0
+offset_right = 196.0
+offset_bottom = -137.0
+grow_vertical = 0
+text = "0000-00-00 --:--:--"
+
+[node name="EndLabel" type="Label" parent="DatePanel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -202.0
+offset_top = -166.0
+offset_right = -39.0
+offset_bottom = -137.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0000-00-00 --:--:--"
+horizontal_alignment = 2
+
+[node name="DaySlider" parent="DatePanel" instance=ExtResource("9_fjr8b")]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = -172.0
+offset_right = -45.0
+offset_bottom = -172.0
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 86400.0
+
+[node name="DateTimeButton" type="Button" parent="DatePanel"]
+layout_mode = 0
+offset_left = 578.0
+offset_top = -17.0
+offset_right = 721.0
+offset_bottom = 20.0
+text = "V Time"
 
 [connection signal="drag_ended" from="YearSlider" to="." method="_on_year_slider_drag_ended"]
 [connection signal="value_changed" from="WaveHeightSlider" to="." method="_on_wave_height_slider_value_changed"]
@@ -484,7 +488,6 @@ text = "^ WEATHER SETTINGS"
 [connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="OptionsButton2" to="." method="_on_options_button_pressed"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
-[connection signal="drag_ended" from="DaySlider" to="." method="_on_day_slider_drag_ended"]
 [connection signal="after_pressed" from="WeatherPanel/SnowAmountSpinner" to="." method="_on_snow_amount_spinner_after_pressed"]
 [connection signal="value_changed" from="WeatherPanel/SnowAmountSpinner" to="." method="_on_snow_amount_spinner_value_changed"]
 [connection signal="after_pressed" from="WeatherPanel/WaveHeightSpinner" to="." method="_on_wave_height_spinner_after_pressed"]
@@ -492,3 +495,5 @@ text = "^ WEATHER SETTINGS"
 [connection signal="after_pressed" from="WeatherPanel/WaveLengthSpinner" to="." method="_on_wave_length_spinner_after_pressed"]
 [connection signal="value_changed" from="WeatherPanel/WaveLengthSpinner" to="." method="_on_wave_length_spinner_value_changed"]
 [connection signal="pressed" from="WeatherPanel/Button" to="WeatherPanel" method="_on_button_pressed"]
+[connection signal="drag_ended" from="DatePanel/DaySlider" to="." method="_on_day_slider_drag_ended"]
+[connection signal="pressed" from="DatePanel/DateTimeButton" to="DatePanel" method="_on_date_time_button_pressed"]

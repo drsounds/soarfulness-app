@@ -13,10 +13,21 @@ func _ready() -> void:
 	aquafulness = get_tree().root.find_child('Aquafulness', true, false)
 	scene = get_tree().root.find_child('SubViewport', true, false).get_child(0)
 	bather = get_tree().root.find_child('Bather', true, false)
+	bather.connect('wave_height_changed', self._handle_bather_wave_height_changed)
+	bather.connect('wave_length_changed', self._handle_bather_wave_length_changed)
 	$DateTimeInput.date = Time.get_datetime_dict_from_system()
 	scene.connect("date_changed", self.scene_date_changed)
 	load_config()
-	render()
+
+
+func _handle_bather_wave_height_changed(val):
+	$WaveHeightSlider.value = val
+	$WeatherPanel/WaveHeightSpinner.value = val
+
+
+func _handle_bather_wave_length_changed(val):
+	$WaveLengthSlider.value = val
+	$WeatherPanel/WaveLengthSpinner.value = val
 
 
 func save_config(filename = CONFIG_FILENAME):
@@ -25,10 +36,14 @@ func save_config(filename = CONFIG_FILENAME):
 
 func load_config(filename = CONFIG_FILENAME):
 	config = ConfigFile.new()
-	config.load(filename) 
-	$WeatherPanel/WaveHeightSpinner.value = config.get_value("water", "wave_height", 0.0)
-	$WeatherPanel/WaveLengthSpinner.value = config.get_value("water", "wave_length", 0.0)
-	$WeatherPanel/SnowAmountSpinner.value = config.get_value("weather", "snow", 0.0)
+	var err = config.load(filename)
+
+	if err:
+		print(err)
+
+	bather.wave_height = config.get_value("water", "wave_height", 0.0)
+	bather.wave_length = config.get_value("water", "wave_length", 0.0)
+	scene.snow_amount = config.get_value("weather", "snow", 0.0)
 
 	scene.date = Time.get_datetime_dict_from_datetime_string(
 		config.get_value("date", "now", Time.get_datetime_string_from_system(false)),
@@ -50,9 +65,9 @@ func scene_date_changed(date):
 		unix_now += 60 * 60 * 24
 
 	$YearSlider.value = day_of_year
-	$DaySlider.value = (now['hour'] * 60 * 60) + (now['minute'] * 60) + now['second']
-	$DateTimeLabel.text = Time.get_datetime_string_from_datetime_dict(date, true)
-	$StartLabel.text = Time.get_datetime_string_from_datetime_dict({
+	$DatePanel/DaySlider.value = (now['hour'] * 60 * 60) + (now['minute'] * 60) + now['second']
+	$DatePanel.text = Time.get_datetime_string_from_datetime_dict(date, true)
+	$DatePanel/StartLabel.text = Time.get_datetime_string_from_datetime_dict({
 		'year': date['year'],
 		'month': date['month'],
 		'day': date['day'],
@@ -60,7 +75,7 @@ func scene_date_changed(date):
 		'minute': 0,
 		'second': 0
 	}, true)
-	$EndLabel.text = Time.get_datetime_string_from_datetime_dict({
+	$DatePanel/EndLabel.text = Time.get_datetime_string_from_datetime_dict({
 		'year': date['year'],
 		'month': date['month'],
 		'day': date['day'],
@@ -74,35 +89,16 @@ func scene_date_changed(date):
 	var system_date = Time.get_datetime_dict_from_system()
 	
 	if system_date['year'] == now['year'] and system_date['month'] == now['month'] and system_date['day'] == now['day']:
-		$DaySlider.is_live = true
-		$DaySlider.live_value = (system_date['hour'] * 60 * 60) + (system_date['minute'] * 60) + system_date['second']
-
-
-func render():
-	$WaveHeightSlider.value = bather.wave_height
-	$WeatherPanel/WaveHeightSpinner.value = bather.wave_height
-	$WaveHeightLabel.text = str(bather.wave_height)
-	$WeatherPanel/WaveLengthSpinner.value = bather.wave_length
-	$WaveLengthSlider.value = bather.wave_length
-	$WaveLengthLabel.text = str(bather.wave_length)
-	$WeatherPanel/SnowAmountSpinner.value = scene.get_snow_amount()
+		$DatePanel/DaySlider.is_live = true
+		$DatePanel/DaySlider.live_value = (system_date['hour'] * 60 * 60) + (system_date['minute'] * 60) + system_date['second']
 
 
 func _on_wave_length_slider_value_changed(value: float) -> void:
-	bather.wave_length = value
-	config.set_value("water", "wave_length", value)
-
-	save_config()
-
-	render()
+	pass
 
 
 func _on_wave_height_slider_value_changed(value: float) -> void:
-	bather.wave_height = value
-	config.set_value("water", "wave_height", value)
-	save_config()
-
-	render()
+	pass
 
 
 func _on_date_time_input_on_date_changed(date: Dictionary) -> void:
@@ -149,7 +145,7 @@ func _on_close_settings_panel_button_pressed() -> void:
 
 func _on_day_slider_drag_ended(value_changed: bool) -> void:
 	if value_changed:
-		var value = $DaySlider.value
+		var value = $DatePanel/DaySlider.value
 		var new_date = {
 			'year': scene.date['year'],
 			'month': scene.date['month'],
@@ -207,9 +203,7 @@ func _on_wave_length_spinner_after_pressed(value: float) -> void:
 
 
 func _on_wave_length_spinner_value_changed(value: float) -> void:
-	bather.wave_height = value
-	config.set_value("water", "wave_height", value)
-	save_config()
+	pass
 
 
 func _on_snow_amount_spinner_after_pressed(value: float) -> void:
@@ -219,6 +213,8 @@ func _on_snow_amount_spinner_after_pressed(value: float) -> void:
 
 
 func _on_snow_amount_spinner_value_changed(value: float) -> void:
-	scene.snow_amount = value
-	config.set_value("weather", "snow_amount", value)
-	save_config()
+	pass
+
+
+func _on_date_time_button_pressed() -> void:
+	pass # Replace with function body.

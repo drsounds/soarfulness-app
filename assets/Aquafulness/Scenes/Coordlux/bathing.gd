@@ -2,8 +2,10 @@ extends Node3D
 
 var time: float = 0.00
 
-var wave_height: float = 1
-var wave_length: float = 0.02
+var _wave_height: float = 1
+var _wave_length: float = 0.02
+@export var wave_height: float: get = get_wave_height, set = set_wave_height
+@export var wave_length: float: get = get_wave_length, set = set_wave_length
 var wave: Vector3 = Vector3(0, 1, 1)
 var wave_speed: float = 4
 
@@ -16,6 +18,23 @@ var ocean_environment: OceanEnvironment
 
 var quad_tree_3d: QuadTree3D
 
+signal wave_height_changed
+signal wave_length_changed
+
+
+func get_wave_height():
+	return _wave_height
+
+func set_wave_height(val):
+	_wave_height = val
+	emit_signal('wave_height_changed', val)
+
+func get_wave_length():
+	return _wave_length
+
+func set_wave_length(val):
+	_wave_length = val
+	emit_signal('wave_length_changed', val)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
