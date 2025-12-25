@@ -495,6 +495,18 @@ texture_normal = ExtResource("13_hdtcv")
 ignore_texture_size = true
 stretch_mode = 4
 
+[node name="FlowersCheckButton" type="CheckButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -460.0
+offset_top = 33.0
+offset_right = -298.0
+offset_bottom = 64.0
+grow_horizontal = 0
+text = "Flowers"
+
 [node name="DateTimeButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 512.0
@@ -565,6 +577,7 @@ popup/item_1/id = 1
 [connection signal="drag_ended" from="DatePanel/DaySlider" to="." method="_on_day_slider_drag_ended"]
 [connection signal="pressed" from="DatePanel/DateTimeButton" to="DatePanel" method="_on_date_time_button_pressed"]
 [connection signal="pressed" from="WeatherButton" to="." method="_on_weather_button_pressed"]
+[connection signal="toggled" from="FlowersCheckButton" to="." method="_on_flowers_check_button_toggled"]
 [connection signal="pressed" from="DateTimeButton" to="." method="_on_date_time_button_pressed"]
 [connection signal="active_changed" from="AudioToggleButton" to="." method="_on_audio_toggle_button_active_changed"]
 [connection signal="focus_exited" from="SceneOptionsButton" to="." method="_on_scene_options_button_focus_exited"]

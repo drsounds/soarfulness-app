@@ -15,6 +15,7 @@ func init() -> void:
 	soarfulness.connect('scene_loaded', self._on_scene_loaded)
 	aquafulness = get_tree().root.find_child('Aquafulness', true, false)
 	scene = get_tree().root.find_child('SubViewport', true, false).get_child(0)
+	scene.connect('flowers_enabled', self._on_flowers_enabled)
 	bather = get_tree().root.find_child('Bather', true, false)
 	audio_player = aquafulness.find_child('VideoStreamPlayer')
 	audio_player.volume_db = -80
@@ -24,6 +25,9 @@ func init() -> void:
 	scene.connect("date_changed", self.scene_date_changed)
 	$WeatherPanel.open = false
 	$DatePanel.open = false
+
+func _on_flowers_enabled(flowers_enabled: bool):
+	$FlowersCheckButton.toggle_mode = flowers_enabled
 
 
 func _on_scene_loaded(scene_id: String):
@@ -253,6 +257,7 @@ func load_scene(scene_id):
 	if scene_id != current_scene_id and scene_id != null:
 		soarfulness.load_scene(scene_id)
 		config.set_value('session', 'scene', scene_id)
+		current_scene_id = scene_id
 		save_config()
 		init()
 
@@ -268,3 +273,7 @@ func _on_scene_options_button_item_selected(index: int) -> void:
 	for new_scene in scenes:
 		if new_scene['name'] == scene_name:
 			load_scene(new_scene['id'])
+
+
+func _on_flowers_check_button_toggled(toggled_on: bool) -> void:
+	scene.enable_flowers = toggled_on

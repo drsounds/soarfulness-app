@@ -7,6 +7,16 @@ var _date: Dictionary = Time.get_datetime_dict_from_system(true)
 @export var snow: bool: get = get_snow, set = set_snow
 @export var snow_amount: float: get = get_snow_amount, set = set_snow_amount
 
+@export var enable_flowers: float: get = get_enable_flowers, set = set_enable_flowers
+
+signal flowers_enabled
+
+func get_enable_flowers():
+	return $Bather.enable_flowers
+
+func set_enable_flowers(val):
+	$Bather.enable_flowers = val
+
 var time_of_day: String = "Night"
 
 var season: String = "Winter"
@@ -97,6 +107,11 @@ func set_snow(value: bool):
 func _ready() -> void:
 	set_date(Time.get_datetime_dict_from_system(true))
 	ocean_environment = $OceanEnvironment
+	$Bather.connect('flowers_enabled', self._on_flowers_enabled)
+
+
+func _on_flowers_enabled(val: bool):
+	emit_signal('flowers_enabled', val)
 
 
 func get_date() -> Dictionary:

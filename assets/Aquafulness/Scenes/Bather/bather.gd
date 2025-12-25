@@ -34,6 +34,25 @@ var swim_area
 
 var flowers = []
 
+@export var enable_flowers: bool: set = set_enable_flowers, get = get_enable_flowers
+
+var _enable_flowers = false
+
+signal flowers_enabled
+
+func get_enable_flowers():
+	return _enable_flowers
+
+
+func set_enable_flowers(val):
+	_enable_flowers = val
+	if val:
+		for flower in flowers:
+			flower.visible = val
+
+	emit_signal('flowers_enabled', val)
+
+
 func get_wave_height():
 	return _wave_height
 
@@ -66,25 +85,26 @@ func _ready() -> void:
 		expand_backward()
 		expand_right()
 
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up"):
 		self.velocify.z -= 0.01
-		if self.velocify.z < -1:
-			self.velocify.z = -1
+		if self.velocify.z < -10:
+			self.velocify.z = -10
 		
 		print(self.velocify)
 	if event.is_action_pressed("ui_down"):
 		self.velocify.z += 0.01
-		if self.velocify.z > 1:
-			self.velocify.z = 1
+		if self.velocify.z > 10:
+			self.velocify.z = 10
 	if event.is_action_pressed('ui_left'):
 		self.velocify.x -= 0.05
-		if self.velocify.x < -1:
-			self.velocify.x = -1
+		if self.velocify.x < -10:
+			self.velocify.x = -10
 	if event.is_action_pressed('ui_right'):
 		self.velocify.x += 0.05
-		if self.velocify.x > 1:
-			self.velocify.x = 1
+		if self.velocify.x > 10:
+			self.velocify.x = 10
 	if event.is_action_pressed("ui_action_increase_wave_height"):
 		wave_height += 1
 		#wave_length = wave_height / 20
@@ -115,9 +135,9 @@ func create_flower():
 
 
 func expand_left():
-	swimmed_x_minus = transform.origin.z - 100
+	swimmed_x_minus -= 100
 	for z in range(1):
-		for x in range(6):
+		for x in range(1):
 			var new_flower = create_flower()
 			get_parent().add_child(new_flower)
 			new_flower.transform.origin.x = swimmed_x_minus - 200
@@ -126,14 +146,14 @@ func expand_left():
 
 			new_flower.scale *= 1
 			new_flower.scale.y *= 1
-			new_flower.visible = true
+			new_flower.visible = enable_flowers
 			flowers.append(new_flower)
 
 
 func expand_right():
-	swimmed_x_plus = transform.origin.x + 100
+	swimmed_x_plus += 100
 	for z in range(1):
-		for x in range(6):
+		for x in range(1):
 			var new_flower = create_flower()
 			get_parent().add_child(new_flower)
 			new_flower.transform.origin.x = transform.origin.x + 200
@@ -141,13 +161,13 @@ func expand_right():
 			new_flower.transform.origin.z = transform.origin.z + 250 - (z * 100)
 			new_flower.scale *= 1
 			new_flower.scale.y *= 1
-			new_flower.visible = true
+			new_flower.visible = enable_flowers
 			flowers.append(new_flower)
 
 func expand_backward():
-	swimmed_z_plus =  transform.origin.z + 100
+	swimmed_z_plus += 100
 	for z in range(1):
-		for x in range(6):
+		for x in range(1):
 			var new_flower = create_flower()
 			get_parent().add_child(new_flower)
 			new_flower.transform.origin.x = transform.origin.x - 250 - (x * 100)
@@ -156,14 +176,14 @@ func expand_backward():
 
 			new_flower.scale *= 1
 			new_flower.scale.y *= 1
-			new_flower.visible = true
+			new_flower.visible = enable_flowers
 			flowers.append(new_flower)
 
 
 func expand_forward():
 	swimmed_z_minus -= 100
-	for z in range(3):
-		for x in range(6):
+	for z in range(1):
+		for x in range(1):
 			var new_flower = create_flower()
 			get_parent().add_child(new_flower)
 			new_flower.transform.origin.x = transform.origin.x - 250 + (x * 100)
@@ -173,14 +193,14 @@ func expand_forward():
 			print("new_flower.global_position", new_flower.transform.origin.z)
 			new_flower.scale *= 1
 			new_flower.scale.y *= 1
-			new_flower.visible = true
+			new_flower.visible = enable_flowers
 			flowers.append(new_flower)
 
 
 func _process(delta:float) -> void:
 	time += delta
 	self.location += velocify
-	self.velocify *= 0.99
+	# self.velocify *= 0.99
 
 	wave.y = sin(time * wave_speed) * wave_height + 2
 	wave.z = sin(time * wave_speed + 2) * -wave_length
