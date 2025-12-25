@@ -1,9 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpfnuwb0y57fj"]
+[gd_scene load_steps=8 format=3 uid="uid://dpfnuwb0y57fj"]
 
 [ext_resource type="Script" uid="uid://v4n0raddrprx" path="res://assets/Aquafulness/Scenes/Flower/leafs.gd" id="1_wp6f3"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0yyh"]
-albedo_color = Color(0.2833333, 1, 0, 1)
+[ext_resource type="Material" uid="uid://m728ru8mx742" path="res://assets/Aquafulness/Scenes/Flower/Vegetation.tres" id="2_ylj7r"]
 
 [sub_resource type="Animation" id="Animation_m0yyh"]
 resource_name = "Flowing"
@@ -221,11 +219,50 @@ tracks/8/keys = {
 [sub_resource type="Animation" id="Animation_ylj7r"]
 resource_name = "jerk"
 
+[sub_resource type="Animation" id="Animation_alx0r"]
+resource_name = "new_animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGCombiner3D:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.16666667, 0, 0, 0, 0, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 1, 2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CSGCombiner3D:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.16666667, 0, 0, 0, 0, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 1, 2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CSGCombiner3D:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.99214995, -0.16666667, -0.16535833, 0, 0, 0.43198654, -0.16666667, 0.093360566, 0, 0),
+"times": PackedFloat32Array(0, 1, 2)
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wp6f3"]
 _data = {
 &"Flowing": SubResource("Animation_m0yyh"),
 &"RESET": SubResource("Animation_wp6f3"),
-&"jerk": SubResource("Animation_ylj7r")
+&"jerk": SubResource("Animation_ylj7r"),
+&"new_animation": SubResource("Animation_alx0r")
 }
 
 [node name="Node3D" type="Node3D"]
@@ -236,16 +273,40 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.87672544, 0)
 
 [node name="CSGTorus3D" type="CSGTorus3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-material = SubResource("StandardMaterial3D_m0yyh")
+inner_radius = 0.8446512
+sides = 15
+ring_sides = 3
+material = ExtResource("2_ylj7r")
 
-[node name="CSGTorus3D2" type="CSGTorus3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, -9.9685465e-08, -0.99999994, 0, 2.2805376, -4.3711385e-08, 0, 0.41865432, 0)
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1.262693, -0.3877141, 0, 0.26804808, 1.8264024, 0, 0, 0, 1, -0.45967257, -0.12300342, 0)
 operation = 2
-material = SubResource("StandardMaterial3D_m0yyh")
+size = Vector3(1, 1.130722, 1)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/CSGTorus3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 1.7053026e-13, 1, 0.01550293, -5.6948197e-09, -0.29711366)
-size = Vector3(1.2858887, 1, 1)
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(-0.0058125467, 1.0579562, 0, -0.061674085, -0.09970829, 0, 0, 0, 0.096296564, 0.2631475, 0.6939339, 0)
+height = 0.7854004
+material = ExtResource("2_ylj7r")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(-0.0058125467, 1.0579562, 0, -0.061674085, -0.09970829, 0, 0, 0, 0.096296564, 0.41030246, 0.56646883, -0.033978596)
+height = 0.80859375
+material = ExtResource("2_ylj7r")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(-0.0058125467, 1.0579562, 0, -0.061674085, -0.09970829, 0, 0, 0, 0.096296564, 0.30213603, 0.45751086, 0)
+height = 0.89941406
+material = ExtResource("2_ylj7r")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(-0.0058125467, 1.0579562, 0, -0.061674085, -0.09970829, 0, 0, 0, 0.096296564, 0.2211771, 0.33927816, 0)
+height = 1.0786133
+material = ExtResource("2_ylj7r")
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(-0.0058125467, 1.0579562, 0, -0.061674085, -0.09970829, 0, 0, 0, 0.096296564, 0.17184363, 0.23853043, 0)
+height = 1.3344727
+material = ExtResource("2_ylj7r")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

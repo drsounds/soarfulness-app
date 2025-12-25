@@ -5,10 +5,10 @@
 [node name="Flower" type="Node3D"]
 
 [node name="Leafs" parent="." instance=ExtResource("1_yklap")]
-transform = Transform3D(0.60911655, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="Leafs2" parent="." instance=ExtResource("1_yklap")]
-transform = Transform3D(0.046296198, 0, -0.9971074, 0, 1.3055885, 0, 0.60735464, 0, 0.07600548, 0, 0.11556327, 0)
+transform = Transform3D(0.3186066, 0, 0, 0, 2.8648407, -0.05160728, 0, 0.9131854, 0.16190208, 0, 0, 0)
 
 [node name="Leafs3" parent="." instance=ExtResource("1_yklap")]
-transform = Transform3D(0.29494286, 0, -0.8749495, 0, 1.6513946, 0, 0.5329462, 0, 0.4842142, 0, 0.06350708, 0)
+transform = Transform3D(0.48417732, -0.47631285, -0.034374192, 0.09336054, 2.4702065, 0.17826803, 0, 1.5114712, -0.30217692, 0, 0, 0)
+
+[node name="Leafs2" parent="." instance=ExtResource("1_yklap")]
+transform = Transform3D(0.30353448, 0, 0, 0, 3.016473, 0, 0, 0, 1, 0, 0, 0)

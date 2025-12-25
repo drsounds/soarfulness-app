@@ -167,7 +167,7 @@ func expand_forward():
 			var new_flower = create_flower()
 			get_parent().add_child(new_flower)
 			new_flower.transform.origin.x = transform.origin.x - 250 + (x * 100)
-			new_flower.transform.origin.y = -200
+			new_flower.transform.origin.y = -300
 			new_flower.transform.origin.z = swimmed_z_minus - 200 - (z * 100)
 
 			print("new_flower.global_position", new_flower.transform.origin.z)
