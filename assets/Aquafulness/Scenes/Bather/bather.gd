@@ -29,6 +29,7 @@ var swimmed_x_plus = 0
 
 signal wave_height_changed
 signal wave_length_changed
+signal respawned
 
 var swim_area
 
@@ -51,6 +52,15 @@ func set_enable_flowers(val):
 			flower.visible = val
 
 	emit_signal('flowers_enabled', val)
+
+
+func respawn():
+	self.global_transform.origin.x = 0
+	self.global_transform.origin.z = 0
+	self.velocify = Vector3(0, 0, 0)
+	self.velocity = Vector3(0, 0, 0)
+
+	emit_signal('respawned')
 
 
 func get_wave_height():

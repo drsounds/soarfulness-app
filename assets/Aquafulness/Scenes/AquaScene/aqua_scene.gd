@@ -6,8 +6,11 @@ var _date: Dictionary = Time.get_datetime_dict_from_system(true)
 @export var date: Dictionary: get = get_date, set = set_date
 @export var snow: bool: get = get_snow, set = set_snow
 @export var snow_amount: float: get = get_snow_amount, set = set_snow_amount
+@export var fog: float: get = get_fog, set = set_fog
 
 @export var enable_flowers: float: get = get_enable_flowers, set = set_enable_flowers
+
+var _fog: float = 0
 
 signal flowers_enabled
 
@@ -32,12 +35,29 @@ var ocean_environment: OceanEnvironment
 
 signal time_of_day_changed
 signal date_changed
+signal fog_changed
+
 
 func add_feature_flag(flag):
 	if not feature_flags.has(flag):
 		feature_flags.push_back(flag)
 
 	render_feature_flags()
+
+func get_fog():
+	return _fog
+
+
+func set_fog(val):
+	var env: Environment = $WorldEnvironment.environment
+
+	_fog = val
+	env.fog_enabled = _fog > 0
+	if _fog > 0:
+		env.fog_depth_end = 100 - _fog
+
+	emit_signal('fog_changed', _fog)
+
 
 func set_snow_amount(_value):
 	if _value > 0:

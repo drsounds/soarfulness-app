@@ -23,11 +23,16 @@ func init() -> void:
 	bather.connect('wave_length_changed', self._handle_bather_wave_length_changed)
 	$DateTimeInput.date = Time.get_datetime_dict_from_system()
 	scene.connect("date_changed", self.scene_date_changed)
+	scene.connect("fog_changed", self._on_fog_changed)
 	$WeatherPanel.open = false
 	$DatePanel.open = false
 
 func _on_flowers_enabled(flowers_enabled: bool):
 	$StatusBar/Reed/CheckButton.toggle_mode = flowers_enabled
+
+
+func _on_fog_changed(fog_amount: float):
+	$StatusBar/Fog/FogSpinBox.value = fog_amount
 
 
 func _on_scene_loaded(scene_id: String):
@@ -73,6 +78,7 @@ func load_config(filename = CONFIG_FILENAME):
 	bather.wave_length = config.get_value("water", "wave_length", 5.0)
 	bather.enable_flowers = config.get_value("water", "flowers", false)
 	scene.snow_amount = config.get_value("weather", "snow", 0.0)
+	scene.fog = config.get_value("weather", "fog", 0.0)
 
 	scene.date = Time.get_datetime_dict_from_datetime_string(
 		config.get_value("date", "now", Time.get_datetime_string_from_system(false)),
@@ -190,8 +196,8 @@ func _gui_input(event: InputEvent) -> void:
 		if dragging_touch_index == -1: # Only take the first finger that touches
 			dragging_touch_index = event.index
 
-		bather.velocify.z = -event.relative.y * 0.1
-		bather.velocify.x = -event.relative.x * 0.1
+		bather.velocify.z = -event.relative.y * 0.05
+		bather.velocify.x = -event.relative.x * 0.05
 
 
 func _on_year_slider_drag_ended(value_changed: bool) -> void:
@@ -309,3 +315,24 @@ func _on_wave_length_spin_box_value_changed(value: float) -> void:
 	bather.wave_length = value
 	config.set_value("water", "wave_length", bather.wave_length)
 	save_config()
+
+
+func _on_texture_button_button_down() -> void:
+	pass
+
+
+func _on_fog_spin_box_value_changed(value: float) -> void:
+	if scene.fog == $StatusBar/Fog/FogSpinBox.value:
+		return
+
+	scene.fog = value
+	config.set_value("weather", "fog", scene.fog)
+	save_config()
+
+
+func _on_stop_button_2_pressed() -> void:
+	bather.velocify = Vector3(0, 0, 0)
+
+
+func _on_respawn_button_pressed() -> void:
+	bather.respawn()

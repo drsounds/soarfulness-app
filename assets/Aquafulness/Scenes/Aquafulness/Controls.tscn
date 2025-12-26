@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://frb38tx0tt4c"]
+[gd_scene load_steps=23 format=3 uid="uid://frb38tx0tt4c"]
 
 [ext_resource type="Script" uid="uid://d3qua6q1j3jxo" path="res://assets/Aquafulness/Scenes/Aquafulness/gs.gd" id="2_510mj"]
 [ext_resource type="Theme" uid="uid://dppbavpctnyxp" path="res://new_theme2.tres" id="3_qqppl"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://gjdtfx87t7oi" path="res://assets/Aquafulness/Weather.png" id="12_8iyei"]
 [ext_resource type="Texture2D" uid="uid://cb7nt5bbppi7x" path="res://assets/Aquafulness/DateTime.png" id="13_hdtcv"]
 [ext_resource type="PackedScene" uid="uid://dlywrigb0i3p1" path="res://assets/Aquafulness/Scenes/Aquafulness/audio_toggle_button.tscn" id="14_1adp4"]
+[ext_resource type="PackedScene" uid="uid://bik0m7c3v0uas" path="res://assets/Aquafulness/Scenes/Aquafulness/ControlCross.tscn" id="15_js47e"]
+[ext_resource type="Texture2D" uid="uid://cv28fl7cj1xq" path="res://assets/Aquafulness/Respawn.png" id="16_2c632"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1adp4"]
 
@@ -223,6 +225,32 @@ text = "Snow"
 uppercase = true
 
 [node name="SnowSpinBox" type="SpinBox" parent="StatusBar/Snow"]
+layout_mode = 2
+alignment = 2
+
+[node name="Fog" type="VBoxContainer" parent="StatusBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="HBoxContainer" parent="StatusBar/Fog"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="TextureButton" parent="StatusBar/Fog/Label"]
+modulate = Color(1, 1, 1, 0.49803922)
+custom_minimum_size = Vector2(29.18, 0)
+layout_mode = 2
+texture_normal = ExtResource("6_qqppl")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Text" type="Label" parent="StatusBar/Fog/Label"]
+modulate = Color(1, 1, 1, 0.50980395)
+layout_mode = 2
+text = "Fog"
+uppercase = true
+
+[node name="FogSpinBox" type="SpinBox" parent="StatusBar/Fog"]
 layout_mode = 2
 alignment = 2
 
@@ -659,6 +687,62 @@ offset_bottom = 20.0
 grow_horizontal = 2
 text = "V Time"
 
+[node name="Control" type="Control" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.3372549)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -76.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ControlCross" parent="Control" instance=ExtResource("15_js47e")]
+layout_mode = 1
+offset_left = 64.0
+offset_top = 18.0
+offset_right = -1088.0
+offset_bottom = -147.0
+
+[node name="StopButton2" type="TextureButton" parent="."]
+modulate = Color(1, 1, 1, 0.47843137)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -145.0
+offset_top = -80.0
+offset_right = -86.0
+offset_bottom = -22.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("9_7dhwk")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="RespawnButton" type="TextureButton" parent="."]
+modulate = Color(1, 1, 1, 0.4117647)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -210.0
+offset_top = -80.0
+offset_right = -158.0
+offset_bottom = -26.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("16_2c632")
+ignore_texture_size = true
+stretch_mode = 4
+
 [connection signal="focus_exited" from="StatusBar/Location/Button" to="." method="_on_scene_options_button_focus_exited"]
 [connection signal="item_selected" from="StatusBar/Location/Button" to="." method="_on_scene_options_button_item_selected"]
 [connection signal="toggled" from="StatusBar/Reed/CheckButton" to="." method="_on_flowers_check_button_toggled"]
@@ -670,6 +754,8 @@ text = "V Time"
 [connection signal="value_changed" from="StatusBar/WaveLength/WaveLengthSpinBox" to="." method="_on_wave_length_spin_box_value_changed"]
 [connection signal="pressed" from="StatusBar/Snow/Label/Button" to="." method="_on_weather_button_pressed"]
 [connection signal="value_changed" from="StatusBar/Snow/SnowSpinBox" to="." method="_on_snow_spin_box_value_changed"]
+[connection signal="pressed" from="StatusBar/Fog/Label/Button" to="." method="_on_weather_button_pressed"]
+[connection signal="value_changed" from="StatusBar/Fog/FogSpinBox" to="." method="_on_fog_spin_box_value_changed"]
 [connection signal="active_changed" from="AudioToggleButton" to="." method="_on_audio_toggle_button_active_changed"]
 [connection signal="drag_ended" from="YearSlider" to="." method="_on_year_slider_drag_ended"]
 [connection signal="value_changed" from="WaveHeightSlider" to="." method="_on_wave_height_slider_value_changed"]
@@ -688,3 +774,5 @@ text = "V Time"
 [connection signal="pressed" from="WeatherPanel/Button" to="WeatherPanel" method="_on_button_pressed"]
 [connection signal="drag_ended" from="DatePanel/DaySlider" to="." method="_on_day_slider_drag_ended"]
 [connection signal="pressed" from="DatePanel/DateTimeButton" to="DatePanel" method="_on_date_time_button_pressed"]
+[connection signal="pressed" from="StopButton2" to="." method="_on_stop_button_2_pressed"]
+[connection signal="pressed" from="RespawnButton" to="." method="_on_respawn_button_pressed"]

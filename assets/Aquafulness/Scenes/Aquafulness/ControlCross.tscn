@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=3 uid="uid://bik0m7c3v0uas"]
+
+[ext_resource type="Script" uid="uid://due1ine3lc0iv" path="res://assets/Aquafulness/Scenes/Aquafulness/control_cross.gd" id="1_1b1m4"]
+[ext_resource type="Texture2D" uid="uid://dnm47msg3jkr6" path="res://assets/Aquafulness/ArrowUp.png" id="2_1b1m4"]
+[ext_resource type="Texture2D" uid="uid://bhwxtw4b6kian" path="res://assets/Aquafulness/stop.png" id="3_a6sme"]
+
+[node name="ControlCross" type="Control"]
+modulate = Color(1, 1, 1, 0.50980395)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -998.0
+offset_bottom = -426.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1b1m4")
+
+[node name="UpButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 94.0
+offset_right = 188.0
+offset_bottom = 93.0
+action_mode = 0
+texture_normal = ExtResource("2_1b1m4")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="LeftButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_top = 201.40134
+offset_right = 98.123505
+offset_bottom = 294.26074
+rotation = -1.5707964
+texture_normal = ExtResource("2_1b1m4")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="RightButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 282.0
+offset_top = 103.00001
+offset_right = 375.12674
+offset_bottom = 195.2385
+rotation = 1.5707964
+texture_normal = ExtResource("2_1b1m4")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="DownButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 293.0
+offset_right = 280.7179
+offset_bottom = 381.71793
+rotation = 3.1415927
+texture_normal = ExtResource("2_1b1m4")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 118.0
+offset_right = 179.0
+offset_bottom = 146.0
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 115.82143
+offset_top = 118.0
+offset_right = 179.0
+offset_bottom = 179.0
+texture_normal = ExtResource("3_a6sme")
+ignore_texture_size = true
+stretch_mode = 4
+
+[connection signal="button_down" from="UpButton" to="." method="_on_texture_button_button_down"]
+[connection signal="button_up" from="UpButton" to="." method="_on_texture_button_button_up"]
+[connection signal="pressed" from="UpButton" to="." method="_on_up_button_pressed"]
+[connection signal="button_down" from="LeftButton" to="." method="_on_left_button_button_down"]
+[connection signal="button_up" from="LeftButton" to="." method="_on_left_button_button_up"]
+[connection signal="button_down" from="RightButton" to="." method="_on_right_button_button_down"]
+[connection signal="button_up" from="RightButton" to="." method="_on_right_button_button_up"]
+[connection signal="button_down" from="DownButton" to="." method="_on_down_button_button_down"]
+[connection signal="button_up" from="DownButton" to="." method="_on_down_button_button_up"]
