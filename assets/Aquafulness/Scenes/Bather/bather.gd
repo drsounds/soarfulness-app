@@ -75,6 +75,7 @@ func _ready() -> void:
 		get_parent().add_child(swim_area)
 		swim_area.global_transform = self.global_transform
 
+	if self.enable_flowers:
 		swimmed_x_minus = self.transform.origin.x + 100
 		swimmed_x_plus = self.transform.origin.x - 100
 		swimmed_z_minus = self.transform.origin.z + 100
@@ -144,7 +145,7 @@ func expand_left():
 	for z in range(1):
 		for x in range(1):
 			var new_flower = create_flower()
-			get_parent().add_child(new_flower)
+			get_parent().add_child.call_deferred(new_flower)
 			new_flower.transform.origin.x = swimmed_x_minus - 200
 			new_flower.transform.origin.y = -200
 			new_flower.transform.origin.z = transform.origin.z - 250 + (z * 100)
@@ -160,7 +161,7 @@ func expand_right():
 	for z in range(1):
 		for x in range(1):
 			var new_flower = create_flower()
-			get_parent().add_child(new_flower)
+			get_parent().add_child.call_deferred(new_flower)
 			new_flower.transform.origin.x = transform.origin.x + 200
 			new_flower.transform.origin.y =  -200
 			new_flower.transform.origin.z = transform.origin.z + 250 - (z * 100)
@@ -174,7 +175,7 @@ func expand_backward():
 	for z in range(1):
 		for x in range(1):
 			var new_flower = create_flower()
-			get_parent().add_child(new_flower)
+			get_parent().add_child.call_deferred(new_flower)
 			new_flower.transform.origin.x = transform.origin.x - 250 - (x * 100)
 			new_flower.transform.origin.y = -200
 			new_flower.transform.origin.z = transform.origin.z + 200
@@ -190,7 +191,7 @@ func expand_forward():
 	for z in range(1):
 		for x in range(1):
 			var new_flower = create_flower()
-			get_parent().add_child(new_flower)
+			get_parent().add_child.call_deferred(new_flower)
 			new_flower.transform.origin.x = transform.origin.x - 250 + (x * 100)
 			new_flower.transform.origin.y = -300
 			new_flower.transform.origin.z = swimmed_z_minus - 200 - (z * 100)

@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://8osyicjgsi5x"]
+[gd_scene load_steps=6 format=3 uid="uid://8osyicjgsi5x"]
 
 [ext_resource type="Script" uid="uid://byb2p7fo7klgv" path="res://assets/Aquafulness/Scenes/Soarfulness/soarfulness.gd" id="1_dlhdc"]
 [ext_resource type="PackedScene" uid="uid://crci7xuewtyqg" path="res://assets/Aquafulness/Scenes/Framnas/Framnas.tscn" id="2_5hcqo"]
 [ext_resource type="PackedScene" uid="uid://djpxbrdgwmb5w" path="res://assets/Aquafulness/Scenes/Aquafulness/Aquafulness.tscn" id="3_7nc36"]
 [ext_resource type="PackedScene" uid="uid://frb38tx0tt4c" path="res://assets/Aquafulness/Scenes/Aquafulness/Controls.tscn" id="4_akaao"]
-[ext_resource type="Texture2D" uid="uid://bccfcb0sytdqr" path="res://assets/Aquafulness/icon.png" id="5_174nw"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qyowq"]
 
@@ -60,6 +59,5 @@ offset_top = 39.0
 offset_right = -36.0
 offset_bottom = 79.0
 grow_horizontal = 0
-texture_normal = ExtResource("5_174nw")
 ignore_texture_size = true
 stretch_mode = 4

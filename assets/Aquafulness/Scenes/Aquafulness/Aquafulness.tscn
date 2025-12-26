@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://djpxbrdgwmb5w"]
+[gd_scene load_steps=5 format=3 uid="uid://djpxbrdgwmb5w"]
 
 [ext_resource type="Script" uid="uid://dcx74vvq8r8wu" path="res://assets/Aquafulness/Scenes/Aquafulness/aquafulness.gd" id="1_kj2lw"]
 [ext_resource type="VideoStream" uid="uid://bhl6cov8lwnos" path="res://Vänern.ogv" id="2_cuigj"]
-[ext_resource type="Texture2D" uid="uid://bccfcb0sytdqr" path="res://assets/Aquafulness/icon.png" id="2_ut41e"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kj2lw"]
 
@@ -45,4 +44,3 @@ top_level = true
 material = SubResource("CanvasItemMaterial_cuigj")
 position = Vector2(1798.9999, 111.00001)
 scale = Vector2(0.18055561, 0.18981478)
-texture = ExtResource("2_ut41e")

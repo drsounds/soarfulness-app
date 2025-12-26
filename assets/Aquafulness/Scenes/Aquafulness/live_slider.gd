@@ -12,6 +12,7 @@ var _live_value: float = 0
 @export var is_live: bool: get = _get_is_live, set = _set_is_live
 
 signal drag_ended
+signal value_changed
 
 
 func _get_is_live():
