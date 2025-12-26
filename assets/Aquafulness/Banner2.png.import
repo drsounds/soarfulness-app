@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btkesvoac7ut3"
-path="res://.godot/imported/Icon.png-5eed5287812100680dc655a66fc81588.ctex"
+uid="uid://dp87tnvcmmpo5"
+path="res://.godot/imported/Banner2.png-c916c8724a17c50022ea1e3f0a006d86.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Aquafulness/Icon.png"
-dest_files=["res://.godot/imported/Icon.png-5eed5287812100680dc655a66fc81588.ctex"]
+source_file="res://assets/Aquafulness/Banner2.png"
+dest_files=["res://.godot/imported/Banner2.png-c916c8724a17c50022ea1e3f0a006d86.ctex"]
 
 [params]
 

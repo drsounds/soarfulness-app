@@ -13,8 +13,15 @@ func get_active():
 
 func set_active(value):
 	_active = value
-	$Waves.visible = _active
-	$Off.visible = !_active
+	var texture = load("res://assets/Aquafulness/audio.png")
+	if _active:
+		texture = load("res://assets/Aquafulness/audio_on.png")
+		self.modulate = Color(0, 255, 0, 1)
+	else:
+		self.modulate  = Color(255, 255, 255, 0.8)
+	self.texture_normal = texture
+	
+
 	emit_signal('active_changed', value)
 
 

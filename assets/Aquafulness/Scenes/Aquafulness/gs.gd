@@ -27,7 +27,7 @@ func init() -> void:
 	$DatePanel.open = false
 
 func _on_flowers_enabled(flowers_enabled: bool):
-	$FlowersCheckButton.toggle_mode = flowers_enabled
+	$StatusBar/Reed/CheckButton.toggle_mode = flowers_enabled
 
 
 func _on_scene_loaded(scene_id: String):
@@ -49,6 +49,7 @@ func _ready() -> void:
 
 func _handle_bather_wave_height_changed(val):
 	$WaveHeightSlider.value = val
+	$StatusBar/Wave/WaveSpinBox.value = val
 	$WeatherPanel/WaveHeightSpinner.value = val
 
 
@@ -70,6 +71,7 @@ func load_config(filename = CONFIG_FILENAME):
 
 	bather.wave_height = config.get_value("water", "wave_height", 0.0)
 	bather.wave_length = config.get_value("water", "wave_length", 0.0)
+	bather.enable_flowers = config.get_value("water", "flowers", false)
 	scene.snow_amount = config.get_value("weather", "snow", 0.0)
 
 	scene.date = Time.get_datetime_dict_from_datetime_string(
@@ -94,7 +96,7 @@ func scene_date_changed(date):
 	$YearSlider.value = day_of_year
 	$DatePanel/DaySlider.value = (now['hour'] * 60 * 60) + (now['minute'] * 60) + now['second']
 	$DatePanel.text = Time.get_datetime_string_from_datetime_dict(date, true)
-	$DateTimeButton.text = Time.get_datetime_string_from_datetime_dict(date, true)
+	$StatusBar/Date/Button.text = Time.get_datetime_string_from_datetime_dict(date, true)
 	$DatePanel/StartLabel.text = Time.get_datetime_string_from_datetime_dict({
 		'year': date['year'],
 		'month': date['month'],
@@ -121,14 +123,6 @@ func scene_date_changed(date):
 		$DatePanel/DaySlider.live_value = (system_date['hour'] * 60 * 60) + (system_date['minute'] * 60) + system_date['second']
 
 
-func _on_wave_length_slider_value_changed(value: float) -> void:
-	pass
-
-
-func _on_wave_height_slider_value_changed(value: float) -> void:
-	pass
-
-
 func _on_date_time_input_on_date_changed(date: Dictionary) -> void:
 	scene = get_tree().root.find_child('SubViewport', true, false).get_child(0)
 	scene.date = date
@@ -151,8 +145,6 @@ func _on_christmas_button_toggled(toggled_on: bool) -> void:
 	save_config()
 
 func _on_wave_sound_effect_button_toggled(toggled_on: bool) -> void:
-	var audio_player = aquafulness.find_child('VideoStreamPlayer')
-
 	if toggled_on:
 		audio_player.volume = 1
 	else:
@@ -269,7 +261,7 @@ func _on_scene_options_button_focus_exited() -> void:
 func _on_scene_options_button_item_selected(index: int) -> void:
 	
 	var scenes = soarfulness.scenes 
-	var scene_name = $SceneOptionsButton.get_item_text(index)
+	var scene_name = $StatusBar/Location/Button.get_item_text(index)
 	for new_scene in scenes:
 		if new_scene['name'] == scene_name:
 			load_scene(new_scene['id'])
@@ -277,3 +269,23 @@ func _on_scene_options_button_item_selected(index: int) -> void:
 
 func _on_flowers_check_button_toggled(toggled_on: bool) -> void:
 	scene.enable_flowers = toggled_on
+	config.set_value("water", "enable_flowers", true)
+	config.save()
+
+
+func _on_snow_spin_box_value_changed(value: float) -> void:
+	if scene.snow_amount == $StatusBar/Snow/SnowSpinBox.value:
+		return
+
+	scene.snow_amount = value
+	config.set_value("water", "wave_height", bather.wave_height)
+	save_config()
+
+
+func _on_wave_spin_box_value_changed(value: float) -> void:
+	if bather.wave_height == $StatusBar/Wave/WaveSpinBox.value:
+		return
+
+	bather.wave_height = value
+	config.set_value("water", "wave_height", bather.wave_height)
+	save_config()

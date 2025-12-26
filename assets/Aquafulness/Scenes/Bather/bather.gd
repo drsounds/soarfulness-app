@@ -87,6 +87,11 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if (event.is_action_pressed("ui_up") and event.is_action_pressed("ui_down")) or event.is_action_pressed("stop"):
+		self.velocify.z = 0
+	if event.is_action_pressed("ui_left") and event.is_action_pressed("ui_right") or event.is_action_pressed("stop"):
+		self.velocify.x = 0
+
 	if event.is_action_pressed("ui_up"):
 		self.velocify.z -= 0.01
 		if self.velocify.z < -10:
