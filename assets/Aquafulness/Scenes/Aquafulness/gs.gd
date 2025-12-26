@@ -69,8 +69,8 @@ func load_config(filename = CONFIG_FILENAME):
 	if err:
 		print(err)
 
-	bather.wave_height = config.get_value("water", "wave_height", 0.0)
-	bather.wave_length = config.get_value("water", "wave_length", 0.0)
+	bather.wave_height = config.get_value("water", "wave_height", 20.0)
+	bather.wave_length = config.get_value("water", "wave_length", 5.0)
 	bather.enable_flowers = config.get_value("water", "flowers", false)
 	scene.snow_amount = config.get_value("weather", "snow", 0.0)
 
@@ -182,6 +182,18 @@ func _on_day_slider_drag_ended(value_changed: bool) -> void:
 		scene.date = new_date
 
 
+var dragging_touch_index = -1
+
+
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventScreenDrag:
+		if dragging_touch_index == -1: # Only take the first finger that touches
+			dragging_touch_index = event.index
+
+		bather.velocify.z = -event.relative.y * 0.1
+		bather.velocify.x = -event.relative.x * 0.1
+
+
 func _on_year_slider_drag_ended(value_changed: bool) -> void:
 	if value_changed:
 		var day_of_year = $YearSlider.value
@@ -259,7 +271,6 @@ func _on_scene_options_button_focus_exited() -> void:
 
 
 func _on_scene_options_button_item_selected(index: int) -> void:
-	
 	var scenes = soarfulness.scenes 
 	var scene_name = $StatusBar/Location/Button.get_item_text(index)
 	for new_scene in scenes:
@@ -288,4 +299,13 @@ func _on_wave_spin_box_value_changed(value: float) -> void:
 
 	bather.wave_height = value
 	config.set_value("water", "wave_height", bather.wave_height)
+	save_config()
+
+
+func _on_wave_length_spin_box_value_changed(value: float) -> void:
+	if bather.wave_length == $StatusBar/WaveLength/WaveLengthSpinBox.value:
+		return
+
+	bather.wave_length = value
+	config.set_value("water", "wave_length", bather.wave_length)
 	save_config()

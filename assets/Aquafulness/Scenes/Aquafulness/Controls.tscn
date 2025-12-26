@@ -36,6 +36,7 @@ gradient = SubResource("Gradient_510mj")
 [node name="Controls" type="TextureButton"]
 offset_right = 1280.0
 offset_bottom = 720.0
+mouse_filter = 1
 script = ExtResource("2_510mj")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -170,6 +171,32 @@ text = "Wave"
 uppercase = true
 
 [node name="WaveSpinBox" type="SpinBox" parent="StatusBar/Wave"]
+layout_mode = 2
+alignment = 2
+
+[node name="WaveLength" type="VBoxContainer" parent="StatusBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="HBoxContainer" parent="StatusBar/WaveLength"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="TextureButton" parent="StatusBar/WaveLength/Label"]
+modulate = Color(1, 1, 1, 0.49803922)
+custom_minimum_size = Vector2(29.18, 0)
+layout_mode = 2
+texture_normal = ExtResource("6_qqppl")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Text" type="Label" parent="StatusBar/WaveLength/Label"]
+modulate = Color(1, 1, 1, 0.50980395)
+layout_mode = 2
+text = "Wave length"
+uppercase = true
+
+[node name="WaveLengthSpinBox" type="SpinBox" parent="StatusBar/WaveLength"]
 layout_mode = 2
 alignment = 2
 
@@ -639,6 +666,8 @@ text = "V Time"
 [connection signal="pressed" from="StatusBar/Weather/Label/Button" to="." method="_on_weather_button_pressed"]
 [connection signal="pressed" from="StatusBar/Wave/Label/Button" to="." method="_on_weather_button_pressed"]
 [connection signal="value_changed" from="StatusBar/Wave/WaveSpinBox" to="." method="_on_wave_spin_box_value_changed"]
+[connection signal="pressed" from="StatusBar/WaveLength/Label/Button" to="." method="_on_weather_button_pressed"]
+[connection signal="value_changed" from="StatusBar/WaveLength/WaveLengthSpinBox" to="." method="_on_wave_length_spin_box_value_changed"]
 [connection signal="pressed" from="StatusBar/Snow/Label/Button" to="." method="_on_weather_button_pressed"]
 [connection signal="value_changed" from="StatusBar/Snow/SnowSpinBox" to="." method="_on_snow_spin_box_value_changed"]
 [connection signal="active_changed" from="AudioToggleButton" to="." method="_on_audio_toggle_button_active_changed"]

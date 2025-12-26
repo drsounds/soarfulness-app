@@ -36,7 +36,7 @@ var flowers = []
 
 @export var enable_flowers: bool: set = set_enable_flowers, get = get_enable_flowers
 
-var _enable_flowers = false
+var _enable_flowers = true
 
 signal flowers_enabled
 
@@ -87,7 +87,24 @@ func _ready() -> void:
 		expand_right()
 
 
+var dragging_touch_index = -1
+
+
 func _input(event: InputEvent) -> void:
+	if event is InputEventScreenDrag and event.pressed:
+		if dragging_touch_index == -1: # Only take the first finger that touches
+			dragging_touch_index = event.index
+
+	if event is InputEventScreenDrag and event.index == dragging_touch_index:
+		self.velocify.z = -event.relative.y
+		self.velocify.x = event.relative.x
+
+	if event is InputEventScreenTouch and not event.pressed:
+		if event.index == dragging_touch_index:
+			dragging_touch_index = -1
+			self.velocify.y = 0
+			self.velocify.z = 0
+
 	if (event.is_action_pressed("ui_up") and event.is_action_pressed("ui_down")) or event.is_action_pressed("stop"):
 		self.velocify.z = 0
 	if event.is_action_pressed("ui_left") and event.is_action_pressed("ui_right") or event.is_action_pressed("stop"):
@@ -97,8 +114,7 @@ func _input(event: InputEvent) -> void:
 		self.velocify.z -= 0.01
 		if self.velocify.z < -10:
 			self.velocify.z = -10
-		
-		print(self.velocify)
+
 	if event.is_action_pressed("ui_down"):
 		self.velocify.z += 0.01
 		if self.velocify.z > 10:
@@ -111,13 +127,12 @@ func _input(event: InputEvent) -> void:
 		self.velocify.x += 0.05
 		if self.velocify.x > 10:
 			self.velocify.x = 10
+
 	if event.is_action_pressed("ui_action_increase_wave_height"):
 		wave_height += 1
-		#wave_length = wave_height / 20
 
 	if event.is_action_pressed("ui_action_decrease_wave_height"):
 		wave_height -= 1
-		#wave_length = wave_height / 20
 	
 	if event.is_action_pressed("ui_action_increase_wave_speed"):
 		wave_speed += 1
