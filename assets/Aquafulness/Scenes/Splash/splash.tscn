@@ -2,7 +2,7 @@
 
 [ext_resource type="VideoStream" uid="uid://bw043r2hdjd2s" path="res://Vänern_Silent.ogv" id="1_aemp3"]
 [ext_resource type="Script" uid="uid://xm1y4wx33ktf" path="res://assets/Aquafulness/Scenes/Splash/splash.gd" id="1_crq37"]
-[ext_resource type="Texture2D" uid="uid://dp87tnvcmmpo5" path="res://assets/Aquafulness/Banner2.png" id="3_crq37"]
+[ext_resource type="Texture2D" uid="uid://cj2hoxsvp25g2" path="res://assets/Aquafulness/Banner2026.png" id="3_crq37"]
 
 [node name="Splash" type="Control"]
 layout_mode = 3
@@ -64,7 +64,7 @@ offset_left = 90.5
 offset_top = 158.0
 offset_right = 436.5
 offset_bottom = 245.0
-text = "Start swimulation"
+text = "Start simulation"
 
 [node name="About" type="Control" parent="."]
 layout_mode = 1

@@ -3,3 +3,5 @@
 /android/
 *.mp4
 *.ogv
+*.apk
+*.aab

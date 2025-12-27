@@ -10,10 +10,15 @@ config_version=5
 
 [application]
 
-config/name="Aquafulness Bathing Simulator"
+config/name="Bathing Simulator"
 config/name_localized={
+"da_DG": "Badesimulator",
+"es": "Simulador de baño",
+"fi": "Uimisen simulaattori",
+"nn": "Badesimulator",
 "sv": "Badsimulatorn"
 }
+config/version="1.0"
 run/main_scene="uid://fjofla0ll46s"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/image="uid://dp87tnvcmmpo5"
