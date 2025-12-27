@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsmd2p10eqv5b"]
+
+[ext_resource type="Script" uid="uid://21bqctwr3gpu" path="res://assets/Aquafulness/Scenes/Splash/about.gd" id="1_qiisx"]
+[ext_resource type="VideoStream" uid="uid://bhl6cov8lwnos" path="res://Vänern.ogv" id="2_uh3vl"]
+
+[node name="About" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qiisx")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+modulate = Color(1, 1, 1, 0.49019608)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("2_uh3vl")
+volume_db = -80.0
+autoplay = true
+
+[node name="LicensesTextEdit" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 91.0
+offset_top = 238.0
+offset_right = -122.0
+offset_bottom = -121.0
+grow_horizontal = 2
+grow_vertical = 2
+editable = false
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 139.0
+offset_bottom = 162.0
+grow_horizontal = 2
+text = "This game uses Godot Engine, available under the following license:"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 57.0
+offset_bottom = 106.0
+grow_horizontal = 2
+text = "Aquafulness Swimulator / aka Bathing Simulator
+Copyright (C) 2026 Alexander Forselius. All Rights Reserved."
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 57.0
+offset_right = 240.0
+offset_bottom = 106.0
+text = "Back"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
