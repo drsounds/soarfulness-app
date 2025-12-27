@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ktyco5f0otlm"]
+[gd_scene load_steps=17 format=3 uid="uid://ktyco5f0otlm"]
 
 [ext_resource type="PackedScene" uid="uid://dwfgugk1tvlya" path="res://assets/Aquafulness/Scenes/Coordlux/futuristic_dome.tscn" id="1_0r8s1"]
 [ext_resource type="Script" uid="uid://bmk356m72a0q8" path="res://assets/Aquafulness/Scenes/AquaScene/aqua_scene.gd" id="1_mnt5h"]
@@ -15,6 +15,9 @@
 [ext_resource type="NoiseTexture3D" uid="uid://dt4lbhlv68dai" path="res://addons/SunshineVolumetricClouds/BaseNoiseDetailTexture.tres" id="14_xv2xv"]
 [ext_resource type="NoiseTexture3D" uid="uid://duqxdvvkivpvw" path="res://addons/SunshineVolumetricClouds/BaseNoiseLargeScaleTexture.tres" id="15_kxxca"]
 [ext_resource type="PackedScene" uid="uid://bf38c65clfohf" path="res://assets/Aquafulness/Scenes/Christmas/Tree.blend" id="15_v2kci"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jh6ua"]
+size = Vector3(133.87631, 1, 518.1277)
 
 [node name="Coordlux" type="Node3D"]
 script = ExtResource("1_mnt5h")
@@ -89,23 +92,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.168406, 7.2877564, 36.943
 
 [node name="MeshInstance3D" parent="." instance=ExtResource("4_ylyet")]
 transform = Transform3D(0.076302856, -0.3355831, 0, 0.02718223, 0.9420106, 0, 0, 0, 0.081, -323.44092, 0, 105.145996)
-skeleton = NodePath("../Futuristic_Lighthouses/Node3D15")
 
 [node name="MeshInstance3D2" parent="." instance=ExtResource("4_ylyet")]
 transform = Transform3D(0.9540157, 3.7154856, 0, -0.2997568, 11.825025, 0, 0, 0, 1, -131.79309, 0, 43.323807)
-skeleton = NodePath("../Futuristic_Lighthouses/Node3D15")
 
 [node name="MeshInstance3D3" parent="." instance=ExtResource("4_ylyet")]
 transform = Transform3D(0.97657096, -2.66735, 0, 0.21519557, 12.104597, 0, 0, 0, 1, -193.08578, 0, 43.323807)
-skeleton = NodePath("../Futuristic_Lighthouses/Node3D15")
 
 [node name="MeshInstance3D4" parent="." instance=ExtResource("4_ylyet")]
 transform = Transform3D(0.9540157, 3.7154856, 0, -0.2997568, 11.825025, 0, 0, 0, 1, -131.79309, 0, 132.86649)
-skeleton = NodePath("../Futuristic_Lighthouses/Node3D15")
 
 [node name="MeshInstance3D5" parent="." instance=ExtResource("4_ylyet")]
 transform = Transform3D(0.97657096, -2.66735, 0, 0.21519557, 12.104597, 0, 0, 0, 1, -193.08578, 0, 132.86649)
-skeleton = NodePath("../Futuristic_Lighthouses/Node3D15")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 36.48156, -28.401964)
@@ -150,3 +148,9 @@ visible = false
 transform = Transform3D(0.0060033826, 0, -0.43642613, 0, 0.3857247, 0, 0.5647896, 0, 0.004638954, -11.025063, 22.433342, -189.4022)
 
 [node name="Spawn" type="Node3D" parent="."]
+
+[node name="Boundary" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.063183, 0, -18.989853)
+shape = SubResource("BoxShape3D_jh6ua")

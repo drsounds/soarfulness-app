@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://crci7xuewtyqg"]
+[gd_scene load_steps=8 format=3 uid="uid://crci7xuewtyqg"]
 
 [ext_resource type="PackedScene" uid="uid://3q1fmwrua8xf" path="res://assets/Aquafulness/Scenes/Coordlux/bath_place.tscn" id="1_47g7c"]
 [ext_resource type="Script" uid="uid://bmk356m72a0q8" path="res://assets/Aquafulness/Scenes/AquaScene/aqua_scene.gd" id="1_rw81e"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://ds051alhagcog" path="res://assets/Aquafulness/Scenes/Snow/Snow.tscn" id="5_5y3j2"]
 [ext_resource type="PackedScene" uid="uid://bf38c65clfohf" path="res://assets/Aquafulness/Scenes/Christmas/Tree.blend" id="6_rw81e"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_rw81e"]
+size = Vector3(557.2794, 124.762634, 762.4247)
+
 [node name="Framnas" type="Node3D"]
 script = ExtResource("1_rw81e")
 
@@ -14,6 +17,12 @@ script = ExtResource("1_rw81e")
 transform = Transform3D(-0.78111744, 0, 0.62438416, 0, 1, 0, -0.62438416, 0, -0.78111744, 17.0617, 25.834293, -176.47021)
 
 [node name="Bather" parent="." instance=ExtResource("2_mcfkd")]
+
+[node name="Boundary" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.237404, -34.090424, 142.8457)
+shape = SubResource("BoxShape3D_rw81e")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("3_n0j01")

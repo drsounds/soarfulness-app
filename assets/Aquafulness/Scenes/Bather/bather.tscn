@@ -1,14 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://db0gfh3dgksql"]
+[gd_scene load_steps=7 format=3 uid="uid://db0gfh3dgksql"]
 
 [ext_resource type="Script" uid="uid://bbr58hrni71p" path="res://assets/Aquafulness/Scenes/Bather/bather.gd" id="1_fjieo"]
 [ext_resource type="Script" uid="uid://dm0ew8hvv4xqm" path="res://example/Camera.gd" id="2_c6aw0"]
 [ext_resource type="PackedScene" uid="uid://b2ps6m14qrhkv" path="res://assets/Aquafulness/Scenes/Flower/Flower.tscn" id="3_hk1pu"]
+[ext_resource type="PackedScene" uid="uid://bss5uw1f1p0np" path="res://Spoonie.tscn" id="4_7cfey"]
+[ext_resource type="PackedScene" uid="uid://dcawt434tnrwa" path="res://assets/Aquafulness/Scenes/Cloud/Cloud.tscn" id="5_0if0t"]
+[ext_resource type="PackedScene" uid="uid://p2e4bgxha7b0" path="res://assets/Aquafulness/Scenes/Coordlux/RedSeaLine.tscn" id="6_2wcyn"]
 
 [node name="Bather" type="Node3D"]
 script = ExtResource("1_fjieo")
 
 [node name="Flower" parent="." instance=ExtResource("3_hk1pu")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -77.8291, 0)
+transform = Transform3D(89.43336, 0, 0, 0, 74.21645, 0, 0, 0, 29.487963, 0, -0.5349884, 0)
+visible = false
 
 [node name="Camera3D" type="Camera3D" parent="."]
 current = true
@@ -16,3 +20,13 @@ far = 16000.0
 script = ExtResource("2_c6aw0")
 speed = 10.0
 sprint_speed = 25.0
+
+[node name="Spoonie" parent="." instance=ExtResource("4_7cfey")]
+visible = false
+
+[node name="Cloud" parent="." instance=ExtResource("5_0if0t")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+visible = false
+
+[node name="RedSeaLine" parent="." instance=ExtResource("6_2wcyn")]
+visible = false

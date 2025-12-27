@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://p2e4bgxha7b0"]
+[gd_scene load_steps=4 format=3 uid="uid://p2e4bgxha7b0"]
+
+[ext_resource type="Material" uid="uid://bh42ouuqr504m" path="res://assets/Aquafulness/Scenes/Coordlux/DarkWood.tres" id="1_sdc4b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0hq6f"]
 albedo_color = Color(1, 0.22000003, 0.22000003, 1)
@@ -7,7 +9,15 @@ roughness = 0.0
 [sub_resource type="CylinderMesh" id="CylinderMesh_sdc4b"]
 material = SubResource("StandardMaterial3D_0hq6f")
 
-[node name="MeshInstance3D" type="MeshInstance3D"]
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.081, 0, 0, 0, 1, 0, 0, 0, 0.081, 0, 0, 0)
 mesh = SubResource("CylinderMesh_sdc4b")
 skeleton = NodePath("../Node3D2/Node3D15")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1575897, 0)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D"]
+material = ExtResource("1_sdc4b")

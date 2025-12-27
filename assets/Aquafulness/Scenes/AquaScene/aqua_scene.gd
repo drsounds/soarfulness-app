@@ -37,6 +37,8 @@ signal time_of_day_changed
 signal date_changed
 signal fog_changed
 
+@onready var boundary = $Boundary
+
 
 func _input(event):
 	if event.is_action_pressed('ui_toggle_snow'):
@@ -62,7 +64,7 @@ func set_fog(val):
 	_fog = val
 	env.fog_enabled = _fog > 0
 	if _fog > 0:
-		env.fog_depth_end = 100 - _fog
+		env.fog_depth_end = 1000 - _fog
 
 	emit_signal('fog_changed', _fog)
 

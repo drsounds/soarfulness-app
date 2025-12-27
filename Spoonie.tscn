@@ -12,6 +12,7 @@ emission_enabled = true
 emission = Color(0.2436, 0.67164, 0.87, 1)
 
 [node name="Spoonie" type="Node3D"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 261.77423, 0)
 script = ExtResource("1_55rqe")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
