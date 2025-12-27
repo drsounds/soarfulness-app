@@ -192,7 +192,7 @@ var dragging_touch_index = -1
 
 
 func _gui_input(event: InputEvent) -> void:
-	if event is InputEventScreenDrag:
+	if event is InputEventScreenDrag and false:
 		if dragging_touch_index == -1: # Only take the first finger that touches
 			dragging_touch_index = event.index
 		
@@ -361,6 +361,8 @@ func _on_respawn_button_pressed() -> void:
 
 func _on_button_pressed() -> void:
 	$StatusBar.visible = !$StatusBar.visible
+	$Control.visible = $StatusBar.visible
+
 	if $StatusBar.visible:
 		$Button.text = "Hide status bar"
 	else:
