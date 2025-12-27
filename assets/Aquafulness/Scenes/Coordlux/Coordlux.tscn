@@ -148,3 +148,5 @@ visible = false
 
 [node name="Tree" parent="Christmas" instance=ExtResource("15_v2kci")]
 transform = Transform3D(0.0060033826, 0, -0.43642613, 0, 0.3857247, 0, 0.5647896, 0, 0.004638954, -11.025063, 22.433342, -189.4022)
+
+[node name="Spawn" type="Node3D" parent="."]

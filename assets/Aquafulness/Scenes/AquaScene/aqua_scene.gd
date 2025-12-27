@@ -38,6 +38,14 @@ signal date_changed
 signal fog_changed
 
 
+func _input(event):
+	if event.is_action_pressed('ui_toggle_snow'):
+		if snow_amount > 0:
+			snow_amount = 0
+		else:
+			snow_amount = 100
+ 
+
 func add_feature_flag(flag):
 	if not feature_flags.has(flag):
 		feature_flags.push_back(flag)

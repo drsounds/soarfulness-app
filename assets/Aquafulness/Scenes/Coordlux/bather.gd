@@ -30,14 +30,21 @@ func _input(event: InputEvent) -> void:
 		self.velocity.x -= 1
 	if event.is_action_pressed('ui_right'):
 		self.velocity.x = 1
+
 	if event.is_action_pressed("ui_action_increase_wave_height"):
 		wave_height += 1
-		wave_length = wave_height / 20
-
+		#wave_length = wave_height / 20
 	if event.is_action_pressed("ui_action_decrease_wave_height"):
 		wave_height -= 1
-		wave_length = wave_height / 20
-	
+		#wave_length = wave_height / 20
+
+	if event.is_action_pressed("ui_action_increase_wave_length"):
+		wave_length += 1
+		#wave_length = wave_height / 20
+	if event.is_action_pressed("ui_action_decrease_wave_length"):
+		wave_length -= 1
+		#wave_length = wave_height / 20
+
 	if event.is_action_pressed("ui_action_increase_wave_speed"):
 		wave_speed += 1
 	if event.is_action_pressed("ui_action_decrease_wave_speed"):
@@ -52,6 +59,7 @@ func _input(event: InputEvent) -> void:
 		stream_speed += 1
 	if event.is_action_pressed("ui_action_decrease_wave_speed"):
 		stream_speed -= 1
+
 
 func _process(delta:float) -> void:
 	time += delta

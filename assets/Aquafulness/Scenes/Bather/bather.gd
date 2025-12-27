@@ -55,10 +55,18 @@ func set_enable_flowers(val):
 
 
 func respawn():
-	self.global_transform.origin.x = 0
-	self.global_transform.origin.z = 0
 	self.velocify = Vector3(0, 0, 0)
 	self.velocity = Vector3(0, 0, 0)
+
+	var spawn: Node3D = get_parent().find_child('Spawn')
+	var new_position = Vector3(0, 0, 0)
+	if spawn:
+		new_position = spawn.position
+
+	self.transform.origin = new_position
+	self.location = new_position
+
+	print("Respawned at" + str(self.transform.origin))
 
 	emit_signal('respawned')
 
@@ -101,19 +109,38 @@ var dragging_touch_index = -1
 
 
 func _input(event: InputEvent) -> void:
+	if event is InputEventJoypadMotion:
+		if event.axis == JOY_AXIS_LEFT_X: # Left Stick X-axis
+			if event.axis_value > 0.5: velocify.x += (event.axis_value - 0.5) * 0.01
+			if event.axis_value < -0.5: velocify.x -= (event.axis_value + 0.5) * 0.01
+		if event.axis == JOY_AXIS_LEFT_Y: # Left Stick Y-axis (inverted in Godot Y-down)
+			if event.axis_value > 0.5: velocify.z += (event.axis_value - 0.5) * 0.01
+			if event.axis_value < -0.5: velocify.z += (event.axis_value + 0.5) * 0.01
+
 	if event is InputEventScreenDrag and event.pressed:
 		if dragging_touch_index == -1: # Only take the first finger that touches
 			dragging_touch_index = event.index
 
 	if event is InputEventScreenDrag and event.index == dragging_touch_index:
-		self.velocify.z = -event.relative.y
-		self.velocify.x = event.relative.x
+		if self.relative.x > 2:
+			self.velocify.x = event.relative.x - 2
+		else:
+			self.velocify.x = 0
+
+		if self.relative.y > 2:
+			self.velocify.z = -event.relative.y - 2
+		else:
+			self.velocify.z = 0
 
 	if event is InputEventScreenTouch and not event.pressed:
 		if event.index == dragging_touch_index:
 			dragging_touch_index = -1
 			self.velocify.y = 0
 			self.velocify.z = 0
+
+	if event.is_action_pressed("ui_action_stop"):
+		self.velocify.z = 0
+		self.velocify.y = 0
 
 	if (event.is_action_pressed("ui_up") and event.is_action_pressed("ui_down")) or event.is_action_pressed("stop"):
 		self.velocify.z = 0
@@ -221,7 +248,6 @@ func expand_forward():
 			new_flower.transform.origin.y = -300
 			new_flower.transform.origin.z = swimmed_z_minus - 200 - (z * 100)
 
-			print("new_flower.global_position", new_flower.transform.origin.z)
 			new_flower.scale *= 1
 			new_flower.scale.y *= 1
 			new_flower.visible = enable_flowers
@@ -232,6 +258,12 @@ func _process(delta:float) -> void:
 	time += delta
 	self.location += velocify
 	# self.velocify *= 0.99
+	# `velocity` will be a Vector2 between `Vector2(-1.0, -1.0)` and `Vector2(1.0, 1.0)`.
+	# This handles deadzone in a correct way for most use cases.
+	# The resulting deadzone will have a circular shape as it generally should.
+	#var drag_velocity = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+
+	#self.velocify += drag_velocity
 
 	wave.y = sin(time * wave_speed) * wave_height + 2
 	wave.z = sin(time * wave_speed + 2) * -wave_length
@@ -252,10 +284,8 @@ func _process(delta:float) -> void:
 	self.transform.origin.z = wave.z
 	self.transform.origin += location
 	
-	print("Transform origin z", self.transform.origin)
 	var transform_origin = self.transform.origin
-	
-	print("swimmed_z_minus", swimmed_z_minus)
+
 	if transform_origin.z < swimmed_z_minus:
 		expand_forward()
 

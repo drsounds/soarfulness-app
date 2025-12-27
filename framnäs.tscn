@@ -30,7 +30,7 @@ detailNoiseTexture = ExtResource("5_yej0i")
 largeScaleNoiseTexture = ExtResource("6_yd6rf")
 cloudsCutoff = 0.333
 useFogDefault = false
-fogColorDefault = Color(0.518, 0.553, 0.608, 1)
+fogColorDefault = Color(0.7730919, 0.81912947, 0.93482286, 1)
 metadata/_custom_type_script = "uid://bbr8tw1iges4f"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -159,3 +159,5 @@ offset_bottom = 41.0
 [node name="Bottom" parent="." instance=ExtResource("15_lv7f4")]
 transform = Transform3D(1.9000001, 0, 0, 0, 1, 0, 0, 0, 2.6, 0, -25.859352, 147.92308)
 visible = false
+
+[node name="Spawn" type="Node3D" parent="."]

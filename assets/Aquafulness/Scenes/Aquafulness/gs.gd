@@ -195,9 +195,30 @@ func _gui_input(event: InputEvent) -> void:
 	if event is InputEventScreenDrag:
 		if dragging_touch_index == -1: # Only take the first finger that touches
 			dragging_touch_index = event.index
+		
+		var window_size = DisplayServer.window_get_size(event.window_id)
 
-		bather.velocify.z = -event.relative.y * 0.05
-		bather.velocify.x = -event.relative.x * 0.05
+		var horizontal_quart_width = (window_size.x / 4)
+
+		if event.position.x < horizontal_quart_width:
+			var rel_x = 1 - (event.position.x / horizontal_quart_width)
+			bather.velocify.x = -(rel_x) * 10
+		elif event.position.x > horizontal_quart_width * 3:
+			var rel_x = 1 - (event.position.x - horizontal_quart_width * 3) / (horizontal_quart_width)
+			bather.velocify.x = (rel_x) * 10
+		else:
+			bather.velocify.x = 0
+
+		var vertical_quart_height = (window_size.y / 4)
+
+		if event.position.y < vertical_quart_height:
+			var rel_y = 1 - (event.position.y / vertical_quart_height)
+			bather.velocify.z = - rel_y * 10
+		elif event.position.y > vertical_quart_height * 3:
+			var rel_y = (event.position.y - vertical_quart_height * 3) / (vertical_quart_height)
+			bather.velocify.z = (rel_y) * 10
+		else:
+			bather.velocify.z = 0
 
 
 func _on_year_slider_drag_ended(value_changed: bool) -> void:
@@ -336,3 +357,11 @@ func _on_stop_button_2_pressed() -> void:
 
 func _on_respawn_button_pressed() -> void:
 	bather.respawn()
+
+
+func _on_button_pressed() -> void:
+	$StatusBar.visible = !$StatusBar.visible
+	if $StatusBar.visible:
+		$Button.text = "Hide status bar"
+	else:
+		$Button.text = "Show status bar"
