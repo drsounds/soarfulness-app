@@ -19,6 +19,15 @@ var velocity: Vector3 = Vector3(0, 0, 0)
 
 var flowers
 
+var _duo: Node3D
+
+@export var duo: Node3D: get = get_duo
+
+
+func get_duo():
+	if _duo == null:
+		_duo = get_parent().find_child('Duo')
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -93,6 +102,11 @@ func _process(delta:float) -> void:
 
 	self.transform.origin += velocity
 	self.velocity *= 0.99
+	
+	if self.duo:
+		duo.transform.origin = self.transform.origin
+		duo.transform.origin.z -= 10
+		
 "
 
 [node name="Bather" type="Camera3D"]

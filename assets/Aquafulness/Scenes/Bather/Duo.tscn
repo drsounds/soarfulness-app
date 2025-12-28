@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnabv8o6wlsv5"]
+
+[ext_resource type="Script" uid="uid://cvwaqqmshppfi" path="res://assets/Aquafulness/Scenes/Bather/duo.gd" id="1_bm51l"]
+[ext_resource type="PackedScene" uid="uid://cixa7yspxn8w6" path="res://assets/Aquafulness/Scenes/Bather/Buddha.blend" id="1_x63ky"]
+
+[node name="Duo" type="Node3D"]
+script = ExtResource("1_bm51l")
+
+[node name="Buddha" parent="." instance=ExtResource("1_x63ky")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.025356293, 0, 0.103752136)

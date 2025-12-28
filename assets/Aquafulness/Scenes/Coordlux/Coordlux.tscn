@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ktyco5f0otlm"]
+[gd_scene load_steps=19 format=3 uid="uid://ktyco5f0otlm"]
 
 [ext_resource type="PackedScene" uid="uid://dwfgugk1tvlya" path="res://assets/Aquafulness/Scenes/Coordlux/futuristic_dome.tscn" id="1_0r8s1"]
 [ext_resource type="Script" uid="uid://bmk356m72a0q8" path="res://assets/Aquafulness/Scenes/AquaScene/aqua_scene.gd" id="1_mnt5h"]
@@ -15,6 +15,8 @@
 [ext_resource type="NoiseTexture3D" uid="uid://dt4lbhlv68dai" path="res://addons/SunshineVolumetricClouds/BaseNoiseDetailTexture.tres" id="14_xv2xv"]
 [ext_resource type="NoiseTexture3D" uid="uid://duqxdvvkivpvw" path="res://addons/SunshineVolumetricClouds/BaseNoiseLargeScaleTexture.tres" id="15_kxxca"]
 [ext_resource type="PackedScene" uid="uid://bf38c65clfohf" path="res://assets/Aquafulness/Scenes/Christmas/Tree.blend" id="15_v2kci"]
+[ext_resource type="PackedScene" uid="uid://b2ps6m14qrhkv" path="res://assets/Aquafulness/Scenes/Flower/Flower.tscn" id="16_sc3kh"]
+[ext_resource type="PackedScene" uid="uid://dcawt434tnrwa" path="res://assets/Aquafulness/Scenes/Cloud/Cloud.tscn" id="17_xv2xv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jh6ua"]
 size = Vector3(133.87631, 1, 518.1277)
@@ -154,3 +156,17 @@ transform = Transform3D(0.0060033826, 0, -0.43642613, 0, 0.3857247, 0, 0.5647896
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.063183, 0, -18.989853)
 shape = SubResource("BoxShape3D_jh6ua")
+
+[node name="Flower" parent="." instance=ExtResource("16_sc3kh")]
+transform = Transform3D(89.43336, 0, 0, 0, 74.21645, 0, 0, 0, 29.487963, 0, -0.5349884, 0)
+visible = false
+
+[node name="Spoonie" parent="." instance=ExtResource("2_67si5")]
+visible = false
+
+[node name="Cloud" parent="." instance=ExtResource("17_xv2xv")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+visible = false
+
+[node name="RedSeaLine" parent="." instance=ExtResource("4_ylyet")]
+visible = false

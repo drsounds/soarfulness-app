@@ -24,12 +24,14 @@ config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/image="uid://cr2bwgsn60b6j"
 config/icon="uid://3xybwfx44xfy"
 
+[autoload]
+
+ImGuiRoot="*res://addons/imgui-godot/data/ImGuiRoot.tscn"
+
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/stretch/mode="viewport"
-window/handheld/orientation=6
 
 [editor]
 

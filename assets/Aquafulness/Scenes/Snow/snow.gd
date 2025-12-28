@@ -17,6 +17,8 @@ const MAX_FLAKES = 30000
 
 var flakes = []
 
+signal active_changed
+
 
 func activate():
 	self.active = true
@@ -33,6 +35,7 @@ func get_active():
 func set_active(value):
 	self.visible = value
 	_active = value
+	emit_signal('active_changed', value)
 
 
 func create_flake():
@@ -42,9 +45,22 @@ func create_flake():
 
 func add_flake(flake):
 	self.flakes.push_back(flake)
-	self.add_child(flake)
+	get_parent().add_child(flake)
 
-	flake.transform.origin = Vector3(rng.randf_range(transform.origin.x - bounds.x, transform.origin.x + bounds.x), rng.randf_range(transform.origin.y - bounds.y, transform.origin.y + bounds.y), rng.randf_range(transform.origin.z - bounds.z, transform.origin.z + bounds.z))
+	flake.global_transform.origin = Vector3(
+		rng.randf_range(
+			global_transform.origin.x - bounds.x,
+			global_transform.origin.x + bounds.x
+		),
+		rng.randf_range(
+			global_transform.origin.y - bounds.y,
+			global_transform.origin.y + bounds.y
+		),
+		rng.randf_range(
+			global_transform.origin.z - bounds.z,
+			global_transform.origin.z + bounds.z
+		)
+	)
 
 	flake.active = true
 

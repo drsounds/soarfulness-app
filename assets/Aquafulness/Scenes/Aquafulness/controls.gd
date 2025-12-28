@@ -58,17 +58,18 @@ func init() -> void:
 	soarfulness.connect('scene_loaded', self._on_scene_loaded)
 	aquafulness = get_tree().root.find_child('Aquafulness', true, false)
 	scene = get_tree().root.find_child('SubViewport', true, false).get_child(0)
-	scene.connect('flowers_enabled', self._on_flowers_enabled)
+	scene.connect('flowers_changed', self._on_flowers_changed)
 	bather = get_tree().root.find_child('Bather', true, false)
 	audio_player = aquafulness.find_child('VideoStreamPlayer')
 	audio_player.volume_db = -80
-	bather.connect('wave_height_changed', self._handle_bather_wave_height_changed)
-	bather.connect('wave_length_changed', self._handle_bather_wave_length_changed)
-	bather.connect('wave_speed_changed', self._handle_bather_wave_speed_changed)
+	scene.connect('wave_height_changed', self._handle_scene_wave_height_changed)
+	scene.connect('wave_length_changed', self._handle_scene_wave_length_changed)
+	scene.connect('wave_speed_changed', self._handle_scene_wave_speed_changed)
 	$DateTimeInput.date = Time.get_datetime_dict_from_system()
 	scene.connect("date_changed", self.scene_date_changed)
 	scene.connect("fog_changed", self._on_fog_changed)
-	bather.connect("show_clouds_changed", self._on_show_clouds_changed)
+	scene.connect("snow_changed", self._on_snow_changed)
+	scene.connect("clouds_changed", self._on_clouds_changed)
 	bather.connect("enforce_boundaries_changed", self._on_enforce_boundaries_changed)
 
 	$WeatherPanel.open = false
@@ -83,19 +84,25 @@ func init() -> void:
 		i = i + 1
 
 
-func _on_show_clouds_changed(show_clouds: bool):
-	$Control/CloudsCheckButton.toggle_mode = show_clouds
+
+func _on_snow_changed(snow: float):
+	$StatusBar/Snow/SnowSpinBox.value = snow
 
 
-func _handle_bather_wave_speed_changed(wave_speed: float):
+func _on_clouds_changed(clouds: float):
+	$Control/CloudsCheckButton.toggle_mode = clouds > 0
+
+
+func _handle_scene_wave_speed_changed(wave_speed: float):
 	$StatusBar/WaveSpeed/WaveSpeedSpinBox.value = wave_speed
 
 
-func _on_enforce_boundaries_changed(show_clouds: bool):
-	$Control/CloudsCheckButton.toggle_mode = show_clouds
+func _on_enforce_boundaries_changed(enforce_boundaries: bool):
+	$Control/CloudsCheckButton.toggle_mode = enforce_boundaries
 
-func _on_flowers_enabled(flowers_enabled: bool):
-	$StatusBar/Reed/CheckButton.toggle_mode = flowers_enabled
+
+func _on_flowers_changed(flowers: float):
+	$StatusBar/Reed/CheckButton.toggle_mode = flowers > 0
 
 
 func _on_fog_changed(fog_amount: float):
@@ -119,13 +126,13 @@ func _ready() -> void:
 		load_scene(current_scene)
 
 
-func _handle_bather_wave_height_changed(val):
+func _handle_scene_wave_height_changed(val):
 	$WaveHeightSlider.value = val
 	$StatusBar/Wave/WaveSpinBox.value = val
 	$WeatherPanel/WaveHeightSpinner.value = val
 
 
-func _handle_bather_wave_length_changed(val):
+func _handle_scene_wave_length_changed(val):
 	$WaveLengthSlider.value = val
 	$StatusBar/WaveLength/WaveLengthSpinBox.value = val
 	$WeatherPanel/WaveLengthSpinner.value = val
@@ -142,13 +149,13 @@ func load_config(filename = CONFIG_FILENAME):
 	if err:
 		print(err)
 
-	bather.wave_height = config.get_value("water", "wave_height", 20.0)
-	bather.wave_length = config.get_value("water", "wave_length", 5.0)
-	bather.wave_speed = config.get_value("water", "wave_speed", 4.0)
-	bather.enable_flowers = config.get_value("water", "flowers", false)
-	bather.show_clouds = config.get_value("scene", "clouds", false)
+	scene.wave_height = config.get_value("water", "wave_height", 20.0)
+	scene.wave_length = config.get_value("water", "wave_length", 5.0)
+	scene.wave_speed = config.get_value("water", "wave_speed", 4.0)
+	scene.flowers = config.get_value("water", "flowers", 0.0)
+	scene.clouds = config.get_value("scene", "clouds", 0.0)
 	bather.enforce_boundaries = config.get_value("scene", "enforce_boundaries", false)
-	scene.snow_amount = config.get_value("weather", "snow", 0.0)
+	scene.snow = config.get_value("weather", "snow", 0.0)
 	scene.fog = config.get_value("weather", "fog", 0.0)
 
 	scene.date = Time.get_datetime_dict_from_datetime_string(
@@ -210,7 +217,10 @@ func _on_aqua_overlay_check_button_toggled(toggled_on: bool) -> void:
 
 
 func _on_snow_check_button_toggled(toggled_on: bool) -> void:
-	scene.snow = toggled_on
+	if toggled_on:
+		scene.snow = 100
+	else:
+		scene.snow = 0
 
 
 func _on_christmas_button_toggled(toggled_on: bool) -> void:
@@ -320,19 +330,19 @@ func _on_snow_slider_drag_ended(value_changed: bool) -> void:
 
 
 func _on_wave_height_spinner_after_pressed(value: float) -> void:
-	bather.wave_height = value
+	scene.wave_height = value
 	config.set_value("water", "wave_height", value)
 	save_config()
 
 
 func _on_wave_length_spinner_after_pressed(value: float) -> void:
-	bather.wave_length = value
+	scene.wave_length = value
 	config.set_value("water", "wave_length", value)
 	save_config()
 
 
 func _on_snow_amount_spinner_after_pressed(value: float) -> void:
-	scene.snow_amount = value
+	scene.snow = value
 	config.set_value("weather", "snow_amount", value)
 	save_config()
 
@@ -377,37 +387,41 @@ func _on_scene_options_button_item_selected(index: int) -> void:
 
 
 func _on_flowers_check_button_toggled(toggled_on: bool) -> void:
-	scene.enable_flowers = toggled_on
-	config.set_value("water", "enable_flowers", true)
+	if toggled_on:
+		scene.flowers = 1
+	else:
+		scene.flowers = 0
+
+	config.set_value("water", "flowers", true)
 	save_config()
 
 
 func _on_snow_spin_box_value_changed(value: float) -> void:
-	if scene.snow_amount == $StatusBar/Snow/SnowSpinBox.value:
+	if scene.snow == $StatusBar/Snow/SnowSpinBox.value:
 		return
 
-	scene.snow_amount = value
-	config.set_value("water", "wave_height", bather.wave_height)
+	scene.snow = value
+	config.set_value("water", "wave_height", scene.wave_height)
 	config.set_value("water", "enable_flowers", true)
 	save_config()
 
 
 
 func _on_wave_spin_box_value_changed(value: float) -> void:
-	if bather.wave_height == $StatusBar/Wave/WaveSpinBox.value:
+	if scene.wave_height == $StatusBar/Wave/WaveSpinBox.value:
 		return
 
-	bather.wave_height = value
-	config.set_value("water", "wave_height", bather.wave_height)
+	scene.wave_height = value
+	config.set_value("water", "wave_height", scene.wave_height)
 	save_config()
 
 
 func _on_wave_length_spin_box_value_changed(value: float) -> void:
-	if bather.wave_length == $StatusBar/WaveLength/WaveLengthSpinBox.value:
+	if scene.wave_length == $StatusBar/WaveLength/WaveLengthSpinBox.value:
 		return
 
-	bather.wave_length = value
-	config.set_value("water", "wave_length", bather.wave_length)
+	scene.wave_length = value
+	config.set_value("water", "wave_length", scene.wave_length)
 	save_config()
 
 
@@ -437,14 +451,14 @@ func _on_button_pressed() -> void:
 	$Control.visible = $StatusBar.visible
 
 	if $StatusBar.visible:
-		$Button.text = "Hide status bar"
+		$Button.text = "Hide controls"
 	else:
-		$Button.text = "Show status bar"
+		$Button.text = "Show controls"
 
 
 func _on_check_button_toggled(toggled_on: bool) -> void:
-	if toggled_on != bather.show_clouds:
-		bather.show_clouds = toggled_on
+	if toggled_on != scene.clouds:
+		scene.clouds = toggled_on
 		config.set_value('scene', 'clouds', toggled_on)
 		save_config()
 
@@ -456,33 +470,33 @@ func _on_enforce_boundaries_button_toggled(toggled_on: bool) -> void:
 
 
 func _on_increase_wave_button_pressed() -> void:
-	bather.wave_height += 5
-	config.set_value('water', 'wave_height', bather.wave_height)
+	scene.wave_height += 5
+	config.set_value('water', 'wave_height', scene.wave_height)
 	save_config()
 
 
 func _on_decrease_wave_button_pressed() -> void:
-	bather.wave_height -= 5
-	config.set_value('water', 'wave_height', bather.wave_height)
+	scene.wave_height -= 5
+	config.set_value('water', 'wave_height', scene.wave_height)
 	save_config()
 
 
 func _on_increase_wave_length_button_pressed() -> void:
-	bather.wave_length += 1
-	config.set_value('water', 'wave_length', bather.wave_length)
+	scene.wave_length += 1
+	config.set_value('water', 'wave_length', scene.wave_length)
 	save_config()
 
 
 func _on_decrease_wave_length_button_pressed() -> void:
-	bather.wave_length -= 1
-	config.set_value('water', 'wave_length', bather.wave_length)
+	scene.wave_length -= 1
+	config.set_value('water', 'wave_length', scene.wave_length)
 	save_config()
 
 
 func _on_snow_storm_preset_button_pressed() -> void:
-	scene.snow_amount = 100
+	scene.snow = 100
 	scene.fog = 10
-	config.set_value('water', 'wave_length', bather.wave_length)
+	config.set_value('water', 'wave_length', scene.wave_length)
 	save_config()
 
 
@@ -507,21 +521,21 @@ func _on_preset_select_button_item_selected(index: int) -> void:
 
 
 func _on_wave_speed_spin_box_value_changed(value: float) -> void:
-	if value != bather.wave_speed:
-		bather.wave_speed = value
+	if value != scene.wave_speed:
+		scene.wave_speed = value
 		config.set_value('water', 'wave_speed', value)
 		save_config()
 
 
 func _on_increase_wave_speed_button_pressed() -> void:
-	bather.wave_speed += 1
-	config.set_value('water', 'wave_speed', bather.wave_speed)
+	scene.wave_speed += 1
+	config.set_value('water', 'wave_speed', scene.wave_speed)
 	save_config()
 
 
 func _on_decrease_wave_speed_button_pressed() -> void:
-	bather.wave_speed -= 1
-	config.set_value('water', 'wave_speed', bather.wave_speed)
+	scene.wave_speed -= 1
+	config.set_value('water', 'wave_speed', scene.wave_speed)
 	save_config()
 
 
