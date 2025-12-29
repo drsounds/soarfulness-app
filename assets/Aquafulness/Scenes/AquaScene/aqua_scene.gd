@@ -51,7 +51,19 @@ var swing: Swing
 signal ocean_3d_changed
 signal is_showing_ocean_floor_changed
 
+signal water_level_changed
+
 @export var is_showing_ocean_floor: bool: get = get_is_showing_ocean_floor, set = set_is_showing_ocean_floor
+
+@export var water_level: float: get = get_water_level, set = set_water_level
+
+func set_water_level(value: float):
+	$Swing.y_offset = value
+	emit_signal('water_level_changed')
+
+
+func get_water_level():
+	return $Swing.y_offset
 
 
 func set_is_showing_ocean_floor(value: bool):

@@ -760,6 +760,40 @@ theme_override_font_sizes/font_size = 48
 text = "^"
 expand_icon = true
 
+[node name="IncreaseWaveLevelButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_top = -106.0
+offset_right = -488.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "^"
+expand_icon = true
+
+[node name="DecreaseWaveLevelButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_top = 13.0
+offset_right = -488.0
+offset_bottom = 109.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "v"
+expand_icon = true
+
 [node name="DecreaseWaveHeightButton" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = 6
@@ -875,6 +909,21 @@ offset_bottom = 83.0
 grow_horizontal = 0
 grow_vertical = 2
 text = "Less speed"
+
+[node name="Label6" type="Label" parent="Control/Label6"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -231.0
+offset_top = -83.5
+offset_right = -147.0
+offset_bottom = -60.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Water level"
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 1
@@ -1133,6 +1182,8 @@ text = "Hide controls"
 [connection signal="drag_ended" from="DatePanel/DaySlider" to="." method="_on_day_slider_drag_ended"]
 [connection signal="pressed" from="DatePanel/DateTimeButton" to="DatePanel" method="_on_date_time_button_pressed"]
 [connection signal="pressed" from="Control/IncreaseWaveHeightButton" to="." method="_on_increase_wave_button_pressed"]
+[connection signal="pressed" from="Control/IncreaseWaveLevelButton" to="." method="_on_increase_wave_level_button_pressed"]
+[connection signal="pressed" from="Control/DecreaseWaveLevelButton" to="." method="_on_decrease_wave_level_button_pressed"]
 [connection signal="pressed" from="Control/DecreaseWaveHeightButton" to="." method="_on_decrease_wave_button_pressed"]
 [connection signal="pressed" from="Control/DecreaseWaveSpeedButton" to="." method="_on_decrease_wave_speed_button_pressed"]
 [connection signal="pressed" from="Control/IncreaseWaveSpeedButton" to="." method="_on_increase_wave_speed_button_pressed"]

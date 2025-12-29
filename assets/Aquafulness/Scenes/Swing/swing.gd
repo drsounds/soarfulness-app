@@ -20,6 +20,8 @@ var _wave_length: float = 4
 var stream: Vector3 = Vector3(0, 1, 0)
 var stream_speed: float = 2
 
+var y_offset = 0.00
+
 signal wave_speed_changed
 signal wave_height_changed
 signal wave_length_changed
@@ -153,6 +155,8 @@ func _process(delta: float) -> void:
 	if $Swing != null:
 		$Swing.transform.origin.x = 0
 		$Swing.transform.origin.y = wave.y
+		if y_offset is float:
+			$Swing.transform.origin.y += y_offset
 		$Swing.transform.origin.z = wave.z
 	 
 		emit_signal('swing', $Swing.transform.origin)

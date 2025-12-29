@@ -200,6 +200,7 @@ func load_config(filename = CONFIG_FILENAME):
 	bather.enforce_boundaries = config.get_value("scene", "enforce_boundaries", false)
 	scene.snow = config.get_value("weather", "snow", 0.0)
 	scene.fog = config.get_value("weather", "fog", 0.0)
+	scene.water_level = config.get_value("water", "level", 0.00)
 
 	scene.date = Time.get_datetime_dict_from_datetime_string(
 		config.get_value("date", "now", Time.get_datetime_string_from_system(false)),
@@ -649,3 +650,15 @@ func _on_ocean_floor_check_button_toggled(toggled_on: bool) -> void:
 		scene.is_showing_ocean_floor = toggled_on
 		config.set_value('scene', 'is_showing_ocean_floors', toggled_on)
 		save_config()
+
+
+func _on_increase_wave_level_button_pressed() -> void:
+	scene.water_level += 1
+	config.set_value('water', 'level', scene.water_level)
+	save_config()
+
+
+func _on_decrease_wave_level_button_pressed() -> void:
+	scene.water_level -= 1
+	config.set_value('water', 'level', scene.water_level)
+	save_config()
