@@ -22,7 +22,7 @@ func _on_texture_button_button_up() -> void:
 	"""
 
 func _on_left_button_button_down() -> void:
-	bather.velocity.x -= 1
+	bather.velocity.x -= 0.1
 	"""
 	var ui_event = InputEventAction.new()
 	ui_event.action = "ui_left"
@@ -40,7 +40,7 @@ func _on_left_button_button_up() -> void:
 	pass
 
 func _on_right_button_button_down() -> void:
-	bather.velocity.x += 1
+	bather.velocity.x += 0.1
 	"""
 	var ui_event = InputEventAction.new()
 	ui_event.action = "ui_right"
@@ -58,7 +58,7 @@ func _on_right_button_button_up() -> void:
 	"""
 
 func _on_down_button_button_down() -> void:
-	bather.velocity.z += 1
+	bather.velocity.z += 0.1
 	"""
 	var ui_event = InputEventAction.new()
 	ui_event.action = "ui_down"
@@ -77,7 +77,7 @@ func _on_down_button_button_up() -> void:
 	"""
 
 func _on_up_button_pressed() -> void:
-	bather.velocity.z -= 1
+	bather.velocity.z -= 0.1
 
 	"""
 	scale.x = 0.8

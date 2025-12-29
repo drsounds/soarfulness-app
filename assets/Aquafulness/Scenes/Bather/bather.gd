@@ -243,7 +243,7 @@ func _process(delta:float) -> void:
 	if swing != null:
 		self.transform.origin.y = swing.swing_transform.origin.y
 		if floatation_gear != null:
-			self.transform.origin.y += floatation_gear.transform.origin.y
-		self.transform.origin.z += swing.swing_transform.origin.z * 0.2
+			self.transform.origin.y = floatation_gear.transform.origin.y
+		self.transform.origin.z += swing.swing_transform.origin.z * 0.1
 	
 	emit_signal('moved', self.transform.origin - old_transform_origin)
