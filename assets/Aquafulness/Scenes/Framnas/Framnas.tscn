@@ -84,7 +84,7 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -87.84196)
 
 [node name="OceanFloor" type="MeshInstance3D" parent="."]
-transform = Transform3D(15617.864, 0, 0, 0, 1, 0, 0, 0, 16846.672, 0, -853.4187, 0)
+transform = Transform3D(15617.864, 0, 0, 0, 1, 0, 0, 0, 16846.672, 0, -92.717285, 0)
 mesh = SubResource("BoxMesh_lgsd1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
