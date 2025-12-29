@@ -437,15 +437,8 @@ func get_ocean_type():
 	return _ocean_type
 
 
-func set_ocean_type(value: String):
+func set_ocean_type(value):
 	_ocean_type = value
-
-	if value == "imaginary":
-		aquafulness.visible = true
-		$OceanFloor.visible = true
-		set_3d_ocean(false)
-	else:
-		$OceanFloor.visible = false
 
 	if value == "3d":
 		aquafulness.visible = false
@@ -454,6 +447,13 @@ func set_ocean_type(value: String):
 	else:
 		$OceanFloor.visible = false
 		set_3d_ocean(false)
+
+	if value == "imaginary":
+		aquafulness.visible = true
+		$OceanFloor.visible = true
+		set_3d_ocean(false)
+	else:
+		$OceanFloor.visible = false
 
 	emit_signal('ocean_type_changed', _ocean_type)
 

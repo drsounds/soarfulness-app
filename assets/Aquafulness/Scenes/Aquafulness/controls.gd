@@ -58,6 +58,7 @@ func init() -> void:
 	soarfulness = get_tree().root.find_child('Soarfulness', true, false)
 	soarfulness.connect('scene_loaded', self._on_scene_loaded)
 	aquafulness = get_tree().root.find_child('Aquafulness', true, false)
+	aquafulness.connect('seed_changed', self._on_seed_changed)
 	scene = get_tree().root.find_child('SubViewport', true, false).get_child(0)
 	scene.connect('flowers_changed', self._on_flowers_changed)
 	scene.connect('ocean_type_changed', self._on_ocean_type_changed)
@@ -84,6 +85,28 @@ func init() -> void:
 			i
 		)
 		i = i + 1
+
+func _on_seed_changed(filename: Dictionary):
+	for item_index in $Control/SeedOptionButton.item_count:
+		var text = $Control/SeedOptionButton.get_item_text(item_index)
+		for aquafulness_seed in aquafulness.available_seeds:
+			if text == aquafulness_seed['name'] and filename == aquafulness_seed['filename']:
+				if item_index != $Control/SeedOptionButton.selected:
+					$Control/SeedOptionButton.selected = item_index
+
+			if aquafulness_seed.has("params"):
+				var params = aquafulness_seed['params']
+				if params.has('wave_height'):
+					scene.wave_height = params['wave_height']
+					config.set('water', 'wave_height', scene.wave_height)
+				if params.has('wave_speed'):
+					scene.wave_speed = params['wave_speed']
+					config.set('water', 'wave_speed', scene.wave_speed)
+				if params.has('wave_length'):
+					scene.wave_length = params['wave_length']
+					config.set('water', 'wave_length', scene.wave_length)
+					save_config()
+
 
 func _on_ocean_type_changed(ocean_type: String):
 	if ocean_type == "imaginary":
@@ -161,6 +184,7 @@ func load_config(filename = CONFIG_FILENAME):
 	scene.wave_height = config.get_value("water", "wave_height", 20.0)
 	scene.wave_length = config.get_value("water", "wave_length", 5.0)
 	scene.wave_speed = config.get_value("water", "wave_speed", 4.0)
+	aquafulness.seed_filename = config.get_value("aquafulness", "seed", "Vänern.ogv")
 	scene.ocean_type = config.get_value("session", "ocean_type", "imaginary")
 	scene.flowers = config.get_value("water", "flowers", 0.0)
 	scene.clouds = config.get_value("scene", "clouds", 0.0)
@@ -172,6 +196,14 @@ func load_config(filename = CONFIG_FILENAME):
 		config.get_value("date", "now", Time.get_datetime_string_from_system(false)),
 		true
 	)
+	
+	var i = 0
+	for aquafulness_seed in aquafulness.available_seeds:
+		$Control/SeedOptionButton.add_item(
+			aquafulness_seed['name'],
+			i
+		)
+		i += 1
 
 
 func scene_date_changed(date):
@@ -566,3 +598,12 @@ func _on_ocean_option_button_item_selected(index: int) -> void:
 	scene.set_ocean_type(ocean_type)
 
 	config.set_value('session', 'ocean_type', ocean_type)
+
+
+func _on_seed_option_button_item_selected(index: int) -> void:
+	for aquafulness_seed in aquafulness.available_seeds:
+		var text = $Control/SeedOptionButton.get_item_text(index)
+		if text == aquafulness_seed['name']:
+			aquafulness.seed_filename = aquafulness_seed['filename']
+			config.set_value("aquafulness", "seed", aquafulness.seed_filename)
+			save_config()

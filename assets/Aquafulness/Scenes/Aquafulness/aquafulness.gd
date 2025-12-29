@@ -4,6 +4,66 @@ extends Control
 var controls
 var coordlux
 
+
+var available_seeds = [
+	{
+		'name': 'Vänern',
+		'filename': 'Vänern.ogv',
+		'params': {
+			'speed_scale': 1
+		}
+	},
+	{
+		'name': 'Vänern2',
+		'filename': 'Vänern2.ogv',
+		'params': {
+			'speed_scale': 2.0,
+			'wave_height': 25,
+			'wave_speed': 4,
+			'wave_length': 0
+		}
+	},
+	{
+		'name': 'Jarlehus',
+		'filename': 'Jarlehus.ogv',
+		'params': {
+			'speed_scale': 1
+		}
+	}
+]
+@export var seed_filename: String: get = get_seed_filename, set = set_seed_filename
+
+signal seed_changed
+
+var _seed_filename = "Vänern.ogv"
+
+
+func get_seed_by_filename(filename):
+	for aquafulness_seed in available_seeds:
+		if filename == aquafulness_seed['filename']:
+			return aquafulness_seed
+	
+
+func set_seed_filename(value: String):
+	_seed_filename = value
+	$VideoStreamPlayer.stream = load('res://' + value)
+	$VideoStreamPlayer.play()
+	var aquafulness_seed = get_seed_by_filename(value)
+	if aquafulness_seed != null:
+		if aquafulness_seed.has("params"):
+			if aquafulness_seed.has("speed_scale"):
+				$VideoStreamPlayer.speed_scale = aquafulness_seed['speed_scale']
+			else:
+				$VideoStreamPlayer.speed_scale = 1
+			
+		emit_signal('seed_changed', _seed_filename)
+			
+
+
+func get_seed_filename():
+	return _seed_filename
+
+
 func _ready() -> void:
 	controls = get_tree().root.find_child('Controls', true, false)
 	coordlux = get_tree().root.find_child('Coordlux', true, false)
