@@ -64,7 +64,7 @@ func init() -> void:
 	scene.connect('ocean_type_changed', self._on_ocean_type_changed)
 	bather = get_tree().root.find_child('Bather', true, false)
 	audio_player = aquafulness.find_child('VideoStreamPlayer')
-	audio_player.volume_db = -80
+	audio_player.volume_db = 0
 	scene.connect('wave_height_changed', self._handle_scene_wave_height_changed)
 	scene.connect('wave_length_changed', self._handle_scene_wave_length_changed)
 	scene.connect('wave_speed_changed', self._handle_scene_wave_speed_changed)
@@ -492,6 +492,7 @@ func _on_respawn_button_pressed() -> void:
 
 func _on_button_pressed() -> void:
 	$StatusBar.visible = !$StatusBar.visible
+	$TextureRect.visible = $StatusBar.visible
 	$Control.visible = $StatusBar.visible
 
 	if $StatusBar.visible:
@@ -610,3 +611,28 @@ func _on_seed_option_button_item_selected(index: int) -> void:
 			aquafulness.seed_filename = aquafulness_seed['filename']
 			config.set_value("aquafulness", "seed", aquafulness.seed_filename)
 			save_config()
+
+
+func _on_set_day_button_pressed() -> void:
+
+	var new_date = {
+		'year': scene.date['year'],
+		'month': scene.date['month'],
+		'day': scene.date['day'],
+		'hour': 11,
+		'minute': 0,
+		'second': 0
+	}
+	scene.date = new_date
+
+
+func _on_set_night_button_pressed() -> void:
+	var new_date = {
+		'year': scene.date['year'],
+		'month': scene.date['month'],
+		'day': scene.date['day'],
+		'hour': 1,
+		'minute': 0,
+		'second': 0
+	}
+	scene.date = new_date

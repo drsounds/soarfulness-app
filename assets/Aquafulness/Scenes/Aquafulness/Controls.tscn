@@ -297,6 +297,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="AudioToggleButton" parent="." instance=ExtResource("14_1adp4")]
+visible = false
 modulate = Color(1, 1, 1, 0.5294118)
 layout_mode = 1
 anchors_preset = 3
@@ -1023,12 +1024,49 @@ texture = ExtResource("6_qqppl")
 expand_mode = 1
 stretch_mode = 4
 
+[node name="SetNightButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 155.5
+offset_top = -50.0
+offset_right = 265.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Set Night"
+
+[node name="SetDayButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 43.5
+offset_top = -50.0
+offset_right = 145.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Set day"
+
 [node name="SeedOptionButton" type="OptionButton" parent="Control"]
-layout_mode = 0
-offset_left = 477.0
-offset_top = 353.0
-offset_right = 574.0
-offset_bottom = 384.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.5
+offset_top = -50.0
+offset_right = 19.5
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -1089,5 +1127,7 @@ text = "Hide controls"
 [connection signal="toggled" from="Control/CloudsCheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="toggled" from="Control/EnforceBoundariesButton" to="." method="_on_enforce_boundaries_button_toggled"]
 [connection signal="item_selected" from="Control/OceanOptionButton" to="." method="_on_ocean_option_button_item_selected"]
+[connection signal="pressed" from="Control/SetNightButton" to="." method="_on_set_night_button_pressed"]
+[connection signal="pressed" from="Control/SetDayButton" to="." method="_on_set_day_button_pressed"]
 [connection signal="item_selected" from="Control/SeedOptionButton" to="." method="_on_seed_option_button_item_selected"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
