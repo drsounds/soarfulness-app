@@ -188,11 +188,11 @@ func _process(delta:float) -> void:
 		outside_bounds = true
 	if transform.origin.y < boundary.transform.origin.y - (boundary_size.y / 2) and self.velocity.y < 0:
 		if enforce_boundaries:
-			self.transform.origin.y = boundary.y + (boundary_size.y / 2) - 1
+			self.transform.origin.y = boundary.transform.origin.y + (boundary_size.y / 2) - 1
 		outside_bounds = true
 	if transform.origin.y > boundary.transform.origin.y + (boundary_size.y / 2) and self.velocity.y > 0:
 		if enforce_boundaries:
-			self.transform.origin.y = boundary.y - (boundary_size.y / 2) + 1
+			self.transform.origin.y = boundary.transform.origin.y - (boundary_size.y / 2) + 1
 		outside_bounds = true
 	
 	"""
