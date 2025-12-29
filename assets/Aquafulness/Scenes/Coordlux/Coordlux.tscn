@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://ktyco5f0otlm"]
+[gd_scene load_steps=20 format=3 uid="uid://ktyco5f0otlm"]
 
 [ext_resource type="PackedScene" uid="uid://dwfgugk1tvlya" path="res://assets/Aquafulness/Scenes/Coordlux/futuristic_dome.tscn" id="1_0r8s1"]
 [ext_resource type="Script" uid="uid://bmk356m72a0q8" path="res://assets/Aquafulness/Scenes/AquaScene/aqua_scene.gd" id="1_mnt5h"]
 [ext_resource type="PackedScene" uid="uid://bss5uw1f1p0np" path="res://Spoonie.tscn" id="2_67si5"]
+[ext_resource type="PackedScene" uid="uid://vyugpng6dmvv" path="res://assets/Aquafulness/Scenes/Swing/Swing.tscn" id="2_xv2xv"]
 [ext_resource type="PackedScene" uid="uid://p2e4bgxha7b0" path="res://assets/Aquafulness/Scenes/Coordlux/RedSeaLine.tscn" id="4_ylyet"]
 [ext_resource type="Environment" uid="uid://cfu0oxys6lvva" path="res://floating3.tres" id="7_jh6ua"]
 [ext_resource type="PackedScene" uid="uid://dipu56ykx87ds" path="res://assets/Aquafulness/Scenes/Coordlux/csg_combiner_3d.tscn" id="7_qiydf"]
@@ -23,6 +24,9 @@ size = Vector3(133.87631, 1, 518.1277)
 
 [node name="Coordlux" type="Node3D"]
 script = ExtResource("1_mnt5h")
+
+[node name="Swing" parent="." instance=ExtResource("2_xv2xv")]
+swing_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0844315, -3.9216397)
 
 [node name="CloudsController" type="Node" parent="." node_paths=PackedStringArray("sunLight", "worldEnvironment")]
 script = ExtResource("11_jh6ua")

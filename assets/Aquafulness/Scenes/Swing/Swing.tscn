@@ -7,7 +7,7 @@ script = ExtResource("1_mu3gy")
 wave_height = 4.0
 wave_length = 4.0
 wave_speed = 4.0
-swing_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2769272, -3.4494748)
+swing_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0003905782, 2.3172374)
 
 [node name="Swing" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2769272, -3.4494748)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0003905782, 2.3172374)

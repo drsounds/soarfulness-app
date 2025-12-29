@@ -85,6 +85,9 @@ func init() -> void:
 			i
 		)
 		i = i + 1
+	
+	scene.init()
+
 
 func _on_seed_changed(filename: Dictionary):
 	for item_index in $Control/SeedOptionButton.item_count:

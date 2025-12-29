@@ -388,9 +388,7 @@ func set_snow(value: float):
 
 	emit_signal('snow_changed', value)
 
-func _ready() -> void:
-	set_date(Time.get_datetime_dict_from_system(true))
-	ocean_environment = $OceanEnvironment
+func init():
 	print("Bather", $Spawn.global_transform.origin)
 	$Bather.transform.origin = $Spawn.global_transform.origin
 	print("Bather Spawn", $Bather.global_transform.origin)
@@ -398,10 +396,17 @@ func _ready() -> void:
 	aquafulness = get_tree().root.find_child('Aquafulness', true, false)
 	swing = $Swing
 	$Bather.swing = swing
-	swing.connect('swing', self._on_swing)
-	swing.connect('wave_length_changed', self._on_wave_length_changed)
-	swing.connect('wave_height_changed', self._on_wave_height_changed)
-	swing.connect('wave_speed_changed', self._on_wave_speed_changed)
+	if swing != null:
+		swing.connect('swing', self._on_swing)
+		swing.connect('wave_length_changed', self._on_wave_length_changed)
+		swing.connect('wave_height_changed', self._on_wave_height_changed)
+		swing.connect('wave_speed_changed', self._on_wave_speed_changed)
+
+
+func _ready() -> void:
+	set_date(Time.get_datetime_dict_from_system(true))
+	ocean_environment = $OceanEnvironment
+	init()
 
 
 func _on_wave_length_changed(value: float):

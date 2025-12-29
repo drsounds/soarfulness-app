@@ -11,7 +11,7 @@ var _active: bool = false
 
 var rng = RandomNumberGenerator.new()
 
-const MAX_FLAKES = 30000
+const MAX_FLAKES = 300
 
 @export var bounds: Vector3 = Vector3(100, 100, 100)
 
