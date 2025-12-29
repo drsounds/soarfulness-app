@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dwfgugk1tvlya" path="res://assets/Aquafulness/Scenes/Coordlux/futuristic_dome.tscn" id="9_h4ig2"]
 [ext_resource type="PackedScene" uid="uid://bss5uw1f1p0np" path="res://Spoonie.tscn" id="10_0r7xy"]
 [ext_resource type="PackedScene" uid="uid://p2e4bgxha7b0" path="res://assets/Aquafulness/Scenes/Coordlux/RedSeaLine.tscn" id="11_hcso1"]
-[ext_resource type="PackedScene" uid="uid://3q1fmwrua8xf" path="res://assets/Aquafulness/Scenes/Coordlux/bath_place.tscn" id="12_cryct"]
+[ext_resource type="PackedScene" uid="uid://3q1fmwrua8xf" path="res://assets/Aquafulness/Scenes/Framnas/bath_place.tscn" id="12_cryct"]
 [ext_resource type="PackedScene" uid="uid://dipu56ykx87ds" path="res://assets/Aquafulness/Scenes/Coordlux/csg_combiner_3d.tscn" id="13_wvmby"]
 [ext_resource type="PackedScene" uid="uid://brepba5md3mm1" path="res://assets/Aquafulness/Scenes/Coordlux/Bottom.blend" id="14_xald2"]
 

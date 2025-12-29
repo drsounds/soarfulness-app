@@ -31,7 +31,7 @@ render_target_update_mode = 4
 [node name="Framnas" parent="ViewportContainer/SubViewport" instance=ExtResource("2_5hcqo")]
 
 [node name="Aquafulness" parent="." instance=ExtResource("3_7nc36")]
-modulate = Color(1, 1, 1, 0.49411765)
+modulate = Color(1, 1, 1, 0.6666667)
 show_behind_parent = false
 material = SubResource("CanvasItemMaterial_qyowq")
 layout_mode = 1

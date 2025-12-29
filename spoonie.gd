@@ -3,7 +3,8 @@ extends Node3D
 var coordlux
 
 func _ready() -> void:
-	coordlux = get_tree().root.find_child('SubViewport', true, false)
+	coordlux = get_tree().root.find_child('SubViewport', true, false).get_child(0)
+	
 
 	coordlux.connect('time_of_day_changed', self._time_of_day_changed)
 

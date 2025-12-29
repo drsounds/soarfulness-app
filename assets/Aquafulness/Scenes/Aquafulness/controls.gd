@@ -8,6 +8,7 @@ var audio_player
 var soarfulness
 var current_scene_id = 'Framnas'
 
+
 const CONFIG_FILENAME = "user://bath.cfg"
 
 var PRESETS = [
@@ -15,7 +16,7 @@ var PRESETS = [
 		'id': 'clear',
 		'name': 'Clear',
 		'values': {
-			'snow_amount': 0,
+			'snow': 0,
 			'wave_height': 2,
 			'wave_length': 1,
 			'fog': 0
@@ -25,7 +26,7 @@ var PRESETS = [
 		'id': 'stormy',
 		'name': 'Stormy',
 		'values': {
-			'snow_amount': 0,
+			'snow': 0,
 			'wave_length': 1,
 			'wave_height': 28,
 			'fog': 0
@@ -35,7 +36,7 @@ var PRESETS = [
 		'id': 'winter-storm',
 		'name': 'Winter stomr',
 		'values': {
-			'snow_amount': 100,
+			'snow': 100,
 			'fog': 20,
 			'wave_length': 1,
 			'wave_height': 28
@@ -45,7 +46,7 @@ var PRESETS = [
 		'id': 'winter',
 		'name': 'Winter',
 		'values': {
-			'snow_amount': 100,
+			'snow': 100,
 			'fog': 0,
 			'wave_length': 1,
 			'wave_height': 12
@@ -59,6 +60,7 @@ func init() -> void:
 	aquafulness = get_tree().root.find_child('Aquafulness', true, false)
 	scene = get_tree().root.find_child('SubViewport', true, false).get_child(0)
 	scene.connect('flowers_changed', self._on_flowers_changed)
+	scene.connect('ocean_type_changed', self._on_ocean_type_changed)
 	bather = get_tree().root.find_child('Bather', true, false)
 	audio_player = aquafulness.find_child('VideoStreamPlayer')
 	audio_player.volume_db = -80
@@ -83,6 +85,13 @@ func init() -> void:
 		)
 		i = i + 1
 
+func _on_ocean_type_changed(ocean_type: String):
+	if ocean_type == "imaginary":
+		$Control/OceanOptionButton.selected = 1
+	elif ocean_type == "3d":
+		$Control/OceanOptionButton.selected = 1
+	else:
+		$Control/OceanOptionButton.selected = 0
 
 
 func _on_snow_changed(snow: float):
@@ -152,6 +161,7 @@ func load_config(filename = CONFIG_FILENAME):
 	scene.wave_height = config.get_value("water", "wave_height", 20.0)
 	scene.wave_length = config.get_value("water", "wave_length", 5.0)
 	scene.wave_speed = config.get_value("water", "wave_speed", 4.0)
+	scene.ocean_type = config.get_value("session", "ocean_type", "imaginary")
 	scene.flowers = config.get_value("water", "flowers", 0.0)
 	scene.clouds = config.get_value("scene", "clouds", 0.0)
 	bather.enforce_boundaries = config.get_value("scene", "enforce_boundaries", false)
@@ -343,7 +353,7 @@ func _on_wave_length_spinner_after_pressed(value: float) -> void:
 
 func _on_snow_amount_spinner_after_pressed(value: float) -> void:
 	scene.snow = value
-	config.set_value("weather", "snow_amount", value)
+	config.set_value("weather", "snow", value)
 	save_config()
 
 
@@ -401,8 +411,7 @@ func _on_snow_spin_box_value_changed(value: float) -> void:
 		return
 
 	scene.snow = value
-	config.set_value("water", "wave_height", scene.wave_height)
-	config.set_value("water", "enable_flowers", true)
+	config.set_value("weather", "snow", value)
 	save_config()
 
 
@@ -457,10 +466,13 @@ func _on_button_pressed() -> void:
 
 
 func _on_check_button_toggled(toggled_on: bool) -> void:
-	if toggled_on != scene.clouds:
-		scene.clouds = toggled_on
-		config.set_value('scene', 'clouds', toggled_on)
-		save_config()
+	if toggled_on:
+		scene.clouds = 1
+	else:
+		scene.clouds = 0
+
+	config.set_value('scene', 'clouds', scene.clouds)
+	save_config()
 
 func _on_enforce_boundaries_button_toggled(toggled_on: bool) -> void:
 	if toggled_on != bather.enforce_boundaries:
@@ -496,7 +508,8 @@ func _on_decrease_wave_length_button_pressed() -> void:
 func _on_snow_storm_preset_button_pressed() -> void:
 	scene.snow = 100
 	scene.fog = 10
-	config.set_value('water', 'wave_length', scene.wave_length)
+	config.set_value('weather', 'snow',scene.snow)
+	config.set_value('weather', 'fog',scene.fog)
 	save_config()
 
 
@@ -512,8 +525,8 @@ func _on_preset_select_button_item_selected(index: int) -> void:
 
 	if values.has('fog'):
 		$StatusBar/Fog/FogSpinBox.value = values['fog']
-	if values.has('snow_amount'):
-		$StatusBar/Snow/SnowSpinBox.value = values['snow_amount']
+	if values.has('snow'):
+		$StatusBar/Snow/SnowSpinBox.value = values['snow']
 	if values.has('wave_height'):
 		$StatusBar/Wave/WaveSpinBox.value = values['wave_height']
 	if values.has('wave_length'):
@@ -541,3 +554,15 @@ func _on_decrease_wave_speed_button_pressed() -> void:
 
 func _on_show_water_button_toggled(toggled_on: bool) -> void:
 	aquafulness.visible = toggled_on
+
+
+func _on_ocean_option_button_item_selected(index: int) -> void:
+	var ocean_type = null
+	if index == 1:
+		ocean_type = "imaginary"
+	elif index == 2:
+		ocean_type = "3d"
+
+	scene.set_ocean_type(ocean_type)
+
+	config.set_value('session', 'ocean_type', ocean_type)

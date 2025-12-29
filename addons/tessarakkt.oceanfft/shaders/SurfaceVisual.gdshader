@@ -205,7 +205,7 @@ void fragment() {
 	
 	// Distance Fade
 	float fade_start = view_distance_max * view_fade_start;
-	ALPHA = 1.0 - (clamp(linear_dist, fade_start, view_distance_max) - fade_start) / (view_distance_max - fade_start);
+	ALPHA = 0.5 - (clamp(linear_dist, fade_start, view_distance_max) - fade_start) / (view_distance_max - fade_start);
 	
 	// Misc. PBR Settings
 	ROUGHNESS = foam_mix_factor + 0.02;

@@ -22,15 +22,16 @@ script = ExtResource("1_kj2lw")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = -0.07265625
+anchor_top = -0.16527775
+anchor_right = 1.0695312
+anchor_bottom = 1.0347224
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stream = ExtResource("2_cuigj")
-volume_db = -80.0
 autoplay = true
 expand = true
 loop = true

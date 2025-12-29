@@ -45,6 +45,7 @@ func set_snow(value: bool):
 func _ready() -> void:
 	set_date(Time.get_datetime_dict_from_system(true))
 	ocean_environment = $OceanEnvironment
+	$Bather.transform.origin = $Spawn.transform.origin
 
 
 func get_date() -> Dictionary:

@@ -2,6 +2,13 @@ extends Node3D
 
 var _date: Dictionary = Time.get_datetime_dict_from_system(true)
 
+var aquafulness: Control
+
+signal ocean_type_changed
+
+var _ocean_type = "imaginary"
+
+@export var ocean_type: String: get = get_ocean_type, set = set_ocean_type
 
 @export var date: Dictionary: get = get_date, set = set_date
 @export var snow: float: get = get_snow, set = set_snow
@@ -9,11 +16,8 @@ var _date: Dictionary = Time.get_datetime_dict_from_system(true)
 
 @export var flowers: float: get = get_flowers, set = set_flowers
 
-var _wave_height: float = 1
 @export var wave_height: float: get = get_wave_height, set = set_wave_height
-var _wave_length: float = 4
 @export var wave_length: float: get = get_wave_length, set = set_wave_length
-var _wave_speed: float = 4
 @export var wave_speed: float: get = get_wave_speed, set = set_wave_speed
 var _snow: float = 0
 var _fog: float = 0
@@ -35,11 +39,43 @@ signal wave_length_changed
 signal wave_height_changed
 signal clouds_changed
 signal snow_changed
+signal time_of_day_changed
 
 var swimmed_x_minus = 0
 var swimmed_z_minus = 0
 var swimmed_x_plus = 0
 var swimmed_z_plus = 0
+
+var swing: Swing
+
+signal ocean_3d_changed
+
+func get_swing():
+	return $Swing
+
+
+func set_show_ocean_floor(value: bool):
+	$OceanFloor.visible = value
+
+
+func get_3d_ocean() -> bool:
+	return ocean_environment != null
+
+
+func set_3d_ocean(value: bool):
+	if value:
+		$OceanFloor.visible = true
+		if ocean_environment == null:
+			var ocean_environment_scene = load('res://example/Example.tscn')
+			ocean_environment = ocean_environment_scene.instantiate()
+			add_child(ocean_environment)
+			
+	else:
+		if ocean_environment != null:
+			remove_child(ocean_environment)
+
+	emit_signal('ocean_3d_changed', value)
+
 
 func expand_left():
 	swimmed_x_minus -= 10000
@@ -161,15 +197,15 @@ func set_flowers(val):
 
 
 func get_wave_height():
-	return _wave_height
+	return $Swing.wave_height
 
 
 func set_wave_length(value):
-	_wave_length = value
-	emit_signal('wave_length_changed', value)
+	$Swing.wave_length = value
+
 
 func get_wave_length():
-	return _wave_length
+	return $Swing.wave_length
 
 
 func create_flower():
@@ -228,10 +264,10 @@ func create_spoonies():
 func set_clouds(val):
 	_clouds = val
 
-	for cloud in self.cloud_nodes:
-		cloud.visible = val
+	for _cloud in self.cloud_nodes:
+		_cloud.visible = val > 0
 
-	if self.cloud_nodes.size() < 1 and val:
+	if val > 0:
 		create_clouds()
 
 	emit_signal('clouds_changed', val)
@@ -242,17 +278,15 @@ func get_clouds():
 
 
 func set_wave_speed(value):
-	_wave_speed = value
-	emit_signal('wave_speed_changed', value)
+	$Swing.wave_speed = value
 
 
 func get_wave_speed():
-	return _wave_speed
+	return $Swing.wave_speed
 
 
 func set_wave_height(value):
-	_wave_height = value
-	emit_signal('wave_height_changed', value)
+	$Swing.wave_height = value
 
 
 var time_of_day: String = "Night"
@@ -265,9 +299,8 @@ var foggy: bool = false
 
 var feature_flags = []
 
-var ocean_environment: OceanEnvironment
+@onready var ocean_environment: OceanEnvironment = $OceanEnvironment
 
-signal time_of_day_changed
 signal date_changed
 signal fog_changed
 
@@ -353,13 +386,76 @@ func set_snow(value: float):
 	else:
 		unsnowify_node(self)
 
-	emit_signal('snow_changed')
+	emit_signal('snow_changed', value)
 
 func _ready() -> void:
 	set_date(Time.get_datetime_dict_from_system(true))
 	ocean_environment = $OceanEnvironment
-	$Bather.connect('flowers_changed', self._on_flowers_changed)
+	print("Bather", $Spawn.global_transform.origin)
+	$Bather.transform.origin = $Spawn.global_transform.origin
+	print("Bather Spawn", $Bather.global_transform.origin)
 	$Bather.connect('moved', self._on_bather_moved)
+	aquafulness = get_tree().root.find_child('Aquafulness', true, false)
+	swing = $Swing
+	$Bather.swing = swing
+	swing.connect('swing', self._on_swing)
+	swing.connect('wave_length_changed', self._on_wave_length_changed)
+	swing.connect('wave_height_changed', self._on_wave_height_changed)
+	swing.connect('wave_speed_changed', self._on_wave_speed_changed)
+
+
+func _on_wave_length_changed(value: float):
+	emit_signal('wave_length_changed', value)
+
+
+func _on_wave_height_changed(value: float):
+	emit_signal('wave_height_changed', value)
+
+
+func _on_wave_speed_changed(value: float):
+	emit_signal('wave_speed_changed', value)
+
+
+var quad_tree_3d
+var motor_vessel_body_3d
+
+func _on_swing(delta: Vector3):
+	if ocean_type == "3d":
+		if motor_vessel_body_3d == null:	
+			quad_tree_3d = ocean_environment.find_child('QuadTree3D', true)
+		if motor_vessel_body_3d == null:	
+			motor_vessel_body_3d = ocean_environment.find_child('MotorVesselBody3D', true)
+		if quad_tree_3d:
+			quad_tree_3d.transform.origin.y = delta.y
+		if $Bather.floatation_gear == null:
+			$Bather.floatation_gear = motor_vessel_body_3d
+	else:
+		$Bather.floatation_gear = null
+
+
+func get_ocean_type():
+	return _ocean_type
+
+
+func set_ocean_type(value: String):
+	_ocean_type = value
+
+	if value == "imaginary":
+		aquafulness.visible = true
+		$OceanFloor.visible = true
+		set_3d_ocean(false)
+	else:
+		$OceanFloor.visible = false
+
+	if value == "3d":
+		aquafulness.visible = false
+		$OceanFloor.visible = true
+		set_3d_ocean(true)
+	else:
+		$OceanFloor.visible = false
+		set_3d_ocean(false)
+
+	emit_signal('ocean_type_changed', _ocean_type)
 
 
 func _on_bather_moved(delta: Vector3):

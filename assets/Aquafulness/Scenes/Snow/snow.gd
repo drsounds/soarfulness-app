@@ -15,6 +15,8 @@ const MAX_FLAKES = 30000
 
 @export var bounds: Vector3 = Vector3(100, 100, 100)
 
+var bather: Node3D
+
 var flakes = []
 
 signal active_changed
@@ -42,23 +44,28 @@ func create_flake():
 	var flake = $Flake.duplicate()
 	return flake
 
+func _ready() -> void:
+	bather = get_parent().find_child('Bather')
+
 
 func add_flake(flake):
 	self.flakes.push_back(flake)
 	get_parent().add_child(flake)
 
+	var bather_transform = bather.global_transform
+
 	flake.global_transform.origin = Vector3(
 		rng.randf_range(
-			global_transform.origin.x - bounds.x,
-			global_transform.origin.x + bounds.x
+			bather_transform.origin.x - bounds.x,
+			bather_transform.origin.x + bounds.x
 		),
 		rng.randf_range(
-			global_transform.origin.y - bounds.y,
-			global_transform.origin.y + bounds.y
+			bather_transform.origin.y,
+			bather_transform.origin.y + bounds.y
 		),
 		rng.randf_range(
-			global_transform.origin.z - bounds.z,
-			global_transform.origin.z + bounds.z
+			bather_transform.origin.z - bounds.z,
+			bather_transform.origin.z - bounds.z * 2
 		)
 	)
 
