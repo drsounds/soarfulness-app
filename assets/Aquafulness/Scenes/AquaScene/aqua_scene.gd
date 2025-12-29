@@ -49,6 +49,25 @@ var swimmed_z_plus = 0
 var swing: Swing
 
 signal ocean_3d_changed
+signal is_showing_ocean_floor_changed
+
+@export var is_showing_ocean_floor: bool: get = get_is_showing_ocean_floor, set = set_is_showing_ocean_floor
+
+
+func set_is_showing_ocean_floor(value: bool):
+	if $OceanFloor == null:
+		return false
+
+	$OceanFloor.visible = value
+	emit_signal('is_showing_ocean_floor_changed')
+
+
+func get_is_showing_ocean_floor():
+	if $OceanFloor == null:
+		return
+
+	return $OceanFloor.visible
+
 
 func get_swing():
 	return $Swing

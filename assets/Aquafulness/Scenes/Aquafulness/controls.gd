@@ -61,6 +61,7 @@ func init() -> void:
 	aquafulness.connect('seed_changed', self._on_seed_changed)
 	scene = get_tree().root.find_child('SubViewport', true, false).get_child(0)
 	scene.connect('flowers_changed', self._on_flowers_changed)
+	scene.connect('is_showing_ocean_floors_changed', self._on_is_showing_ocean_floors_changed)
 	scene.connect('ocean_type_changed', self._on_ocean_type_changed)
 	bather = get_tree().root.find_child('Bather', true, false)
 	audio_player = aquafulness.find_child('VideoStreamPlayer')
@@ -87,6 +88,10 @@ func init() -> void:
 		i = i + 1
 	
 	scene.init()
+
+
+func _on_is_showing_ocean_floors_changed(value: bool):
+	$Control/OceanFloorCheckButton.toggled = value
 
 
 func _on_seed_changed(filename: Dictionary):
@@ -187,6 +192,7 @@ func load_config(filename = CONFIG_FILENAME):
 	scene.wave_height = config.get_value("water", "wave_height", 20.0)
 	scene.wave_length = config.get_value("water", "wave_length", 5.0)
 	scene.wave_speed = config.get_value("water", "wave_speed", 4.0)
+	scene.is_showing_ocean_floor = config.get_value("scene", "is_showing_ocean_floors", false)
 	aquafulness.seed_filename = config.get_value("aquafulness", "seed", "Vänern.ogv")
 	scene.ocean_type = config.get_value("session", "ocean_type", "imaginary")
 	scene.flowers = config.get_value("water", "flowers", 0.0)
@@ -636,3 +642,10 @@ func _on_set_night_button_pressed() -> void:
 		'second': 0
 	}
 	scene.date = new_date
+
+
+func _on_ocean_floor_check_button_toggled(toggled_on: bool) -> void:
+	if toggled_on != scene.is_showing_ocean_floor:
+		scene.is_showing_ocean_floor = toggled_on
+		config.set_value('scene', 'is_showing_ocean_floors', toggled_on)
+		save_config()
