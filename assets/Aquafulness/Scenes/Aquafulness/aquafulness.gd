@@ -25,7 +25,7 @@ var available_seeds = [
 	},
 	{
 		'name': 'Jarlehus',
-		'filename': 'Jarlehus.ogv',
+		'filename': 'jarlehus.ogv',
 		'params': {
 			'speed_scale': 1
 		}

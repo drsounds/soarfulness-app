@@ -11,14 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://bss5uw1f1p0np" path="res://Spoonie.tscn" id="8_sybmo"]
 [ext_resource type="PackedScene" uid="uid://dcawt434tnrwa" path="res://assets/Aquafulness/Scenes/Cloud/Cloud.tscn" id="9_k4v8f"]
 [ext_resource type="PackedScene" uid="uid://p2e4bgxha7b0" path="res://assets/Aquafulness/Scenes/Coordlux/RedSeaLine.tscn" id="10_lgsd1"]
-[ext_resource type="Texture2D" uid="uid://crx2xp6votxgi" path="res://new_compressed_texture_2d.tres" id="11_sybmo"]
+[ext_resource type="Texture2D" uid="uid://cmr08ervk1ja1" path="res://assets/Aquafulness/beach-water-nature-sand-ocean-liquid-sunlight-texture-leaf-floor-refraction-pattern-green-circle-design-flooring-light-reflects-1279284.png" id="12_k4v8f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rw81e"]
 size = Vector3(557.2794, 542.6787, 762.4247)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k4v8f"]
 albedo_color = Color(0.80784315, 0.65882355, 0.5686275, 1)
-albedo_texture = ExtResource("11_sybmo")
+albedo_texture = ExtResource("12_k4v8f")
 
 [sub_resource type="BoxMesh" id="BoxMesh_lgsd1"]
 material = SubResource("StandardMaterial3D_k4v8f")
