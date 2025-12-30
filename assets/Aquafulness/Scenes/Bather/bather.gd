@@ -18,6 +18,8 @@ var swimmed_x_plus = 0
 var floating_y_plus = 0
 var floating_y_minus = 0
 
+var location: Vector3 = Vector3(0, 0, 0)
+
 signal respawned
 
 var swim_area
@@ -101,6 +103,7 @@ func respawn():
 		new_position = spawn.position
 
 	self.transform.origin = new_position
+	self.location = new_position
 
 	print("Respawned at" + str(self.transform.origin))
 
@@ -188,11 +191,11 @@ func _process(delta:float) -> void:
 		outside_bounds = true
 	if transform.origin.y < boundary.transform.origin.y - (boundary_size.y / 2) and self.velocity.y < 0:
 		if enforce_boundaries:
-			self.transform.origin.y = boundary.transform.origin.y + (boundary_size.y / 2) - 1
+			self.transform.origin.y = boundary.y + (boundary_size.y / 2) - 1
 		outside_bounds = true
 	if transform.origin.y > boundary.transform.origin.y + (boundary_size.y / 2) and self.velocity.y > 0:
 		if enforce_boundaries:
-			self.transform.origin.y = boundary.transform.origin.y - (boundary_size.y / 2) + 1
+			self.transform.origin.y = boundary.y - (boundary_size.y / 2) + 1
 		outside_bounds = true
 	
 	"""
@@ -222,7 +225,7 @@ func _process(delta:float) -> void:
 		self.transform.origin.z
 	)
 
-	self.transform.origin += velocity
+	self.location += velocity
 	# self.velocity *= 0.99
 	# `velocity` will be a Vector2 between `Vector2(-1.0, -1.0)` and `Vector2(1.0, 1.0)`.
 	# This handles deadzone in a correct way for most use cases.
@@ -231,19 +234,15 @@ func _process(delta:float) -> void:
 
 	#self.velocity += drag_velocity
 
-	
-	if self.transform.origin.y < 0:
-		if self.velocity.y < 23:
-			self.velocity.y += 1 
-	elif self.transform.origin.y > 0:
-		if self.velocity.y > -23:
-			self.velocity.y -= 1
 
-	self.transform.origin.x = 0
+	self.transform.origin = Vector3(0, 0, 0)
+ 
 	if swing != null:
 		self.transform.origin.y = swing.swing_transform.origin.y
 		if floatation_gear != null:
-			self.transform.origin.y = floatation_gear.transform.origin.y
-		self.transform.origin.z += swing.swing_transform.origin.z * 0.1
+			self.transform.origin.y += floatation_gear.transform.origin.y
+		self.transform.origin.z = swing.swing_transform.origin.z
+		
+	self.transform.origin += location
 	
 	emit_signal('moved', self.transform.origin - old_transform_origin)

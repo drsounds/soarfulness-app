@@ -138,8 +138,11 @@ func _input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	time += delta
 
-	wave.y = sin(time * wave_speed) * wave_height + 2
-	wave.z = sin(time * wave_speed + 2) * -wave_length
+	wave.y = sin(time * wave_speed) * wave_height
+	wave.z = cos(time * wave_speed) * wave_length
+
+	print("wave.y", wave.y)
+	print("wave.z", wave.z)
 
 	if wave.y > 0:
 		if self.velocity.y < 20:

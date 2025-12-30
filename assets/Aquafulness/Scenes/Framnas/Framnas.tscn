@@ -32,7 +32,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 wave_height = 0.0
 wave_length = 0.0
 wave_speed = 0.0
-swing_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+swing_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="BathPlace" parent="." instance=ExtResource("1_47g7c")]
 transform = Transform3D(-0.78111744, 0, 0.62438416, 0, 1, 0, -0.62438416, 0, -0.78111744, 17.0617, 25.834293, -176.47021)
