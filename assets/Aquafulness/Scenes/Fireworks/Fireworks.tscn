@@ -28,3 +28,4 @@ offset_right = 40.0
 offset_bottom = 40.0
 stream = ExtResource("1_pp12b")
 autoplay = true
+loop = true

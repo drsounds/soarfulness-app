@@ -93,6 +93,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 570.8354, 0)
 sky_mode = 1
 
 [node name="FireworksContainer" type="Node3D" parent="."]
-transform = Transform3D(0.06944132, 0, 0, 0, 0.26692814, 0, 0, 0, 1, 18.396742, 127.798096, -1012.137)
+transform = Transform3D(0.06944132, 0, 0, 0, 0.26692814, 0, 0, 0, 1, -142.05698, 718.19495, -1012.137)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
