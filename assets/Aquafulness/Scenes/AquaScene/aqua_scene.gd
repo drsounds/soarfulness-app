@@ -58,12 +58,12 @@ signal water_level_changed
 @export var water_level: float: get = get_water_level, set = set_water_level
 
 func set_water_level(value: float):
-	$Swing.y_offset = value
+	$Swing.water_level_y = value
 	emit_signal('water_level_changed')
 
 
 func get_water_level():
-	return $Swing.y_offset
+	return $Swing.water_level_y
 
 
 func set_is_showing_ocean_floor(value: bool):
