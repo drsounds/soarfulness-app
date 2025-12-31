@@ -296,6 +296,23 @@ text = "Preset"
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="Algorithm" type="VBoxContainer" parent="StatusBar"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StatusBar/Algorithm"]
+modulate = Color(1, 1, 1, 0.49019608)
+layout_mode = 2
+text = "Preset"
+
+[node name="AlgorithmSelectButton" type="OptionButton" parent="StatusBar/Algorithm"]
+layout_mode = 2
+size_flags_vertical = 3
+item_count = 2
+popup/item_0/text = "6g"
+popup/item_0/id = 0
+popup/item_1/text = "6.5g"
+popup/item_1/id = 1
+
 [node name="AudioToggleButton" parent="." instance=ExtResource("14_1adp4")]
 visible = false
 modulate = Color(1, 1, 1, 0.5294118)
@@ -1163,6 +1180,7 @@ text = "Hide controls"
 [connection signal="pressed" from="StatusBar/Fog/Label/Button" to="." method="_on_weather_button_pressed"]
 [connection signal="value_changed" from="StatusBar/Fog/FogSpinBox" to="." method="_on_fog_spin_box_value_changed"]
 [connection signal="item_selected" from="StatusBar/VBoxContainer/PresetSelectButton" to="." method="_on_preset_select_button_item_selected"]
+[connection signal="item_selected" from="StatusBar/Algorithm/AlgorithmSelectButton" to="." method="_on_algorithm_select_button_item_selected"]
 [connection signal="active_changed" from="AudioToggleButton" to="." method="_on_audio_toggle_button_active_changed"]
 [connection signal="drag_ended" from="YearSlider" to="." method="_on_year_slider_drag_ended"]
 [connection signal="value_changed" from="WaveHeightSlider" to="." method="_on_wave_height_slider_value_changed"]

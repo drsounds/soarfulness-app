@@ -10,6 +10,20 @@ var quad_tree_3d: QuadTree3D
 
 var floatation_gear: Node3D
 
+var _algorithm: String = "6g"
+
+@export var algorithm: String: get = get_algorithm, set = set_algorithm
+
+signal algorithm_changed
+
+func get_algorithm():
+	return _algorithm
+
+func set_algorithm(value):
+	_algorithm = value
+	emit_signal('algorithm_changed', value)
+
+
 var swimmed_z_plus = 0
 var swimmed_z_minus = 0
 var swimmed_x_minus = 0
@@ -232,16 +246,27 @@ func _process(delta:float) -> void:
 
 	#self.velocity += drag_velocity
 
-	if swing != null:
-		self.velocity.x += swing.swing_transform.origin.x * 0.1
-		self.velocity.y += swing.swing_transform.origin.y * 0.1
-		self.velocity.z += swing.swing_transform.origin.z * 0.1
-		self.velocity += swing.velocity
-		if floatation_gear != null:
-			self.velocity.y += floatation_gear.transform.origin.y * 0.1
+	if algorithm == "6.5g":
+		if swing != null:
+			self.velocity.x += swing.swing_transform.origin.x * 0.1
+			self.velocity.y += swing.swing_transform.origin.y * 0.1
+			self.velocity.z += swing.swing_transform.origin.z * 0.1
+			self.velocity += swing.velocity
+			if floatation_gear != null:
+				self.velocity.y += floatation_gear.transform.origin.y * 0.1
 
-	self.transform.origin += velocity
-	
-	velocity *= 0.5
+		self.transform.origin += velocity
+
+		velocity *= 0.5
+	else:
+		self.transform.origin = Vector3(0, 0, 0)
+		if swing != null:
+			self.transform.origin.y = swing.swing_transform.origin.y
+			if floatation_gear != null:
+				self.transform.origin.y += floatation_gear.transform.origin.y
+
+			self.transform.origin.z = swing.swing_transform.origin.z
+			
+			self.transform.origin += location
 
 	emit_signal('moved', self.transform.origin - old_transform_origin)

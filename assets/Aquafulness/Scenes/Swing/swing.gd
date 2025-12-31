@@ -12,6 +12,25 @@ var time: float = 0
 var wave_x: Wave = Wave.new(1, 1, 0, "cos")
 var wave_y: Wave = Wave.new(1, 1, 0.1, "sin")
 var wave_z: Wave = Wave.new(1, 0.05, 0.001, "cos")
+
+var wave: Vector3 = Vector3(0, 0, 0)
+
+var _algorithm = "6g"
+
+@export var algorithm: String: get = get_algorithm, set = set_algorithm
+
+signal algorithm_changed
+
+
+func get_algorithm():
+	return _algorithm
+
+
+func set_algorithm(value):
+	_algorithm = value
+	emit_signal('algorithm_changed', value)
+
+
 var velocity: Vector3 = Vector3(0, 0, 0)
 
 var water_level_y: float = 0
@@ -146,28 +165,51 @@ func _input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	time += delta
-
-	if wave_x != null:
-		wave_x.time = time
-		if $Swing != null:
-			$Swing.transform.origin.x = wave_x.position.y
-	if wave_y != null:
-		wave_y.time = time
-		if $Swing != null:
-			$Swing.transform.origin.y = wave_y.position.y
-
-	if wave_z != null:
-		wave_z.time = time
-		if $Swing != null:
-			$Swing.transform.origin.z = wave_z.position.y
-
-	var diff_water_level = transform.origin.y - water_level_y
-
-	if abs(diff_water_level) > 0:
-		velocity.y += -(diff_water_level * 0.5)
-
-	self.transform.origin += velocity
-
-	velocity *= 0.5
 	
+	if algorithm == "6g_velocify":
+
+		if wave_x != null:
+			wave_x.time = time
+			if $Swing != null:
+				$Swing.transform.origin.x = wave_x.position.y
+		if wave_y != null:
+			wave_y.time = time
+			if $Swing != null:
+				$Swing.transform.origin.y = wave_y.position.y
+
+		if wave_z != null:
+			wave_z.time = time
+			if $Swing != null:
+				$Swing.transform.origin.z = wave_z.position.y
+
+		var diff_water_level = transform.origin.y - water_level_y
+
+		if abs(diff_water_level) > 0:
+			velocity.y += -(diff_water_level * 0.5)
+
+		self.transform.origin += velocity
+
+		velocity *= 0.5
+	else:
+		wave.y = sin(time * wave_speed) * wave_height
+		wave.z = cos(time * wave_speed) * wave_length
+
+		if wave.y > 0:
+			if self.velocity.y < 20:
+				self.velocity.y += wave.y * 0.2
+
+		if self.transform.origin.y < 0:
+			if self.velocity.y < 23:
+				self.velocity.y += 1 
+		elif self.transform.origin.y > 0:
+			if self.velocity.y > -23:
+				self.velocity.y -= 1
+
+		if $Swing != null:
+			$Swing.transform.origin.x = 0
+			$Swing.transform.origin.y = wave.y
+			if water_level_y is float:
+				$Swing.transform.origin.y += water_level_y
+			$Swing.transform.origin.z = wave.z
+
 	emit_signal('swing', $Swing.transform.origin)

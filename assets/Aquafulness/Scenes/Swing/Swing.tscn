@@ -4,6 +4,7 @@
 
 [node name="Swing" type="Node3D"]
 script = ExtResource("1_mu3gy")
+algorithm = null
 
 [node name="Swing" type="Node3D" parent="."]
 

@@ -74,6 +74,7 @@ func init() -> void:
 	scene.connect("fog_changed", self._on_fog_changed)
 	scene.connect("snow_changed", self._on_snow_changed)
 	scene.connect("clouds_changed", self._on_clouds_changed)
+	bather.connect('algorithm_changed', self._on_algorithm_changed)
 	bather.connect("enforce_boundaries_changed", self._on_enforce_boundaries_changed)
 
 	$WeatherPanel.open = false
@@ -88,6 +89,13 @@ func init() -> void:
 		i = i + 1
 	
 	scene.init()
+
+
+func _on_algorithm_changed(algorithm_id: String):
+	for i in range($StatusBar/Algorithm/AlgorithmSelectButton.item_count):
+		var text = $StatusBar/Algorithm/AlgorithmSelectButton.get_item_text(i)
+		if text == algorithm_id:
+			$StatusBar/Algorithm/AlgorithmSelectButton.selected = i
 
 
 func _on_is_showing_ocean_floors_changed(value: bool):
@@ -198,6 +206,7 @@ func load_config(filename = CONFIG_FILENAME):
 	scene.flowers = config.get_value("water", "flowers", 0.0)
 	scene.clouds = config.get_value("scene", "clouds", 0.0)
 	bather.enforce_boundaries = config.get_value("scene", "enforce_boundaries", false)
+	bather.algorithm = config.get_value('bather', 'algorithm', '6g')
 	scene.snow = config.get_value("weather", "snow", 0.0)
 	scene.fog = config.get_value("weather", "fog", 0.0)
 	scene.water_level = config.get_value("water", "level", 0.00)
@@ -662,3 +671,14 @@ func _on_decrease_wave_level_button_pressed() -> void:
 	scene.water_level -= 1
 	config.set_value('water', 'level', scene.water_level)
 	save_config()
+
+
+func _on_algorithm_select_button_item_selected(index: int) -> void:
+	var text = $StatusBar/Algorithm/AlgorithmSelectButton.get_item_text(index)
+
+	if text != bather.algorithm:
+
+		bather.algorithm = text
+
+		config.set_value('bather', 'algorithm', text)
+		save_config()
