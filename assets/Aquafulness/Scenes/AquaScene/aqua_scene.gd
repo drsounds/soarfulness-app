@@ -57,6 +57,46 @@ signal water_level_changed
 
 @export var water_level: float: get = get_water_level, set = set_water_level
 
+@export var fireworks: bool: get = get_fireworks, set = set_fireworks
+
+@export var real_time: bool: get = get_real_time, set = set_real_time
+
+signal real_time_changed
+
+var _real_time = true
+
+func set_real_time(value):
+	_real_time = value
+
+	if value:
+		date = Time.get_datetime_dict_from_system()
+
+	emit_signal('real_time_changed')
+
+
+func get_real_time():
+	return _real_time
+
+signal fireworks_changed
+
+var _fireworks = true
+
+func set_fireworks(value):
+	_fireworks = value
+	if value:
+		var fireworks_scene = load('res://assets/Aquafulness/Scenes/Fireworks/Fireworks.tscn').instantiate()
+		$FireworksContainer.add_child(fireworks_scene)
+	else:
+		while $FireworksContainer.get_child_count() > 0:
+			$FireworksContainer.remove_child($FireworksContainer.get_child(0))
+
+	emit_signal('fireworks_changed')
+
+
+func get_fireworks():
+	return _fireworks
+
+
 func set_water_level(value: float):
 	$Swing.y_offset = value
 	emit_signal('water_level_changed')

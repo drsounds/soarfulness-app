@@ -1132,6 +1132,22 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Ocean Floor"
 
+[node name="FireworksCheckButton" type="CheckButton" parent="Control"]
+layout_mode = 0
+offset_left = 1036.0
+offset_top = 12.0
+offset_right = 1160.0
+offset_bottom = 43.0
+text = "Fireworks"
+
+[node name="RealTimeCheckButton" type="CheckButton" parent="Control"]
+layout_mode = 0
+offset_left = 887.0
+offset_top = 12.0
+offset_right = 1011.0
+offset_bottom = 43.0
+text = "Real time"
+
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 7
@@ -1147,6 +1163,7 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Hide controls"
 
+[connection signal="pressed" from="." to="." method="_on_pressed"]
 [connection signal="focus_exited" from="StatusBar/Location/Button" to="." method="_on_scene_options_button_focus_exited"]
 [connection signal="item_selected" from="StatusBar/Location/Button" to="." method="_on_scene_options_button_item_selected"]
 [connection signal="toggled" from="StatusBar/Reed/CheckButton" to="." method="_on_flowers_check_button_toggled"]
@@ -1197,4 +1214,6 @@ text = "Hide controls"
 [connection signal="pressed" from="Control/SetDayButton" to="." method="_on_set_day_button_pressed"]
 [connection signal="item_selected" from="Control/SeedOptionButton" to="." method="_on_seed_option_button_item_selected"]
 [connection signal="toggled" from="Control/OceanFloorCheckButton" to="." method="_on_ocean_floor_check_button_toggled"]
+[connection signal="toggled" from="Control/FireworksCheckButton" to="." method="_on_fireworks_check_button_toggled"]
+[connection signal="toggled" from="Control/RealTimeCheckButton" to="." method="_on_real_time_check_button_toggled"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

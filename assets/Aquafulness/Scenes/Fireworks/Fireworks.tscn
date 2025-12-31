@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bw3c6akx3jy2r"]
+
+[ext_resource type="VideoStream" uid="uid://clu1n47dxulli" path="res://fireworks.ogv" id="1_pp12b"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pp12b"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cwa75"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_pp12b")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mnngx"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_cwa75")
+size = Vector2(111, 111)
+
+[node name="Fireworks" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(458.7811, 0, 0, 0, -0.013442123, -63.576515, 0, 1.0831782, -0.78897756, 0, 0, 0)
+mesh = SubResource("PlaneMesh_mnngx")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewport"]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("1_pp12b")
+autoplay = true

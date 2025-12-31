@@ -74,7 +74,10 @@ func init() -> void:
 	scene.connect("fog_changed", self._on_fog_changed)
 	scene.connect("snow_changed", self._on_snow_changed)
 	scene.connect("clouds_changed", self._on_clouds_changed)
+	scene.connect('real_time_changed', self._on_real_time_changed)
+	scene.connect('fireworks_changed', self._on_fireworks_changed)
 	bather.connect("enforce_boundaries_changed", self._on_enforce_boundaries_changed)
+	
 
 	$WeatherPanel.open = false
 	$DatePanel.open = false
@@ -88,6 +91,14 @@ func init() -> void:
 		i = i + 1
 	
 	scene.init()
+
+
+func _on_fireworks_changed(value):
+	$Control/FireworksCheckButton.toggled = value
+
+
+func _on_real_time_changed(value):
+	pass
 
 
 func _on_is_showing_ocean_floors_changed(value: bool):
@@ -201,9 +212,15 @@ func load_config(filename = CONFIG_FILENAME):
 	scene.snow = config.get_value("weather", "snow", 0.0)
 	scene.fog = config.get_value("weather", "fog", 0.0)
 	scene.water_level = config.get_value("water", "level", 0.00)
+	scene.real_time = config.get_value('time', 'real', true)
+	scene.fireworks = config.get_value('scene', 'fireworks', false)
+	var date = config.get_value("date", "now", Time.get_datetime_string_from_system(false))
+	
+	if scene.real_time:
+		date = Time.get_datetime_string_from_system()
 
 	scene.date = Time.get_datetime_dict_from_datetime_string(
-		config.get_value("date", "now", Time.get_datetime_string_from_system(false)),
+		date,
 		true
 	)
 	
@@ -501,6 +518,8 @@ func _on_button_pressed() -> void:
 	$StatusBar.visible = !$StatusBar.visible
 	$TextureRect.visible = $StatusBar.visible
 	$Control.visible = $StatusBar.visible
+	
+	$Button.visible = $StatusBar.visible
 
 	if $StatusBar.visible:
 		$Button.text = "Hide controls"
@@ -662,3 +681,26 @@ func _on_decrease_wave_level_button_pressed() -> void:
 	scene.water_level -= 1
 	config.set_value('water', 'level', scene.water_level)
 	save_config()
+
+
+func _on_pressed() -> void:
+	$StatusBar.visible = true
+	$TextureRect.visible = $StatusBar.visible
+	$Control.visible = $StatusBar.visible
+	
+	$Button.visible = $StatusBar.visible
+
+
+func _on_fireworks_check_button_toggled(toggled_on: bool) -> void:
+	if scene.fireworks != toggled_on:
+		scene.fireworks = toggled_on
+		
+		config.set_value('scene', 'fireworks', toggled_on)
+		save_config()
+
+
+func _on_real_time_check_button_toggled(toggled_on: bool) -> void:
+	if scene.real_time != toggled_on:
+		scene.real_time = toggled_on
+		config.set_value('time', 'real', toggled_on)
+		save_config()

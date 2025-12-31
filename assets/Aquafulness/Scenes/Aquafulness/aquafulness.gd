@@ -14,18 +14,8 @@ var available_seeds = [
 		}
 	},
 	{
-		'name': 'Vänern2',
-		'filename': 'Vänern2.ogv',
-		'params': {
-			'speed_scale': 2.0,
-			'wave_height': 25,
-			'wave_speed': 4,
-			'wave_length': 0
-		}
-	},
-	{
-		'name': 'Jarlehus',
-		'filename': 'jarlehus.ogv',
+		'name': 'Vänern mareld night',
+		'filename': 'Vänern_mareld_night.ogv',
 		'params': {
 			'speed_scale': 1
 		}

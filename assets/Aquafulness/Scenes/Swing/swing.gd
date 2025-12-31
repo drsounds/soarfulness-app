@@ -141,9 +141,6 @@ func _process(delta: float) -> void:
 	wave.y = sin(time * wave_speed) * wave_height
 	wave.z = cos(time * wave_speed) * wave_length
 
-	print("wave.y", wave.y)
-	print("wave.z", wave.z)
-
 	if wave.y > 0:
 		if self.velocity.y < 20:
 			self.velocity.y += wave.y * 0.2
