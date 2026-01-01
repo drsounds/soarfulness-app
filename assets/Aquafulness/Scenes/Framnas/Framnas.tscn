@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://crci7xuewtyqg"]
+[gd_scene load_steps=17 format=3 uid="uid://crci7xuewtyqg"]
 
 [ext_resource type="PackedScene" uid="uid://3q1fmwrua8xf" path="res://assets/Aquafulness/Scenes/Framnas/bath_place.tscn" id="1_47g7c"]
 [ext_resource type="Script" uid="uid://bmk356m72a0q8" path="res://assets/Aquafulness/Scenes/AquaScene/aqua_scene.gd" id="1_rw81e"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ds051alhagcog" path="res://assets/Aquafulness/Scenes/Snow/Snow.tscn" id="5_5y3j2"]
 [ext_resource type="PackedScene" uid="uid://bf38c65clfohf" path="res://assets/Aquafulness/Scenes/Christmas/Tree.blend" id="6_rw81e"]
 [ext_resource type="PackedScene" uid="uid://b2ps6m14qrhkv" path="res://assets/Aquafulness/Scenes/Flower/Flower.tscn" id="7_it46r"]
+[ext_resource type="PackedScene" uid="uid://xctxfs7hg1rv" path="res://assets/Aquafulness/Scenes/Confetti/Confetti.tscn" id="7_lgsd1"]
 [ext_resource type="PackedScene" uid="uid://bss5uw1f1p0np" path="res://Spoonie.tscn" id="8_sybmo"]
 [ext_resource type="PackedScene" uid="uid://dcawt434tnrwa" path="res://assets/Aquafulness/Scenes/Cloud/Cloud.tscn" id="9_k4v8f"]
 [ext_resource type="PackedScene" uid="uid://p2e4bgxha7b0" path="res://assets/Aquafulness/Scenes/Coordlux/RedSeaLine.tscn" id="10_lgsd1"]
@@ -55,6 +56,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 66.72592, 91.72501)
 omni_range = 4096.0
 
 [node name="Snow" parent="." instance=ExtResource("5_5y3j2")]
+
+[node name="Confetti" parent="." instance=ExtResource("7_lgsd1")]
 
 [node name="Christmas" type="Node3D" parent="."]
 visible = false

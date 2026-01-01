@@ -76,6 +76,7 @@ func init() -> void:
 	scene.connect("clouds_changed", self._on_clouds_changed)
 	scene.connect('real_time_changed', self._on_real_time_changed)
 	scene.connect('fireworks_changed', self._on_fireworks_changed)
+	scene.connect('confetti_changed', self._on_confetti_changed)
 	bather.connect("enforce_boundaries_changed", self._on_enforce_boundaries_changed)
 	
 
@@ -138,6 +139,10 @@ func _on_ocean_type_changed(ocean_type: String):
 
 func _on_snow_changed(snow: float):
 	$StatusBar/Snow/SnowSpinBox.value = snow
+
+
+func _on_confetti_changed(confetti: float):
+	$StatusBar/Confetti/ConfettiSpinBox.value = confetti
 
 
 func _on_clouds_changed(clouds: float):
@@ -214,6 +219,8 @@ func load_config(filename = CONFIG_FILENAME):
 	scene.water_level = config.get_value("water", "level", 0.00)
 	scene.real_time = config.get_value('time', 'real', true)
 	scene.fireworks = config.get_value('scene', 'fireworks', false)
+	scene.confetti = config.get_value('scene', 'confetti', false)
+
 	var date = config.get_value("date", "now", Time.get_datetime_string_from_system(false))
 	
 	if scene.real_time:
@@ -704,3 +711,12 @@ func _on_real_time_check_button_toggled(toggled_on: bool) -> void:
 		scene.real_time = toggled_on
 		config.set_value('time', 'real', toggled_on)
 		save_config()
+
+
+func _on_confetti_spin_box_value_changed(value: float) -> void:
+	if scene.confetti == $StatusBar/Confetti/ConfettiSpinBox.value:
+		return
+
+	scene.confetti = value
+	config.set_value("scene", "confetti", value)
+	save_config()

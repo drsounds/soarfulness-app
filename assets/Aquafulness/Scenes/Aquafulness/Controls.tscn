@@ -257,6 +257,32 @@ uppercase = true
 layout_mode = 2
 alignment = 2
 
+[node name="Confetti" type="VBoxContainer" parent="StatusBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="HBoxContainer" parent="StatusBar/Confetti"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="TextureButton" parent="StatusBar/Confetti/Label"]
+modulate = Color(1, 1, 1, 0.49803922)
+custom_minimum_size = Vector2(29.18, 0)
+layout_mode = 2
+texture_normal = ExtResource("6_qqppl")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Text" type="Label" parent="StatusBar/Confetti/Label"]
+modulate = Color(1, 1, 1, 0.50980395)
+layout_mode = 2
+text = "Confetti"
+uppercase = true
+
+[node name="ConfettiSpinBox" type="SpinBox" parent="StatusBar/Confetti"]
+layout_mode = 2
+alignment = 2
+
 [node name="Fog" type="VBoxContainer" parent="StatusBar"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -1177,6 +1203,8 @@ text = "Hide controls"
 [connection signal="value_changed" from="StatusBar/WaveSpeed/WaveSpeedSpinBox" to="." method="_on_wave_speed_spin_box_value_changed"]
 [connection signal="pressed" from="StatusBar/Snow/Label/Button" to="." method="_on_weather_button_pressed"]
 [connection signal="value_changed" from="StatusBar/Snow/SnowSpinBox" to="." method="_on_snow_spin_box_value_changed"]
+[connection signal="pressed" from="StatusBar/Confetti/Label/Button" to="." method="_on_weather_button_pressed"]
+[connection signal="value_changed" from="StatusBar/Confetti/ConfettiSpinBox" to="." method="_on_confetti_spin_box_value_changed"]
 [connection signal="pressed" from="StatusBar/Fog/Label/Button" to="." method="_on_weather_button_pressed"]
 [connection signal="value_changed" from="StatusBar/Fog/FogSpinBox" to="." method="_on_fog_spin_box_value_changed"]
 [connection signal="item_selected" from="StatusBar/VBoxContainer/PresetSelectButton" to="." method="_on_preset_select_button_item_selected"]

@@ -7,11 +7,13 @@ var aquafulness: Control
 signal ocean_type_changed
 
 var _ocean_type = "imaginary"
+var _confetti: float = 0.00
 
 @export var ocean_type: String: get = get_ocean_type, set = set_ocean_type
 
 @export var date: Dictionary: get = get_date, set = set_date
 @export var snow: float: get = get_snow, set = set_snow
+@export var confetti: float: get = get_confetti, set = set_confetti
 @export var fog: float: get = get_fog, set = set_fog
 
 @export var flowers: float: get = get_flowers, set = set_flowers
@@ -40,6 +42,7 @@ signal wave_height_changed
 signal clouds_changed
 signal snow_changed
 signal time_of_day_changed
+signal confetti_changed
 
 var swimmed_x_minus = 0
 var swimmed_z_minus = 0
@@ -259,6 +262,11 @@ func expand_forward():
 func get_snow():
 	return _snow
 
+
+func get_confetti():
+	return _confetti
+
+
 func get_flowers():
 	return _flowers
 
@@ -458,6 +466,15 @@ func set_snow(value: float):
 		unsnowify_node(self)
 
 	emit_signal('snow_changed', value)
+
+
+func set_confetti(value: float):
+	_confetti = value
+	$Confetti.amount = value
+	$Confetti.active = value > 0
+
+	emit_signal('confetti_changed', value)
+
 
 func init():
 	print("Bather", $Spawn.global_transform.origin)
