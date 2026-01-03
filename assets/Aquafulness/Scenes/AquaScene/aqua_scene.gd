@@ -334,15 +334,19 @@ func create_spoonies():
 
 			print("x: ", x, " z: ", z)
 
+var ocean_clouds
 
 func set_clouds(val):
 	_clouds = val
 
-	for _cloud in self.cloud_nodes:
-		_cloud.visible = val > 0
-
-	if val > 0:
-		create_clouds()
+	if val:
+		var ocean_clouds_scene = load('res://addons/SunshineVolumetricClouds/OceanCloudsPrefab.tscn')
+		ocean_clouds = ocean_clouds_scene.instantiate()
+		add_child(ocean_clouds)
+	else:
+		if ocean_clouds:
+			remove_child(ocean_clouds)
+		ocean_clouds = null
 
 	emit_signal('clouds_changed', val)
 
