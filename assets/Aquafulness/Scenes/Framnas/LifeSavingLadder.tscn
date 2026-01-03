@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bptc7bup0arrx"]
+
+[ext_resource type="PackedScene" uid="uid://cmfpxv4rjh7j" path="res://assets/Aquafulness/Scenes/Framnas/Ladder.tscn" id="1_d51wl"]
+[ext_resource type="Material" uid="uid://ct0phfu2dcwrq" path="res://assets/Aquafulness/Scenes/Framnas/LifeSavingMaterial.tres" id="2_dgcwv"]
+
+[node name="LifeSavingLadder" type="Node3D"]
+
+[node name="Ladder" parent="." instance=ExtResource("1_d51wl")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.909665, -2.6269531, 0)
+size = Vector3(1, 6.2539063, 1)
+material = ExtResource("2_dgcwv")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1180353, -2.6269531, 0)
+size = Vector3(1, 6.2539063, 1)
+material = ExtResource("2_dgcwv")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9200935, -0.053222656, 0)
+size = Vector3(3.9852295, 1.1064453, 1)
+material = ExtResource("2_dgcwv")

@@ -1,0 +1,70 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmfpxv4rjh7j"]
+
+[ext_resource type="PackedScene" uid="uid://vslqjhlqgvp8" path="res://assets/Aquafulness/Scenes/Framnas/ladder_rail.tscn" id="1_pqdhw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qiydf"]
+albedo_color = Color(0.639888, 0.639888, 0.6398879, 1)
+
+[node name="Ladder" type="CSGCombiner3D"]
+transform = Transform3D(1.5145279, 0, 0, 0, 0.28628796, 0, 0, 0, 0.52891326, 0, 0, 0)
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1.0000001, 0, 0, 9.519242)
+
+[node name="StairSteps" type="Node3D" parent="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 0, 0, 1, 0, 0, 0, 1.0000006, 0, 2.1952047, 7.025439)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 0, 0, 1, 0, 0, 0, 1.0000006, 0, 2.1952047, 7.025439)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 0, 0, 1, 0, 0, 0, 1.0000006, 0, -0.23348492, 6.572766)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 0, 0, 1, 0, 0, 0, 1.0000006, 0, -3.443755, 6.1991057)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 0, 0, 1, 0, 0, 0, 1.0000006, 0, -7.0073123, 5.674308)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 0, 0, 1, 0, 0, 0, 1.0000006, 0, -10.351134, 5.2555475)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 0, 0, 1, 0, 0, 0, 1.0000006, 0, -14.034022, 4.7181373)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 0, 0, 1, 0, 0, 0, 1.0000006, 0, -18.77418, 4.08133)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 0, 0, 1, 0, 0, 0, 1.0000006, 0, -23.074549, 3.271312)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 0, 0, 1, 0, 0, 0, 1.0000006, 0, -28.053238, 2.5978804)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="LadderRail" parent="Node3D/StairSteps" instance=ExtResource("1_pqdhw")]
+
+[node name="LadderRail2" parent="Node3D/StairSteps" instance=ExtResource("1_pqdhw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -1.7600358, 0, 0)

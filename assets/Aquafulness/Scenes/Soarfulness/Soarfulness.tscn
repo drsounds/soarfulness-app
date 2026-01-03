@@ -35,6 +35,7 @@ modulate = Color(1, 1, 1, 0.6666667)
 show_behind_parent = false
 material = SubResource("CanvasItemMaterial_qyowq")
 layout_mode = 1
+seed_filename = "Vänern.ogv"
 
 [node name="Controls" parent="." instance=ExtResource("4_akaao")]
 layout_mode = 1

@@ -1,10 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://3q1fmwrua8xf"]
+[gd_scene load_steps=15 format=3 uid="uid://3q1fmwrua8xf"]
 
 [ext_resource type="PackedScene" uid="uid://bj8g6v1uc7j5g" path="res://assets/Aquafulness/Scenes/Coordlux/Locker.tscn" id="1_1qiar"]
 [ext_resource type="PackedScene" uid="uid://dy0c714as00se" path="res://assets/Aquafulness/Scenes/Coordlux/sofa.tscn" id="2_60ld8"]
-[ext_resource type="PackedScene" uid="uid://cvjd8ly8q7qjt" path="res://assets/Aquafulness/Scenes/Coordlux/stairs.tscn" id="3_60ld8"]
+[ext_resource type="PackedScene" uid="uid://bwrie6t61t8ng" path="res://assets/Aquafulness/Scenes/Framnas/stairs.tscn" id="3_60ld8"]
 [ext_resource type="Texture2D" uid="uid://cspr0457rcay" path="res://assets/Aquafulness/Scenes/Locker/Wall.png" id="4_3jkjo"]
 [ext_resource type="PackedScene" uid="uid://ddxuhe410fx7d" path="res://assets/Aquafulness/Scenes/Coordlux/Pillars.tscn" id="4_ro4dp"]
+[ext_resource type="PackedScene" uid="uid://cmfpxv4rjh7j" path="res://assets/Aquafulness/Scenes/Framnas/Ladder.tscn" id="6_qe2sg"]
+[ext_resource type="PackedScene" uid="uid://c7hw1i16a6gkh" path="res://assets/Aquafulness/Scenes/Framnas/LifeSavingEquipment.tscn" id="7_kg2jw"]
+[ext_resource type="PackedScene" uid="uid://bptc7bup0arrx" path="res://assets/Aquafulness/Scenes/Framnas/LifeSavingLadder.tscn" id="8_4dwg1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60ld8"]
 albedo_texture = ExtResource("4_3jkjo")
@@ -12,12 +15,20 @@ albedo_texture = ExtResource("4_3jkjo")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ro4dp"]
 albedo_texture = ExtResource("4_3jkjo")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b738n"]
-albedo_color = Color(0.5, 0.367, 0.215, 1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e3kn2"]
+resource_local_to_scene = true
 albedo_texture = ExtResource("4_3jkjo")
 uv1_scale = Vector3(-2.91, 29.89, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y4a6c"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("4_3jkjo")
+uv1_scale = Vector3(-0.77, 7.909, 0.265)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qe2sg"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("4_3jkjo")
+uv1_scale = Vector3(0.54, -5.547, -0.186)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eei75"]
 albedo_texture = ExtResource("4_3jkjo")
@@ -26,55 +37,63 @@ albedo_texture = ExtResource("4_3jkjo")
 transform = Transform3D(-0.86716646, 0, 0.49801862, 0, 1, 0, -0.49801862, 0, -0.86716646, 0, 0, 0)
 
 [node name="Locker" parent="." instance=ExtResource("1_1qiar")]
-transform = Transform3D(-4.5476284, 0, 0.0074826395, 0, 6.7508173, 0, -0.0073019597, 0, -4.6601553, 1.5389757, 0.9176836, 1.0575914)
+transform = Transform3D(-4.5476284, 0, 0.007482767, 0, 6.7508173, 0, -0.0073019266, 0, -4.6601563, 12.233398, 0.9176836, 0.53021765)
 
 [node name="Locker2" parent="." instance=ExtResource("1_1qiar")]
-transform = Transform3D(-4.5476284, 0, 0.0074826395, 0, 6.7508173, 0, -0.0073019597, 0, -4.6601553, 19.613792, 0.5533161, 1.7814684)
+transform = Transform3D(-4.5476284, 0, 0.007483244, 0, 6.7508173, 0, -0.0073019266, 0, -4.6601563, 42.575752, 0.5533161, 0.98849297)
 
 [node name="Sofa" parent="." instance=ExtResource("2_60ld8")]
 transform = Transform3D(-4.547627, 0, 0.007482638, 0, 6.7508154, 0, -0.0073019573, 0, -4.6601543, -15.838265, 0.9176836, 4.8217206)
+
+[node name="Sofa2" parent="." instance=ExtResource("2_60ld8")]
+transform = Transform3D(-4.547627, 0, 0.007482767, 0, 6.7508154, 0, -0.0073019266, 0, -4.6601543, -39.430115, 0.9176836, 4.184209)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
 transform = Transform3D(-4.5476274, 4.5110937e-10, 0.0074826404, -0.00017832412, 6.750077, -0.10839286, -0.00730098, -0.07483482, -4.659554, -27.82346, -0.009575427, 4.459819)
 size = Vector3(2.3062744, 0.091430664, 0.59802246)
 material = SubResource("StandardMaterial3D_60ld8")
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.5476274, 4.5110937e-10, 0.0074826404, -0.00017832412, 6.750077, -0.10839286, -0.00730098, -0.07483482, -4.659554, -39.289703, -0.009575427, 4.459819)
-size = Vector3(2.3062744, 0.091430664, 0.59802246)
-material = SubResource("StandardMaterial3D_60ld8")
-
 [node name="Bridge" type="CSGCombiner3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4924011, -0.7911496, 5.838933)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Bridge"]
-transform = Transform3D(0.99994814, 0, -0.010175139, 0, 1, 0, 0.010175139, 0, 0.99994814, 28.759438, -0.4716797, -10.279269)
-size = Vector3(23.271973, 1.9433594, 25.047363)
-material = SubResource("StandardMaterial3D_ro4dp")
-
 [node name="CSGBox3D5" type="CSGBox3D" parent="Bridge"]
-transform = Transform3D(0.99994814, 0, -0.010175139, 0, 1, 0, 0.010175139, 0, 0.99994814, 21.274933, -0.4716797, -6.4537354)
-size = Vector3(38.162354, 1.9433594, 17.244385)
+transform = Transform3D(0.99994814, 0, -0.010175139, 0, 1, 0, 0.010175139, 0, 0.99994814, 39.67318, -0.4716797, -4.644244)
+size = Vector3(74.993774, 1.9433594, 14)
 material = SubResource("StandardMaterial3D_ro4dp")
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="Bridge"]
-transform = Transform3D(0.99994826, 0, -0.010175109, 0, 1, 0, 0.010175109, 0, 0.99994826, 25.48157, 0, -10.017719)
-size = Vector3(8.843678, 1, 24.45758)
-material = SubResource("StandardMaterial3D_b738n")
+[node name="CSGBox3D8" type="CSGBox3D" parent="Bridge"]
+transform = Transform3D(0.9902291, 0, -0.13944972, 0, 1, 0, 0.13944972, 0, 0.9902291, 42.79408, -0.4716797, -8.192357)
+size = Vector3(64.61539, 1.9433594, 14)
+material = SubResource("StandardMaterial3D_ro4dp")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Bridge"]
-transform = Transform3D(0.873458, 0, 0.48689955, 0, 1, 0, -0.48689955, 0, 0.873458, 152.2944, -0.6768341, -91.36573)
-size = Vector3(353.5302, 2.1433105, 14.299316)
+transform = Transform3D(0.873458, 0, 0.48689955, 0, 1, 0, -0.48689955, 0, 0.873458, 37.67677, -0.6768341, -28.945435)
+size = Vector3(92.46048, 2.1433105, 7.2231445)
 material = SubResource("StandardMaterial3D_e3kn2")
 
+[node name="CSGBox3D4" type="CSGBox3D" parent="Bridge"]
+transform = Transform3D(0.50102746, 0, 0.86543137, 0, 1, 0, -0.86543137, 0, 0.50102746, 76.16603, -0.6768341, -54.050182)
+size = Vector3(12.798477, 2.1433105, 5.203491)
+material = SubResource("StandardMaterial3D_y4a6c")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Bridge"]
+transform = Transform3D(0.8489717, 0, 0.5284383, 0, 1, 0, -0.5284383, 0, 0.8489717, 78.16441, -0.6768341, -51.859898)
+size = Vector3(12.798477, 2.1433105, 7.2231445)
+material = SubResource("StandardMaterial3D_qe2sg")
+
 [node name="CSGBox3D6" type="CSGBox3D" parent="Bridge"]
-transform = Transform3D(0.873458, 0, 0.48689964, 0, 1, 0, -0.48689964, 0, 0.873458, 6.826322, 0.45311308, -17.479519)
+transform = Transform3D(0.873458, 0, 0.48689955, 0, 1, 0, -0.48689955, 0, 0.873458, 13.015036, -0.36018038, -21.03373)
 size = Vector3(9.608339, 0.86828613, 4.391716)
 material = SubResource("StandardMaterial3D_e3kn2")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Bridge"]
-transform = Transform3D(0.9998198, 0, 0.018987775, 0, 1, 0, -0.018987775, 0, 0.9998198, -112.80947, -0.6799011, -2.7116518)
-size = Vector3(230.4433, 2.3598022, 13.820801)
+transform = Transform3D(0.9998198, 0, 0.018987775, 0, 1, 0, -0.018987775, 0, 0.9998198, -58.53527, -0.6799011, -3.7423868)
+size = Vector3(121.87536, 2.3598022, 13.820801)
+material = SubResource("StandardMaterial3D_eei75")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Bridge"]
+transform = Transform3D(0.91678137, 0, -0.39938956, 0, 1, 0, 0.39938956, 0, 0.91678137, -154.69035, -0.69353676, -17.761784)
+size = Vector3(82.27334, 2.3598022, 13.820801)
 material = SubResource("StandardMaterial3D_eei75")
 
 [node name="Node3D" parent="Bridge" instance=ExtResource("4_ro4dp")]
@@ -90,10 +109,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.08845, -18.166077, 1.321
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -138.51082, -18.166077, 0.78291607)
 
 [node name="Node3D14" parent="Bridge" instance=ExtResource("4_ro4dp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -179.72176, -18.166077, 1.8779097)
-
-[node name="Node3D15" parent="Bridge" instance=ExtResource("4_ro4dp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -205.16696, -18.166077, -3.7439775)
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, -175.18056, -18.166077, -20.334187)
 
 [node name="Node3D5" parent="Bridge" instance=ExtResource("4_ro4dp")]
 transform = Transform3D(0.8843285, 0, 0.46686518, 0, 1, 0, -0.46686518, 0, 0.8843285, 4.637123, -18.166077, -3.761322)
@@ -105,31 +121,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.256851, -18.166077, 0)
 transform = Transform3D(0.8950745, 0, 0.44591662, 0, 1, 0, -0.44591662, 0, 0.8950745, 32.924477, -18.166077, -20.56755)
 
 [node name="Node3D6" parent="Bridge" instance=ExtResource("4_ro4dp")]
-transform = Transform3D(0.8950745, 0, 0.44591662, 0, 1, 0, -0.44591662, 0, 0.8950745, 62.40228, -18.166077, -36.99846)
-
-[node name="Node3D8" parent="Bridge" instance=ExtResource("4_ro4dp")]
-transform = Transform3D(0.8950745, 0, 0.4459166, 0, 1, 0, -0.4459166, 0, 0.8950745, 101.49969, -18.166077, -59.452324)
-
-[node name="Node3D9" parent="Bridge" instance=ExtResource("4_ro4dp")]
-transform = Transform3D(0.89507455, 0, 0.44591656, 0, 1, 0, -0.44591656, 0, 0.89507455, 139.99525, -18.166077, -81.56055)
-
-[node name="Node3D10" parent="Bridge" instance=ExtResource("4_ro4dp")]
-transform = Transform3D(0.89507455, 0, 0.44591653, 0, 1, 0, -0.44591653, 0, 0.89507455, 184.95538, -18.166077, -107.3814)
-
-[node name="Node3D11" parent="Bridge" instance=ExtResource("4_ro4dp")]
-transform = Transform3D(0.89507455, 0, 0.4459165, 0, 1, 0, -0.4459165, 0, 0.89507455, 233.40845, -18.166077, -135.20825)
-
-[node name="Node3D16" parent="Bridge" instance=ExtResource("4_ro4dp")]
-transform = Transform3D(0.8950746, 0, 0.44591647, 0, 1, 0, -0.44591647, 0, 0.8950746, 278.82465, -18.166077, -161.29102)
+transform = Transform3D(0.8950745, 0, 0.4459166, 0, 1, 0, -0.4459166, 0, 0.8950745, 62.40228, -18.166077, -36.99846)
 
 [node name="Node3D2" parent="Bridge" instance=ExtResource("4_ro4dp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.69342, -18.166077, 7.7894287)
 
+[node name="Camera3D" type="Camera3D" parent="Bridge"]
+transform = Transform3D(0.9999999, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 0.99999994, 10.0390215, 3.4492683, -5.7654667)
+
 [node name="Stairs" parent="." instance=ExtResource("3_60ld8")]
-transform = Transform3D(0.8491284, 0, 0.6190345, 0, 0.633, 0, -0.52818644, 0, 0.9951786, 2.4621143, -1.5166024, -17.482452)
+transform = Transform3D(0.8491284, 0, 0.6190345, 0, 0.633, 0, -0.52818644, 0, 0.99517864, 5.956051, -1.415347, -21.944082)
 
-[node name="Stairs2" parent="." instance=ExtResource("3_60ld8")]
-transform = Transform3D(0.8491284, 0, 0.6190345, 0, 0.633, 0, -0.52818644, 0, 0.99517864, 138.14815, -1.5166024, -95.4077)
+[node name="Stairs4" parent="." instance=ExtResource("3_60ld8")]
+transform = Transform3D(0.3426269, 0, 1.1010607, 0, 0.6330001, 0, -0.9394716, 0, 0.40155894, 61.301754, -1.415347, -53.72943)
 
-[node name="Stairs3" parent="." instance=ExtResource("3_60ld8")]
-transform = Transform3D(0.8491284, 0, 0.6190345, 0, 0.633, 0, -0.52818644, 0, 0.99517864, 259.33936, -1.5166024, -165.00848)
+[node name="Ladder" parent="." instance=ExtResource("6_qe2sg")]
+transform = Transform3D(-1.3133478, 0, -0.2634086, 0, 0.28628796, 0, 0.7542628, 0, -0.45865574, 3.4697025, 0, -6.396584)
+
+[node name="Ladder2" parent="." instance=ExtResource("6_qe2sg")]
+transform = Transform3D(-1.3133478, 0, -0.2634086, 0, 0.28628796, 0, 0.7542628, 0, -0.45865574, 55.673637, 0, -36.3776)
+
+[node name="Ladder3" parent="." instance=ExtResource("6_qe2sg")]
+transform = Transform3D(-1.3133478, 0, -0.2634086, 0, 0.28628796, 0, 0.7542628, 0, -0.45865574, 30.582138, 0, -21.967411)
+
+[node name="Ladder4" parent="." instance=ExtResource("6_qe2sg")]
+transform = Transform3D(-1.5124165, 0, 0.027920946, 0, 0.28628796, 0, -0.07995093, 0, -0.5281757, -86.86194, 0, -3.0708199)
+
+[node name="LifeSavingEquipment" parent="." instance=ExtResource("7_kg2jw")]
+transform = Transform3D(0.11679399, 0, -0.15906392, 0, 0.119751275, 0, 0.120825544, 0, 0.15375647, 22.561045, 0, -11.9599495)
+
+[node name="LifeSavingLadder" parent="." instance=ExtResource("8_4dwg1")]
+transform = Transform3D(-0.99999726, 0, 0.002286464, 0, 1, 0, -0.002286464, 0, -0.99999726, -20.989536, 0.044538498, -5.3608613)
+
+[node name="LifeSavingLadder2" parent="." instance=ExtResource("8_4dwg1")]
+transform = Transform3D(-0.98241436, 0, 0.18671277, 0, 1, 0, -0.18671277, 0, -0.98241436, 41.20081, 0.044538498, -9.405957)

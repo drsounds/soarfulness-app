@@ -51,4 +51,4 @@ size = Vector3(2.0708694, 4.6400146, 2.9391174)
 material = ExtResource("2_27bkw")
 
 [node name="Locker" parent="." instance=ExtResource("3_y3bfv")]
-transform = Transform3D(0.44156268, 0, 0, 0, 0.49115217, 0, 0, 0, 0.8445723, -0.03535533, 0, -0.40193033)
+transform = Transform3D(0.7514427, 0, 0, 0, 0.49115217, 0, 0, 0, 0.8445723, -0.03535533, 0, -0.40193033)
