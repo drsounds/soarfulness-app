@@ -60,13 +60,13 @@ func set_wave_speed(val):
 func get_wave_length():
 	if wave_z == null:
 		return 0
-	return wave_z.height
+	return wave_y.length
 
 
 func set_wave_length(val):
 	if wave_z == null:
 		return
-	wave_z.height = val
+	wave_y.length = val
 	emit_signal('wave_length_changed', val)
 
 

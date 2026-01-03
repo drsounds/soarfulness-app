@@ -126,9 +126,6 @@ transform = Transform3D(0.8950745, 0, 0.4459166, 0, 1, 0, -0.4459166, 0, 0.89507
 [node name="Node3D2" parent="Bridge" instance=ExtResource("4_ro4dp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.69342, -18.166077, 7.7894287)
 
-[node name="Camera3D" type="Camera3D" parent="Bridge"]
-transform = Transform3D(0.9999999, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 0.99999994, 10.0390215, 3.4492683, -5.7654667)
-
 [node name="Stairs" parent="." instance=ExtResource("3_60ld8")]
 transform = Transform3D(0.8491284, 0, 0.6190345, 0, 0.633, 0, -0.52818644, 0, 0.99517864, 5.956051, -1.415347, -21.944082)
 

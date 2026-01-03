@@ -31,12 +31,14 @@ material = SubResource("StandardMaterial3D_k4v8f")
 script = ExtResource("1_rw81e")
 
 [node name="CloudsSystem" parent="." instance=ExtResource("2_0x1s2")]
+windSpeed = 0.0
 cloudsFloor = -143.2
 cloudsCeiling = 19.07
 globalCloudScale = -200.0
+detailNoiseScale = 1.0
 
 [node name="Swing" parent="." instance=ExtResource("2_k4v8f")]
-swing_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.74024606, -2508.1814, 0.75417525)
+swing_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.650733, -2509.1123, 0.3518577)
 
 [node name="BathPlace" parent="." instance=ExtResource("1_47g7c")]
 transform = Transform3D(-1.1716763, 0, 0.9365761, 0, 1.5, 0, -0.9365761, 0, -1.1716763, 17.0617, 25.834293, -176.47021)

@@ -228,28 +228,7 @@ func _process(delta:float) -> void:
 		if enforce_boundaries:
 			self.transform.origin.y = boundary.y - (boundary_size.y / 2) + 1
 		outside_bounds = true
-	
-	"""
-	if outside_bounds and not enforce_boundaries:
-		duo.visible = true
-	else:
-		duo.visible = false
-	"""
 
-	"""
-	if transform.origin.x > BOUNDARY.x:
-		transform.origin.x = -BOUNDARY.x + 1
-	if transform.origin.x < -BOUNDARY.x:
-		transform.origin.x = BOUNDARY.x - 1
-	if transform.origin.z > BOUNDARY.z:
-		transform.origin.z = -BOUNDARY.z + 1
-	if transform.origin.z < -BOUNDARY.z:
-		transform.origin.z = BOUNDARY.z - 1
-	if transform.origin.y < -BOUNDARY.y:
-		transform.origin.y = BOUNDARY.y - 1
-	if transform.origin.z < -BOUNDARY.x:
-		transform.origin.z = BOUNDARY.z - 1
-	"""
 	var old_transform_origin = Vector3(
 		self.transform.origin.x,
 		self.transform.origin.y,

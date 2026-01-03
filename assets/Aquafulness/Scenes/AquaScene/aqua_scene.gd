@@ -595,10 +595,10 @@ func set_date(value: Dictionary):
 	if $DayNightController != null:
 		var filename = 'res://assets/Aquafulness/Vänern_' + epoch + '_' + time_of_day + '.tres'
 
-		if ocean_environment != null and not ocean_environment.environment:
+		if ocean_environment != null:
 			ocean_environment.environment = load(filename)
 
-		if $WorldEnvironment != null and not $WorldEnvironment.environment:
+		if $WorldEnvironment != null:
 			$WorldEnvironment.environment = load(filename)
 
 		self.emit_signal('date_changed', date)
