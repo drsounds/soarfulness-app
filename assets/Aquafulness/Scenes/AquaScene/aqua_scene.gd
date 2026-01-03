@@ -74,7 +74,7 @@ func set_real_time(value):
 	if value:
 		date = Time.get_datetime_dict_from_system()
 
-	emit_signal('real_time_changed')
+	emit_signal('real_time_changed', date)
 
 
 func get_real_time():
@@ -93,7 +93,7 @@ func set_fireworks(value):
 		while $FireworksContainer.get_child_count() > 0:
 			$FireworksContainer.remove_child($FireworksContainer.get_child(0))
 
-	emit_signal('fireworks_changed')
+	emit_signal('fireworks_changed', value)
 
 
 func get_fireworks():
@@ -102,7 +102,7 @@ func get_fireworks():
 
 func set_water_level(value: float):
 	$Swing.y_offset = value
-	emit_signal('water_level_changed')
+	emit_signal('water_level_changed', value)
 
 
 func get_water_level():
@@ -599,10 +599,10 @@ func set_date(value: Dictionary):
 	if $DayNightController != null:
 		var filename = 'res://assets/Aquafulness/Vänern_' + epoch + '_' + time_of_day + '.tres'
 
-		if ocean_environment != null:
+		if ocean_environment != null and not ocean_environment.environment:
 			ocean_environment.environment = load(filename)
 
-		if $WorldEnvironment != null:
+		if $WorldEnvironment != null and not $WorldEnvironment.environment:
 			$WorldEnvironment.environment = load(filename)
 
 		self.emit_signal('date_changed', date)

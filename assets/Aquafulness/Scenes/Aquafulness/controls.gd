@@ -95,7 +95,7 @@ func init() -> void:
 
 
 func _on_fireworks_changed(value):
-	$Control/FireworksCheckButton.toggled = value
+	$Control/FireworksCheckButton.toggle_mode = value
 
 
 func _on_real_time_changed(value):
@@ -128,7 +128,7 @@ func _on_seed_changed(filename: Dictionary):
 					save_config()
 
 
-func _on_ocean_type_changed(ocean_type: String):
+func _on_ocean_type_changed(ocean_type):
 	if ocean_type == "imaginary":
 		$Control/OceanOptionButton.selected = 1
 	elif ocean_type == "3d":

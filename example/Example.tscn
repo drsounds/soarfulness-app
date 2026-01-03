@@ -155,7 +155,7 @@ shader_parameter/noise_texture = SubResource("NoiseTexture2D_xvh5c")
 shader_parameter/distortion_speed = 5.0
 shader_parameter/distortion_amount = 1.0
 
-[node name="OceanEnvironment" type="WorldEnvironment" node_paths=PackedStringArray("sun_light", "sky_light", "splash_particles", "splash_sub_particles", "underwater_particles", "underwater_post_proc")]
+[node name="OceanEnvironment" type="WorldEnvironment" node_paths=PackedStringArray("sun_light", "sky_light", "splash_particles", "splash_sub_particles")]
 environment = ExtResource("1_mv4dq")
 script = ExtResource("2_jhrdm")
 ocean = SubResource("Resource_opkt2")
@@ -165,8 +165,6 @@ surfaced_fog_color = Color(0.34901962, 0.60784316, 0.8901961, 0.50980395)
 splash_particles = NodePath("SplashParticles")
 splash_sub_particles = NodePath("SplashParticles/SplashSubParticles")
 underwater_fog_color = Color(0.1254902, 0.2627451, 0.44705883, 0.50980395)
-underwater_particles = NodePath("UnderwaterParticles")
-underwater_post_proc = NodePath("PostProcessingLayer/UnderwaterPostProc")
 
 [node name="QuadTree3D" type="Node3D" parent="."]
 script = ExtResource("5_li4kg")
@@ -186,12 +184,14 @@ environment = NodePath("..")
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 0)
+visible = false
 max_distance = 1000.0
 size = Vector3(200, 200, 200)
 ambient_mode = 0
 
 [node name="SplashParticles" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.7738, -9.06308)
+visible = false
 emitting = false
 amount = 1000
 sub_emitter = NodePath("SplashSubParticles")
@@ -210,6 +210,7 @@ draw_pass_1 = SubResource("QuadMesh_g2dg2")
 
 [node name="UnderwaterParticles" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.7738, -9.06308)
+visible = false
 emitting = false
 amount = 1000
 lifetime = 2.0
@@ -371,7 +372,9 @@ tick_count = 5
 ticks_on_borders = true
 
 [node name="PostProcessingLayer" type="CanvasLayer" parent="."]
+process_mode = 4
 layer = 0
+visible = false
 
 [node name="UnderwaterPostProc" type="ColorRect" parent="PostProcessingLayer"]
 material = SubResource("ShaderMaterial_6utjj")

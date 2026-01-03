@@ -239,8 +239,8 @@ func _process(delta:float) -> void:
  
 	if swing != null:
 		self.transform.origin.y = swing.swing_transform.origin.y
-		if floatation_gear != null:
-			self.transform.origin.y += floatation_gear.transform.origin.y
+		#if floatation_gear != null:
+		#	self.transform.origin.y += floatation_gear.transform.origin.y
 		self.transform.origin.z = swing.swing_transform.origin.z
 		
 	self.transform.origin += location

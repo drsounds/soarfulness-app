@@ -36,6 +36,8 @@ func get_seed_by_filename(filename):
 
 func set_seed_filename(value: String):
 	_seed_filename = value
+	if $VideoStreamPlayer == null:
+		return
 	$VideoStreamPlayer.stream = load('res://' + value)
 	$VideoStreamPlayer.play()
 	var aquafulness_seed = get_seed_by_filename(value)
@@ -46,8 +48,7 @@ func set_seed_filename(value: String):
 			else:
 				$VideoStreamPlayer.speed_scale = 1
 			
-		emit_signal('seed_changed', _seed_filename)
-			
+		emit_signal('seed_changed', aquafulness_seed)
 
 
 func get_seed_filename():

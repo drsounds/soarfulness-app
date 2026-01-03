@@ -65,7 +65,7 @@ class_name OceanEnvironment
 
 ## True if the camera has transitioned to above water. False if the camera has
 ## transitioned to below water.
-var player_is_surfaced := false
+var player_is_surfaced := true
 
 
 func _ready() -> void:
@@ -73,7 +73,7 @@ func _ready() -> void:
 	
 	if ocean and not ocean.initialized:
 		ocean.initialize_simulation()
-	
+	return
 	if splash_particles != null:
 		splash_particles.process_material.set_shader_parameter("view_distance_max", camera.far)
 		splash_particles.process_material.set_shader_parameter("wind_uv_offset", ocean.wind_uv_offset)
@@ -95,7 +95,7 @@ func _process(delta:float) -> void:
 	if not ocean.initialized:
 		ocean.initialize_simulation()
 	ocean.simulate(delta)
-	
+	return
 	
 	if get_wave_height(camera.global_position, 2) > camera.global_position.y:
 		if player_is_surfaced:
@@ -149,9 +149,9 @@ func go_under_water() -> void:
 
 ## Transition to above water environment settings.
 func go_above_water() -> void:
-	player_is_surfaced = true 
-	underwater_post_proc.visible = false
 	player_is_surfaced = true
+	if underwater_post_proc != null:
+		underwater_post_proc.visible = false
 	return
 	
 	sky_light.visible = false
