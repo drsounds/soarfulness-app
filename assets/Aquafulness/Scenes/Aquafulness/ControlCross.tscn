@@ -16,7 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1b1m4")
 
-[node name="UpButton" type="TextureButton" parent="."]
+[node name="UpButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -25,13 +25,13 @@ offset_left = -44.0
 offset_right = 50.0
 offset_bottom = 93.0
 grow_horizontal = 2
+toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
-texture_normal = ExtResource("2_1b1m4")
-ignore_texture_size = true
-stretch_mode = 4
+icon = ExtResource("2_1b1m4")
+expand_icon = true
 
-[node name="LeftButton" type="TextureButton" parent="."]
+[node name="LeftButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -41,12 +41,12 @@ offset_right = 98.123505
 offset_bottom = 139.8594
 grow_vertical = 2
 rotation = -1.5707964
+toggle_mode = true
 keep_pressed_outside = true
-texture_normal = ExtResource("2_1b1m4")
-ignore_texture_size = true
-stretch_mode = 4
+icon = ExtResource("2_1b1m4")
+expand_icon = true
 
-[node name="RightButton" type="TextureButton" parent="."]
+[node name="RightButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -59,12 +59,12 @@ offset_bottom = 47.238495
 grow_horizontal = 0
 grow_vertical = 2
 rotation = 1.5707964
+toggle_mode = true
 keep_pressed_outside = true
-texture_normal = ExtResource("2_1b1m4")
-ignore_texture_size = true
-stretch_mode = 4
+icon = ExtResource("2_1b1m4")
+expand_icon = true
 
-[node name="DownButton" type="TextureButton" parent="."]
+[node name="DownButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -77,12 +77,12 @@ offset_bottom = 88.717896
 grow_horizontal = 2
 grow_vertical = 0
 rotation = 3.1415927
+toggle_mode = true
 keep_pressed_outside = true
-texture_normal = ExtResource("2_1b1m4")
-ignore_texture_size = true
-stretch_mode = 4
+icon = ExtResource("2_1b1m4")
+expand_icon = true
 
-[node name="StopButton" type="TextureButton" parent="."]
+[node name="StopButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -95,18 +95,13 @@ offset_right = 31.589294
 offset_bottom = 30.5
 grow_horizontal = 2
 grow_vertical = 2
+toggle_mode = true
 keep_pressed_outside = true
-texture_normal = ExtResource("3_a6sme")
-ignore_texture_size = true
-stretch_mode = 4
+icon = ExtResource("3_a6sme")
+expand_icon = true
 
-[connection signal="button_down" from="UpButton" to="." method="_on_texture_button_button_down"]
-[connection signal="button_up" from="UpButton" to="." method="_on_texture_button_button_up"]
-[connection signal="pressed" from="UpButton" to="." method="_on_up_button_pressed"]
-[connection signal="button_down" from="LeftButton" to="." method="_on_left_button_button_down"]
-[connection signal="button_up" from="LeftButton" to="." method="_on_left_button_button_up"]
-[connection signal="button_down" from="RightButton" to="." method="_on_right_button_button_down"]
-[connection signal="button_up" from="RightButton" to="." method="_on_right_button_button_up"]
-[connection signal="button_down" from="DownButton" to="." method="_on_down_button_button_down"]
-[connection signal="button_up" from="DownButton" to="." method="_on_down_button_button_up"]
+[connection signal="toggled" from="UpButton" to="." method="_on_up_button_toggled"]
+[connection signal="toggled" from="LeftButton" to="." method="_on_left_button_toggled"]
+[connection signal="toggled" from="RightButton" to="." method="_on_right_button_toggled"]
+[connection signal="toggled" from="DownButton" to="." method="_on_down_button_toggled"]
 [connection signal="pressed" from="StopButton" to="." method="_on_stop_button_pressed"]

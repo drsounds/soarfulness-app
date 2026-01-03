@@ -1,6 +1,6 @@
 extends TextureButton
 
-var bather	
+var bather
 var scene
 var aquafulness
 var config
@@ -61,7 +61,7 @@ func init() -> void:
 	aquafulness.connect('seed_changed', self._on_seed_changed)
 	scene = get_tree().root.find_child('SubViewport', true, false).get_child(0)
 	scene.connect('flowers_changed', self._on_flowers_changed)
-	scene.connect('is_showing_ocean_floors_changed', self._on_is_showing_ocean_floors_changed)
+	scene.connect('is_showing_ocean_floor_changed', self._on_is_showing_ocean_floor_changed)
 	scene.connect('ocean_type_changed', self._on_ocean_type_changed)
 	bather = get_tree().root.find_child('Bather', true, false)
 	audio_player = aquafulness.find_child('VideoStreamPlayer')
@@ -78,7 +78,6 @@ func init() -> void:
 	scene.connect('fireworks_changed', self._on_fireworks_changed)
 	scene.connect('confetti_changed', self._on_confetti_changed)
 	bather.connect("enforce_boundaries_changed", self._on_enforce_boundaries_changed)
-	
 
 	$WeatherPanel.open = false
 	$DatePanel.open = false
@@ -95,15 +94,15 @@ func init() -> void:
 
 
 func _on_fireworks_changed(value):
-	$Control/FireworksCheckButton.toggle_mode = value
+	$Control/FireworksCheckButton.button_pressed = value
 
 
 func _on_real_time_changed(value):
 	pass
 
 
-func _on_is_showing_ocean_floors_changed(value: bool):
-	$Control/OceanFloorCheckButton.toggled = value
+func _on_is_showing_ocean_floor_changed(value: bool):
+	$Control/OceanFloorCheckButton.button_pressed = value
 
 
 func _on_seed_changed(filename: Dictionary):
@@ -146,7 +145,7 @@ func _on_confetti_changed(confetti: float):
 
 
 func _on_clouds_changed(clouds: float):
-	$Control/CloudsCheckButton.toggle_mode = clouds > 0
+	$Control/CloudsCheckButton.button_pressed = clouds > 0
 
 
 func _handle_scene_wave_speed_changed(wave_speed: float):
@@ -154,11 +153,11 @@ func _handle_scene_wave_speed_changed(wave_speed: float):
 
 
 func _on_enforce_boundaries_changed(enforce_boundaries: bool):
-	$Control/CloudsCheckButton.toggle_mode = enforce_boundaries
+	$Control/CloudsCheckButton.button_pressed = enforce_boundaries
 
 
 func _on_flowers_changed(flowers: float):
-	$StatusBar/Reed/CheckButton.toggle_mode = flowers > 0
+	$StatusBar/Reed/CheckButton.button_pressed = flowers > 0
 
 
 func _on_fog_changed(fog_amount: float):
@@ -208,7 +207,8 @@ func load_config(filename = CONFIG_FILENAME):
 	scene.wave_height = config.get_value("water", "wave_height", 20.0)
 	scene.wave_length = config.get_value("water", "wave_length", 5.0)
 	scene.wave_speed = config.get_value("water", "wave_speed", 4.0)
-	scene.is_showing_ocean_floor = config.get_value("scene", "is_showing_ocean_floors", false)
+	scene.is_showing_ocean_floor = config.get_value("scene", "is_showing_ocean_floor", false)
+	$Control/OceanFloorCheckButton.button_pressed = scene.is_showing_ocean_floor
 	aquafulness.seed_filename = config.get_value("aquafulness", "seed", "Vänern.ogv")
 	scene.ocean_type = config.get_value("session", "ocean_type", "imaginary")
 	scene.flowers = config.get_value("water", "flowers", 0.0)
@@ -273,7 +273,7 @@ func scene_date_changed(date):
 		'minute': 59,
 		'second': 59
 	}, true)
-	config.set_value("date", "now", Time.get_datetime_string_from_datetime_dict(now, true))	
+	config.set_value("date", "now", Time.get_datetime_string_from_datetime_dict(now, true))
 	save_config()
 
 	var system_date = Time.get_datetime_dict_from_system()
@@ -455,7 +455,7 @@ func _on_scene_options_button_focus_exited() -> void:
 
 
 func _on_scene_options_button_item_selected(index: int) -> void:
-	var scenes = soarfulness.scenes 
+	var scenes = soarfulness.scenes
 	var scene_name = $StatusBar/Location/Button.get_item_text(index)
 	for new_scene in scenes:
 		if new_scene['name'] == scene_name:
@@ -674,7 +674,7 @@ func _on_set_night_button_pressed() -> void:
 func _on_ocean_floor_check_button_toggled(toggled_on: bool) -> void:
 	if toggled_on != scene.is_showing_ocean_floor:
 		scene.is_showing_ocean_floor = toggled_on
-		config.set_value('scene', 'is_showing_ocean_floors', toggled_on)
+		config.set_value('scene', 'is_showing_ocean_floor', toggled_on)
 		save_config()
 
 

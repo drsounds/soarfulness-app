@@ -1,4 +1,7 @@
-[gd_resource type="NoiseTexture3D" load_steps=2 format=3 uid="uid://beujfcx2u0pqg"]
+[gd_resource type="NoiseTexture3D" load_steps=3 format=3 uid="uid://beujfcx2u0pqg"]
+
+[sub_resource type="Gradient" id="Gradient_yl8rg"]
+colors = PackedColorArray(0, 0, 0, 0.21960784, 1, 1, 1, 0.28235295)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_7o76k"]
 noise_type = 0
@@ -9,6 +12,7 @@ domain_warp_type = 1
 
 [resource]
 noise = SubResource("FastNoiseLite_7o76k")
+color_ramp = SubResource("Gradient_yl8rg")
 seamless = true
 normalize = false
 seamless_blend_skirt = 0.4

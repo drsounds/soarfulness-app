@@ -20,6 +20,8 @@ var floating_y_minus = 0
 
 var location: Vector3 = Vector3(0, 0, 0)
 
+var movement: Vector3 = Vector3(0, 0, 0)
+
 signal respawned
 
 var swim_area
@@ -163,6 +165,36 @@ func _input(event: InputEvent) -> void:
 			if event.axis_value < -0.5: velocity.z += (event.axis_value + 0.5) * 0.01
 
 
+	if event.is_action_pressed("ui_action_stop"):
+		self.movement.z = 0
+		self.movement.y = 0
+
+	if (event.is_action_pressed("ui_up") or event.is_action_pressed("up")) and (event.is_action_pressed("ui_down")  or event.is_action_pressed("down")) or event.is_action_pressed("stop"):
+		self.movement.z = 0
+	if (event.is_action_pressed("ui_left") or event.is_action_pressed("left")) and (event.is_action_pressed("ui_right") or event.is_action_pressed("right")) or event.is_action_pressed("stop"):
+		self.movement.x = 0
+
+	if event.is_action_pressed("ui_up") or event.is_action_pressed("up"):
+		self.movement.z -= 0.05
+		if self.movement.z < -10:
+			self.movement.z = -10
+
+	if event.is_action_pressed("ui_down") or event.is_action_pressed("down"):
+		self.movement.z += 0.05
+		if self.movement.z > 10:
+			self.movement.z = 10
+
+	if event.is_action_pressed('ui_left') or event.is_action_pressed("left"):
+		self.movement.x -= 0.05
+		if self.movement.x < -10:
+			self.movement.x = -10
+
+	if event.is_action_pressed('ui_right') or event.is_action_pressed("right"):
+		self.movement.x += 0.05
+		if self.movement.x > 10:
+			self.movement.x = 10
+
+
 func _process(delta:float) -> void:
 	time += delta
 	var boundary: Area3D = get_parent().boundary
@@ -175,18 +207,18 @@ func _process(delta:float) -> void:
 	if transform.origin.x < boundary.transform.origin.x - (boundary_size.x / 2) and self.velocity.x < 0:
 		outside_bounds = true
 		if enforce_boundaries:
-			self.velocity.x *= 0.9
+			self.velocity.x *= -0.9
 	if transform.origin.x > boundary.transform.origin.x + (boundary_size.x / 2) and self.velocity.x > 0:
 		if enforce_boundaries:
-			self.velocity.x *= 0.9
+			self.velocity.x *= -0.9
 		outside_bounds = true
 	if transform.origin.z < boundary.transform.origin.z - (boundary_size.z / 2) and self.velocity.z < 0:
 		if enforce_boundaries:
-			self.velocity.z *= 0.9
+			self.velocity.z *= -0.9
 		outside_bounds = true
 	if transform.origin.z > boundary.transform.origin.z + (boundary_size.z / 2) and self.velocity.z > 0:
 		if enforce_boundaries:
-			self.velocity.z *= 0.9
+			self.velocity.z *= -0.9
 		outside_bounds = true
 	if transform.origin.y < boundary.transform.origin.y - (boundary_size.y / 2) and self.velocity.y < 0:
 		if enforce_boundaries:
@@ -240,5 +272,7 @@ func _process(delta:float) -> void:
 	self.transform.origin += velocity
 	
 	velocity *= 0.5
+	
+	velocity += movement
 
 	emit_signal('moved', self.transform.origin - old_transform_origin)

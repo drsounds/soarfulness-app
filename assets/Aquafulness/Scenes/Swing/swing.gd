@@ -95,33 +95,6 @@ func _input(event: InputEvent) -> void:
 			self.velocify.y = 0
 			self.velocify.z = 0
 
-	if event.is_action_pressed("ui_action_stop"):
-		self.velocify.z = 0
-		self.velocify.y = 0
-
-	if (event.is_action_pressed("ui_up") and event.is_action_pressed("ui_down")) or event.is_action_pressed("stop"):
-		self.velocify.z = 0
-	if event.is_action_pressed("ui_left") and event.is_action_pressed("ui_right") or event.is_action_pressed("stop"):
-		self.velocify.x = 0
-
-	if event.is_action_pressed("ui_up"):
-		self.velocify.z -= 0.01
-		if self.velocify.z < -10:
-			self.velocify.z = -10
-
-	if event.is_action_pressed("ui_down"):
-		self.velocify.z += 0.01
-		if self.velocify.z > 10:
-			self.velocify.z = 10
-	if event.is_action_pressed('ui_left'):
-		self.velocify.x -= 0.05
-		if self.velocify.x < -10:
-			self.velocify.x = -10
-	if event.is_action_pressed('ui_right'):
-		self.velocify.x += 0.05
-		if self.velocify.x > 10:
-			self.velocify.x = 10
-
 	if event.is_action_pressed("ui_action_increase_wave_height"):
 		wave_height += 1
 

@@ -110,11 +110,10 @@ func get_water_level():
 
 
 func set_is_showing_ocean_floor(value: bool):
-	if $OceanFloor == null:
-		return false
+	if $OceanFloor != null:
+		$OceanFloor.visible = value
 
-	$OceanFloor.visible = value
-	emit_signal('is_showing_ocean_floor_changed')
+	emit_signal('is_showing_ocean_floor_changed', value)
 
 
 func get_is_showing_ocean_floor():
@@ -128,10 +127,6 @@ func get_swing():
 	return $Swing
 
 
-func set_show_ocean_floor(value: bool):
-	$OceanFloor.visible = value
-
-
 func get_3d_ocean() -> bool:
 	return ocean_environment != null
 
@@ -143,7 +138,7 @@ func set_3d_ocean(value: bool):
 			var ocean_environment_scene = load('res://example/Example.tscn')
 			ocean_environment = ocean_environment_scene.instantiate()
 			add_child(ocean_environment)
-			
+
 	else:
 		if ocean_environment != null:
 			remove_child(ocean_environment)
@@ -543,7 +538,6 @@ func set_ocean_type(value):
 
 	if value == "imaginary":
 		aquafulness.visible = true
-		$OceanFloor.visible = true
 		set_3d_ocean(false)
 	else:
 		$OceanFloor.visible = false
@@ -564,6 +558,8 @@ func get_date() -> Dictionary:
 
 func set_date(value: Dictionary):
 	self._date = value
+	if not date.has('year'):
+		return
 	if date["year"] > 2100:
 		epoch = "Futuristic"
 	else:
