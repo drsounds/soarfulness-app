@@ -551,25 +551,25 @@ func _on_enforce_boundaries_button_toggled(toggled_on: bool) -> void:
 
 
 func _on_increase_wave_button_pressed() -> void:
-	scene.wave_height += 5
+	scene.wave_height += 0.1
 	config.set_value('water', 'wave_height', scene.wave_height)
 	save_config()
 
 
 func _on_decrease_wave_button_pressed() -> void:
-	scene.wave_height -= 5
+	scene.wave_height -= 0.1
 	config.set_value('water', 'wave_height', scene.wave_height)
 	save_config()
 
 
 func _on_increase_wave_length_button_pressed() -> void:
-	scene.wave_length += 1
+	scene.wave_length += 0.1
 	config.set_value('water', 'wave_length', scene.wave_length)
 	save_config()
 
 
 func _on_decrease_wave_length_button_pressed() -> void:
-	scene.wave_length -= 1
+	scene.wave_length -= 0.1
 	config.set_value('water', 'wave_length', scene.wave_length)
 	save_config()
 
@@ -610,13 +610,13 @@ func _on_wave_speed_spin_box_value_changed(value: float) -> void:
 
 
 func _on_increase_wave_speed_button_pressed() -> void:
-	scene.wave_speed += 1
+	scene.wave_speed += 0.1
 	config.set_value('water', 'wave_speed', scene.wave_speed)
 	save_config()
 
 
 func _on_decrease_wave_speed_button_pressed() -> void:
-	scene.wave_speed -= 1
+	scene.wave_speed -= 0.1
 	config.set_value('water', 'wave_speed', scene.wave_speed)
 	save_config()
 

@@ -101,12 +101,12 @@ func get_fireworks():
 
 
 func set_water_level(value: float):
-	$Swing.y_offset = value
-	emit_signal('water_level_changed', value)
+	$Swing.water_level_y = value
+	emit_signal('water_level_changed')
 
 
 func get_water_level():
-	return $Swing.y_offset
+	return $Swing.water_level_y
 
 
 func set_is_showing_ocean_floor(value: bool):

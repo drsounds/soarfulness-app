@@ -9,18 +9,15 @@ var time: float = 0
 @export var wave_length: float: get = get_wave_length, set = set_wave_length
 @export var wave_speed: float: get = get_wave_speed, set = set_wave_speed
 
+var wave_x: Wave = Wave.new(1, 1, 0, "cos")
+var wave_y: Wave = Wave.new(1, 1, 0.1, "sin")
+var wave_z: Wave = Wave.new(1, 0.05, 0.001, "cos")
 var velocity: Vector3 = Vector3(0, 0, 0)
 
-var velocify: Vector3 = Vector3(0, 0, 0)
-var wave: Vector3 = Vector3(0, 1, 1)
-var _wave_speed: float = 4
-var _wave_height: float = 4
-var _wave_length: float = 4
+var water_level_y: float = 0
 
 var stream: Vector3 = Vector3(0, 1, 0)
 var stream_speed: float = 2
-
-var y_offset = 0.00
 
 signal wave_speed_changed
 signal wave_height_changed
@@ -35,29 +32,41 @@ func get_swing_transform() -> Transform3D:
 
 
 func get_wave_height():
-	return _wave_height
+	if wave_y == null:
+		return 0
+	return wave_y.height
 
 
 func set_wave_height(val):
-	_wave_height = val
+	if wave_y == null:
+		return
+	wave_y.height = val
 	emit_signal('wave_height_changed', val)
 
 
 func get_wave_speed():
-	return _wave_speed
+	if wave_y == null:
+		return 0
+	return wave_y.speed
 
 
 func set_wave_speed(val):
-	_wave_speed = val
+	if wave_y == null:
+		return
+	wave_y.speed = val
 	emit_signal('wave_speed_changed', val)
 
 
 func get_wave_length():
-	return _wave_length
+	if wave_z == null:
+		return 0
+	return wave_z.height
 
 
 func set_wave_length(val):
-	_wave_length = val
+	if wave_z == null:
+		return
+	wave_z.height = val
 	emit_signal('wave_length_changed', val)
 
 
@@ -138,25 +147,26 @@ func _input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	time += delta
 
-	wave.y = sin(time * wave_speed) * wave_height
-	wave.z = cos(time * wave_speed) * wave_length
+	if wave_x != null:
+		wave_x.time = time
+		velocity.x = wave_x.velocity.y
+	if wave_y != null:
+		wave_y.time = time
+		velocity.y = wave_y.velocity.y
 
-	if wave.y > 0:
-		if self.velocity.y < 20:
-			self.velocity.y += wave.y * 0.2
+	if wave_z != null:
+		wave_z.time = time
+		velocity.z = wave_z.velocity.y
 
-	if self.transform.origin.y < 0:
-		if self.velocity.y < 23:
-			self.velocity.y += 1 
-	elif self.transform.origin.y > 0:
-		if self.velocity.y > -23:
-			self.velocity.y -= 1
+	var diff_water_level = transform.origin.y - water_level_y
+	
+	"""
+	if abs(diff_water_level) > 0:
+		velocity.y = -(diff_water_level * 0.5)
+	"""
+	velocity *= 0.2
 
 	if $Swing != null:
-		$Swing.transform.origin.x = 0
-		$Swing.transform.origin.y = wave.y
-		if y_offset is float:
-			$Swing.transform.origin.y += y_offset
-		$Swing.transform.origin.z = wave.z
-	 
-		emit_signal('swing', $Swing.transform.origin)
+		$Swing.transform.origin += velocity
+		
+	emit_signal('swing', $Swing.transform.origin)

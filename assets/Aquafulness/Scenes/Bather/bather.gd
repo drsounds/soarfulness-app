@@ -103,7 +103,6 @@ func respawn():
 		new_position = spawn.position
 
 	self.transform.origin = new_position
-	self.location = new_position
 
 	print("Respawned at" + str(self.transform.origin))
 
@@ -225,7 +224,6 @@ func _process(delta:float) -> void:
 		self.transform.origin.z
 	)
 
-	self.location += velocity
 	# self.velocity *= 0.99
 	# `velocity` will be a Vector2 between `Vector2(-1.0, -1.0)` and `Vector2(1.0, 1.0)`.
 	# This handles deadzone in a correct way for most use cases.
@@ -234,15 +232,13 @@ func _process(delta:float) -> void:
 
 	#self.velocity += drag_velocity
 
-
-	self.transform.origin = Vector3(0, 0, 0)
- 
 	if swing != null:
-		self.transform.origin.y = swing.swing_transform.origin.y
-		#if floatation_gear != null:
-		#	self.transform.origin.y += floatation_gear.transform.origin.y
-		self.transform.origin.z = swing.swing_transform.origin.z
-		
-	self.transform.origin += location
+		self.velocity += swing.velocity
+		if floatation_gear != null:
+			self.velocity.y += floatation_gear.transform.origin.y * 0.1
+
+	self.transform.origin += velocity
 	
+	velocity *= 0.5
+
 	emit_signal('moved', self.transform.origin - old_transform_origin)

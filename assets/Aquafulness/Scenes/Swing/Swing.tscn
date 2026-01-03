@@ -3,14 +3,14 @@
 [ext_resource type="Script" uid="uid://djgc672yj27x7" path="res://assets/Aquafulness/Scenes/Swing/swing.gd" id="1_mu3gy"]
 
 [node name="Swing" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.219935, 0.18891141)
 script = ExtResource("1_mu3gy")
-wave_height = 4.0
-wave_length = 4.0
-wave_speed = 4.0
-swing_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.0850594, -3.41358)
+wave_height = 1.02
+wave_length = 0.001
+wave_speed = 1.0
+swing_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2508.406, -9.1843185e-06)
 
 [node name="Swing" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.0850594, -3.41358)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2508.406, -9.1843185e-06)
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="Swing"]
-visible = false
