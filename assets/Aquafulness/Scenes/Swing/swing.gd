@@ -149,22 +149,12 @@ func _process(delta: float) -> void:
 
 	if wave_x != null:
 		wave_x.time = time
-		velocity.x = wave_x.velocity.y
+		velocity.x = wave_x.velocity.x
+		velocity.z = wave_x.velocity.z
 	if wave_y != null:
 		wave_y.time = time
 		velocity.y = wave_y.velocity.y
-
-	if wave_z != null:
-		wave_z.time = time
-		velocity.z = wave_z.velocity.y
-
-	var diff_water_level = transform.origin.y - water_level_y
-	
-	"""
-	if abs(diff_water_level) > 0:
-		velocity.y = -(diff_water_level * 0.5)
-	"""
-	velocity *= 0.2
+		velocity.z = wave_y.velocity.z
 
 	if $Swing != null:
 		$Swing.transform.origin += velocity
