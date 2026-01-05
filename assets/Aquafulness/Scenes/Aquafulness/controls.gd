@@ -785,7 +785,8 @@ func _on_confetti_spin_box_value_changed(value: float) -> void:
 
 
 func _on_countdown_timer_finished() -> void:
-	set_show_controls(false)
+	#set_show_controls(false)
+	pass
 
 
 func _on_interval_program_button_toggled(toggled_on: bool) -> void:
