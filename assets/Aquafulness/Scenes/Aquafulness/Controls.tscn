@@ -1269,6 +1269,7 @@ wait_time = 0.1
 script = ExtResource("19_3msog")
 
 [node name="IntervalProgressBar" type="ProgressBar" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -1282,6 +1283,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_3msog")
 show_percentage = false
 
 [node name="ProgramProgressBar" type="ProgressBar" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
