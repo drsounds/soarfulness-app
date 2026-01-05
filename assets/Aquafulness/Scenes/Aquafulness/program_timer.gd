@@ -198,7 +198,7 @@ func _on_timeout():
 		position = 0
 		current_interval_index += 1
 
-	emit_signal('tick', position, current_interval_index)
+	emit_signal('tick', position, current_interval_index, program_position)
 
 	position += 1
 	program_position += 1

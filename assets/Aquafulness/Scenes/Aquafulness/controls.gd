@@ -792,11 +792,13 @@ func _on_interval_program_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		$ProgramTimer.begin()
 		$ProgramStatusLabel.show()
-		$ProgressBar.show()
+		$ProgramProgressBar.show()
+		$IntervalProgressBar.show()
 	else:
 		$ProgramTimer.stop()
 		$ProgramStatusLabel.hide()
-		$ProgressBar.hide()
+		$ProgramProgressBar.hide()
+		$IntervalProgressBar.hide()
 
 
 func load_state(save_path = 'user://bather'):
@@ -834,9 +836,9 @@ func _on_program_timer_tick(position, current_interval_index, program_position) 
 	$IntervalProgressBar.max_value = $ProgramTimer.current_interval['duration_ds']
 	$IntervalProgressBar.min_value = 0
 	$IntervalProgressBar.value = position
-	$ProgramProgressBar.max_value = $ProgramTimer.current_interval['duration_ds']
+	$ProgramProgressBar.max_value = $ProgramTimer.duration_ds
 	$ProgramProgressBar.min_value = 0
-	$ProgramProgressBar.value = position
+	$ProgramProgressBar.value = program_position
 
 
 func _on_program_timer_interval_changed(interval) -> void:
