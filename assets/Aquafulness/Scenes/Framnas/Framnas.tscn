@@ -31,7 +31,7 @@ script = ExtResource("1_rw81e")
 
 [node name="Swing" parent="." instance=ExtResource("2_k4v8f")]
 wave_length = 1.0
-swing_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.53067565, -2507.9675, -0.40651435)
+swing_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56399965, -2508.0063, -0.9987205)
 
 [node name="BathPlace" parent="." instance=ExtResource("1_47g7c")]
 transform = Transform3D(-1.1716763, 0, 0.9365761, 0, 1.5, 0, -0.9365761, 0, -1.1716763, 17.0617, 25.834293, -176.47021)

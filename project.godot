@@ -21,6 +21,7 @@ config/name_localized={
 config/version="1.0"
 run/main_scene="uid://fjofla0ll46s"
 config/features=PackedStringArray("4.5", "GL Compatibility")
+run/max_fps=28
 boot_splash/image="uid://cr2bwgsn60b6j"
 config/icon="uid://3xybwfx44xfy"
 
