@@ -816,12 +816,12 @@ func _notification(what):
 
 
 func _on_program_timer_tick(position, current_interval_index) -> void:
-	$ProgramStatusLabel.text = "{interval_name} Interval {current_interval_index} of {num_intervals} \r\n {time_left} second(s) left".format(
+	$ProgramStatusLabel.text = "Interval {current_interval_index} of {num_intervals}: {interval_name} {time_left} second(s) left".format(
 		{
 			'num_intervals': $ProgramTimer.intervals.size(),
 			'interval_name': $ProgramTimer.current_interval.name,
 			'current_interval_index': current_interval_index + 1,
-			'time_left': floor(($ProgramTimer.current_interval['duration_ds'] - position) / 100)
+			'time_left': floor(($ProgramTimer.current_interval['duration_ds'] - position) / 10)
 		}
 	)
 	$ProgressBar.max_value = $ProgramTimer.current_interval['duration_ds']
