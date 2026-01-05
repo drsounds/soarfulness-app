@@ -1268,7 +1268,20 @@ horizontal_alignment = 1
 wait_time = 0.1
 script = ExtResource("19_3msog")
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="IntervalProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -22.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/fill = SubResource("StyleBoxFlat_3msog")
+show_percentage = false
+
+[node name="ProgramProgressBar" type="ProgressBar" parent="."]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0

@@ -18,10 +18,106 @@ var intervals = [
 		"id": "speed",
 		"name": "speed",
 		"type": "interval",
-		"duration_ds": 300,
+		"duration_ds": 6000,
 		"uri": "spacify:interval:speed",
 		"parameters": {
-			"wave_length": 3,
+			"wave_length": 5,
+			"wave_height": 20,
+			"wave_speed": 4
+		}
+	},
+	{
+		"id": "warming",
+		"name": "warm",
+		"type": "interval",
+		"duration_ds": 300,
+		"uri": "spacify:interval:warming",
+		"parameters": {
+			"wave_length": 1,
+			"wave_height": 5,
+			"wave_speed": 3.5
+		}
+	},
+	{
+		"id": "speed",
+		"name": "speed",
+		"type": "interval",
+		"duration_ds": 6000,
+		"uri": "spacify:interval:speed",
+		"parameters": {
+			"wave_length": 5,
+			"wave_height": 20,
+			"wave_speed": 4
+		}
+	},
+	{
+		"id": "warming",
+		"name": "warm",
+		"type": "interval",
+		"duration_ds": 300,
+		"uri": "spacify:interval:warming",
+		"parameters": {
+			"wave_length": 1,
+			"wave_height": 5,
+			"wave_speed": 3.5
+		}
+	},
+	{
+		"id": "speed",
+		"name": "speed",
+		"type": "interval",
+		"duration_ds": 6000,
+		"uri": "spacify:interval:speed",
+		"parameters": {
+			"wave_length": 5,
+			"wave_height": 20,
+			"wave_speed": 4
+		}
+	},
+	{
+		"id": "warming",
+		"name": "warm",
+		"type": "interval",
+		"duration_ds": 300,
+		"uri": "spacify:interval:warming",
+		"parameters": {
+			"wave_length": 1,
+			"wave_height": 5,
+			"wave_speed": 3.5
+		}
+	},
+	{
+		"id": "speed",
+		"name": "speed",
+		"type": "interval",
+		"duration_ds": 6000,
+		"uri": "spacify:interval:speed",
+		"parameters": {
+			"wave_length": 5,
+			"wave_height": 20,
+			"wave_speed": 4
+		}
+	},
+	{
+		"id": "warming",
+		"name": "warm",
+		"type": "interval",
+		"duration_ds": 300,
+		"uri": "spacify:interval:warming",
+		"parameters": {
+			"wave_length": 1,
+			"wave_height": 5,
+			"wave_speed": 3.5
+		}
+	},
+	{
+		"id": "speed",
+		"name": "speed",
+		"type": "interval",
+		"duration_ds": 6000,
+		"uri": "spacify:interval:speed",
+		"parameters": {
+			"wave_length": 5,
 			"wave_height": 20,
 			"wave_speed": 4
 		}
@@ -34,13 +130,20 @@ var _current_interval = null
 
 signal tick
 signal interval_changed
- 
+signal finished 
 
 
 func set_current_interval_index(value):
 	_current_interval_index = value
 	if value > intervals.size() - 1:
+		emit_signal('finished', position, program_position)
+
+		program_position = 0
+		position = 0
 		value = 0
+
+		stop()
+		begin()
 
 	var interval = intervals[value]
 	current_interval = interval
@@ -62,6 +165,17 @@ func get_current_interval():
 func set_current_interval(value):
 	_current_interval = value
 	emit_signal('interval_changed', value)
+
+@export var duration_ds: float: get = get_duration_ds
+
+var program_position = 0
+
+func get_duration_ds():
+	var _duration_ds = 0
+
+	for interval in intervals:
+		_duration_ds += interval['duration_ds']
+	return _duration_ds
 
 
 var position = 0
@@ -87,3 +201,4 @@ func _on_timeout():
 	emit_signal('tick', position, current_interval_index)
 
 	position += 1
+	program_position += 1
