@@ -358,6 +358,7 @@ theme_type_variation = &"HeaderMedium"
 text = "DIRECT"
 
 [node name="HideControlsTimer" type="Timer" parent="."]
+wait_time = 10.0
 one_shot = true
 
 [node name="StopButton" type="TextureButton" parent="."]
