@@ -18,7 +18,7 @@ var intervals = [
 		"id": "speed",
 		"name": "speed",
 		"type": "interval",
-		"duration_ds": 6000,
+		"duration_ds": 600,
 		"uri": "spacify:interval:speed",
 		"parameters": {
 			"wave_length": 5,
@@ -42,7 +42,7 @@ var intervals = [
 		"id": "speed",
 		"name": "speed",
 		"type": "interval",
-		"duration_ds": 6000,
+		"duration_ds": 600,
 		"uri": "spacify:interval:speed",
 		"parameters": {
 			"wave_length": 5,
@@ -66,7 +66,7 @@ var intervals = [
 		"id": "speed",
 		"name": "speed",
 		"type": "interval",
-		"duration_ds": 6000,
+		"duration_ds": 600,
 		"uri": "spacify:interval:speed",
 		"parameters": {
 			"wave_length": 5,
@@ -90,7 +90,7 @@ var intervals = [
 		"id": "speed",
 		"name": "speed",
 		"type": "interval",
-		"duration_ds": 6000,
+		"duration_ds": 600,
 		"uri": "spacify:interval:speed",
 		"parameters": {
 			"wave_length": 5,
@@ -114,7 +114,7 @@ var intervals = [
 		"id": "speed",
 		"name": "speed",
 		"type": "interval",
-		"duration_ds": 6000,
+		"duration_ds": 600,
 		"uri": "spacify:interval:speed",
 		"parameters": {
 			"wave_length": 5,
