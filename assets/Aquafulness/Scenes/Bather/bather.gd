@@ -22,6 +22,9 @@ var location: Vector3 = Vector3(0, 0, 0)
 
 var movement: Vector3 = Vector3(0, 0, 0)
 
+signal position_changed
+signal velocity_changed
+
 signal respawned
 
 var swim_area
@@ -38,6 +41,7 @@ signal enforce_boundaries_changed
 signal moved
 
 var _enforce_boundaries = true
+
 
 @onready var duo = $Companion
 
@@ -253,5 +257,10 @@ func _process(delta:float) -> void:
 	velocity *= 0.5
 	
 	velocity += movement
+	
+	emit_signal('position_changed', self.transform.origin)
+
+	
+	emit_signal('velocity_changed', self.velocity)
 
 	emit_signal('moved', self.transform.origin - old_transform_origin)

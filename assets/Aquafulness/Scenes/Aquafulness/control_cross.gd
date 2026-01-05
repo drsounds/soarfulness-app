@@ -50,3 +50,23 @@ func _on_down_button_toggled(toggled_on: bool) -> void:
 	Input.parse_input_event(ui_event)
 	Input.call_deferred("parse_input_event", ui_event)
 	$UpButton.button_pressed = false
+
+
+func _on_up_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_up_button_button_down() -> void:
+	bather.movement.z -= 1
+
+
+func _on_left_button_button_down() -> void:
+	bather.movement.x -= 1
+
+
+func _on_right_button_button_down() -> void:
+	bather.movement.x += 1
+
+
+func _on_down_button_pressed() -> void:
+	bather.movement.z += 1

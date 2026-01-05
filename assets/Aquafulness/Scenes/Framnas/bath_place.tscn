@@ -72,13 +72,13 @@ size = Vector3(92.46048, 2.1433105, 7.2231445)
 material = SubResource("StandardMaterial3D_e3kn2")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Bridge"]
-transform = Transform3D(0.50102746, 0, 0.86543137, 0, 1, 0, -0.86543137, 0, 0.50102746, 76.16603, -0.6768341, -54.050182)
-size = Vector3(12.798477, 2.1433105, 5.203491)
+transform = Transform3D(0.1866098, 0, 0.9824342, 0, 1, 0, -0.9824342, 0, 0.1866098, 77.26351, -0.6768341, -53.855076)
+size = Vector3(12.798477, 2.1433105, 7.4328003)
 material = SubResource("StandardMaterial3D_y4a6c")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="Bridge"]
-transform = Transform3D(0.8489717, 0, 0.5284383, 0, 1, 0, -0.5284383, 0, 0.8489717, 78.16441, -0.6768341, -51.859898)
-size = Vector3(12.798477, 2.1433105, 7.2231445)
+transform = Transform3D(0.8489717, 0, 0.5284383, 0, 1, 0, -0.5284383, 0, 0.8489717, 78.51519, -0.6768341, -52.078224)
+size = Vector3(13.624825, 2.1433105, 7.2231445)
 material = SubResource("StandardMaterial3D_qe2sg")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="Bridge"]
@@ -130,7 +130,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.69342, -18.166077, 7.7894
 transform = Transform3D(0.8491284, 0, 0.6190345, 0, 0.633, 0, -0.52818644, 0, 0.99517864, 5.956051, -1.415347, -21.944082)
 
 [node name="Stairs4" parent="." instance=ExtResource("3_60ld8")]
-transform = Transform3D(0.3426269, 0, 1.1010607, 0, 0.6330001, 0, -0.9394716, 0, 0.40155894, 61.301754, -1.415347, -53.72943)
+transform = Transform3D(0.3426269, 0, 1.1010607, 0, 0.6330001, 0, -0.9394716, 0, 0.40155897, 63.708656, -1.415347, -52.066406)
 
 [node name="Ladder" parent="." instance=ExtResource("6_qe2sg")]
 transform = Transform3D(-1.3133478, 0, -0.2634086, 0, 0.28628796, 0, 0.7542628, 0, -0.45865574, 3.4697025, 0, -6.396584)

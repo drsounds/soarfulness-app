@@ -7,18 +7,18 @@ albedo_color = Color(0.639888, 0.639888, 0.6398879, 1)
 transform = Transform3D(0.99999964, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="."]
-transform = Transform3D(0.9999416, 0, 0, 0, 0.57839876, 0.8157542, 0, -0.81575346, 0.5783989, 0.027854213, -54.06715, -40.58524)
-size = Vector3(0.14105225, 0.31995678, 151.85466)
+transform = Transform3D(0.9999416, 0, 0, 0, 0.57839876, 0.8157542, 0, -0.81575346, 0.5783989, 0.027854213, -28.709175, -22.60553)
+size = Vector3(0.14105225, 0.31995678, 89.68404)
 material = SubResource("StandardMaterial3D_qiydf")
 
 [node name="CSGBox3D30" type="CSGBox3D" parent="."]
-transform = Transform3D(0.9999416, 0, 0, 0, 0.57839876, 0.8157542, 0, -0.81575346, 0.5783989, 0.17233124, -65.6904, -40.207165)
-size = Vector3(0.4300232, 1.2468925, 151.85466)
+transform = Transform3D(0.9999416, 0, 0, 0, 0.57839876, 0.8157542, 0, -0.81575346, 0.5783989, 0.17233124, -37.140984, -19.96461)
+size = Vector3(0.4300232, 1.2468925, 81.85952)
 material = SubResource("StandardMaterial3D_qiydf")
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="."]
-transform = Transform3D(0.9999416, 0, 0, 0, 0.574234, 0.8186913, 0, -0.81869113, 0.57423407, 0.027850399, -56.724983, -39.594097)
-size = Vector3(0.14105225, 0.23664379, 150.49362)
+transform = Transform3D(0.9999416, 0, 0, 0, 0.574234, 0.8186913, 0, -0.81869113, 0.57423407, 0.027850399, -27.678192, -19.220535)
+size = Vector3(0.14105225, 0.23664379, 79.53454)
 material = SubResource("StandardMaterial3D_qiydf")
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="."]
@@ -56,33 +56,8 @@ transform = Transform3D(0.99995375, 0, 0, 0, 0.99950224, -0.031550463, 0, 0.0315
 size = Vector3(0.14105225, 11.276088, 0.22028732)
 material = SubResource("StandardMaterial3D_qiydf")
 
-[node name="CSGBox3D24" type="CSGBox3D" parent="."]
-transform = Transform3D(0.99995375, 0, 0, 0, 0.99950224, -0.031550463, 0, 0.031550314, 0.9995024, 0.028188238, -73.48191, -50.075836)
-size = Vector3(0.14105225, 11.868861, 0.22028732)
-material = SubResource("StandardMaterial3D_qiydf")
-
 [node name="CSGBox3D25" type="CSGBox3D" parent="."]
 transform = Transform3D(0.99995375, 0, 0, 0, 0.99950224, -0.031550463, 0, 0.031550314, 0.9995024, 0.028188238, -54.16288, -36.521408)
-size = Vector3(0.14105225, 11.214564, 0.22028732)
-material = SubResource("StandardMaterial3D_qiydf")
-
-[node name="CSGBox3D26" type="CSGBox3D" parent="."]
-transform = Transform3D(0.9999498, 0, 0, 0, 0.9997675, -0.021570742, 0, 0.021570588, 0.9997676, 0.05280568, -82.17923, -56.58455)
-size = Vector3(0.14105225, 12.749949, 0.34853363)
-material = SubResource("StandardMaterial3D_qiydf")
-
-[node name="CSGBox3D27" type="CSGBox3D" parent="."]
-transform = Transform3D(0.99995375, 0, 0, 0, 0.99950224, -0.031550463, 0, 0.031550314, 0.9995024, 0.028188238, -98.44096, -68.51969)
-size = Vector3(0.14105225, 11.276088, 0.22028732)
-material = SubResource("StandardMaterial3D_qiydf")
-
-[node name="CSGBox3D28" type="CSGBox3D" parent="."]
-transform = Transform3D(0.99995375, 0, 0, 0, 0.99950224, -0.031550463, 0, 0.031550314, 0.9995024, 0.028188238, -108.088486, -75.13583)
-size = Vector3(0.14105225, 11.868861, 0.22028732)
-material = SubResource("StandardMaterial3D_qiydf")
-
-[node name="CSGBox3D29" type="CSGBox3D" parent="."]
-transform = Transform3D(0.99995375, 0, 0, 0, 0.99950224, -0.031550463, 0, 0.031550314, 0.9995024, 0.028188238, -88.769455, -61.581406)
 size = Vector3(0.14105225, 11.214564, 0.22028732)
 material = SubResource("StandardMaterial3D_qiydf")
 
@@ -102,7 +77,7 @@ size = Vector3(0.14105225, 0.41245016, 1.2579708)
 material = SubResource("StandardMaterial3D_qiydf")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
-transform = Transform3D(0.005695966, 0.44384378, 0, -0.8368889, 0.0021502494, 0.53684324, 0.5325206, -0.001368225, 0.8436819, 0.016203886, -116.93104, -84.610916)
+transform = Transform3D(0.005695966, 0.44384378, 0, -0.8368889, 0.0021502494, 0.53684324, 0.5325206, -0.001368225, 0.8436819, 0.016203886, -65.573074, -47.953987)
 
 [node name="CSGTorus3D" type="CSGTorus3D" parent="CSGCombiner3D"]
 transform = Transform3D(0.9958466, 0, 0, 1.3969839e-09, 0.71252275, 0, 0, 0, 1, 0, -1.1920929e-07, 0)

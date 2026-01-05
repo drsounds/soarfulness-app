@@ -8,6 +8,34 @@ var audio_player
 var soarfulness
 var current_scene_id = 'Framnas'
 
+var _data: SaveState = null
+@export var data: SaveState: get = get_data, set = set_data
+
+
+func apply_state(state: SaveState):
+	scene.wave_length = state.wave_y.length
+	scene.wave_height = state.wave_y.height
+	scene.wave_speed = state.wave_y.speed
+	scene.snow = state.snow
+	scene.confetti = state.confetti
+	scene.fog = state.fog
+	scene.ocean_floor = state.ocean_floor
+	scene.clouds = state.clouds > 0
+	scene.flowers = state.flowers
+	scene.fireworks = state.fireworks
+	bather.transform.origin = state.position
+
+
+func set_data(state: SaveState):
+	_data = state
+
+
+func get_data():
+	if _data == null:
+		_data = SaveState.new()
+
+	return _data
+
 
 const CONFIG_FILENAME = "user://bath.cfg"
 
@@ -78,6 +106,7 @@ func init() -> void:
 	scene.connect('fireworks_changed', self._on_fireworks_changed)
 	scene.connect('confetti_changed', self._on_confetti_changed)
 	bather.connect("enforce_boundaries_changed", self._on_enforce_boundaries_changed)
+	bather.connect('position_changed', self._on_bather_position_changed)
 
 	$WeatherPanel.open = false
 	$DatePanel.open = false
@@ -93,6 +122,10 @@ func init() -> void:
 	scene.init()
 
 
+func _on_bather_position_changed(value):
+	data.position = value
+
+
 func _on_fireworks_changed(value):
 	$Control/FireworksCheckButton.button_pressed = value
 
@@ -105,6 +138,18 @@ func _on_is_showing_ocean_floor_changed(value: bool):
 	$Control/OceanFloorCheckButton.button_pressed = value
 
 
+func apply_parameters(params):
+	if params.has('wave_height'):
+		scene.wave_height = params['wave_height']
+		config.set_value('water', 'wave_height', scene.wave_height)
+	if params.has('wave_speed'):
+		scene.wave_speed = params['wave_speed']
+		config.set_value('water', 'wave_speed', scene.wave_speed)
+	if params.has('wave_length'):
+		scene.wave_length = params['wave_length']
+		config.set_value('water', 'wave_length', scene.wave_length)
+		save_config()
+
 func _on_seed_changed(filename: Dictionary):
 	for item_index in $Control/SeedOptionButton.item_count:
 		var text = $Control/SeedOptionButton.get_item_text(item_index)
@@ -115,17 +160,7 @@ func _on_seed_changed(filename: Dictionary):
 
 			if aquafulness_seed.has("params"):
 				var params = aquafulness_seed['params']
-				if params.has('wave_height'):
-					scene.wave_height = params['wave_height']
-					config.set('water', 'wave_height', scene.wave_height)
-				if params.has('wave_speed'):
-					scene.wave_speed = params['wave_speed']
-					config.set('water', 'wave_speed', scene.wave_speed)
-				if params.has('wave_length'):
-					scene.wave_length = params['wave_length']
-					config.set('water', 'wave_length', scene.wave_length)
-					save_config()
-
+				apply_parameters(params)
 
 func _on_ocean_type_changed(ocean_type):
 	if ocean_type == "imaginary":
@@ -150,6 +185,7 @@ func _on_clouds_changed(clouds: float):
 
 func _handle_scene_wave_speed_changed(wave_speed: float):
 	$StatusBar/WaveSpeed/WaveSpeedSpinBox.value = wave_speed
+	data.wave_y.speed = wave_speed
 
 
 func _on_enforce_boundaries_changed(enforce_boundaries: bool):
@@ -158,10 +194,12 @@ func _on_enforce_boundaries_changed(enforce_boundaries: bool):
 
 func _on_flowers_changed(flowers: float):
 	$StatusBar/Reed/CheckButton.button_pressed = flowers > 0
+	data.flowers = flowers
 
 
 func _on_fog_changed(fog_amount: float):
 	$StatusBar/Fog/FogSpinBox.value = fog_amount
+	data.fog = fog_amount
 
 
 func _on_scene_loaded(scene_id: String):
@@ -179,18 +217,22 @@ func _ready() -> void:
 	var current_scene = config.get_value('session', 'scene', null)
 	if current_scene != null:
 		load_scene(current_scene)
+	
+	load_state()
 
 
 func _handle_scene_wave_height_changed(val):
 	$WaveHeightSlider.value = val
 	$StatusBar/Wave/WaveSpinBox.value = val
 	$WeatherPanel/WaveHeightSpinner.value = val
+	data.wave_y.height = val
 
 
 func _handle_scene_wave_length_changed(val):
 	$WaveLengthSlider.value = val
 	$StatusBar/WaveLength/WaveLengthSpinBox.value = val
 	$WeatherPanel/WaveLengthSpinner.value = val
+	data.wave_y.length = val
 
 
 func save_config(filename = CONFIG_FILENAME):
@@ -520,9 +562,15 @@ func _on_stop_button_2_pressed() -> void:
 func _on_respawn_button_pressed() -> void:
 	bather.respawn()
 
+func get_show_controls():
+	return $StatusBar.visible
 
-func _on_button_pressed() -> void:
-	$StatusBar.visible = !$StatusBar.visible
+func set_show_controls(value):
+	if value:
+		$CountdownTimer.stop()
+		$CountdownTimer.start()
+
+	$StatusBar.visible = value
 	$TextureRect.visible = $StatusBar.visible
 	$Control.visible = $StatusBar.visible
 	
@@ -532,6 +580,10 @@ func _on_button_pressed() -> void:
 		$Button.text = "Hide controls"
 	else:
 		$Button.text = "Show controls"
+
+
+func _on_button_pressed() -> void:
+	set_show_controls(!get_show_controls())
 
 
 func _on_check_button_toggled(toggled_on: bool) -> void:
@@ -681,16 +733,21 @@ func _on_ocean_floor_check_button_toggled(toggled_on: bool) -> void:
 func _on_increase_wave_level_button_pressed() -> void:
 	scene.water_level += 1
 	config.set_value('water', 'level', scene.water_level)
+	data.water_level = scene.water_level
 	save_config()
 
 
 func _on_decrease_wave_level_button_pressed() -> void:
 	scene.water_level -= 1
 	config.set_value('water', 'level', scene.water_level)
+	data.water_level = scene.water_level
 	save_config()
 
 
 func _on_pressed() -> void:
+	$CountdownTimer.stop()
+	$CountdownTimer.start()
+
 	$StatusBar.visible = true
 	$TextureRect.visible = $StatusBar.visible
 	$Control.visible = $StatusBar.visible
@@ -720,3 +777,57 @@ func _on_confetti_spin_box_value_changed(value: float) -> void:
 	scene.confetti = value
 	config.set_value("scene", "confetti", value)
 	save_config()
+
+
+func _on_countdown_timer_finished() -> void:
+	set_show_controls(false)
+
+
+func _on_interval_program_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		$ProgramTimer.begin()
+		$ProgramStatusLabel.show()
+	else:
+		$ProgramTimer.end()
+		$ProgramStatusLabel.hide()
+
+
+func load_state(save_path = 'user://bather'):
+	if ResourceLoader.exists(save_path):
+		data = load(save_path)
+
+		apply_state(data)
+
+
+func save_state(save_path = 'user://bather'):
+	ResourceSaver.save(data, save_path)
+
+
+"""
+func _notification(what):
+	
+	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		save_state()
+
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		save_state()
+		get_tree().quit()
+"""
+
+
+func _on_program_timer_tick(position, current_interval_index) -> void:
+	$ProgramStatusLabel.text = "{interval_name} Interval {current_interval_index} of {num_intervals} \r\n {time_left} second(s) left".format(
+		{
+			'num_intervals': $ProgramTimer.intervals.size(),
+			'interval_name': $ProgramTimer.current_interval.name,
+			'current_interval_index': current_interval_index + 1,
+			'time_left': floor(($ProgramTimer.current_interval['duration_ds'] - position) / 100)
+		}
+	)
+	$ProgressBar.max_value = $ProgramTimer.current_interval['duration_ds']
+	$ProgressBar.min_value = 0
+	$ProgressBar.value = position
+
+
+func _on_program_timer_interval_changed(interval) -> void:
+	apply_parameters(interval['parameters'])
