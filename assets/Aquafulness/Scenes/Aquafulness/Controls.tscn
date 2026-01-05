@@ -357,7 +357,7 @@ theme = SubResource("Theme_ut41e")
 theme_type_variation = &"HeaderMedium"
 text = "DIRECT"
 
-[node name="Timer" type="Timer" parent="."]
+[node name="HideControlsTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="StopButton" type="TextureButton" parent="."]
@@ -1246,6 +1246,7 @@ grow_vertical = 0
 text = "Hide controls"
 
 [node name="ProgramStatusLabel" type="Label" parent="."]
+visible = false
 modulate = Color(0.45000005, 1, 0.33999997, 1)
 layout_mode = 1
 anchors_preset = 7
@@ -1278,6 +1279,7 @@ grow_vertical = 0
 theme_override_styles/fill = SubResource("StyleBoxFlat_3msog")
 show_percentage = false
 
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]
 [connection signal="focus_exited" from="StatusBar/Location/Button" to="." method="_on_scene_options_button_focus_exited"]
 [connection signal="item_selected" from="StatusBar/Location/Button" to="." method="_on_scene_options_button_item_selected"]
@@ -1298,6 +1300,7 @@ show_percentage = false
 [connection signal="value_changed" from="StatusBar/Fog/FogSpinBox" to="." method="_on_fog_spin_box_value_changed"]
 [connection signal="item_selected" from="StatusBar/VBoxContainer/PresetSelectButton" to="." method="_on_preset_select_button_item_selected"]
 [connection signal="active_changed" from="AudioToggleButton" to="." method="_on_audio_toggle_button_active_changed"]
+[connection signal="timeout" from="HideControlsTimer" to="." method="_on_hide_controls_timer_timeout"]
 [connection signal="drag_ended" from="YearSlider" to="." method="_on_year_slider_drag_ended"]
 [connection signal="value_changed" from="WaveHeightSlider" to="." method="_on_wave_height_slider_value_changed"]
 [connection signal="value_changed" from="WaveLengthSlider" to="." method="_on_wave_length_slider_value_changed"]

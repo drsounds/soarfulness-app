@@ -389,8 +389,13 @@ func _on_day_slider_drag_ended(value_changed: bool) -> void:
 
 var dragging_touch_index = -1
 
+func _input(event: InputEvent) -> void:
+	$HideControlsTimer.stop()
+	$HideControlsTimer.start()
+
 
 func _gui_input(event: InputEvent) -> void:
+	
 	if event is InputEventScreenDrag and false:
 		if dragging_touch_index == -1: # Only take the first finger that touches
 			dragging_touch_index = event.index
@@ -567,8 +572,8 @@ func get_show_controls():
 
 func set_show_controls(value):
 	if value:
-		$CountdownTimer.stop()
-		$CountdownTimer.start()
+		$HideControlsTimer.stop()
+		$HideControlsTimer.start()
 
 	$StatusBar.visible = value
 	$TextureRect.visible = $StatusBar.visible
@@ -831,3 +836,17 @@ func _on_program_timer_tick(position, current_interval_index) -> void:
 
 func _on_program_timer_interval_changed(interval) -> void:
 	apply_parameters(interval['parameters'])
+
+
+func _on_hide_controls_timer_timeout() -> void:
+	set_show_controls(false)
+
+
+func _on_button_down() -> void:
+	$HideControlsTimer.stop()
+	$HideControlsTimer.start()
+
+
+func _on_gui_input(event: InputEvent) -> void:
+	$HideControlsTimer.stop()
+	$HideControlsTimer.start()
