@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c7hw1i16a6gkh"]
 
-[ext_resource type="Material" uid="uid://ct0phfu2dcwrq" path="res://assets/Aquafulness/Scenes/Framnas/LifeSavingMaterial.tres" id="1_f01rv"]
+[ext_resource type="PackedScene" uid="uid://dpwl44nhf3bob" path="res://assets/Aquafulness/Scenes/Framnas/rescue_ladder.tscn" id="1_f01rv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e6x1g"]
 albedo_color = Color(1, 0, 0, 1)
@@ -22,83 +22,19 @@ albedo_texture = SubResource("GradientTexture1D_maty3")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.981163, 38.806885, 0)
-height = 79.61377
-material = ExtResource("1_f01rv")
-
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1032066, 38.98535, 0)
-height = 79.9707
-material = ExtResource("1_f01rv")
-
 [node name="CSGCylinder3D16" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21601677, 14.912231, 1.4197598)
-height = 31.824463
-material = ExtResource("1_f01rv")
-
-[node name="CSGCylinder3D15" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1032066, 88.853455, 0)
-height = 21.829224
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21601677, 63.93772, 4.342642)
+height = 128.04205
 material = SubResource("StandardMaterial3D_e6x1g")
 
-[node name="CSGCylinder3D17" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5810585, 88.853455, 0)
-height = 21.829224
-material = SubResource("StandardMaterial3D_e6x1g")
-
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(-0.00385717, -0.99999255, 0, 0.99999255, -0.00385717, 0, 0, 0, 1, -0.029209137, 27.41676, 0)
-height = 10.74353
-
-[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(-0.00385717, -0.99999255, 0, 0.99999255, -0.00385717, 0, 0, 0, 1, -0.029209137, 22.22226, 0)
-height = 10.74353
-
-[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(-0.00385717, -0.99999255, 0, 0.99999255, -0.00385717, 0, 0, 0, 1, -0.029209137, 16.410408, 0)
-height = 10.74353
-
-[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(-0.00385717, -0.99999255, 0, 0.99999255, -0.00385717, 0, 0, 0, 1, -0.029209137, 9.870804, 0)
-height = 10.74353
-
-[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(-0.00385717, -0.99999255, 0, 0.99999255, -0.00385717, 0, 0, 0, 1, -0.029209137, 32.76344, 0)
-height = 10.74353
-
-[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(-0.00385717, -0.99999255, 0, 0.99999255, -0.00385717, 0, 0, 0, 1, -0.029209137, 37.796116, 0)
-height = 10.74353
-
-[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(-0.00385717, -0.99999255, 0, 0.99999255, -0.00385717, 0, 0, 0, 1, -0.029209137, 43.254467, 0)
-height = 10.74353
-
-[node name="CSGCylinder3D10" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(-0.00385717, -0.99999255, 0, 0.99999255, -0.00385717, 0, 0, 0, 1, -0.029209137, 48.75441, 0)
-height = 10.74353
-
-[node name="CSGCylinder3D11" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(-0.00385717, -0.99999255, 0, 0.99999255, -0.00385717, 0, 0, 0, 1, -0.029209137, 55.11225, 0)
-height = 10.74353
-
-[node name="CSGCylinder3D12" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(-0.00385717, -0.99999255, 0, 0.99999255, -0.00385717, 0, 0, 0, 1, -0.029209137, 60.88408, 0)
-height = 10.74353
-
-[node name="CSGCylinder3D13" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(-0.00385717, -0.99999255, 0, 0.99999255, -0.00385717, 0, 0, 0, 1, -0.029209137, 67.58527, 0)
-height = 10.74353
-
-[node name="CSGCylinder3D14" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(-0.00385717, -0.99999255, 0, 0.99999255, -0.00385717, 0, 0, 0, 1, -0.029209137, 74.78721, 0)
-height = 10.74353
+[node name="Ladder" parent="CSGCombiner3D" instance=ExtResource("1_f01rv")]
+transform = Transform3D(1, 0, 0, 0, 0.9998923, -0.014677692, 0, 0.014677692, 0.9998923, 0, 0, 2.135521)
 
 [node name="Lifebuyou" type="CSGCombiner3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 31, 1.8041487)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 31.083927, -0.09599018)
 
 [node name="CSGTorus3D" type="CSGTorus3D" parent="Lifebuyou"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.4311333, 0)
 inner_radius = 4.345223
 outer_radius = 6.0
 material = SubResource("StandardMaterial3D_gqmps")
