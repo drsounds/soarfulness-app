@@ -11,6 +11,7 @@ var current_scene_id = 'Framnas'
 var _data: SaveState = null
 @export var data: SaveState: get = get_data, set = set_data
 
+@onready var status_label = $Control/StatusLabel
 
 func apply_state(state: SaveState):
 	scene.wave_length = state.wave_y.length
@@ -170,22 +171,44 @@ func _on_ocean_type_changed(ocean_type):
 	else:
 		$Control/OceanOptionButton.selected = 0
 
+	status_label.text = "Ocean type changed to {new_value}".format({
+		'new_value': ocean_type
+	})
+
 
 func _on_snow_changed(snow: float):
 	$StatusBar/Snow/SnowSpinBox.value = snow
 
+	status_label.text = "Snow amount changed to {new_value}".format({
+		'new_value': snow
+	})
 
 func _on_confetti_changed(confetti: float):
 	$StatusBar/Confetti/ConfettiSpinBox.value = confetti
 
 
+	status_label.text = "Confetti amount changed to {new_value}".format({
+		'new_value': confetti
+	})
+
+
 func _on_clouds_changed(clouds: float):
 	$Control/CloudsCheckButton.button_pressed = clouds > 0
 
+	status_label.text = "Clouds amount changed to {new_value}".format({
+		'new_value': clouds
+	})
+
 
 func _handle_scene_wave_speed_changed(wave_speed: float):
+	var old_value = $StatusBar/WaveSpeed/WaveSpeedSpinBox.value
 	$StatusBar/WaveSpeed/WaveSpeedSpinBox.value = wave_speed
 	data.wave_y.speed = wave_speed
+	status_label.text = "Wave length changed from {old_value} with {amount} to {new_value}".format({
+		'old_value': old_value,
+		'amount': wave_speed - old_value,
+		'new_value': wave_speed
+	})
 
 
 func _on_enforce_boundaries_changed(enforce_boundaries: bool):
@@ -195,11 +218,17 @@ func _on_enforce_boundaries_changed(enforce_boundaries: bool):
 func _on_flowers_changed(flowers: float):
 	$StatusBar/Reed/CheckButton.button_pressed = flowers > 0
 	data.flowers = flowers
+	status_label.text = "Flowers changed to {new_value}".format({
+		'flowers': flowers
+	})
 
 
 func _on_fog_changed(fog_amount: float):
 	$StatusBar/Fog/FogSpinBox.value = fog_amount
 	data.fog = fog_amount
+	status_label.text = "Fog changed to {new_value}".format({
+		'new_value': fog_amount
+	})
 
 
 func _on_scene_loaded(scene_id: String):
@@ -222,17 +251,29 @@ func _ready() -> void:
 
 
 func _handle_scene_wave_height_changed(val):
+	var old_value = $WaveHeightSlider.value
 	$WaveHeightSlider.value = val
 	$StatusBar/Wave/WaveSpinBox.value = val
 	$WeatherPanel/WaveHeightSpinner.value = val
+	status_label.text = "Wave height changed from {old_value} with {amount} to {new_value}".format({
+		'old_value': old_value,
+		'amount': val - old_value,
+		'new_value': val
+	})
 	data.wave_y.height = val
 
 
 func _handle_scene_wave_length_changed(val):
+	var old_value = $WaveLengthSlider.value
 	$WaveLengthSlider.value = val
 	$StatusBar/WaveLength/WaveLengthSpinBox.value = val
 	$WeatherPanel/WaveLengthSpinner.value = val
 	data.wave_y.length = val
+	status_label.text = "Wave length changed from {old_value} with {amount} to {new_value}".format({
+		'old_value': old_value,
+		'amount': val - old_value,
+		'new_value': val
+	})
 
 
 func save_config(filename = CONFIG_FILENAME):
@@ -527,6 +568,9 @@ func _on_snow_spin_box_value_changed(value: float) -> void:
 	config.set_value("weather", "snow", value)
 	save_config()
 
+	status_label.text = "Snow amount changed to {new_value}".format({
+		'new_value': value
+	})
 
 
 func _on_wave_spin_box_value_changed(value: float) -> void:
@@ -608,25 +652,25 @@ func _on_enforce_boundaries_button_toggled(toggled_on: bool) -> void:
 
 
 func _on_increase_wave_button_pressed() -> void:
-	scene.wave_height += 0.1
+	scene.wave_height += 0.5
 	config.set_value('water', 'wave_height', scene.wave_height)
 	save_config()
 
 
 func _on_decrease_wave_button_pressed() -> void:
-	scene.wave_height -= 0.1
+	scene.wave_height -= 0.5
 	config.set_value('water', 'wave_height', scene.wave_height)
 	save_config()
 
 
 func _on_increase_wave_length_button_pressed() -> void:
-	scene.wave_length += 0.1
+	scene.wave_length += 0.5
 	config.set_value('water', 'wave_length', scene.wave_length)
 	save_config()
 
 
 func _on_decrease_wave_length_button_pressed() -> void:
-	scene.wave_length -= 0.1
+	scene.wave_length -= 0.5
 	config.set_value('water', 'wave_length', scene.wave_length)
 	save_config()
 
@@ -667,13 +711,13 @@ func _on_wave_speed_spin_box_value_changed(value: float) -> void:
 
 
 func _on_increase_wave_speed_button_pressed() -> void:
-	scene.wave_speed += 0.1
+	scene.wave_speed += 0.5
 	config.set_value('water', 'wave_speed', scene.wave_speed)
 	save_config()
 
 
 func _on_decrease_wave_speed_button_pressed() -> void:
-	scene.wave_speed -= 0.1
+	scene.wave_speed -= 0.5
 	config.set_value('water', 'wave_speed', scene.wave_speed)
 	save_config()
 
@@ -782,6 +826,10 @@ func _on_confetti_spin_box_value_changed(value: float) -> void:
 	scene.confetti = value
 	config.set_value("scene", "confetti", value)
 	save_config()
+
+	status_label.text = "Confetti amount changed to to {new_value}".format({
+		'new_value': value
+	})
 
 
 func _on_countdown_timer_finished() -> void:
