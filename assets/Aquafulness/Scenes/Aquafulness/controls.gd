@@ -21,7 +21,7 @@ func apply_state(state: SaveState):
 	scene.confetti = state.confetti
 	scene.fog = state.fog
 	scene.ocean_floor = state.ocean_floor
-	scene.clouds = state.clouds > 0
+	scene.clouds = state.clouds
 	scene.flowers = state.flowers
 	scene.fireworks = state.fireworks
 	bather.transform.origin = state.position
@@ -83,6 +83,8 @@ var PRESETS = [
 	}
 ]
 
+var swing
+
 func init() -> void:
 	config = ConfigFile.new()
 	load_config()
@@ -92,6 +94,10 @@ func init() -> void:
 		print("Scene is missing")
 
 	soarfulness = get_tree().root.find_child('Soarfulness', true, false)
+	swing = get_tree().root.find_child('Swing', true, false)
+	swing.connect('mode_changed', self._on_swing_mode_changed)
+	swing.connect('interval_changed', self._on_swing_interval_changed)
+	swing.connect('swinging_changed', self._on_swing_swinging_changed)
 	soarfulness.connect('scene_loaded', self._on_scene_loaded)
 	aquafulness = get_tree().root.find_child('Aquafulness', true, false)
 	aquafulness.connect('seed_changed', self._on_seed_changed)
@@ -163,6 +169,34 @@ func init() -> void:
 
 	scene.init()
 	load_state()
+
+func _on_swing_interval_changed(value):
+	pass
+
+
+func _on_swing_swinging_changed(value):
+	if value:
+		$SwingButton.modulate = Color(0, 255, 0, 1)
+	else:
+		$SwingButton.modulate = Color(255, 255, 255, 1)
+
+
+func _on_swing_mode_changed(mode):
+	$SoarButton.modulate = Color(255, 255, 255, 1)
+	$FloatButton.modulate = Color(255, 255, 255, 1)
+	$SinkButton.modulate = Color(255, 255, 255, 1)
+	
+	if mode == "swing":
+		$SwingButton.modulate = Color(0, 255, 0, 1)
+
+	if mode == "soar":
+		$SoarButton.modulate = Color(0, 255, 0, 1)
+
+	if mode == "sink":
+		$SinkButton.modulate = Color(0, 255, 0, 1)
+
+	if mode == "float":
+		$FloatButton.modulate = Color(0, 255, 0, 1)
 
 
 func _on_bather_position_changed(value):
@@ -254,7 +288,7 @@ func _handle_scene_wave_speed_changed(wave_speed: float):
 
 
 func _on_enforce_boundaries_changed(enforce_boundaries: bool):
-	$Control/CloudsCheckButton.button_pressed = enforce_boundaries
+	$Control/EnforceBoundariesButton.button_pressed = enforce_boundaries
 
 
 func _on_flowers_changed(flowers: float):
@@ -274,19 +308,29 @@ func _on_fog_changed(fog_amount: float):
 
 
 func _on_scene_loaded(scene_id: String):
-	if $SceneOptionsButton == null:
+	if $StatusBar/Location/Button == null:
 		return
 
-	for i in range($SceneOptionsButton.item_count):
-		var id = $SceneOptionsButton.get_item_id(i)
-		if id == scene_id:
-			$SceneOptionsButton.selected = i
-			current_scene_id = id
+	for i in range($StatusBar/Location/Button.item_count):
+		var text = $StatusBar/Location/Button.get_item_text(i)
+		for _scene in get_scenes():
+			if _scene['name'] == text and scene_id == _scene['id']:
+				$StatusBar/Location/Button.selected = i
+				current_scene_id = _scene['name']
+
+
+func get_scenes():
+	return soarfulness.scenes
 
 
 func _ready() -> void:
-	pass
+	soarfulness = get_tree().root.find_child('Soarfulness', true, false)
+	soarfulness.connect('scene_loaded', self._on_scene_loaded)
+	aquafulness = get_tree().root.find_child('Aquafulness', true, false)
+	aquafulness.connect('seed_changed', self._on_seed_changed)
 
+	for _scene in get_scenes():
+		$StatusBar/Location/Button.add_item(_scene['name'])
 
 
 func _handle_scene_wave_height_changed(val):
@@ -546,7 +590,7 @@ func _on_scene_options_button_focus_exited() -> void:
 
 
 func _on_scene_options_button_item_selected(index: int) -> void:
-	var scenes = soarfulness.scenes
+	var scenes = get_scenes()
 	var scene_name = $StatusBar/Location/Button.get_item_text(index)
 	for new_scene in scenes:
 		if new_scene['name'] == scene_name:
@@ -909,3 +953,36 @@ func _on_button_down() -> void:
 func _on_gui_input(event: InputEvent) -> void:
 	$HideControlsTimer.stop()
 	$HideControlsTimer.start()
+
+
+func _on_reset_wave_rect_pressed() -> void:
+	scene.wave_length = 1
+	scene.wave_height = 2
+	scene.wave_speed = 4
+	config.set_value('scene', 'wave_length', 1)
+	config.set_value('scene', 'wave_height', 2)
+	config.set_value('scene', 'wave_speed', 4)
+
+
+func _on_swing_button_pressed() -> void:
+	swing.swinging = !swing.swinging
+	if swing.mode == "floating":
+		swing.mode = "sink"
+
+
+func _on_soar_button_pressed() -> void:
+	if swing.mode == "soar":
+		swing.mode = "sink"
+	else:
+		swing.mode = "soar"
+
+
+func _on_sink_button_pressed() -> void:
+	if swing.mode == "sink":
+		swing.mode = "soar"
+	else:
+		swing.mode = "sink"
+
+
+func _on_float_button_pressed() -> void:
+	swing.mode = "float"

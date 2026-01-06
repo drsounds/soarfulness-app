@@ -142,13 +142,15 @@ func _ready() -> void:
 		self.swim_area = Node3D.new()
 		get_parent().add_child.call_deferred(swim_area)
 		swim_area.global_transform = self.global_transform
+	if get_parent() == null:
+		return
 
 	get_parent().swimmed_x_minus = self.transform.origin.x + 100
 	get_parent().swimmed_x_plus = self.transform.origin.x - 100
 	get_parent().swimmed_z_minus = self.transform.origin.z + 100
 	get_parent().swimmed_z_plus = self.transform.origin.z - 100
 
-
+	"""
 	get_parent().expand_left()
 	get_parent().expand_forward()
 	get_parent().expand_backward()
@@ -156,6 +158,8 @@ func _ready() -> void:
 
 	if get_parent().clouds > 0:
 		get_parent().create_clouds()
+	"""
+
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventJoypadMotion:
@@ -206,29 +210,30 @@ func _process(delta:float) -> void:
 	var outside_bounds = false
 
 	var boundary_size = box_shape.size
-	if transform.origin.x < boundary.transform.origin.x - (boundary_size.x / 2) and self.velocity.x < 0:
+	if transform.origin.x < boundary.transform.origin.x - (boundary_size.x / 2):
 		outside_bounds = true
 		if enforce_boundaries:
-			self.velocity.x *= -0.9
-	if transform.origin.x > boundary.transform.origin.x + (boundary_size.x / 2) and self.velocity.x > 0:
+			self.transform.origin.x = boundary.transform.origin.x + (boundary_size.x / 2)
+			#self.velocity.x *= -0.9
+	if transform.origin.x > boundary.transform.origin.x + (boundary_size.x / 2) :
 		if enforce_boundaries:
-			self.velocity.x *= -0.9
+			self.transform.origin.x = boundary.transform.origin.x - (boundary_size.x / 2)
 		outside_bounds = true
-	if transform.origin.z < boundary.transform.origin.z - (boundary_size.z / 2) and self.velocity.z < 0:
+	if transform.origin.z < boundary.transform.origin.z - (boundary_size.z / 2):
 		if enforce_boundaries:
-			self.velocity.z *= -0.9
+			self.transform.origin.z = boundary.transform.origin.z + (boundary_size.z / 2)
 		outside_bounds = true
-	if transform.origin.z > boundary.transform.origin.z + (boundary_size.z / 2) and self.velocity.z > 0:
+	if transform.origin.z > boundary.transform.origin.z + (boundary_size.z / 2):
 		if enforce_boundaries:
-			self.velocity.z *= -0.9
+			self.transform.origin.z = boundary.transform.origin.z - (boundary_size.z / 2)
 		outside_bounds = true
-	if transform.origin.y < boundary.transform.origin.y - (boundary_size.y / 2) and self.velocity.y < 0:
+	if transform.origin.y < boundary.transform.origin.y - (boundary_size.y / 2):
 		if enforce_boundaries:
-			self.transform.origin.y = boundary.y + (boundary_size.y / 2) - 1
+			self.transform.origin.y = boundary.transform.origin.y + (boundary_size.y / 2)
 		outside_bounds = true
-	if transform.origin.y > boundary.transform.origin.y + (boundary_size.y / 2) and self.velocity.y > 0:
+	if transform.origin.y > boundary.transform.origin.y + (boundary_size.y / 2):
 		if enforce_boundaries:
-			self.transform.origin.y = boundary.y - (boundary_size.y / 2) + 1
+			self.transform.origin.y = boundary.transform.origin.x - (boundary_size.y / 2)
 		outside_bounds = true
 
 	var old_transform_origin = Vector3(

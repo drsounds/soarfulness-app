@@ -12,6 +12,14 @@ var scenes = [
 		"name": "Buddhaflow"
 	},
 	{
+		"id": "Sky",
+		"name": "Sky"
+	},
+	{
+		"id": "FlagSlide",
+		"name": "Flag Slide"
+	},
+	{
 		"id": 'Framnas',
 		"name": 'Framnäs'
 	},
@@ -35,6 +43,8 @@ func on_viewport_size_changed():
 	var window_size = DisplayServer.window_get_size()
 	set_size(window_size)
 	$ViewportContainer/SubViewport.set_size(window_size)
+	$Controls.set_size(window_size)
+	$Aquafulness.set_size(window_size)
 
 
 func get_scene():

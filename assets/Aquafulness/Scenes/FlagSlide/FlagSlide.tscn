@@ -1,0 +1,74 @@
+[gd_scene load_steps=15 format=3 uid="uid://csl3015ifdy2i"]
+
+[ext_resource type="Script" uid="uid://bmk356m72a0q8" path="res://assets/Aquafulness/Scenes/AquaScene/aqua_scene.gd" id="1_ases5"]
+[ext_resource type="PackedScene" uid="uid://vyugpng6dmvv" path="res://assets/Aquafulness/Scenes/Swing/Swing.tscn" id="2_64g07"]
+[ext_resource type="PackedScene" uid="uid://db0gfh3dgksql" path="res://assets/Aquafulness/Scenes/Bather/bather.tscn" id="3_tie26"]
+[ext_resource type="PackedScene" uid="uid://ds051alhagcog" path="res://assets/Aquafulness/Scenes/Snow/Snow.tscn" id="4_ases5"]
+[ext_resource type="PackedScene" uid="uid://b2ps6m14qrhkv" path="res://assets/Aquafulness/Scenes/Flower/Flower.tscn" id="5_q1r26"]
+[ext_resource type="PackedScene" uid="uid://bss5uw1f1p0np" path="res://Spoonie.tscn" id="6_2625x"]
+[ext_resource type="PackedScene" uid="uid://dcawt434tnrwa" path="res://assets/Aquafulness/Scenes/Cloud/Cloud.tscn" id="7_1jfk4"]
+[ext_resource type="Texture2D" uid="uid://cmr08ervk1ja1" path="res://assets/Aquafulness/beach-water-nature-sand-ocean-liquid-sunlight-texture-leaf-floor-refraction-pattern-green-circle-design-flooring-light-reflects-1279284.png" id="8_oa1yi"]
+[ext_resource type="PackedScene" uid="uid://cc8tof0amoobv" path="res://assets/Aquafulness/Scenes/FlagSlide/FlagSlide.blend" id="9_64g07"]
+[ext_resource type="PackedScene" uid="uid://xctxfs7hg1rv" path="res://assets/Aquafulness/Scenes/Confetti/Confetti.tscn" id="9_mwyny"]
+[ext_resource type="Environment" uid="uid://cqs32sxp8gmct" path="res://assets/Aquafulness/Scenes/FlagSlide/Present_Day.tres" id="10_tie26"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6dq7n"]
+albedo_color = Color(1, 0.627451, 0, 0.73333335)
+albedo_texture = ExtResource("8_oa1yi")
+uv1_scale = Vector3(225.44, 225.44, 225.44)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fyno3"]
+material = SubResource("StandardMaterial3D_6dq7n")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ases5"]
+size = Vector3(194.75171, 97.11304, 160.72949)
+
+[node name="FlagSlide" type="Node3D"]
+script = ExtResource("1_ases5")
+
+[node name="FlagSlide" parent="." instance=ExtResource("9_64g07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23029864, 0, 0.65490484)
+
+[node name="Swing" parent="." instance=ExtResource("2_64g07")]
+swinging = false
+
+[node name="Bather" parent="." instance=ExtResource("3_tie26")]
+
+[node name="Snow" parent="." instance=ExtResource("4_ases5")]
+visible = false
+
+[node name="Spawn" type="Node3D" parent="."]
+
+[node name="Flower" parent="." instance=ExtResource("5_q1r26")]
+transform = Transform3D(89.43336, 0, 0, 0, 74.21645, 0, 0, 0, 29.487963, 0, -0.5349884, 0)
+visible = false
+
+[node name="Spoonie" parent="." instance=ExtResource("6_2625x")]
+visible = false
+
+[node name="Cloud" parent="." instance=ExtResource("7_1jfk4")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+visible = false
+
+[node name="OceanFloor" type="MeshInstance3D" parent="."]
+transform = Transform3D(15617.864, 0, 0, 0, 1, 0, 0, 0, 16846.672, 0, -92.717285, 0)
+visible = false
+mesh = SubResource("BoxMesh_fyno3")
+
+[node name="Confetti" parent="." instance=ExtResource("9_mwyny")]
+
+[node name="FireworksContainer" type="Node3D" parent="."]
+transform = Transform3D(0.06944132, 0, 0, 0, 0.26692814, 0, 0, 0, 1, -142.05698, 718.19495, -1012.137)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7708957, 4.0036817, -15.282255)
+omni_range = 9.421
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("10_tie26")
+
+[node name="Boundary" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.590332)
+shape = SubResource("BoxShape3D_ases5")

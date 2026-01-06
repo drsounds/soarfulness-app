@@ -1,0 +1,107 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://cc8tof0amoobv"
+path="res://.godot/imported/FlagSlide.blend-896918ca324d175b84b6f09070a01c52.scn"
+
+[deps]
+
+source_file="res://assets/Aquafulness/Scenes/FlagSlide/FlagSlide.blend"
+dest_files=["res://.godot/imported/FlagSlide.blend-896918ca324d175b84b6f09070a01c52.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"Blue": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/Aquafulness/Scenes/FlagSlide/Blue.tres",
+"use_external/path": "uid://c8fga5eblp5an"
+},
+"DarkBlue": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/Aquafulness/Scenes/FlagSlide/DarkBlue.tres",
+"use_external/path": "uid://iaaqcu5rxc6l"
+},
+"Green": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/Aquafulness/Scenes/FlagSlide/Green.tres",
+"use_external/path": "uid://mrbrtqq7ml0w"
+},
+"Material": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/Aquafulness/Scenes/FlagSlide/Material.tres",
+"use_external/path": "uid://deuhes1vq1sva"
+},
+"Material.004": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/Aquafulness/Scenes/FlagSlide/Material.004.tres",
+"use_external/path": "uid://co241vralnjym"
+},
+"Material.008": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/Aquafulness/Scenes/FlagSlide/Material.008.tres",
+"use_external/path": "uid://deiualbxvgf8q"
+},
+"Pink": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/Aquafulness/Scenes/FlagSlide/Pink.tres",
+"use_external/path": "uid://b20k5tkevxt2q"
+},
+"Red": {
+"use_external/enabled": true,
+"use_external/fallback_path": "",
+"use_external/path": ""
+},
+"Yellow": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/Aquafulness/Scenes/FlagSlide/Yellow.tres",
+"use_external/path": "uid://6dd4bwcuuigw"
+}
+}
+}
+blender/nodes/visible=0
+blender/nodes/active_collection_only=false
+blender/nodes/punctual_lights=true
+blender/nodes/cameras=true
+blender/nodes/custom_properties=true
+blender/nodes/modifiers=1
+blender/meshes/colors=false
+blender/meshes/uvs=true
+blender/meshes/normals=true
+blender/meshes/export_geometry_nodes_instances=false
+blender/meshes/tangents=true
+blender/meshes/skins=2
+blender/meshes/export_bones_deforming_mesh_only=false
+blender/materials/unpack_enabled=true
+blender/materials/export_materials=1
+blender/animation/limit_playback=true
+blender/animation/always_sample=true
+blender/animation/group_tracks=true
+gltf/naming_version=2

@@ -1,0 +1,109 @@
+[gd_scene load_steps=14 format=3 uid="uid://b537jlct0l7w8"]
+
+[ext_resource type="Script" uid="uid://brmy1pqpjjc2m" path="res://assets/Aquafulness/Scenes/Sky/sky.gd" id="1_gu35q"]
+[ext_resource type="Environment" uid="uid://cus80gtnew4kq" path="res://assets/Aquafulness/Scenes/Sky/Present_Day.tres" id="2_vnwj4"]
+[ext_resource type="PackedScene" uid="uid://db0gfh3dgksql" path="res://assets/Aquafulness/Scenes/Bather/bather.tscn" id="3_vnwj4"]
+[ext_resource type="PackedScene" uid="uid://ds051alhagcog" path="res://assets/Aquafulness/Scenes/Snow/Snow.tscn" id="4_qoiki"]
+[ext_resource type="PackedScene" uid="uid://xctxfs7hg1rv" path="res://assets/Aquafulness/Scenes/Confetti/Confetti.tscn" id="5_krc48"]
+[ext_resource type="PackedScene" uid="uid://vyugpng6dmvv" path="res://assets/Aquafulness/Scenes/Swing/Swing.tscn" id="6_5ubog"]
+[ext_resource type="Texture2D" uid="uid://cmr08ervk1ja1" path="res://assets/Aquafulness/beach-water-nature-sand-ocean-liquid-sunlight-texture-leaf-floor-refraction-pattern-green-circle-design-flooring-light-reflects-1279284.png" id="7_q3f18"]
+[ext_resource type="PackedScene" uid="uid://bf38c65clfohf" path="res://assets/Aquafulness/Scenes/Christmas/Tree.blend" id="8_m06wk"]
+[ext_resource type="PackedScene" uid="uid://b2ps6m14qrhkv" path="res://assets/Aquafulness/Scenes/Flower/Flower.tscn" id="9_x0pnl"]
+[ext_resource type="PackedScene" uid="uid://dcawt434tnrwa" path="res://assets/Aquafulness/Scenes/Cloud/Cloud.tscn" id="10_vnwj4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k4v8f"]
+albedo_color = Color(1, 0.627451, 0, 0.73333335)
+albedo_texture = ExtResource("7_q3f18")
+uv1_scale = Vector3(225.44, 225.44, 225.44)
+
+[sub_resource type="BoxMesh" id="BoxMesh_sdr0h"]
+material = SubResource("StandardMaterial3D_k4v8f")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rmkhk"]
+size = Vector3(6700.376, 8192, 7751.9766)
+
+[node name="Sky" type="Node3D"]
+script = ExtResource("1_gu35q")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_vnwj4")
+
+[node name="Bather" parent="." instance=ExtResource("3_vnwj4")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -3.9256134, -16.67392, 908.6522)
+
+[node name="Spawn" type="Node3D" parent="."]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="Snow" parent="." instance=ExtResource("4_qoiki")]
+transform = Transform3D(-0.00565477, 0, 0.999984, 0, 1, 0, -0.999984, 0, -0.00565477, 505.5451, 525.0176, 1644.6206)
+
+[node name="Confetti" parent="." instance=ExtResource("5_krc48")]
+transform = Transform3D(-0.00049228896, 0, 0.062650986, 0, 0.9999999, 0, -0.0870559, 0, -0.00035428262, 505.35736, 524.79675, 1644.5754)
+
+[node name="Swing" parent="." instance=ExtResource("6_5ubog")]
+transform = Transform3D(-0.00565477, 0, 0.999984, 0, 1, 0, -0.999984, 0, -0.00565477, 80.7545, 214.87213, 1846.8203)
+swinging = false
+
+[node name="OceanFloor" type="MeshInstance3D" parent="."]
+transform = Transform3D(-88.31542, 0, 16846.402, 0, 1, 0, -15617.615, 0, -95.26407, 28.479477, -109.391205, -109.63995)
+visible = false
+mesh = SubResource("BoxMesh_sdr0h")
+
+[node name="Christmas" type="Node3D" parent="."]
+transform = Transform3D(-0.00565477, 0, 0.999984, 0, 1, 0, -0.999984, 0, -0.00565477, 28.479477, -16.67392, -109.63995)
+visible = false
+
+[node name="Tree" parent="Christmas" instance=ExtResource("8_m06wk")]
+transform = Transform3D(0.0060033826, 0, -0.43642613, 0, 0.3857247, 0, 0.5647896, 0, 0.004638954, -11.025063, 22.433342, -189.4022)
+
+[node name="Flower" parent="." instance=ExtResource("9_x0pnl")]
+transform = Transform3D(-0.50572515, 0, 29.487495, 0, 74.21646, 0, -89.43193, 0, -0.16674763, 28.479477, -17.208908, -109.63995)
+visible = false
+
+[node name="FireworksContainer" type="Node3D" parent="."]
+transform = Transform3D(-0.00039267473, 0, 0.999984, 0, 0.26692817, 0, -0.069440216, 0, -0.00565477, -982.838, 701.521, 38.138123)
+
+[node name="Boundary" type="Area3D" parent="."]
+transform = Transform3D(-0.0056548254, 0, 0.999984, 0, 1, 0, -0.999984, 0, -0.0056548254, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary"]
+shape = SubResource("BoxShape3D_rmkhk")
+
+[node name="DayNightController" type="Node3D" parent="."]
+transform = Transform3D(-0.00565477, 0, 0.999984, 0, 1, 0, -0.999984, 0, -0.00565477, 28.479477, -16.67392, -109.63995)
+
+[node name="Cloud" parent="." instance=ExtResource("10_vnwj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.666971, 0, -8.139948)
+
+[node name="Cloud2" parent="." instance=ExtResource("10_vnwj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.054457, 0, -8.139948)
+
+[node name="Cloud3" parent="." instance=ExtResource("10_vnwj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7841415, 0, -39.825012)
+
+[node name="Cloud4" parent="." instance=ExtResource("10_vnwj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7841415, 0, 12.563479)
+
+[node name="Cloud5" parent="." instance=ExtResource("10_vnwj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.506512, -16.394651, 12.563479)
+
+[node name="Cloud6" parent="." instance=ExtResource("10_vnwj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.24689, -16.394651, -67.903336)
+
+[node name="Cloud7" parent="." instance=ExtResource("10_vnwj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.916874, -16.394651, -67.903336)
+
+[node name="Cloud8" parent="." instance=ExtResource("10_vnwj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.916874, -16.394651, -10.62484)
+
+[node name="Cloud9" parent="." instance=ExtResource("10_vnwj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.97313, -16.394651, -41.166145)
+
+[node name="Cloud10" parent="." instance=ExtResource("10_vnwj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.836014, -16.394651, -41.166145)
+
+[node name="Cloud11" parent="." instance=ExtResource("10_vnwj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.831421, -16.394651, -141.94595)
+
+[node name="Cloud12" parent="." instance=ExtResource("10_vnwj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.831421, -16.394651, 35.392365)

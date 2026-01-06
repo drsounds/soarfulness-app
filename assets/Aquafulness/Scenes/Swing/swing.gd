@@ -14,6 +14,10 @@ var wave_y: Wave = Wave.new(1, 1, 0.1, "sin")
 var wave_z: Wave = Wave.new(1, 0.05, 0.001, "cos")
 var velocity: Vector3 = Vector3(0, 0, 0)
 
+var _mode = "float"
+
+@export var mode: String: get = get_mode, set = set_mode
+
 var water_level_y: float = 0
 
 var stream: Vector3 = Vector3(0, 1, 0)
@@ -23,12 +27,51 @@ signal wave_speed_changed
 signal wave_height_changed
 signal wave_length_changed
 signal swing
+signal mode_changed
+signal swinging_changed
+signal interval_changed
+
+@export var swinging: bool: get = get_swinging, set = set_swinging
+
+var _swinging = false
+
+func get_interval():
+	return $Timer.wait_time
+
+func set_interval(value):
+	$Timer.wait_time = value
+	emit_signal('interval_changed', value)
+
+
+func get_swinging():
+	return _swinging
+
+
+func set_swinging(value):
+	_swinging = value
+	if value:
+		$Timer.start()
+	else:
+		$Timer.stop()
+
+	emit_signal('swinging_changed', value)
+
 
 @export var swing_transform: Transform3D: get = get_swing_transform
 
 
 func get_swing_transform() -> Transform3D:
 	return $Swing.transform
+
+
+func get_mode():
+	return _mode
+
+
+func set_mode(value):
+	_mode = value
+
+	emit_signal('mode_changed', value)
 
 
 func get_wave_height():
@@ -120,16 +163,40 @@ func _input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	time += delta
 
-	if wave_x != null:
-		wave_x.time = time
-		velocity.x = wave_x.velocity.x
-		velocity.z = wave_x.velocity.z
-	if wave_y != null:
-		wave_y.time = time
-		velocity.y = wave_y.velocity.y
-		velocity.z = wave_y.velocity.z
+	if mode == "float":
+		if wave_x != null:
+			wave_x.time = time
+			velocity.x = wave_x.velocity.x
+			velocity.z = wave_x.velocity.z
+		if wave_y != null:
+			wave_y.time = time
+			velocity.y = wave_y.velocity.y
+			velocity.z = wave_y.velocity.z
 
-	if $Swing != null:
-		$Swing.transform.origin += velocity
-		
-	emit_signal('swing', $Swing.transform.origin)
+		if $Swing != null:
+			$Swing.transform.origin += velocity
+
+		emit_signal('swing', $Swing.transform.origin)
+
+	elif mode == "lift":
+		if velocity.y <= wave_y.height * 10:
+			velocity.y += wave_y.speed * 0.1
+
+	elif mode == "fall":
+		if velocity.y >= -wave_y.height * 10:
+			velocity.y -= wave_y.speed * 0.1
+
+	elif mode == "sink":
+		if velocity.y >= -wave_y.height * 10:
+			velocity.y -= wave_y.speed * 0.1
+
+	elif mode == "soar":
+		if velocity.y <= wave_y.height * 10:
+			velocity.y += wave_y.speed * 0.1
+
+
+func _on_timer_timeout() -> void:
+	if mode == "soar":
+		mode = "sink"
+	else:
+		mode = "soar"

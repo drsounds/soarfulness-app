@@ -13,16 +13,16 @@
 [ext_resource type="PackedScene" uid="uid://bf38c65clfohf" path="res://assets/Aquafulness/Scenes/Christmas/Tree.blend" id="11_uro1o"]
 [ext_resource type="PackedScene" uid="uid://b2ps6m14qrhkv" path="res://assets/Aquafulness/Scenes/Flower/Flower.tscn" id="12_i075a"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k4v8f"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uro1o"]
 albedo_color = Color(1, 0.627451, 0, 0.73333335)
 albedo_texture = ExtResource("10_i4t7u")
 uv1_scale = Vector3(225.44, 225.44, 225.44)
 
 [sub_resource type="BoxMesh" id="BoxMesh_hfdp5"]
-material = SubResource("StandardMaterial3D_k4v8f")
+material = SubResource("StandardMaterial3D_uro1o")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uro1o"]
-size = Vector3(557.2794, 542.6787, 762.4247)
+size = Vector3(6700.376, 8192, 7751.9766)
 
 [node name="Buddhaflow" type="Node3D"]
 script = ExtResource("1_ya0kv")
@@ -128,7 +128,7 @@ transform = Transform3D(-0.00049228896, 0, 0.062650986, 0, 0.9999999, 0, -0.0870
 
 [node name="Swing" parent="." instance=ExtResource("9_sb54l")]
 transform = Transform3D(-0.00565477, 0, 0.999984, 0, 1, 0, -0.999984, 0, -0.00565477, 80.7545, 214.87213, 1846.8203)
-swing_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0872566, -2508.5425, -0.69448024)
+swinging = false
 
 [node name="OceanFloor" type="MeshInstance3D" parent="."]
 transform = Transform3D(-88.31542, 0, 16846.402, 0, 1, 0, -15617.615, 0, -95.26407, 28.479477, -109.391205, -109.63995)
@@ -150,10 +150,10 @@ visible = false
 transform = Transform3D(-0.00039267473, 0, 0.999984, 0, 0.26692817, 0, -0.069440216, 0, -0.00565477, -982.838, 701.521, 38.138123)
 
 [node name="Boundary" type="Area3D" parent="."]
-transform = Transform3D(-0.05156892, 0, 0.999984, 0, 1, 0, -9.119398, 0, -0.00565477, 28.479477, -16.67392, -109.63995)
+transform = Transform3D(-0.0056548254, 0, 0.999984, 0, 1, 0, -0.999984, 0, -0.0056548254, 28.479477, -16.67392, -109.63995)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 27.876478, -58.237404, -243.04846, 142.8457)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.06584, -626.548, 142.84547)
 shape = SubResource("BoxShape3D_uro1o")
 
 [node name="DayNightController" type="Node3D" parent="."]

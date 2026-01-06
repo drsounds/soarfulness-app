@@ -1,5 +1,7 @@
 extends Node3D
 
+class_name AquaScene
+
 var _date: Dictionary = Time.get_datetime_dict_from_system(true)
 
 var aquafulness: Control

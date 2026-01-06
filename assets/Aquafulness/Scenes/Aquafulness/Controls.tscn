@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://frb38tx0tt4c"]
+[gd_scene load_steps=30 format=3 uid="uid://frb38tx0tt4c"]
 
 [ext_resource type="Script" uid="uid://d3qua6q1j3jxo" path="res://assets/Aquafulness/Scenes/Aquafulness/controls.gd" id="2_510mj"]
 [ext_resource type="Theme" uid="uid://dppbavpctnyxp" path="res://new_theme2.tres" id="3_qqppl"]
@@ -19,6 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://cv28fl7cj1xq" path="res://assets/Aquafulness/Respawn.png" id="16_2c632"]
 [ext_resource type="Texture2D" uid="uid://dnm47msg3jkr6" path="res://assets/Aquafulness/ArrowUp.png" id="16_cvwdu"]
 [ext_resource type="Script" uid="uid://cr652bk2543qb" path="res://assets/Aquafulness/Scenes/Aquafulness/program_timer.gd" id="19_3msog"]
+[ext_resource type="Texture2D" uid="uid://c7qmodgyvwmoc" path="res://assets/Aquafulness/Scenes/Bather/textures/Swing.png" id="20_a0404"]
+[ext_resource type="Texture2D" uid="uid://df3ba0hueqskw" path="res://assets/Aquafulness/Scenes/Bather/textures/Soar.png" id="21_d40we"]
+[ext_resource type="Texture2D" uid="uid://c6fux4nvwolbs" path="res://assets/Aquafulness/Scenes/Bather/textures/Sink.png" id="22_bn2ln"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1adp4"]
 
@@ -42,8 +45,8 @@ gradient = SubResource("Gradient_510mj")
 bg_color = Color(0, 0.72493297, 0.21746081, 1)
 
 [node name="Controls" type="TextureButton"]
-offset_right = 1280.0
-offset_bottom = 720.0
+offset_right = 1920.0
+offset_bottom = 1059.0
 mouse_filter = 1
 script = ExtResource("2_510mj")
 
@@ -52,6 +55,7 @@ material = SubResource("CanvasItemMaterial_1adp4")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+offset_right = 640.0
 offset_bottom = 130.0
 grow_horizontal = 2
 texture = SubResource("GradientTexture2D_2c632")
@@ -62,8 +66,8 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_left = 35.0
 offset_top = 35.0
-offset_right = -89.0
-offset_bottom = 93.0
+offset_right = -20.0
+offset_bottom = 100.0
 grow_horizontal = 2
 size_flags_vertical = 3
 
@@ -80,12 +84,6 @@ uppercase = true
 [node name="Button" type="OptionButton" parent="StatusBar/Location"]
 layout_mode = 2
 size_flags_vertical = 3
-selected = 0
-item_count = 2
-popup/item_0/text = "Framnäs"
-popup/item_0/id = 0
-popup/item_1/text = "Coordlux"
-popup/item_1/id = 1
 
 [node name="Reed" type="VBoxContainer" parent="StatusBar"]
 layout_mode = 2
@@ -769,13 +767,11 @@ text = "V Time"
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchor_top = 0.18100001
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 35.0
-offset_top = 141.0
-offset_right = -38.0
-offset_bottom = -173.0
+offset_top = 10.679993
+offset_bottom = -180.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -1033,10 +1029,12 @@ horizontal_alignment = 1
 
 [node name="ControlCross" parent="Control" instance=ExtResource("15_js47e")]
 layout_mode = 1
-offset_left = -2.0
+anchors_preset = -1
+anchor_left = -0.014
+offset_left = 43.39
 offset_top = 45.0
-offset_right = -875.0
-offset_bottom = -74.0
+offset_right = -895.0
+offset_bottom = -129.0
 
 [node name="RespawnButton" type="TextureButton" parent="Control"]
 layout_mode = 1
@@ -1072,10 +1070,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 382.0
-offset_top = -95.0
-offset_right = 521.0
-offset_bottom = -64.0
+offset_left = 807.0
+offset_top = -50.0
+offset_right = 946.0
+offset_bottom = -19.0
 grow_vertical = 0
 text = "Show water"
 
@@ -1110,7 +1108,7 @@ popup/item_1/id = 1
 popup/item_2/text = "3D"
 popup/item_2/id = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
+[node name="ResetWaveRect" type="TextureButton" parent="Control"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -1123,8 +1121,8 @@ offset_right = -219.0
 offset_bottom = -13.0
 grow_horizontal = 0
 grow_vertical = 2
-texture = ExtResource("6_qqppl")
-expand_mode = 1
+texture_normal = ExtResource("6_qqppl")
+ignore_texture_size = true
 stretch_mode = 4
 
 [node name="SetNightButton" type="Button" parent="Control"]
@@ -1164,10 +1162,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -60.5
-offset_top = -95.0
-offset_right = 36.5
-offset_bottom = -64.0
+offset_left = -336.0
+offset_top = -50.0
+offset_right = -239.0
+offset_bottom = -19.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -1231,9 +1229,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -89.0
-offset_top = -121.0
+offset_top = -87.0
 offset_right = 87.0
-offset_bottom = -70.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Hide controls"
@@ -1286,6 +1284,74 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/fill = SubResource("StyleBoxFlat_3msog")
 show_percentage = false
+
+[node name="SwingButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -180.0
+offset_right = 21.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("20_a0404")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="FloatButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -125.0
+offset_right = 21.0
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("20_a0404")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="SoarButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -79.0
+offset_top = -160.0
+offset_right = -39.0
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("21_d40we")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="SinkButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 36.0
+offset_top = -152.0
+offset_right = 76.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("22_bn2ln")
+ignore_texture_size = true
+stretch_mode = 4
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]
@@ -1340,6 +1406,7 @@ show_percentage = false
 [connection signal="toggled" from="Control/ShowWaterButton" to="." method="_on_show_water_button_toggled"]
 [connection signal="toggled" from="Control/EnforceBoundariesButton" to="." method="_on_enforce_boundaries_button_toggled"]
 [connection signal="item_selected" from="Control/OceanOptionButton" to="." method="_on_ocean_option_button_item_selected"]
+[connection signal="pressed" from="Control/ResetWaveRect" to="." method="_on_reset_wave_rect_pressed"]
 [connection signal="pressed" from="Control/SetNightButton" to="." method="_on_set_night_button_pressed"]
 [connection signal="pressed" from="Control/SetDayButton" to="." method="_on_set_day_button_pressed"]
 [connection signal="item_selected" from="Control/SeedOptionButton" to="." method="_on_seed_option_button_item_selected"]
@@ -1350,3 +1417,7 @@ show_percentage = false
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="interval_changed" from="ProgramTimer" to="." method="_on_program_timer_interval_changed"]
 [connection signal="tick" from="ProgramTimer" to="." method="_on_program_timer_tick"]
+[connection signal="pressed" from="SwingButton" to="." method="_on_swing_button_pressed"]
+[connection signal="pressed" from="FloatButton" to="." method="_on_float_button_pressed"]
+[connection signal="pressed" from="SoarButton" to="." method="_on_soar_button_pressed"]
+[connection signal="pressed" from="SinkButton" to="." method="_on_sink_button_pressed"]
