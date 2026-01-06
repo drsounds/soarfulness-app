@@ -1,7 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://bw130d8wrr213"]
+[gd_scene load_steps=17 format=3 uid="uid://bw130d8wrr213"]
 
 [ext_resource type="Script" uid="uid://bmk356m72a0q8" path="res://assets/Aquafulness/Scenes/AquaScene/aqua_scene.gd" id="1_ya0kv"]
-[ext_resource type="Texture2D" uid="uid://dh183a4tghgj6" path="res://Vänern_Present_Night.png" id="2_i075a"]
+[ext_resource type="Environment" uid="uid://b43nlutqwmd73" path="res://assets/Aquafulness/Scenes/Buddhaflow/present_day.tres" id="2_i075a"]
 [ext_resource type="PackedScene" uid="uid://cixa7yspxn8w6" path="res://assets/Aquafulness/Scenes/Bather/Buddha.blend" id="2_jwuy8"]
 [ext_resource type="PackedScene" uid="uid://bss5uw1f1p0np" path="res://Spoonie.tscn" id="3_ya0kv"]
 [ext_resource type="PackedScene" uid="uid://dwfgugk1tvlya" path="res://assets/Aquafulness/Scenes/Coordlux/futuristic_dome.tscn" id="4_jwuy8"]
@@ -13,17 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://bf38c65clfohf" path="res://assets/Aquafulness/Scenes/Christmas/Tree.blend" id="11_uro1o"]
 [ext_resource type="PackedScene" uid="uid://b2ps6m14qrhkv" path="res://assets/Aquafulness/Scenes/Flower/Flower.tscn" id="12_i075a"]
 [ext_resource type="PackedScene" uid="uid://dbplbwxr6m0ty" path="res://assets/Aquafulness/Scenes/AquaScene/date_time_controller.tscn" id="13_xepd6"]
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_2yo8u"]
-panorama = ExtResource("2_i075a")
-
-[sub_resource type="Sky" id="Sky_rnqo1"]
-sky_material = SubResource("PanoramaSkyMaterial_2yo8u")
-
-[sub_resource type="Environment" id="Environment_otyay"]
-background_mode = 2
-sky = SubResource("Sky_rnqo1")
-sky_rotation = Vector3(0, 1.1309733, -0.034906585)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uro1o"]
 albedo_color = Color(1, 0.627451, 0, 0.73333335)
@@ -40,7 +29,7 @@ size = Vector3(6700.376, 8192, 7751.9766)
 script = ExtResource("1_ya0kv")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_otyay")
+environment = ExtResource("2_i075a")
 
 [node name="Buddha" parent="." instance=ExtResource("2_jwuy8")]
 transform = Transform3D(0.019722091, 0, -9.999982, 0, 10, 0, 9.999982, 0, 0.019722091, 27.16986, 593.06116, -255.4725)

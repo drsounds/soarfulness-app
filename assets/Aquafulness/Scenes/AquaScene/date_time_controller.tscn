@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dbplbwxr6m0ty"]
 
-[ext_resource type="Script" uid="uid://3ol3ntpc2uyq" path="res://assets/Aquafulness/Scenes/Framnas/day_night_controller.gd" id="1_y6jx5"]
+[ext_resource type="Script" uid="uid://3ol3ntpc2uyq" path="res://assets/Aquafulness/Scenes/AquaScene/date_time_controller.gd" id="1_y6jx5"]
 
 [node name="DateTimeController" type="Node3D"]
 script = ExtResource("1_y6jx5")

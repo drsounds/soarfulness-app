@@ -89,11 +89,16 @@ func set_date(value):
 
 	var filename = 'res://assets/Aquafulness/scenes/' + scene_id + '/' + epoch.to_lower() + '_' + time_of_day.to_lower() + '.tres'
 
-	var environment = load(filename)
 	
-	if environment == null:
-		pass
+	if ResourceLoader.exists(filename):
+		var environment = load(filename)
 
-	self.emit_signal('environment_changed', environment)
+		if environment == null:
+			print("Corrupt resource")
+
+		self.emit_signal('environment_changed', environment)
+	else:
+		print(filename + ' does not exist')
+
 	self.emit_signal('date_changed', date)
 	self.emit_signal('time_of_day_changed', time_of_day)
