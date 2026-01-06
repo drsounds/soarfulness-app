@@ -193,11 +193,11 @@ func apply_parameters(params):
 		config.set_value('water', 'wave_length', scene.wave_length)
 		save_config()
 
-func _on_seed_changed(filename: Dictionary):
+func _on_seed_changed(seed: Dictionary):
 	for item_index in $Control/SeedOptionButton.item_count:
 		var text = $Control/SeedOptionButton.get_item_text(item_index)
 		for aquafulness_seed in aquafulness.available_seeds:
-			if text == aquafulness_seed['name'] and filename == aquafulness_seed['filename']:
+			if text == aquafulness_seed['name'] and seed["filename"] == aquafulness_seed['filename']:
 				if item_index != $Control/SeedOptionButton.selected:
 					$Control/SeedOptionButton.selected = item_index
 
@@ -341,7 +341,7 @@ func scene_date_changed(date):
 		unix_now += 60 * 60 * 24
 
 	$YearSlider.value = day_of_year
-	$DatePanel/DaySlider.value = (now['hour'] * 60 * 60) + (now['minute'] * 60) + now['second']
+	$DatePanel/DaySlider.value = (now['hour'] * 60 * 60) + (now['minute'] * 60)
 	$DatePanel.text = Time.get_datetime_string_from_datetime_dict(date, true)
 	$StatusBar/Date/Button.text = Time.get_datetime_string_from_datetime_dict(date, true)
 	$DatePanel/StartLabel.text = Time.get_datetime_string_from_datetime_dict({
