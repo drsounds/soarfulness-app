@@ -4,6 +4,8 @@ var _date: Dictionary = Time.get_datetime_dict_from_system(true)
 
 var aquafulness: Control
 
+var scene_id
+
 signal ocean_type_changed
 
 var _ocean_type = "imaginary"
@@ -596,8 +598,8 @@ func set_date(value: Dictionary):
 			#$Light.visible = false
 
 
-	if $DayNightController != null:
-		var filename = 'res://assets/Aquafulness/Vänern_' + epoch + '_' + time_of_day + '.tres'
+	if $DayNightController != null and scene_id != null:
+		var filename = 'res://assets/Aquafulness/scenes/' + scene_id + '/' + epoch + '_' + time_of_day + '.tres'
 
 		if ocean_environment != null:
 			ocean_environment.environment = load(filename)

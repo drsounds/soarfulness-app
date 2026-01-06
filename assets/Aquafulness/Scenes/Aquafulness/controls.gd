@@ -84,11 +84,17 @@ var PRESETS = [
 ]
 
 func init() -> void:
+	config = ConfigFile.new()
+	load_config()
+
+	scene = get_tree().root.find_child('SubViewport', true, false).get_child(0)
+	if scene == null:
+		print("Scene is missing")
+
 	soarfulness = get_tree().root.find_child('Soarfulness', true, false)
 	soarfulness.connect('scene_loaded', self._on_scene_loaded)
 	aquafulness = get_tree().root.find_child('Aquafulness', true, false)
 	aquafulness.connect('seed_changed', self._on_seed_changed)
-	scene = get_tree().root.find_child('SubViewport', true, false).get_child(0)
 	scene.connect('flowers_changed', self._on_flowers_changed)
 	scene.connect('is_showing_ocean_floor_changed', self._on_is_showing_ocean_floor_changed)
 	scene.connect('ocean_type_changed', self._on_ocean_type_changed)
@@ -120,7 +126,43 @@ func init() -> void:
 		)
 		i = i + 1
 	
+	scene.wave_height = config.get_value("water", "wave_height", 20.0)
+	scene.wave_length = config.get_value("water", "wave_length", 5.0)
+	scene.wave_speed = config.get_value("water", "wave_speed", 4.0)
+	scene.is_showing_ocean_floor = config.get_value("scene", "is_showing_ocean_floor", false)
+	#$Control/OceanFloorCheckButton.button_pressed = scene.is_showing_ocean_floor
+	aquafulness.seed_filename = config.get_value("aquafulness", "seed", "Vänern.ogv")
+	scene.ocean_type = config.get_value("session", "ocean_type", "imaginary")
+	scene.flowers = config.get_value("water", "flowers", 0.0)
+	scene.clouds = config.get_value("scene", "clouds", 0.0)
+	bather.enforce_boundaries = config.get_value("scene", "enforce_boundaries", false)
+	scene.snow = config.get_value("weather", "snow", 0.0)
+	scene.fog = config.get_value("weather", "fog", 0.0)
+	scene.water_level = config.get_value("water", "level", 0.00)
+	scene.real_time = config.get_value('time', 'real', true)
+	scene.fireworks = config.get_value('scene', 'fireworks', false)
+	scene.confetti = config.get_value('scene', 'confetti', false)
+
+	var date = config.get_value("date", "now", Time.get_datetime_string_from_system(false))
+	
+	if scene.real_time:
+		date = Time.get_datetime_string_from_system()
+
+	scene.date = Time.get_datetime_dict_from_datetime_string(
+		date,
+		true
+	)
+	
+	i = 0
+	for aquafulness_seed in aquafulness.available_seeds:
+		$Control/SeedOptionButton.add_item(
+			aquafulness_seed['name'],
+			i
+		)
+		i += 1
+
 	scene.init()
+	load_state()
 
 
 func _on_bather_position_changed(value):
@@ -232,6 +274,9 @@ func _on_fog_changed(fog_amount: float):
 
 
 func _on_scene_loaded(scene_id: String):
+	if $SceneOptionsButton == null:
+		return
+
 	for i in range($SceneOptionsButton.item_count):
 		var id = $SceneOptionsButton.get_item_id(i)
 		if id == scene_id:
@@ -240,14 +285,8 @@ func _on_scene_loaded(scene_id: String):
 
 
 func _ready() -> void:
-	config = ConfigFile.new()
-	init()
-	load_config()
-	var current_scene = config.get_value('session', 'scene', null)
-	if current_scene != null:
-		load_scene(current_scene)
-	
-	load_state()
+	pass
+
 
 
 func _handle_scene_wave_height_changed(val):
@@ -286,41 +325,6 @@ func load_config(filename = CONFIG_FILENAME):
 
 	if err:
 		print(err)
-
-	scene.wave_height = config.get_value("water", "wave_height", 20.0)
-	scene.wave_length = config.get_value("water", "wave_length", 5.0)
-	scene.wave_speed = config.get_value("water", "wave_speed", 4.0)
-	scene.is_showing_ocean_floor = config.get_value("scene", "is_showing_ocean_floor", false)
-	$Control/OceanFloorCheckButton.button_pressed = scene.is_showing_ocean_floor
-	aquafulness.seed_filename = config.get_value("aquafulness", "seed", "Vänern.ogv")
-	scene.ocean_type = config.get_value("session", "ocean_type", "imaginary")
-	scene.flowers = config.get_value("water", "flowers", 0.0)
-	scene.clouds = config.get_value("scene", "clouds", 0.0)
-	bather.enforce_boundaries = config.get_value("scene", "enforce_boundaries", false)
-	scene.snow = config.get_value("weather", "snow", 0.0)
-	scene.fog = config.get_value("weather", "fog", 0.0)
-	scene.water_level = config.get_value("water", "level", 0.00)
-	scene.real_time = config.get_value('time', 'real', true)
-	scene.fireworks = config.get_value('scene', 'fireworks', false)
-	scene.confetti = config.get_value('scene', 'confetti', false)
-
-	var date = config.get_value("date", "now", Time.get_datetime_string_from_system(false))
-	
-	if scene.real_time:
-		date = Time.get_datetime_string_from_system()
-
-	scene.date = Time.get_datetime_dict_from_datetime_string(
-		date,
-		true
-	)
-	
-	var i = 0
-	for aquafulness_seed in aquafulness.available_seeds:
-		$Control/SeedOptionButton.add_item(
-			aquafulness_seed['name'],
-			i
-		)
-		i += 1
 
 
 func scene_date_changed(date):
@@ -367,7 +371,6 @@ func scene_date_changed(date):
 
 
 func _on_date_time_input_on_date_changed(date: Dictionary) -> void:
-	scene = get_tree().root.find_child('SubViewport', true, false).get_child(0)
 	scene.date = date
 
 

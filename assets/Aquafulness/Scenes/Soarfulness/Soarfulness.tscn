@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://8osyicjgsi5x"]
+[gd_scene load_steps=5 format=3 uid="uid://8osyicjgsi5x"]
 
 [ext_resource type="Script" uid="uid://byb2p7fo7klgv" path="res://assets/Aquafulness/Scenes/Soarfulness/soarfulness.gd" id="1_dlhdc"]
-[ext_resource type="PackedScene" uid="uid://crci7xuewtyqg" path="res://assets/Aquafulness/Scenes/Framnas/Framnas.tscn" id="2_5hcqo"]
 [ext_resource type="PackedScene" uid="uid://djpxbrdgwmb5w" path="res://assets/Aquafulness/Scenes/Aquafulness/Aquafulness.tscn" id="3_7nc36"]
 [ext_resource type="PackedScene" uid="uid://frb38tx0tt4c" path="res://assets/Aquafulness/Scenes/Aquafulness/Controls.tscn" id="4_akaao"]
 
@@ -27,8 +26,6 @@ offset_bottom = 720.0
 handle_input_locally = false
 size = Vector2i(1280, 720)
 render_target_update_mode = 4
-
-[node name="Framnas" parent="ViewportContainer/SubViewport" instance=ExtResource("2_5hcqo")]
 
 [node name="Aquafulness" parent="." instance=ExtResource("3_7nc36")]
 visible = true

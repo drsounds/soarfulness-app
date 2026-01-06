@@ -43,8 +43,6 @@ signal moved
 var _enforce_boundaries = true
 
 
-@onready var duo = $Companion
-
 func get_wave_speed():
 	if get_parent() == null:
 		return 0

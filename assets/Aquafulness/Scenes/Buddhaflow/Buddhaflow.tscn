@@ -1,0 +1,160 @@
+[gd_scene load_steps=16 format=3 uid="uid://bw130d8wrr213"]
+
+[ext_resource type="Script" uid="uid://bmk356m72a0q8" path="res://assets/Aquafulness/Scenes/AquaScene/aqua_scene.gd" id="1_ya0kv"]
+[ext_resource type="PackedScene" uid="uid://cixa7yspxn8w6" path="res://assets/Aquafulness/Scenes/Bather/Buddha.blend" id="2_jwuy8"]
+[ext_resource type="Environment" uid="uid://djmpl5iybjcy7" path="res://assets/Aquafulness/Scenes/Buddhaflow/Present_Night.tres" id="2_uro1o"]
+[ext_resource type="PackedScene" uid="uid://bss5uw1f1p0np" path="res://Spoonie.tscn" id="3_ya0kv"]
+[ext_resource type="PackedScene" uid="uid://dwfgugk1tvlya" path="res://assets/Aquafulness/Scenes/Coordlux/futuristic_dome.tscn" id="4_jwuy8"]
+[ext_resource type="PackedScene" uid="uid://db0gfh3dgksql" path="res://assets/Aquafulness/Scenes/Bather/bather.tscn" id="6_b2yfv"]
+[ext_resource type="PackedScene" uid="uid://ds051alhagcog" path="res://assets/Aquafulness/Scenes/Snow/Snow.tscn" id="7_ob7h7"]
+[ext_resource type="PackedScene" uid="uid://xctxfs7hg1rv" path="res://assets/Aquafulness/Scenes/Confetti/Confetti.tscn" id="8_sb54l"]
+[ext_resource type="PackedScene" uid="uid://vyugpng6dmvv" path="res://assets/Aquafulness/Scenes/Swing/Swing.tscn" id="9_sb54l"]
+[ext_resource type="Texture2D" uid="uid://cmr08ervk1ja1" path="res://assets/Aquafulness/beach-water-nature-sand-ocean-liquid-sunlight-texture-leaf-floor-refraction-pattern-green-circle-design-flooring-light-reflects-1279284.png" id="10_i4t7u"]
+[ext_resource type="PackedScene" uid="uid://bf38c65clfohf" path="res://assets/Aquafulness/Scenes/Christmas/Tree.blend" id="11_uro1o"]
+[ext_resource type="PackedScene" uid="uid://b2ps6m14qrhkv" path="res://assets/Aquafulness/Scenes/Flower/Flower.tscn" id="12_i075a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k4v8f"]
+albedo_color = Color(1, 0.627451, 0, 0.73333335)
+albedo_texture = ExtResource("10_i4t7u")
+uv1_scale = Vector3(225.44, 225.44, 225.44)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hfdp5"]
+material = SubResource("StandardMaterial3D_k4v8f")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uro1o"]
+size = Vector3(557.2794, 542.6787, 762.4247)
+
+[node name="Buddhaflow" type="Node3D"]
+script = ExtResource("1_ya0kv")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_uro1o")
+
+[node name="Buddha" parent="." instance=ExtResource("2_jwuy8")]
+transform = Transform3D(0.019722091, 0, -9.999982, 0, 10, 0, 9.999982, 0, 0.019722091, 27.16986, 593.06116, -255.4725)
+
+[node name="Spoonie" parent="." instance=ExtResource("3_ya0kv")]
+transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, 30.782776, -97.440704, -126.772064)
+
+[node name="Spoonie2" parent="." instance=ExtResource("3_ya0kv")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 511.66193, 48.64804, 2582.0012)
+
+[node name="Spoonie3" parent="." instance=ExtResource("3_ya0kv")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 509.09747, 48.64804, 2128.5107)
+
+[node name="Spoonie11" parent="." instance=ExtResource("3_ya0kv")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 1399.4583, 48.64804, -789.03674)
+
+[node name="Spoonie12" parent="." instance=ExtResource("3_ya0kv")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -895.804, 48.64804, -776.0574)
+
+[node name="Spoonie13" parent="." instance=ExtResource("3_ya0kv")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -1379.1996, 48.6481, -121.02646)
+
+[node name="Spoonie14" parent="." instance=ExtResource("3_ya0kv")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -901.1297, 48.6481, 792.3202)
+
+[node name="Spoonie18" parent="." instance=ExtResource("3_ya0kv")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 921.2243, 48.6481, 782.015)
+
+[node name="Spoonie19" parent="." instance=ExtResource("3_ya0kv")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 1293.6208, 48.6481, -101.22226)
+
+[node name="Spoonie15" parent="." instance=ExtResource("3_ya0kv")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -476.6319, 48.6481, 1208.1921)
+
+[node name="Spoonie17" parent="." instance=ExtResource("3_ya0kv")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 673.2486, 48.6481, 1201.6896)
+
+[node name="Spoonie16" parent="." instance=ExtResource("3_ya0kv")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -88.090576, 48.6481, -2280.153)
+
+[node name="Spoonie10" parent="." instance=ExtResource("3_ya0kv")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 506.60455, 48.64804, 1687.654)
+
+[node name="Spoonie4" parent="." instance=ExtResource("3_ya0kv")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -441.28986, 48.64804, 2599.5186)
+
+[node name="Spoonie5" parent="." instance=ExtResource("3_ya0kv")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -441.28986, 48.64804, 2599.5186)
+
+[node name="Spoonie6" parent="." instance=ExtResource("3_ya0kv")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -443.83618, 48.64804, 2149.2346)
+
+[node name="Spoonie7" parent="." instance=ExtResource("3_ya0kv")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -443.83618, 48.64804, 2149.2346)
+
+[node name="Spoonie8" parent="." instance=ExtResource("3_ya0kv")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -446.5052, 48.64804, 1677.2424)
+
+[node name="Spoonie9" parent="." instance=ExtResource("3_ya0kv")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -446.5052, 48.64804, 1677.2424)
+
+[node name="FuturisticDome" parent="." instance=ExtResource("4_jwuy8")]
+transform = Transform3D(2000.0001, 0, 0, 0, 2000.0001, 0, 0, 0, 2000.0001, -1991.8931, 227.77687, -1678.875)
+
+[node name="FuturisticDome2" parent="." instance=ExtResource("4_jwuy8")]
+transform = Transform3D(2000.0001, 0, 0, 0, 2000.0001, 0, 0, 0, 2000.0001, 1618.3547, 227.77687, -1699.2905)
+
+[node name="FuturisticDome6" parent="." instance=ExtResource("4_jwuy8")]
+transform = Transform3D(2000.0001, 0, 0, 0, 2000.0001, 0, 0, 0, 2000.0001, 1618.3547, -578.8854, -1699.2905)
+
+[node name="FuturisticDome7" parent="." instance=ExtResource("4_jwuy8")]
+transform = Transform3D(2000.0001, 0, 0, 0, 2000.0001, 0, 0, 0, 2000.0001, -1971.4797, -578.8854, -1678.9905)
+
+[node name="FuturisticDome3" parent="." instance=ExtResource("4_jwuy8")]
+transform = Transform3D(1000.00006, 0, 0, 0, 1000.00006, 0, 0, 0, 1000.00006, 2016.1355, 227.77687, -300.879)
+
+[node name="FuturisticDome5" parent="." instance=ExtResource("4_jwuy8")]
+transform = Transform3D(1000.00006, 0, 0, 0, 1000.00006, 0, 0, 0, 1000.00006, 2016.1355, -222.1807, -300.879)
+
+[node name="FuturisticDome4" parent="." instance=ExtResource("4_jwuy8")]
+transform = Transform3D(1000.00006, 0, 0, 0, 1000.00006, 0, 0, 0, 1000.00006, -2078.5808, 227.77687, -277.72397)
+
+[node name="FuturisticDome8" parent="." instance=ExtResource("4_jwuy8")]
+transform = Transform3D(1000.00006, 0, 0, 0, 1000.00006, 0, 0, 0, 1000.00006, -2078.5808, -174.0855, -277.72397)
+
+[node name="Bather" parent="." instance=ExtResource("6_b2yfv")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -3.9256134, -16.67392, 908.6522)
+
+[node name="Spawn" type="Node3D" parent="."]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 100.36827, -16.67392, 442.60886)
+
+[node name="Snow" parent="." instance=ExtResource("7_ob7h7")]
+transform = Transform3D(-0.00565477, 0, 0.999984, 0, 1, 0, -0.999984, 0, -0.00565477, 505.5451, 525.0176, 1644.6206)
+
+[node name="Confetti" parent="." instance=ExtResource("8_sb54l")]
+transform = Transform3D(-0.00049228896, 0, 0.062650986, 0, 0.9999999, 0, -0.0870559, 0, -0.00035428262, 505.35736, 524.79675, 1644.5754)
+
+[node name="Swing" parent="." instance=ExtResource("9_sb54l")]
+transform = Transform3D(-0.00565477, 0, 0.999984, 0, 1, 0, -0.999984, 0, -0.00565477, 80.7545, 214.87213, 1846.8203)
+swing_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1521275, -2509.6208, -0.6110168)
+
+[node name="OceanFloor" type="MeshInstance3D" parent="."]
+transform = Transform3D(-88.31542, 0, 16846.402, 0, 1, 0, -15617.615, 0, -95.26407, 28.479477, -109.391205, -109.63995)
+visible = false
+mesh = SubResource("BoxMesh_hfdp5")
+
+[node name="Christmas" type="Node3D" parent="."]
+transform = Transform3D(-0.00565477, 0, 0.999984, 0, 1, 0, -0.999984, 0, -0.00565477, 28.479477, -16.67392, -109.63995)
+visible = false
+
+[node name="Tree" parent="Christmas" instance=ExtResource("11_uro1o")]
+transform = Transform3D(0.0060033826, 0, -0.43642613, 0, 0.3857247, 0, 0.5647896, 0, 0.004638954, -11.025063, 22.433342, -189.4022)
+
+[node name="Flower" parent="." instance=ExtResource("12_i075a")]
+transform = Transform3D(-0.50572515, 0, 29.487495, 0, 74.21646, 0, -89.43193, 0, -0.16674763, 28.479477, -17.208908, -109.63995)
+visible = false
+
+[node name="FireworksContainer" type="Node3D" parent="."]
+transform = Transform3D(-0.00039267473, 0, 0.999984, 0, 0.26692817, 0, -0.069440216, 0, -0.00565477, -982.838, 701.521, 38.138123)
+
+[node name="Boundary" type="Area3D" parent="."]
+transform = Transform3D(-0.05156892, 0, 0.999984, 0, 1, 0, -9.119398, 0, -0.00565477, 28.479477, -16.67392, -109.63995)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 27.876478, -58.237404, -243.04846, 142.8457)
+shape = SubResource("BoxShape3D_uro1o")
+
+[node name="DayNightController" type="Node3D" parent="."]
+transform = Transform3D(-0.00565477, 0, 0.999984, 0, 1, 0, -0.999984, 0, -0.00565477, 28.479477, -16.67392, -109.63995)
