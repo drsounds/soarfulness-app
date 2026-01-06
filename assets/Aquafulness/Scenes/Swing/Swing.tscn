@@ -17,6 +17,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8578262, -2509.34, -0.6793
 [node name="CSGSphere3D" type="CSGSphere3D" parent="Swing"]
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 10.157
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -141,7 +141,7 @@ func init() -> void:
 	scene.ocean_type = config.get_value("session", "ocean_type", "imaginary")
 	scene.flowers = config.get_value("water", "flowers", 0.0)
 	scene.clouds = config.get_value("scene", "clouds", 0.0)
-	bather.enforce_boundaries = config.get_value("scene", "enforce_boundaries", false)
+	bather.enforce_boundaries = true # config.get_value("scene", "enforce_boundaries", true)
 	scene.snow = config.get_value("weather", "snow", 0.0)
 	scene.fog = config.get_value("weather", "fog", 0.0)
 	scene.water_level = config.get_value("water", "level", 0.00)

@@ -179,19 +179,19 @@ func _process(delta: float) -> void:
 		emit_signal('swing', $Swing.transform.origin)
 
 	elif mode == "lift":
-		if velocity.y <= wave_y.height * 10:
+		if velocity.y <= wave_y.height * 0.1:
 			velocity.y += wave_y.speed * 0.1
 
 	elif mode == "fall":
-		if velocity.y >= -wave_y.height * 10:
+		if velocity.y >= -wave_y.height * 0.1:
 			velocity.y -= wave_y.speed * 0.1
 
 	elif mode == "sink":
-		if velocity.y >= -wave_y.height * 10:
+		if velocity.y >= -wave_y.height * 0.1:
 			velocity.y -= wave_y.speed * 0.1
 
 	elif mode == "soar":
-		if velocity.y <= wave_y.height * 10:
+		if velocity.y <= wave_y.height * 0.1:
 			velocity.y += wave_y.speed * 0.1
 
 

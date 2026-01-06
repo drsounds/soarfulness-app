@@ -43,6 +43,8 @@ func on_viewport_size_changed():
 	var window_size = DisplayServer.window_get_size()
 	set_size(window_size)
 	$ViewportContainer/SubViewport.set_size(window_size)
+	$ViewportContainer/SubViewport.set_size(window_size)
+	$ViewportContainer.set_size(window_size)
 	$Controls.set_size(window_size)
 	$Aquafulness.set_size(window_size)
 

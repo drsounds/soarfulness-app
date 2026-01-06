@@ -106,11 +106,13 @@ func respawn():
 	if spawn:
 		new_position = spawn.position
 
-	self.transform.origin = new_position
+		self.transform.origin = new_position
+		self.velocity = Vector3(0, 0, 0)
+		self.movement = Vector3(0, 0, 0)
 
-	print("Respawned at" + str(self.transform.origin))
+		print("Respawned at" + str(self.transform.origin))
 
-	emit_signal('respawned')
+		emit_signal('respawned')
 
 
 func get_wave_height():
@@ -210,30 +212,30 @@ func _process(delta:float) -> void:
 	var outside_bounds = false
 
 	var boundary_size = box_shape.size
-	if transform.origin.x < boundary.transform.origin.x - (boundary_size.x / 2):
+	if transform.origin.x < boundary.transform.origin.x - (boundary_size.x / 2) and self.velocity.x < 0:
 		outside_bounds = true
 		if enforce_boundaries:
 			self.transform.origin.x = boundary.transform.origin.x + (boundary_size.x / 2)
 			#self.velocity.x *= -0.9
-	if transform.origin.x > boundary.transform.origin.x + (boundary_size.x / 2) :
+	if transform.origin.x > boundary.transform.origin.x + (boundary_size.x / 2) and self.velocity.x > 0:
 		if enforce_boundaries:
 			self.transform.origin.x = boundary.transform.origin.x - (boundary_size.x / 2)
 		outside_bounds = true
-	if transform.origin.z < boundary.transform.origin.z - (boundary_size.z / 2):
+	if transform.origin.z < boundary.transform.origin.z - (boundary_size.z / 2) and self.velocity.z < 0:
 		if enforce_boundaries:
 			self.transform.origin.z = boundary.transform.origin.z + (boundary_size.z / 2)
 		outside_bounds = true
-	if transform.origin.z > boundary.transform.origin.z + (boundary_size.z / 2):
+	if transform.origin.z > boundary.transform.origin.z + (boundary_size.z / 2) and self.velocity.z > 0:
 		if enforce_boundaries:
 			self.transform.origin.z = boundary.transform.origin.z - (boundary_size.z / 2)
 		outside_bounds = true
-	if transform.origin.y < boundary.transform.origin.y - (boundary_size.y / 2):
+	if transform.origin.y < boundary.transform.origin.y - (boundary_size.y / 2) and self.velocity.y < 0:
 		if enforce_boundaries:
 			self.transform.origin.y = boundary.transform.origin.y + (boundary_size.y / 2)
 		outside_bounds = true
-	if transform.origin.y > boundary.transform.origin.y + (boundary_size.y / 2):
+	if transform.origin.y > boundary.transform.origin.y + (boundary_size.y / 2) and self.velocity.y > 0:
 		if enforce_boundaries:
-			self.transform.origin.y = boundary.transform.origin.x - (boundary_size.y / 2)
+			self.transform.origin.y = boundary.transform.origin.y - (boundary_size.y / 2)
 		outside_bounds = true
 
 	var old_transform_origin = Vector3(

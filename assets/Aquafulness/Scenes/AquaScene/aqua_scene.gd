@@ -492,6 +492,7 @@ func init():
 		swing.connect('wave_length_changed', self._on_wave_length_changed)
 		swing.connect('wave_height_changed', self._on_wave_height_changed)
 		swing.connect('wave_speed_changed', self._on_wave_speed_changed)
+		swing.mode = "float"
 
 
 func _ready() -> void:
@@ -599,15 +600,17 @@ func set_date(value: Dictionary):
 			time_of_day = "Day"
 			#$Light.visible = false
 
-
 	if $DayNightController != null and scene_id != null:
 		var filename = 'res://assets/Aquafulness/scenes/' + scene_id + '/' + epoch + '_' + time_of_day + '.tres'
 
-		if ocean_environment != null:
-			ocean_environment.environment = load(filename)
+		var environment = load(filename)
 
-		if $WorldEnvironment != null:
-			$WorldEnvironment.environment = load(filename)
+		if environment != null:
+			if ocean_environment != null:
+				ocean_environment.environment = environment
+
+			if $WorldEnvironment != null:
+				$WorldEnvironment.environment = environment
 
 		self.emit_signal('date_changed', date)
 		self.emit_signal('time_of_day_changed', date)
