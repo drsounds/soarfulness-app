@@ -590,7 +590,7 @@ func _on_flowers_changed(val: bool):
 func get_date() -> Dictionary:
 	if $DateTimeController != null:
 		return $DateTimeController.date
-	
+
 	return Time.get_datetime_dict_from_system()
 
 

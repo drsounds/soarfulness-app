@@ -96,8 +96,6 @@ func set_enable_flowers(val):
 	emit_signal('flowers_enabled', val)
 
 
-
-
 func respawn():
 	self.velocity = Vector3(0, 0, 0)
 

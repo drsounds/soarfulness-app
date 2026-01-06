@@ -16,6 +16,8 @@ var scene_id: String: get = get_scene_id
 
 signal real_time_changed
 signal environment_changed
+signal time_of_day_changed
+signal date_changed
 
 var _real_time = true
 
@@ -85,9 +87,12 @@ func set_date(value):
 			time_of_day = "Day"
 			#$Light.visible = false
 
-	var filename = 'res://assets/Aquafulness/scenes/' + scene_id + '/' + epoch + '_' + time_of_day + '.tres'
+	var filename = 'res://assets/Aquafulness/scenes/' + scene_id + '/' + epoch.to_lower() + '_' + time_of_day.to_lower() + '.tres'
 
 	var environment = load(filename)
+	
+	if environment == null:
+		pass
 
 	self.emit_signal('environment_changed', environment)
 	self.emit_signal('date_changed', date)

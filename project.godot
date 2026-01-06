@@ -20,8 +20,10 @@ config/name_localized={
 }
 config/version="1.0"
 run/main_scene="uid://fjofla0ll46s"
+run/enable_alt_space_menu=true
 config/features=PackedStringArray("4.5", "GL Compatibility")
-run/max_fps=40
+run/max_fps=35
+run/low_processor_mode=true
 boot_splash/image="uid://cr2bwgsn60b6j"
 config/icon="uid://3xybwfx44xfy"
 
