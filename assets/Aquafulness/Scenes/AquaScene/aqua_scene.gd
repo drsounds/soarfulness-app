@@ -2,8 +2,6 @@ extends Node3D
 
 class_name AquaScene
 
-var _date: Dictionary = Time.get_datetime_dict_from_system(true)
-
 var aquafulness: Control
 
 var scene_id
@@ -70,19 +68,20 @@ signal water_level_changed
 
 signal real_time_changed
 
-var _real_time = true
 
 func set_real_time(value):
-	_real_time = value
-
-	if value:
-		date = Time.get_datetime_dict_from_system()
-
-	emit_signal('real_time_changed', date)
+	if $DateController == null:
+		return
+		
+	$DateController.real_time = value
 
 
 func get_real_time():
-	return _real_time
+	if $DateController == null:
+		return false
+		
+	return $DateController.real_time
+
 
 signal fireworks_changed
 
@@ -495,10 +494,36 @@ func init():
 		swing.mode = "float"
 
 
+func _on_real_time_changed(value):
+	emit_signal('real_time_changed', value)
+
+
+func _on_date_changed(value):
+	emit_signal('date_changed', value)
+
+
+func _on_time_of_day_changed(value):
+	emit_signal('time_of_day_changed', value)
+
+
 func _ready() -> void:
-	set_date(Time.get_datetime_dict_from_system(true))
 	ocean_environment = $OceanEnvironment
 	init()
+
+	if $DateTimeController != null:
+		$DateTimeController.connect('date_changed', self._on_date_changed)
+		$DateTimeController.connect('real_time_changed', self._on_real_time_changed)
+		$DateTimeController.connect('time_of_day_changed', self._on_time_of_day_changed)
+		$DateTimeController.connect('environment_changed', self._on_environment_changed)
+
+
+func _on_environment_changed(new_environment):
+	if $OceanEnvironment != null:
+		if new_environment != $OceanEnvironment.environment:
+			$OceanEnvironment.environment = new_environment
+	else:
+		if new_environment != $WorldEnvironment.environment:
+			$WorldEnvironment.environment = new_environment
 
 
 func _on_wave_length_changed(value: float):
@@ -557,66 +582,18 @@ func set_ocean_type(value):
 func _on_bather_moved(delta: Vector3):
 	pass
 
+
 func _on_flowers_changed(val: bool):
 	emit_signal('flowers_changed', val)
 
 
 func get_date() -> Dictionary:
-	return _date
+	if $DateTimeController != null:
+		return $DateTimeController.date
+	
+	return Time.get_datetime_dict_from_system()
 
 
 func set_date(value: Dictionary):
-	self._date = value
-	if not date.has('year'):
-		return
-	if date["year"] > 2100:
-		epoch = "Futuristic"
-	else:
-		epoch = "Present"
-
-	if date["month"] >= 11 or date["month"] <= 3:
-		season = "Winter"
-		if date["hour"] >= 15 or date["hour"] < 10:
-			time_of_day = "Night"
-			#$Light.visible = true
-		else:
-			time_of_day = "Day"
-			#$Light.visible = false
-	elif date["month"] > 3 and  date["month"] < 5:
-		season = "Spring"
-		if date["hour"] >= 6 and date["hour"] < 18:
-			time_of_day = "Night"
-			#$Light.visible = true
-		else:
-			time_of_day = "Day"
-			#$Light.visible = false
-
-	elif date["month"] > 5 and date["month"] < 8:
-		season = "Summer"
-		if date["hour"] >= 22 and date["hour"] < 5:
-			time_of_day = "Night"
-			#$Light.visible = true
-		else:
-			time_of_day = "Day"
-			#$Light.visible = false
-
-	if $DayNightController != null and scene_id != null:
-		var filename = 'res://assets/Aquafulness/scenes/' + scene_id + '/' + epoch + '_' + time_of_day + '.tres'
-
-		var environment = load(filename)
-
-		if environment != null:
-			if ocean_environment != null:
-				ocean_environment.environment = environment
-
-			if $WorldEnvironment != null:
-				$WorldEnvironment.environment = environment
-
-		self.emit_signal('date_changed', date)
-		self.emit_signal('time_of_day_changed', date)
-
-
-func _on_timer_timeout() -> void:
-	var timestamp = Time.get_unix_time_from_datetime_dict(date)
-	timestamp += 1
-	date = Time.get_datetime_dict_from_unix_time(timestamp)
+	if $DateTimeController != null:
+		$DateTimeController.date = value

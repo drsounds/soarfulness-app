@@ -1,7 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://crci7xuewtyqg"]
+[gd_scene load_steps=19 format=3 uid="uid://crci7xuewtyqg"]
 
+[ext_resource type="Script" uid="uid://dtaext56hlirc" path="res://assets/Aquafulness/Scenes/Framnas/framnas.old.gd" id="1_0x1s2"]
 [ext_resource type="PackedScene" uid="uid://3q1fmwrua8xf" path="res://assets/Aquafulness/Scenes/Framnas/bath_place.tscn" id="1_47g7c"]
-[ext_resource type="Script" uid="uid://bmk356m72a0q8" path="res://assets/Aquafulness/Scenes/AquaScene/aqua_scene.gd" id="1_rw81e"]
 [ext_resource type="PackedScene" uid="uid://vyugpng6dmvv" path="res://assets/Aquafulness/Scenes/Swing/Swing.tscn" id="2_k4v8f"]
 [ext_resource type="PackedScene" uid="uid://db0gfh3dgksql" path="res://assets/Aquafulness/Scenes/Bather/bather.tscn" id="2_mcfkd"]
 [ext_resource type="Environment" uid="uid://dwvyxg6i8db47" path="res://assets/Aquafulness/Vänern_Present_Day_2.tres" id="5_0x1s2"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b2ps6m14qrhkv" path="res://assets/Aquafulness/Scenes/Flower/Flower.tscn" id="7_it46r"]
 [ext_resource type="PackedScene" uid="uid://xctxfs7hg1rv" path="res://assets/Aquafulness/Scenes/Confetti/Confetti.tscn" id="7_lgsd1"]
 [ext_resource type="PackedScene" uid="uid://bss5uw1f1p0np" path="res://Spoonie.tscn" id="8_sybmo"]
+[ext_resource type="PackedScene" uid="uid://dbplbwxr6m0ty" path="res://assets/Aquafulness/Scenes/AquaScene/date_time_controller.tscn" id="9_6dq7n"]
 [ext_resource type="PackedScene" uid="uid://dcawt434tnrwa" path="res://assets/Aquafulness/Scenes/Cloud/Cloud.tscn" id="9_k4v8f"]
 [ext_resource type="PackedScene" uid="uid://p2e4bgxha7b0" path="res://assets/Aquafulness/Scenes/Coordlux/RedSeaLine.tscn" id="10_lgsd1"]
 [ext_resource type="Texture2D" uid="uid://cmr08ervk1ja1" path="res://assets/Aquafulness/beach-water-nature-sand-ocean-liquid-sunlight-texture-leaf-floor-refraction-pattern-green-circle-design-flooring-light-reflects-1279284.png" id="12_k4v8f"]
@@ -27,7 +28,7 @@ uv1_scale = Vector3(225.44, 225.44, 225.44)
 material = SubResource("StandardMaterial3D_6dq7n")
 
 [node name="Framnas" type="Node3D"]
-script = ExtResource("1_rw81e")
+script = ExtResource("1_0x1s2")
 
 [node name="Swing" parent="." instance=ExtResource("2_k4v8f")]
 wave_length = 1.0
@@ -63,10 +64,7 @@ visible = false
 [node name="Tree" parent="Christmas" instance=ExtResource("6_rw81e")]
 transform = Transform3D(0.0060033826, 0, -0.43642613, 0, 0.3857247, 0, 0.5647896, 0, 0.004638954, -11.025063, 22.433342, -189.4022)
 
-[node name="Timer" type="Timer" parent="."]
-autostart = true
-
-[node name="DayNightController" type="Node3D" parent="."]
+[node name="DateTimeController" parent="." instance=ExtResource("9_6dq7n")]
 
 [node name="Flower" parent="." instance=ExtResource("7_it46r")]
 transform = Transform3D(89.43336, 0, 0, 0, 74.21645, 0, 0, 0, 29.487963, 0, -0.5349884, 0)
@@ -100,5 +98,3 @@ transform = Transform3D(0.06944132, 0, 0, 0, 0.26692814, 0, 0, 0, 1, -142.05698,
 [node name="Bottom" parent="." instance=ExtResource("15_6dq7n")]
 transform = Transform3D(4.3499856, 0, -1.1476796, 0, 3.4590058, 0, 2.1736596, 0, 2.2967672, 26, -51.915768, -161)
 visible = false
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
