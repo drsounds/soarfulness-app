@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://db0gfh3dgksql"]
+[gd_scene load_steps=7 format=3 uid="uid://db0gfh3dgksql"]
 
 [ext_resource type="Script" uid="uid://bbr58hrni71p" path="res://assets/Aquafulness/Scenes/Bather/bather.gd" id="1_fjieo"]
 [ext_resource type="Script" uid="uid://dm0ew8hvv4xqm" path="res://example/Camera.gd" id="2_c6aw0"]
+[ext_resource type="PackedScene" uid="uid://bppy6leq4txwt" path="res://assets/Aquafulness/Scenes/Bather/Wave.blend" id="3_hk1pu"]
+[ext_resource type="Texture2D" uid="uid://cy0x1ogad4udx" path="res://beach-water-nature-sand-ocean-liquid-sunlight-texture-leaf-floor-refraction-pattern-green-circle-design-flooring-light-reflects-1279284.jpg" id="4_7cfey"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0if0t"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.51, 0.77950007, 1, 0.49803922)
+albedo_texture = ExtResource("4_7cfey")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2wcyn"]
+material = SubResource("StandardMaterial3D_0if0t")
 
 [node name="Bather" type="Node3D"]
 script = ExtResource("1_fjieo")
@@ -10,3 +21,14 @@ script = ExtResource("1_fjieo")
 current = true
 far = 16000.0
 script = ExtResource("2_c6aw0")
+
+[node name="Wave" type="Node3D" parent="."]
+transform = Transform3D(17.9249, 0, 0, 0, 1.9961123, 0, 0, 0, 4.6092715, 0, -133.70233, -731.80035)
+
+[node name="Wave" parent="Wave" instance=ExtResource("3_hk1pu")]
+transform = Transform3D(4.1573963, 0, 0, 0, 0.9997709, 0.021413624, 0, -0.021413608, 0.9997707, 0, -6.449341, -217.5941)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wave"]
+transform = Transform3D(382.91357, 0, 0, 0, 20.04003, -0.00021362305, 0, 0, 472.24146, 0, 0, -471.51617)
+mesh = SubResource("PlaneMesh_2wcyn")

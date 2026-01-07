@@ -28,6 +28,8 @@ signal seed_changed
 var _seed_filename = "Vänern.ogv"
 
 
+
+
 func get_seed_by_filename(filename):
 	for aquafulness_seed in available_seeds:
 		if filename == aquafulness_seed['filename']:
@@ -40,13 +42,18 @@ func set_seed_filename(value: String):
 		return
 	$VideoStreamPlayer.stream = load('res://' + value)
 	$VideoStreamPlayer.play()
+	#$VideoStreamPlayer2.stream = $VideoStreamPlayer.stream
+	#$VideoStreamPlayer2.volume = 0
+	#$VideoStreamPlayer2.play()
+	
 	var aquafulness_seed = get_seed_by_filename(value)
 	if aquafulness_seed != null:
 		if aquafulness_seed.has("params"):
 			if aquafulness_seed.has("speed_scale"):
 				$VideoStreamPlayer.speed_scale = aquafulness_seed['speed_scale']
+				$VideoStreamPlayer2.speed_scale = aquafulness_seed['speed_scale']
 			else:
-				$VideoStreamPlayer.speed_scale = 1
+				$VideoStreamPlayer2.speed_scale = 1
 			
 		emit_signal('seed_changed', aquafulness_seed)
 
@@ -67,6 +74,7 @@ func _time_of_day_changed(value: String):
 		self.set_luminated(false)
 
 
+
 func set_luminated(value: bool):
 	if value:
 		self.modulate = Color(255, 255, 0, 0.5)
@@ -79,3 +87,7 @@ func _process(_delta: float) -> void:
 		controls.visible = true
 	if Input.is_action_pressed("ui_menu"):
 		controls.visible = !controls.visible
+
+
+func _on_timer_timeout() -> void:
+	pass

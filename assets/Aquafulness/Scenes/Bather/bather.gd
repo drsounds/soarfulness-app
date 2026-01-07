@@ -254,6 +254,15 @@ func _process(delta:float) -> void:
 		self.velocity += swing.velocity
 		if floatation_gear != null:
 			self.velocity.y += floatation_gear.transform.origin.y * 0.1
+			
+		var rotation_x = 1 - sin(self.transform.origin.y / get_wave_height() / 5) * 90
+
+		if rotation_x > 90:
+			rotation_x = 90
+		elif rotation_x < 0:
+			rotation_x = 0
+
+		$Wave.rotation_degrees = Vector3(rotation_x, 0, 0)
 
 	self.transform.origin += velocity
 	
