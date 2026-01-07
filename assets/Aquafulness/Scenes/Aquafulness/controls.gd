@@ -831,6 +831,7 @@ func _on_increase_wave_level_button_pressed() -> void:
 	config.set_value('water', 'level', scene.water_level)
 	data.water_level = scene.water_level
 	save_config()
+	status_label.text = "Increasd water level to " + str(scene.water_level)
 
 
 func _on_decrease_wave_level_button_pressed() -> void:
@@ -838,6 +839,7 @@ func _on_decrease_wave_level_button_pressed() -> void:
 	config.set_value('water', 'level', scene.water_level)
 	data.water_level = scene.water_level
 	save_config()
+	status_label.text = "Increasd water level to " + str(scene.water_level)
 
 
 func _on_pressed() -> void:

@@ -8,7 +8,6 @@ wave_height = 1.02
 wave_length = 0.05
 wave_speed = 1.0
 mode = "swing"
-swinging = null
 swing_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8578262, -2509.34, -0.6793101)
 
 [node name="Swing" type="Node3D" parent="."]

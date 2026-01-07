@@ -34,6 +34,8 @@ var spoonies = []
 
 var swing: Node3D
 
+
+
 @export var clouds: float: get = get_clouds, set = set_clouds
 
 @export var enforce_boundaries: bool: get = get_enforce_boundaries, set = set_enforce_boundaries
@@ -105,6 +107,8 @@ func respawn():
 		new_position = spawn.position
 
 		self.transform.origin = new_position
+		buoy.transform.origin = transform.origin
+		buoy.transform.origin.z -= 600
 		self.velocity = Vector3(0, 0, 0)
 		self.movement = Vector3(0, 0, 0)
 
@@ -160,6 +164,16 @@ func _ready() -> void:
 		get_parent().create_clouds()
 	"""
 
+	buoy = $SwimBouy.duplicate()
+
+	buoy.bather = self
+	buoy.swing = swing
+	get_parent().add_child.call_deferred(buoy)
+	buoy.visible = true
+	buoy.transform.origin = transform.origin
+	buoy.transform.origin.z -= 300
+
+var buoy = null
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventJoypadMotion:
@@ -251,11 +265,13 @@ func _process(delta:float) -> void:
 	#self.velocity += drag_velocity
 
 	if swing != null:
+		if buoy.swing == null:
+			buoy.swing = swing
 		self.velocity += swing.velocity
 		if floatation_gear != null:
 			self.velocity.y += floatation_gear.transform.origin.y * 0.1
 			
-		var rotation_x = 1 - (sin(self.transform.origin.y / get_wave_height() / 5) * 90) * (get_wave_height() / 50)
+		var rotation_x = 1 - (sin(self.transform.origin.y / get_wave_height() / 3) * 90) * (get_wave_height() / 50)
 
 		if rotation_x > 90:
 			rotation_x = 90
