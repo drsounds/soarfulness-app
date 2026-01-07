@@ -34,6 +34,19 @@ var spoonies = []
 
 var swing: Node3D
 
+signal waves_changed
+
+
+@export var waves: float: get = get_waves, set = set_waves
+
+
+func get_waves():
+	return $Wave/MeshInstance3D.get_active_material(0).albedo_color.a
+
+
+func set_waves(value):
+	$Wave/MeshInstance3D.get_active_material(0).albedo_color.a = value
+	emit_signal('waves_changed')
 
 
 @export var clouds: float: get = get_clouds, set = set_clouds

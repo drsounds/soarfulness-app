@@ -771,7 +771,7 @@ anchor_top = 0.18100001
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 10.679993
-offset_bottom = -180.0
+offset_bottom = -72.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -799,10 +799,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -575.0
-offset_top = -93.0
-offset_right = -534.0
-offset_bottom = -58.0
+offset_left = -573.0
+offset_top = -91.5
+offset_right = -532.0
+offset_bottom = -56.5
 grow_horizontal = 0
 grow_vertical = 2
 texture_normal = ExtResource("16_cvwdu")
@@ -914,6 +914,21 @@ offset_bottom = -13.0
 grow_horizontal = 0
 grow_vertical = 2
 text = "Water level"
+
+[node name="Label11" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1104.0
+offset_top = 161.5
+offset_right = -1017.0
+offset_bottom = 184.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Wave"
 
 [node name="Label7" type="Label" parent="Control"]
 layout_mode = 1
@@ -1058,10 +1073,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 108.0
-offset_top = -53.0
-offset_right = 209.0
-offset_bottom = -22.0
+offset_left = 440.0
+offset_top = -52.0
+offset_right = 541.0
+offset_bottom = -21.0
 grow_vertical = 0
 text = "Clouds"
 
@@ -1070,10 +1085,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 807.0
-offset_top = -50.0
-offset_right = 946.0
-offset_bottom = -19.0
+offset_left = 767.0
+offset_top = -51.0
+offset_right = 906.0
+offset_bottom = -20.0
 grow_vertical = 0
 text = "Show water"
 
@@ -1082,22 +1097,22 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 209.0
-offset_top = -53.0
-offset_right = 346.0
-offset_bottom = -22.0
+offset_left = 40.0
+offset_top = -52.0
+offset_right = 239.0
+offset_bottom = -21.0
 grow_vertical = 0
-text = "Boundaries"
+text = "Enforce boundaries"
 
 [node name="OceanOptionButton" type="OptionButton" parent="Control"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 362.0
-offset_top = -53.0
-offset_right = 472.0
-offset_bottom = -22.0
+offset_left = 424.0
+offset_top = -98.0
+offset_right = 534.0
+offset_bottom = -67.0
 grow_vertical = 0
 selected = 1
 item_count = 3
@@ -1132,10 +1147,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 155.5
-offset_top = -50.0
-offset_right = 265.0
-offset_bottom = -19.0
+offset_left = 162.0
+offset_top = -146.0
+offset_right = 271.5
+offset_bottom = -115.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Set Night"
@@ -1147,10 +1162,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 43.5
-offset_top = -50.0
-offset_right = 145.0
-offset_bottom = -19.0
+offset_left = 276.0
+offset_top = -52.0
+offset_right = 377.5
+offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Set day"
@@ -1162,9 +1177,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -336.0
+offset_left = -346.0
 offset_top = -50.0
-offset_right = -239.0
+offset_right = -249.0
 offset_bottom = -19.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -1176,10 +1191,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -320.0
-offset_top = -53.0
-offset_right = -118.0
-offset_bottom = -12.0
+offset_left = -520.0
+offset_top = -97.0
+offset_right = -373.0
+offset_bottom = -56.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Ocean Floor"
@@ -1187,18 +1202,18 @@ clip_text = true
 
 [node name="FireworksCheckButton" type="CheckButton" parent="Control"]
 layout_mode = 0
-offset_left = 470.0
-offset_top = 353.0
-offset_right = 594.0
-offset_bottom = 384.0
+offset_left = 976.0
+offset_top = 7.0
+offset_right = 1100.0
+offset_bottom = 38.0
 text = "Fireworks"
 
 [node name="RealTimeCheckButton" type="CheckButton" parent="Control"]
 layout_mode = 0
-offset_left = -8.0
-offset_top = 353.0
-offset_right = 116.0
-offset_bottom = 384.0
+offset_left = 939.0
+offset_top = 417.0
+offset_right = 1063.0
+offset_bottom = 448.0
 text = "Real time"
 
 [node name="IntervalProgramButton" type="Button" parent="Control"]
@@ -1220,6 +1235,74 @@ offset_top = 68.0
 offset_right = 449.0
 offset_bottom = 92.0
 grow_vertical = 0
+
+[node name="SwingButton" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -108.0
+offset_right = 21.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("20_a0404")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="FloatButton" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -53.0
+offset_right = 21.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("20_a0404")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="SoarButton" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -79.0
+offset_top = -88.0
+offset_right = -39.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("21_d40we")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="SinkButton" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 36.0
+offset_top = -80.0
+offset_right = 76.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("22_bn2ln")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -1285,73 +1368,14 @@ grow_vertical = 0
 theme_override_styles/fill = SubResource("StyleBoxFlat_3msog")
 show_percentage = false
 
-[node name="SwingButton" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -19.0
-offset_top = -180.0
-offset_right = 21.0
-offset_bottom = -140.0
-grow_horizontal = 2
-grow_vertical = 0
-texture_normal = ExtResource("20_a0404")
-ignore_texture_size = true
-stretch_mode = 4
-
-[node name="FloatButton" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -19.0
-offset_top = -125.0
-offset_right = 21.0
-offset_bottom = -85.0
-grow_horizontal = 2
-grow_vertical = 0
-texture_normal = ExtResource("20_a0404")
-ignore_texture_size = true
-stretch_mode = 4
-
-[node name="SoarButton" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -79.0
-offset_top = -160.0
-offset_right = -39.0
-offset_bottom = -120.0
-grow_horizontal = 2
-grow_vertical = 0
-texture_normal = ExtResource("21_d40we")
-ignore_texture_size = true
-stretch_mode = 4
-
-[node name="SinkButton" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 36.0
-offset_top = -152.0
-offset_right = 76.0
-offset_bottom = -112.0
-grow_horizontal = 2
-grow_vertical = 0
-texture_normal = ExtResource("22_bn2ln")
-ignore_texture_size = true
-stretch_mode = 4
+[node name="WavesHSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 293.0
+offset_top = 557.0
+offset_right = 399.0
+offset_bottom = 584.0
+max_value = 1.0
+step = 0.1
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]
@@ -1414,10 +1438,11 @@ stretch_mode = 4
 [connection signal="toggled" from="Control/FireworksCheckButton" to="." method="_on_fireworks_check_button_toggled"]
 [connection signal="toggled" from="Control/RealTimeCheckButton" to="." method="_on_real_time_check_button_toggled"]
 [connection signal="toggled" from="Control/IntervalProgramButton" to="." method="_on_interval_program_button_toggled"]
+[connection signal="pressed" from="Control/SwingButton" to="." method="_on_swing_button_pressed"]
+[connection signal="pressed" from="Control/FloatButton" to="." method="_on_float_button_pressed"]
+[connection signal="pressed" from="Control/SoarButton" to="." method="_on_soar_button_pressed"]
+[connection signal="pressed" from="Control/SinkButton" to="." method="_on_sink_button_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="interval_changed" from="ProgramTimer" to="." method="_on_program_timer_interval_changed"]
 [connection signal="tick" from="ProgramTimer" to="." method="_on_program_timer_tick"]
-[connection signal="pressed" from="SwingButton" to="." method="_on_swing_button_pressed"]
-[connection signal="pressed" from="FloatButton" to="." method="_on_float_button_pressed"]
-[connection signal="pressed" from="SoarButton" to="." method="_on_soar_button_pressed"]
-[connection signal="pressed" from="SinkButton" to="." method="_on_sink_button_pressed"]
+[connection signal="value_changed" from="WavesHSlider" to="." method="_on_waves_h_slider_value_changed"]

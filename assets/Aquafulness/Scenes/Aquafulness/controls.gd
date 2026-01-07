@@ -110,6 +110,7 @@ func init() -> void:
 	scene.connect('wave_height_changed', self._handle_scene_wave_height_changed)
 	scene.connect('wave_length_changed', self._handle_scene_wave_length_changed)
 	scene.connect('wave_speed_changed', self._handle_scene_wave_speed_changed)
+	scene.connect('waves_changed', self._on_waves_changed)
 	$DateTimeInput.date = Time.get_datetime_dict_from_system()
 	scene.connect("date_changed", self.scene_date_changed)
 	scene.connect("fog_changed", self._on_fog_changed)
@@ -148,6 +149,7 @@ func init() -> void:
 	scene.real_time = config.get_value('time', 'real', true)
 	scene.fireworks = config.get_value('scene', 'fireworks', false)
 	scene.confetti = config.get_value('scene', 'confetti', false)
+	bather.waves = config.get_value('bather', 'waves', 0)
 
 	var date = config.get_value("date", "now", Time.get_datetime_string_from_system(false))
 	
@@ -174,29 +176,33 @@ func _on_swing_interval_changed(value):
 	pass
 
 
+func _on_waves_changed(value):
+	$Control/WavesHSlider.value = value
+
+
 func _on_swing_swinging_changed(value):
 	if value:
-		$SwingButton.modulate = Color(0, 255, 0, 1)
+		$Control/SwingButton.modulate = Color(0, 255, 0, 1)
 	else:
-		$SwingButton.modulate = Color(255, 255, 255, 1)
+		$Control/SwingButton.modulate = Color(255, 255, 255, 1)
 
 
 func _on_swing_mode_changed(mode):
-	$SoarButton.modulate = Color(255, 255, 255, 1)
-	$FloatButton.modulate = Color(255, 255, 255, 1)
-	$SinkButton.modulate = Color(255, 255, 255, 1)
+	$Control/SoarButton.modulate = Color(255, 255, 255, 1)
+	$Control/FloatButton.modulate = Color(255, 255, 255, 1)
+	$Control/SinkButton.modulate = Color(255, 255, 255, 1)
 	
 	if mode == "swing":
-		$SwingButton.modulate = Color(0, 255, 0, 1)
+		$Control/SwingButton.modulate = Color(0, 255, 0, 1)
 
 	if mode == "soar":
-		$SoarButton.modulate = Color(0, 255, 0, 1)
+		$Control/SoarButton.modulate = Color(0, 255, 0, 1)
 
 	if mode == "sink":
-		$SinkButton.modulate = Color(0, 255, 0, 1)
+		$Control/SinkButton.modulate = Color(0, 255, 0, 1)
 
 	if mode == "float":
-		$FloatButton.modulate = Color(0, 255, 0, 1)
+		$Control/FloatButton.modulate = Color(0, 255, 0, 1)
 
 
 func _on_bather_position_changed(value):
@@ -988,3 +994,11 @@ func _on_sink_button_pressed() -> void:
 
 func _on_float_button_pressed() -> void:
 	swing.mode = "float"
+
+
+func _on_waves_h_slider_value_changed(value: float) -> void:
+	if bather.waves != value:
+		bather.waves = value
+
+	config.set_value('bather', 'waves', value)
+	save_config()
