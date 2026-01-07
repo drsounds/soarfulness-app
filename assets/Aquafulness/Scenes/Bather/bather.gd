@@ -255,7 +255,7 @@ func _process(delta:float) -> void:
 		if floatation_gear != null:
 			self.velocity.y += floatation_gear.transform.origin.y * 0.1
 			
-		var rotation_x = 1 - (self.transform.origin.y / get_wave_height()) * 90 * (get_wave_height() / 50)
+		var rotation_x = 1 - (sin(self.transform.origin.y / get_wave_height() / 5) * 90) * (get_wave_height() / 50)
 
 		if rotation_x > 90:
 			rotation_x = 90
