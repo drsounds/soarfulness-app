@@ -917,17 +917,14 @@ text = "Water level"
 
 [node name="Label11" type="Label" parent="Control"]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -1104.0
-offset_top = 161.5
-offset_right = -1017.0
-offset_bottom = 184.5
-grow_horizontal = 0
-grow_vertical = 2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 122.0
+offset_top = -93.0
+offset_right = 209.0
+offset_bottom = -70.0
+grow_vertical = 0
 text = "Wave"
 
 [node name="Label7" type="Label" parent="Control"]
@@ -1287,6 +1284,19 @@ texture_normal = ExtResource("21_d40we")
 ignore_texture_size = true
 stretch_mode = 4
 
+[node name="WavesHSlider" type="HSlider" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 288.0
+offset_top = -93.0
+offset_right = 394.0
+offset_bottom = -66.0
+grow_vertical = 0
+max_value = 1.0
+step = 0.1
+
 [node name="SinkButton" type="TextureButton" parent="Control"]
 layout_mode = 1
 anchors_preset = 7
@@ -1368,15 +1378,6 @@ grow_vertical = 0
 theme_override_styles/fill = SubResource("StyleBoxFlat_3msog")
 show_percentage = false
 
-[node name="WavesHSlider" type="HSlider" parent="."]
-layout_mode = 0
-offset_left = 293.0
-offset_top = 557.0
-offset_right = 399.0
-offset_bottom = 584.0
-max_value = 1.0
-step = 0.1
-
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]
 [connection signal="focus_exited" from="StatusBar/Location/Button" to="." method="_on_scene_options_button_focus_exited"]
@@ -1441,8 +1442,8 @@ step = 0.1
 [connection signal="pressed" from="Control/SwingButton" to="." method="_on_swing_button_pressed"]
 [connection signal="pressed" from="Control/FloatButton" to="." method="_on_float_button_pressed"]
 [connection signal="pressed" from="Control/SoarButton" to="." method="_on_soar_button_pressed"]
+[connection signal="value_changed" from="Control/WavesHSlider" to="." method="_on_waves_h_slider_value_changed"]
 [connection signal="pressed" from="Control/SinkButton" to="." method="_on_sink_button_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="interval_changed" from="ProgramTimer" to="." method="_on_program_timer_interval_changed"]
 [connection signal="tick" from="ProgramTimer" to="." method="_on_program_timer_tick"]
-[connection signal="value_changed" from="WavesHSlider" to="." method="_on_waves_h_slider_value_changed"]
