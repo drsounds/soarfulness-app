@@ -32,7 +32,6 @@ script = ExtResource("1_0x1s2")
 
 [node name="Swing" parent="." instance=ExtResource("2_k4v8f")]
 wave_length = 1.0
-swinging = false
 
 [node name="BathPlace" parent="." instance=ExtResource("1_47g7c")]
 transform = Transform3D(-1.1716763, 0, 0.9365761, 0, 1.5, 0, -0.9365761, 0, -1.1716763, 17.0617, 25.834293, -176.47021)
@@ -98,3 +97,6 @@ transform = Transform3D(0.06944132, 0, 0, 0, 0.26692814, 0, 0, 0, 1, -142.05698,
 [node name="Bottom" parent="." instance=ExtResource("15_6dq7n")]
 transform = Transform3D(4.3499856, 0, -1.1476796, 0, 3.4590058, 0, 2.1736596, 0, 2.2967672, 26, -51.915768, -161)
 visible = false
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.912247, 29.298965, -187.56903)

@@ -24,6 +24,7 @@ script = ExtResource("2_c6aw0")
 
 [node name="Wave" type="Node3D" parent="."]
 transform = Transform3D(17.9249, 0, 0, 0, 1.9961123, 0, 0, 0, 1.3910048, 0, -3.6837082, -0.07453537)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wave"]
 transform = Transform3D(382.91357, 0, 0, 0, 20.040033, -0.00021362305, 0, 0, 472.24146, 0, 0, -472.011)

@@ -27,6 +27,8 @@ signal velocity_changed
 
 signal respawned
 
+var noclip = false
+
 var swim_area
 
 var flowers = []
@@ -45,6 +47,7 @@ func get_waves():
 
 
 func set_waves(value):
+	$Wave.visible = value > 0
 	$Wave/MeshInstance3D.get_active_material(0).albedo_color.a = value
 	emit_signal('waves_changed')
 
@@ -277,7 +280,7 @@ func _process(delta:float) -> void:
 
 	#self.velocity += drag_velocity
 
-	if swing != null:
+	if swing != null and not noclip:
 		if buoy.swing == null:
 			buoy.swing = swing
 		self.velocity += swing.velocity
