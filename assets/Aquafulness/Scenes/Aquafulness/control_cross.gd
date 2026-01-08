@@ -57,16 +57,16 @@ func _on_up_button_pressed() -> void:
 
 
 func _on_up_button_button_down() -> void:
-	bather.movement.z -= 1
+	bather.movement.z -= 0.5
 
 
 func _on_left_button_button_down() -> void:
-	bather.movement.x -= 1
+	bather.movement.x -= 0.5
 
 
 func _on_right_button_button_down() -> void:
-	bather.movement.x += 1
+	bather.movement.x += 0.5
 
 
 func _on_down_button_pressed() -> void:
-	bather.movement.z += 1
+	bather.movement.z += 0.5

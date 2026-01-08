@@ -45,7 +45,7 @@ movie_writer/movie_file="/Volumes/T9/macMini/Users/buddhalow/Movies/Vanern_20251
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/SunshineVolumetricClouds/plugin.cfg", "res://addons/imgui-godot/plugin.cfg", "res://addons/tessarakkt.oceanfft/plugin.cfg")
+enabled=PackedStringArray("res://addons/SunshineVolumetricClouds/plugin.cfg", "res://addons/gd_data_binding/plugin.cfg", "res://addons/imgui-godot/plugin.cfg", "res://addons/tessarakkt.oceanfft/plugin.cfg", "res://addons/virtual_joystick/plugin.cfg")
 
 [input]
 

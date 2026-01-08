@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbhw3esx8x6xk"]
+
+[ext_resource type="Script" uid="uid://cu70un117euu0" path="res://assets/Aquafulness/Scenes/Aquafulness/settings.gd" id="1_i1h3d"]
+
+[node name="Settings" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i1h3d")
+
+[node name="SeedOptionButton" type="OptionButton" parent="."]
+layout_mode = 2
+metadata/key = "seed"
+metadata/section = "scene"
+
+[node name="OceanFloorCheckButton" type="CheckButton" parent="."]
+layout_mode = 2
+text = "Ocean Floor"
+clip_text = true
+metadata/key = "ocean_floor"
+metadata/section = "scene"
+
+[node name="FireworksCheckButton" type="CheckButton" parent="."]
+layout_mode = 2
+text = "Fireworks"
+metadata/key = "fireworks"
+metadata/section = "scene"
+
+[node name="RealTimeCheckButton" type="CheckButton" parent="."]
+layout_mode = 2
+text = "Real time"
+metadata/key = "real_time"
+metadata/section = "bather"
+
+[node name="CloudsCheckButton" type="CheckButton" parent="."]
+layout_mode = 2
+text = "Clouds"
+metadata/key = "clouds"
+metadata/section = "scene"
+
+[node name="ShowWaterButton" type="CheckButton" parent="."]
+layout_mode = 2
+text = "Show water"
+metadata/key = "show_water"
+metadata/section = "bather"
+
+[node name="EnforceBoundariesButton" type="CheckButton" parent="."]
+layout_mode = 2
+text = "Enforce boundaries"
+metadata/key = "enforce_boundaries"
+metadata/section = "scene"
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 2
+
+[connection signal="changed" from="." to="." method="_on_changed"]
