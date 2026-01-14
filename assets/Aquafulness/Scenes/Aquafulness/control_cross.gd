@@ -70,3 +70,11 @@ func _on_right_button_button_down() -> void:
 
 func _on_down_button_pressed() -> void:
 	bather.movement.z += 0.5
+
+
+func _on_turn_right_button_button_down() -> void:
+	bather.rotate(Vector3(0, 1, 0), 45)
+
+
+func _on_turn_left_button_button_down() -> void:
+	bather.rotate(Vector3(0, 1, 0), -45)

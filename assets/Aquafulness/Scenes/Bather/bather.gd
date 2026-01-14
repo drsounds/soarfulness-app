@@ -296,8 +296,7 @@ func _process(delta:float) -> void:
 
 		$Wave.rotation_degrees = Vector3(rotation_x, 0, 0)
 
-	self.transform.origin += velocity
-	
+	self.transform.origin += velocity.rotated(rotation.normalized(), rotation.y)
 	velocity *= 0.5
 	
 	velocity += movement
