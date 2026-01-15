@@ -128,6 +128,7 @@ func init() -> void:
 	scene.connect('confetti_changed', self._on_confetti_changed)
 	bather.connect("enforce_boundaries_changed", self._on_enforce_boundaries_changed)
 	bather.connect('position_changed', self._on_bather_position_changed)
+	bather.connect('rotated', self._on_bather_rotated)
 
 	$WeatherPanel.open = false
 	$DatePanel.open = false
@@ -157,6 +158,9 @@ func init() -> void:
 	scene.fireworks = config.get_value('scene', 'fireworks', false)
 	scene.confetti = config.get_value('scene', 'confetti', false)
 	bather.waves = config.get_value('bather', 'waves', 0)
+	var default_position = scene.find_child('Spawn').position
+	bather.transform.origin = config.get_value('bather', 'position', default_position)
+	bather.set_rotation_deg(config.get_value('bather', 'rotation', bather.rotation_degrees))
 
 	var date = config.get_value("date", "now", Time.get_datetime_string_from_system(false))
 	
@@ -178,6 +182,11 @@ func init() -> void:
 
 	scene.init()
 	load_state()
+
+
+
+func _on_bather_rotated(amount):
+	pass
 
 func _on_swing_interval_changed(value):
 	pass
@@ -214,6 +223,8 @@ func _on_swing_mode_changed(mode):
 
 func _on_bather_position_changed(value):
 	data.position = value
+	config.set_value('bather', 'position', value)
+	save_config()
 
 
 func _on_fireworks_changed(value):
@@ -913,6 +924,9 @@ func load_state(save_path = 'user://bather'):
 func save_state(save_path = 'user://bather'):
 	ResourceSaver.save(data, save_path)
 
+	config.set_value('bather', 'position', bather.transform.origin)
+	config.set_value('bather', 'rotation', bather.rotation_degrees)
+	save_config()
 
 """
 func _notification(what):
@@ -1008,3 +1022,7 @@ func _on_settings_button_pressed() -> void:
 
 func _on_settings_window_close_requested() -> void:
 	$SettingsWindow.hide()
+
+
+func _on_snapshot_timer_timeout() -> void:
+	bather.transform.origin = config.get_value('bather', 'position', Vector3(0, 0, 0))

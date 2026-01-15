@@ -26,6 +26,7 @@ signal position_changed
 signal velocity_changed
 
 signal respawned
+signal rotated
 
 var noclip = false
 
@@ -170,16 +171,6 @@ func _ready() -> void:
 	get_parent().swimmed_z_minus = self.transform.origin.z + 100
 	get_parent().swimmed_z_plus = self.transform.origin.z - 100
 
-	"""
-	get_parent().expand_left()
-	get_parent().expand_forward()
-	get_parent().expand_backward()
-	get_parent().expand_right()
-
-	if get_parent().clouds > 0:
-		get_parent().create_clouds()
-	"""
-
 	buoy = $SwimBouy.duplicate()
 
 	buoy.bather = self
@@ -229,6 +220,13 @@ func _input(event: InputEvent) -> void:
 		self.movement.x += 0.05
 		if self.movement.x > 10:
 			self.movement.x = 10
+
+
+func set_rotation_deg(amount: Vector3):
+	var axis
+	
+	rotation_degrees = amount
+	emit_signal('rotated', amount)
 
 
 func _process(delta:float) -> void:
@@ -295,8 +293,10 @@ func _process(delta:float) -> void:
 			rotation_x = 0
 
 		$Wave.rotation_degrees = Vector3(rotation_x, 0, 0)
+		
+	velocity = transform.basis * velocity
 
-	self.transform.origin += velocity.rotated(rotation.normalized(), rotation.y)
+	self.transform.origin += velocity
 	velocity *= 0.5
 	
 	velocity += movement

@@ -73,8 +73,8 @@ func _on_down_button_pressed() -> void:
 
 
 func _on_turn_right_button_button_down() -> void:
-	bather.rotate(Vector3(0, 1, 0), 45)
+	bather.set_rotation_deg(bather.rotation_degrees + Vector3(0, -20, 0))
 
 
 func _on_turn_left_button_button_down() -> void:
-	bather.rotate(Vector3(0, 1, 0), -45)
+	bather.set_rotation_deg(bather.rotation_degrees + Vector3(0, 20, 0))

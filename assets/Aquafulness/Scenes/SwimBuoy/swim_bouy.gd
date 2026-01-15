@@ -13,11 +13,15 @@ func _process(delta: float) -> void:
 	if bather == null or swing == null:
 		return
 
-	var distance_x = (transform.origin.x - bather.transform.origin.x)
-	self.velocity.x = distance_x * 0.001
-	var distance_z = (transform.origin.z - bather.transform.origin.z - 1)
-	self.velocity.z = distance_z * 0.001
-	var distance_y = (transform.origin.y - bather.transform.origin.y)
-	self.velocity.y = distance_y * 0.001
+	visible = true
+	var bather_transform_origin = bather.transform.origin * bather.basis.z
+
+	var distance_x = (bather_transform_origin.x - transform.origin.x + 20)
+	self.velocity.x = distance_x * 5
+	var distance_z = (bather_transform_origin.z - transform.origin.z - 50)
+	self.velocity.z = distance_z * 5
+	#var distance_y = (bather.transform.origin.y - transform.origin.y)
+#	self.velocity.y = distance_y * 5
 	self.transform.origin += velocity * delta
-	
+	self.transform.origin.y = -5
+	print(transform.origin - bather.transform.origin)

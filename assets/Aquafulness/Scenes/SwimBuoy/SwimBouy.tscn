@@ -1,12 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://slikrwmmllwd"]
+[gd_scene load_steps=3 format=3 uid="uid://slikrwmmllwd"]
 
 [ext_resource type="Script" uid="uid://djrdqu6xdfhq1" path="res://assets/Aquafulness/Scenes/SwimBuoy/swim_bouy.gd" id="1_e578r"]
-[ext_resource type="Texture2D" uid="uid://o1j4buwv1qyy" path="res://assets/Aquafulness/Scenes/Bather/textures/coat.png" id="1_mcrht"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e578r"]
-shading_mode = 0
-albedo_texture = ExtResource("1_mcrht")
-albedo_texture_force_srgb = true
+[ext_resource type="Material" uid="uid://cgut4ty24cypx" path="res://assets/Aquafulness/Scenes/SwimBuoy/SwimBouy.tres" id="2_e578r"]
 
 [node name="SwimBouy" type="Node3D"]
 script = ExtResource("1_e578r")
@@ -14,5 +9,15 @@ script = ExtResource("1_e578r")
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 0.00078542624, 0.9999997, 0, -0.9999997, 0.00078542624, 0, 0, 0)
-material = SubResource("StandardMaterial3D_e578r")
+transform = Transform3D(9.351686, 0, 0, 0, 0.007345059, 9.351683, 0, -9.351683, 0.007345059, 0, 0, 0)
+material = ExtResource("2_e578r")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.466846)
+radius = 4.5884213
+material = ExtResource("2_e578r")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.706373)
+radius = 4.5884213
+material = ExtResource("2_e578r")
