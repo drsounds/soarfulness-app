@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://crci7xuewtyqg"]
+[gd_scene load_steps=20 format=3 uid="uid://crci7xuewtyqg"]
 
 [ext_resource type="Script" uid="uid://dtaext56hlirc" path="res://assets/Aquafulness/Scenes/Framnas/framnas.old.gd" id="1_0x1s2"]
 [ext_resource type="PackedScene" uid="uid://3q1fmwrua8xf" path="res://assets/Aquafulness/Scenes/Framnas/bath_place.tscn" id="1_47g7c"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://p2e4bgxha7b0" path="res://assets/Aquafulness/Scenes/Coordlux/RedSeaLine.tscn" id="10_lgsd1"]
 [ext_resource type="Texture2D" uid="uid://cmr08ervk1ja1" path="res://assets/Aquafulness/beach-water-nature-sand-ocean-liquid-sunlight-texture-leaf-floor-refraction-pattern-green-circle-design-flooring-light-reflects-1279284.png" id="12_k4v8f"]
 [ext_resource type="PackedScene" uid="uid://b6t201nu4072p" path="res://assets/Aquafulness/Scenes/Framnas/Bottom.blend" id="15_6dq7n"]
+[ext_resource type="PackedScene" uid="uid://bnx2iv26spfup" path="res://assets/Aquafulness/Scenes/Yacht/Yacht.tscn" id="16_3t2hv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rw81e"]
 size = Vector3(557.2794, 542.6787, 762.4247)
@@ -100,3 +101,6 @@ visible = false
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.912247, 29.298965, -187.56903)
+
+[node name="Yacht" parent="." instance=ExtResource("16_3t2hv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -588.43805, -60.302826, -2114.3032)

@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnx2iv26spfup"]
+
+[ext_resource type="Script" uid="uid://f38t0atu0pq4" path="res://assets/Aquafulness/Scenes/Yacht/yacht.gd" id="1_5c7u5"]
+[ext_resource type="PackedScene" uid="uid://dimyvsliv6y4k" path="res://assets/Aquafulness/Scenes/Yacht/YachtShell.glb" id="1_fqswc"]
+[ext_resource type="PackedScene" uid="uid://bwrie6t61t8ng" path="res://assets/Aquafulness/Scenes/Framnas/stairs.tscn" id="2_la7lq"]
+[ext_resource type="PackedScene" uid="uid://cmfpxv4rjh7j" path="res://assets/Aquafulness/Scenes/Framnas/Ladder.tscn" id="3_la7lq"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5c7u5"]
+
+[node name="Yacht" type="Node3D"]
+script = ExtResource("1_5c7u5")
+
+[node name="YachtShell" parent="." instance=ExtResource("1_fqswc")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, -0.08171034, -1.1920929e-07, -1.0209594)
+
+[node name="Stairs" parent="." instance=ExtResource("2_la7lq")]
+transform = Transform3D(-1.5145279, 0, 4.6239066e-08, 0, 0.28628796, 0, -1.3240425e-07, 0, -0.5289133, -6.132511, 43.946175, -9.881689)
+
+[node name="Stairs2" parent="." instance=ExtResource("2_la7lq")]
+transform = Transform3D(-1.5145279, 0, 4.6239066e-08, 0, 0.28628796, 0, -1.3240425e-07, 0, -0.5289133, -6.132511, 59.785603, -30.633112)
+
+[node name="Stairs3" parent="." instance=ExtResource("2_la7lq")]
+transform = Transform3D(-1.5145279, 0, 4.6239066e-08, 0, 0.3965794, 0, -1.3240425e-07, 0, -0.5289133, -6.0984955, 83.89261, -98.60751)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6604433, 58.423462, -149.70146)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 20.035025, 0, 0, 0, 0.99999964, 0, -21.842651, 0)
+radius = 89.09131
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 13.109441, 2.087, -28.789223, 50.667664)
+operation = 2
+size = Vector3(28.858276, 31.390198, 6.78421)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 13.109441, 5.195446, -28.789223, -73.10799)
+operation = 2
+size = Vector3(89.10324, 31.390198, 2.972168)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 13.109441, -2.2451887, -16.625603, -0.46652222)
+operation = 2
+size = Vector3(182.15077, 55.717438, 10.401886)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(141.68297, 0, 0, 0, 1, 0, 0, 0, 233.13127, -5.6604433, 58.423462, -149.70146)
+mesh = SubResource("CylinderMesh_5c7u5")
+
+[node name="Stairs4" parent="." instance=ExtResource("2_la7lq")]
+transform = Transform3D(0.11379482, 0, -0.52741826, 0, 0.28628796, 0, 1.5102469, 0, 0.039740156, 109.467125, 23.990307, -221.9796)
+
+[node name="Stairs5" parent="." instance=ExtResource("2_la7lq")]
+transform = Transform3D(-0.115877226, 0, 0.52736306, 0, 0.28628796, 0, -1.5100886, 0, -0.04046739, -103.09753, 23.990307, -221.9796)
+
+[node name="Ladder" parent="." instance=ExtResource("3_la7lq")]
+transform = Transform3D(-1.2920235, 0, -0.27597067, 0, 0.28628793, 0, 0.7902339, 0, -0.4512089, -32.107117, 24.348717, -402.4114)
+
+[node name="Ladder3" parent="." instance=ExtResource("3_la7lq")]
+transform = Transform3D(-1.2309402, 0, 0.3081477, 0, 0.28628793, 0, -0.8823719, 0, -0.42987698, 43.230827, 24.2142, -398.65448)
+
+[node name="Ladder2" parent="." instance=ExtResource("3_la7lq")]
+transform = Transform3D(-1.5127378, 0, -0.025708225, 0, 0.28628796, 0, 0.073614776, 0, -0.5282882, 1.5553913, 23.47147, -430.5524)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 103.59479, -232.62062)

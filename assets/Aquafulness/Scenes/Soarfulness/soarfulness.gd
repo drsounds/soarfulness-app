@@ -36,7 +36,7 @@ func _ready():
 	if slot == null:
 		print("Slot not found")
 	get_tree().root.size_changed.connect(on_viewport_size_changed)
-	load_scene('Spacify')
+	load_scene('Lisch')
 
 
 func on_viewport_size_changed():

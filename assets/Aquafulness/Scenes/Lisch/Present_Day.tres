@@ -1,0 +1,23 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://cqh42u4gsu6mb"]
+
+[ext_resource type="Texture2D" uid="uid://b8oc1w6k3lawx" path="res://assets/Aquafulness/VänernDay.png" id="1_id7x8"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_lb35i"]
+panorama = ExtResource("1_id7x8")
+filter = false
+
+[sub_resource type="Sky" id="Sky_2xsad"]
+sky_material = SubResource("PanoramaSkyMaterial_lb35i")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_2xsad")
+sky_rotation = Vector3(0, -2.2863812, 0)
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.26
+fog_mode = 1
+fog_density = 1.0
+fog_sky_affect = 0.756
+fog_depth_begin = 0.0
+fog_depth_end = 131.5
+volumetric_fog_density = 0.0372

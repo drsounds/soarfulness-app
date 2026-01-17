@@ -1,0 +1,169 @@
+[gd_scene load_steps=25 format=3 uid="uid://da5k15dn1c31v"]
+
+[ext_resource type="Script" uid="uid://brd26t0cidc6n" path="res://assets/Aquafulness/Scenes/Lisch/lisch.gd" id="1_u72sl"]
+[ext_resource type="Texture2D" uid="uid://i4npwmijpt41" path="res://sand-white-texture-wave-floor-pattern-1197621-pxhere.com.jpg" id="2_6y0br"]
+[ext_resource type="Environment" uid="uid://cqh42u4gsu6mb" path="res://assets/Aquafulness/Scenes/Lisch/Present_Day.tres" id="2_g3bvu"]
+[ext_resource type="PackedScene" uid="uid://db0gfh3dgksql" path="res://assets/Aquafulness/Scenes/Bather/bather.tscn" id="3_2knke"]
+[ext_resource type="Texture2D" uid="uid://cspr0457rcay" path="res://assets/Aquafulness/Scenes/Locker/Wall.png" id="3_c0y7u"]
+[ext_resource type="PackedScene" uid="uid://ds051alhagcog" path="res://assets/Aquafulness/Scenes/Snow/Snow.tscn" id="4_60imp"]
+[ext_resource type="PackedScene" uid="uid://xctxfs7hg1rv" path="res://assets/Aquafulness/Scenes/Confetti/Confetti.tscn" id="5_6y0br"]
+[ext_resource type="PackedScene" uid="uid://vyugpng6dmvv" path="res://assets/Aquafulness/Scenes/Swing/Swing.tscn" id="6_c0y7u"]
+[ext_resource type="Texture2D" uid="uid://cmr08ervk1ja1" path="res://assets/Aquafulness/beach-water-nature-sand-ocean-liquid-sunlight-texture-leaf-floor-refraction-pattern-green-circle-design-flooring-light-reflects-1279284.png" id="7_brtiq"]
+[ext_resource type="PackedScene" uid="uid://bf38c65clfohf" path="res://assets/Aquafulness/Scenes/Christmas/Tree.blend" id="8_6547i"]
+[ext_resource type="PackedScene" uid="uid://b2ps6m14qrhkv" path="res://assets/Aquafulness/Scenes/Flower/Flower.tscn" id="9_npnpv"]
+[ext_resource type="PackedScene" uid="uid://dbplbwxr6m0ty" path="res://assets/Aquafulness/Scenes/AquaScene/date_time_controller.tscn" id="10_cuprf"]
+[ext_resource type="PackedScene" uid="uid://bss5uw1f1p0np" path="res://Spoonie.tscn" id="14_c0y7u"]
+[ext_resource type="PackedScene" uid="uid://g6kh7j6t576p" path="res://assets/Aquafulness/Scenes/Lisch/Lischx.glb" id="15_6547i"]
+[ext_resource type="PackedScene" uid="uid://bnx2iv26spfup" path="res://assets/Aquafulness/Scenes/Yacht/Yacht.tscn" id="16_cuprf"]
+[ext_resource type="PackedScene" uid="uid://3q1fmwrua8xf" path="res://assets/Aquafulness/Scenes/Framnas/bath_place.tscn" id="16_npnpv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6547i"]
+albedo_texture = ExtResource("2_6y0br")
+
+[sub_resource type="BoxMesh" id="BoxMesh_npnpv"]
+material = SubResource("StandardMaterial3D_6547i")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cuprf"]
+albedo_texture = ExtResource("3_c0y7u")
+
+[sub_resource type="BoxMesh" id="BoxMesh_soitp"]
+material = SubResource("StandardMaterial3D_cuprf")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uro1o"]
+albedo_color = Color(1, 0.627451, 0, 0.73333335)
+albedo_texture = ExtResource("7_brtiq")
+uv1_scale = Vector3(225.44, 225.44, 225.44)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qfp5g"]
+material = SubResource("StandardMaterial3D_uro1o")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_soitp"]
+size = Vector3(16727.275, 28192, 58082.92)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c0y7u"]
+albedo_texture = ExtResource("2_6y0br")
+
+[node name="Lisch" type="Node3D"]
+script = ExtResource("1_u72sl")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(9787.762, 0, 0, 0, 46.12557, 0, 0, 0, 20549.537, 5937.1577, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_npnpv")
+skeleton = NodePath("../WorldEnvironment")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1243.3143, 0, 0, 0, 46.12557, 0, 0, 0, 10190.787, 1549.5298, 0, -21432.09)
+visible = false
+mesh = SubResource("BoxMesh_npnpv")
+skeleton = NodePath("../WorldEnvironment")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
+transform = Transform3D(6816.2505, 0, 0, 0, 46.12557, 0, 0, 0, 2062.2803, 4326.184, 0, -15292.826)
+visible = false
+mesh = SubResource("BoxMesh_npnpv")
+skeleton = NodePath("../WorldEnvironment")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="."]
+transform = Transform3D(4029.9038, 0, 0, 0, 46.12557, 0, 0, 0, 4061.7935, 5695.988, 0, -12292.453)
+visible = false
+mesh = SubResource("BoxMesh_npnpv")
+skeleton = NodePath("../WorldEnvironment")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+transform = Transform3D(1243.3143, 0, 0, 0, 46.12557, 0, 0, 0, 10190.787, -1651.9967, 0, -15487.3125)
+visible = false
+mesh = SubResource("BoxMesh_npnpv")
+skeleton = NodePath("../WorldEnvironment")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(11800.831, 0, 0, 0, 187.79066, 0, 0, 0, 20745.633, -6984.409, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_npnpv")
+skeleton = NodePath("../WorldEnvironment")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(229.31355, 0, 0, 0, 16.799807, 0, 0, 0, 20557.166, -934.2875, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_soitp")
+skeleton = NodePath("../WorldEnvironment")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(229.31355, 0, 0, 0, 16.799807, 0, 0, 0, 20617.648, 908.1632, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_soitp")
+skeleton = NodePath("../WorldEnvironment")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_g3bvu")
+
+[node name="Bather" parent="." instance=ExtResource("3_2knke")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 3054.064, -146.32907, 908.6522)
+
+[node name="Spawn" type="Node3D" parent="."]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 2328.8965, 271.13504, 4009.3923)
+
+[node name="Snow" parent="." instance=ExtResource("4_60imp")]
+transform = Transform3D(-0.00565477, 0, 0.999984, 0, 1, 0, -0.999984, 0, -0.00565477, 505.5451, 525.0176, 1644.6206)
+
+[node name="Confetti" parent="." instance=ExtResource("5_6y0br")]
+transform = Transform3D(-0.00049228896, 0, 0.062650986, 0, 0.9999999, 0, -0.0870559, 0, -0.00035428262, 505.35736, 524.79675, 1644.5754)
+
+[node name="Swing" parent="." instance=ExtResource("6_c0y7u")]
+transform = Transform3D(-0.00565477, 0, 0.999984, 0, 1, 0, -0.999984, 0, -0.00565477, -725.38684, 214.87213, 1846.8203)
+
+[node name="OceanFloor" type="MeshInstance3D" parent="."]
+transform = Transform3D(-88.31542, 0, 16846.402, 0, 1, 0, -15617.615, 0, -95.26407, 28.479477, -109.391205, -109.63995)
+visible = false
+mesh = SubResource("BoxMesh_qfp5g")
+
+[node name="Christmas" type="Node3D" parent="."]
+transform = Transform3D(-0.00565477, 0, 0.999984, 0, 1, 0, -0.999984, 0, -0.00565477, 28.479477, -16.67392, -109.63995)
+visible = false
+
+[node name="Tree" parent="Christmas" instance=ExtResource("8_6547i")]
+transform = Transform3D(0.0060033826, 0, -0.43642613, 0, 0.3857247, 0, 0.5647896, 0, 0.004638954, -11.025063, 22.433342, -189.4022)
+
+[node name="Flower" parent="." instance=ExtResource("9_npnpv")]
+transform = Transform3D(-0.50572515, 0, 29.487495, 0, 74.21646, 0, -89.43193, 0, -0.16674763, 28.479477, -17.208908, -109.63995)
+visible = false
+
+[node name="FireworksContainer" type="Node3D" parent="."]
+transform = Transform3D(-0.00039267473, 0, 0.999984, 0, 0.26692817, 0, -0.069440216, 0, -0.00565477, -982.838, 701.521, 38.138123)
+
+[node name="DateTimeController" parent="." instance=ExtResource("10_cuprf")]
+transform = Transform3D(-0.0056548254, 0, 0.999984, 0, 1, 0, -0.999984, 0, -0.0056548254, 28.479477, -16.67392, -109.63995)
+
+[node name="Boundary" type="Area3D" parent="."]
+transform = Transform3D(-0.0056548254, 0, 0.999984, 0, 1, 0, -0.999984, 0, -0.0056548254, 28.479477, -16.67392, -109.63995)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.90259, -626.548, 7729.345)
+shape = SubResource("BoxShape3D_soitp")
+
+[node name="Spoonie" parent="." instance=ExtResource("14_c0y7u")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 316.05383, 341.19995, -3625.0251)
+
+[node name="Spoonie2" parent="." instance=ExtResource("14_c0y7u")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -316.5067, 341.19995, -3625.0251)
+
+[node name="LischOld" type="CSGCombiner3D" parent="."]
+visible = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="LischOld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9675.154, -1207.4149, 362.59814)
+size = Vector3(8188.546, 2415.8296, 37339.99)
+material = SubResource("StandardMaterial3D_c0y7u")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="LischOld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11160.603, -1185.3823, -429.6753)
+size = Vector3(8136.9316, 2371.7646, 35755.492)
+material = SubResource("StandardMaterial3D_c0y7u")
+
+[node name="BathPlace" parent="." instance=ExtResource("16_npnpv")]
+transform = Transform3D(-0.86716646, 0, 0.49801862, 0, 1, 0, -0.49801862, 0, -0.86716646, -2308.6597, 70.52446, -1031.8872)
+
+[node name="Lischx" parent="." instance=ExtResource("15_6547i")]
+
+[node name="Yacht" parent="." instance=ExtResource("16_cuprf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2249.4824, 240.05869, 4138.9478)
