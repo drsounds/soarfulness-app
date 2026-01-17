@@ -1,9 +1,9 @@
-[gd_resource type="Environment" load_steps=4 format=3 uid="uid://cqh42u4gsu6mb"]
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://c80nbiv0e4a0j"]
 
-[ext_resource type="Texture2D" uid="uid://b8oc1w6k3lawx" path="res://assets/Aquafulness/VänernDay.png" id="1_id7x8"]
+[ext_resource type="Texture2D" uid="uid://b8oc1w6k3lawx" path="res://assets/Aquafulness/VänernDay.png" id="1_ljpe3"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_lb35i"]
-panorama = ExtResource("1_id7x8")
+panorama = ExtResource("1_ljpe3")
 filter = false
 
 [sub_resource type="Sky" id="Sky_2xsad"]

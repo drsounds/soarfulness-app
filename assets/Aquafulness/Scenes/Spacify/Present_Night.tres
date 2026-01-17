@@ -1,9 +1,9 @@
-[gd_resource type="Environment" load_steps=4 format=3 uid="uid://dhoiajb0b4rlw"]
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://qvs7l05oevbr"]
 
-[ext_resource type="Texture2D" uid="uid://dh183a4tghgj6" path="res://Vänern_Present_Night.png" id="1_wtk2t"]
+[ext_resource type="Texture2D" uid="uid://dh183a4tghgj6" path="res://Vänern_Present_Night.png" id="1_mct2j"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_2yo8u"]
-panorama = ExtResource("1_wtk2t")
+panorama = ExtResource("1_mct2j")
 
 [sub_resource type="Sky" id="Sky_rnqo1"]
 sky_material = SubResource("PanoramaSkyMaterial_2yo8u")
