@@ -110,3 +110,6 @@ fov = 179.0
 
 [node name="Yacht" parent="." instance=ExtResource("16_3t2hv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -588.43805, -60.302826, -2114.3032)
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, -100, 0)

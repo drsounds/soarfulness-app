@@ -1,8 +1,6 @@
-extends Node3D
+extends CharacterBody3D
 
 var time: float = 0.00
-
-var velocity: Vector3 = Vector3(0, 0, 0)
 
 var ocean_environment: OceanEnvironment
 
@@ -41,6 +39,7 @@ var aqua: AquaNode
 
 signal waves_changed
 
+var ray: RayCast3D
 
 @export var waves: float: get = get_waves, set = set_waves
 
@@ -181,6 +180,7 @@ func _ready() -> void:
 	buoy.visible = true
 	buoy.transform.origin = transform.origin
 	buoy.transform.origin.z -= 300
+	ray = get_parent().find_child('RayCast3D')
 
 var buoy = null
 
@@ -278,21 +278,25 @@ func _process(delta:float) -> void:
 	# The resulting deadzone will have a circular shape as it generally should.
 	#var drag_velocity = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 
-	#self.velocity += drag_velocity
-
-	if aqua != null and aqua.enabled:
-		var space_state = get_world_3d().direct_space_state
+	#self.velocity += drag_velocity 
+		 
+	if aqua != null and aqua.enabled: 
 		# use global coordinates, not local to node
-		var query = PhysicsRayQueryParameters3D.create(
-			Vector3(transform.origin.x, 11, transform.origin.z),
-			Vector3(transform.origin.x, -5, transform.origin.z)
-		)
-		var result = space_state.intersect_ray(query)
-		if not result.is_empty():
-			if result.has('collider'):
-				var parent_collider = result['collider'].get_parent() 
+		ray.target_position.x = transform.origin.x
+		ray.target_position.z = transform.origin.z
+		ray.transform.origin.x = transform.origin.x
+		ray.transform.origin.z = transform.origin.z
+		ray.transform.origin.y = 10
+		ray.target_position.y = -10
+		
+		if ray.is_colliding():
+			var collider = ray.get_collider()
+			if collider != null:
+				var parent_collider = collider.get_parent() 
 				if parent_collider == aqua:
-					transform.origin.y = result['position'].y
+					print("y", transform.origin.y)
+					var diff = ray.position.y - transform.origin.y
+					velocity.y += diff
 
 	if swing != null and swing.enabled:
 		if buoy.swing == null:
@@ -309,14 +313,23 @@ func _process(delta:float) -> void:
 			rotation_x = 0
 
 		$Wave.rotation_degrees = Vector3(rotation_x, 0, 0)
-		
-	velocity = transform.basis * velocity
 
-	self.transform.origin += velocity
-	velocity *= 0.5
-	
+	if velocity.y > -15:
+		velocity.y -= 1
+
+	movement = transform.basis * movement
+
 	velocity += movement
 	
+	var collision = move_and_slide()
+	"""
+	if collision != null:
+		var collider = collision.get_collider(0)
+		
+		var node = collider.get_parent()
+		if node == aqua:
+			pass
+	"""
 	emit_signal('position_changed', self.transform.origin)
 
 	

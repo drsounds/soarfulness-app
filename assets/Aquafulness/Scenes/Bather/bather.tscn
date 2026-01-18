@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://db0gfh3dgksql"]
+[gd_scene load_steps=8 format=3 uid="uid://db0gfh3dgksql"]
 
 [ext_resource type="Script" uid="uid://bbr58hrni71p" path="res://assets/Aquafulness/Scenes/Bather/bather.gd" id="1_fjieo"]
 [ext_resource type="Script" uid="uid://dm0ew8hvv4xqm" path="res://example/Camera.gd" id="2_c6aw0"]
@@ -14,7 +14,9 @@ albedo_texture = ExtResource("4_7cfey")
 [sub_resource type="PlaneMesh" id="PlaneMesh_2wcyn"]
 material = SubResource("StandardMaterial3D_0if0t")
 
-[node name="Bather" type="Node3D"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7cfey"]
+
+[node name="Bather" type="CharacterBody3D"]
 script = ExtResource("1_fjieo")
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -33,3 +35,6 @@ mesh = SubResource("PlaneMesh_2wcyn")
 [node name="SwimBouy" parent="." instance=ExtResource("5_0if0t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.78673553, -0.11585355, -3.0739746)
 visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_7cfey")
