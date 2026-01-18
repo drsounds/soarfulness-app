@@ -281,24 +281,12 @@ func _physics_process(delta:float) -> void:
 	#self.velocity += drag_velocity 
 		 
 	if aqua != null and aqua.enabled: 
-		# use global coordinates, not local to node
-		ray.target_position.x = transform.origin.x
-		ray.target_position.z = transform.origin.z
-		ray.transform.origin.x = transform.origin.x
-		ray.transform.origin.z = transform.origin.z
-		ray.transform.origin.y = 10
-		ray.target_position.y = -10
-		ray.force_raycast_update()
-
-		if ray.is_colliding():
-			var collider = ray.get_collider()
-			if collider != null:
-				var parent_collider = collider.get_parent() 
-				if parent_collider == aqua:
-					var point = ray.get_collision_point()
-					transform.origin.y = point.y
-					print(point.y)
-					move_and_slide()
+		if transform.origin.y <= aqua.transform.origin.y:
+			var relation = transform.origin - aqua.transform.origin
+			var position_y = aqua.get_water_height(relation)
+			var float_delta = transform.origin.y - position_y
+			if float_delta < 0:
+				velocity.y += -float_delta / 10
 
 	if swing != null and swing.enabled:
 		if buoy.swing == null:

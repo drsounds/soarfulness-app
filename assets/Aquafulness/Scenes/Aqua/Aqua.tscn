@@ -1,16 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkgcx4oql4y03"]
+[gd_scene load_steps=6 format=3 uid="uid://dkgcx4oql4y03"]
 
+[ext_resource type="Shader" uid="uid://b3yj8to7lwt8h" path="res://assets/Aquafulness/Scenes/Aqua/aqua.gdshader" id="1_vskng"]
 [ext_resource type="Texture2D" uid="uid://cy0x1ogad4udx" path="res://beach-water-nature-sand-ocean-liquid-sunlight-texture-leaf-floor-refraction-pattern-green-circle-design-flooring-light-reflects-1279284.jpg" id="2_vbqw1"]
 [ext_resource type="Script" uid="uid://gkn81r43nyjg" path="res://assets/Aquafulness/Scenes/Aqua/aqua.gd" id="2_vskng"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vskng"]
-transparency = 1
-cull_mode = 2
-albedo_color = Color(0, 0.6392157, 1, 0.5019608)
-albedo_texture = ExtResource("2_vbqw1")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vbqw1"]
+render_priority = 0
+shader = ExtResource("1_vskng")
+shader_parameter/time = 0.0
+shader_parameter/x = 0.0
+shader_parameter/z = 0.0
+shader_parameter/height = 35.63
+shader_parameter/text = ExtResource("2_vbqw1")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_n4ch7"]
-material = SubResource("StandardMaterial3D_vskng")
+material = SubResource("ShaderMaterial_vbqw1")
 size = Vector2(1253.15, 1259.48)
 subdivide_width = 12
 subdivide_depth = 12
