@@ -286,7 +286,7 @@ func _physics_process(delta:float) -> void:
 			var position_y = aqua.get_water_height(relation)
 			var float_delta = transform.origin.y - position_y
 			if float_delta < 0:
-				velocity.y += -float_delta / 10
+				velocity.y = -float_delta
 
 	if swing != null and swing.enabled:
 		if buoy.swing == null:
@@ -305,7 +305,7 @@ func _physics_process(delta:float) -> void:
 		$Wave.rotation_degrees = Vector3(rotation_x, 0, 0)
 
 	if velocity.y > -15:
-		velocity.y -= 1
+		velocity.y -= 2
 
 	movement = transform.basis * movement
 
