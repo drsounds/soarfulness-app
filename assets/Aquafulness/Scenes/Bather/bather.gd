@@ -231,7 +231,7 @@ func set_rotation_deg(amount: Vector3):
 	emit_signal('rotated', amount)
 
 
-func _process(delta:float) -> void:
+func _physics_process(delta:float) -> void:
 	time += delta
 	var boundary: Area3D = get_parent().boundary
 	var shape: CollisionShape3D = boundary.get_child(0)
@@ -288,15 +288,17 @@ func _process(delta:float) -> void:
 		ray.transform.origin.z = transform.origin.z
 		ray.transform.origin.y = 10
 		ray.target_position.y = -10
-		
+		ray.force_raycast_update()
+
 		if ray.is_colliding():
 			var collider = ray.get_collider()
 			if collider != null:
 				var parent_collider = collider.get_parent() 
 				if parent_collider == aqua:
-					print("y", transform.origin.y)
-					var diff = ray.position.y - transform.origin.y
-					velocity.y += diff
+					var point = ray.get_collision_point()
+					transform.origin.y = point.y
+					print(point.y)
+					move_and_slide()
 
 	if swing != null and swing.enabled:
 		if buoy.swing == null:

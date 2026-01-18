@@ -33,8 +33,7 @@ material = SubResource("StandardMaterial3D_6dq7n")
 script = ExtResource("1_0x1s2")
 
 [node name="Aqua" parent="." instance=ExtResource("17_5yyik")]
-speed = Vector3(0, 0, 2)
-height = 3.0
+height = 22.0
 
 [node name="Swing" parent="." instance=ExtResource("2_k4v8f")]
 wave_length = 1.0
@@ -113,3 +112,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -588.43805, -60.302826, -2114
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, -100, 0)
+hit_from_inside = true
+debug_shape_custom_color = Color(1, 0, 0, 1)

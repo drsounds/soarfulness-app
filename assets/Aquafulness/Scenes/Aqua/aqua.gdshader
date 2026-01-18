@@ -1,6 +1,6 @@
 shader_type spatial;
 
-render_mode cull_disabled, wireframe, unshaded;
+render_mode cull_disabled;
 
 uniform float time = 0;
 uniform float x = 0;

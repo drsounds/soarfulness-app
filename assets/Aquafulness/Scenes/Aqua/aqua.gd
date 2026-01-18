@@ -41,17 +41,15 @@ func _process(delta: float) -> void:
 	wave.x += speed.x * 0.1
 	wave.z += speed.z * 0.1
 
-	"""
 	mesh.surface_get_material(0).set('shader_parameter/height', height)
 	mesh.surface_get_material(0).set('shader_parameter/time', time)
 	mesh.surface_get_material(0).set('shader_parameter/x', wave.x)
 	mesh.surface_get_material(0).set('shader_parameter/z', wave.z)
 	"""
-
 	# convert primitve to ArrayMesh
 	var arrMesh: ArrayMesh = mesh 
 	mdt.create_from_surface(mesh, 0) # Get data from a surface
-# Modify vertices (e.g., move vertex at index 5)
+	# Modify vertices (e.g., move vertex at index 5)
 	for i in range(mdt.get_vertex_count()):
 		var vert = mdt.get_vertex(i)
 		var vert_y = sin(vert.z + wave.z) * height
@@ -61,6 +59,12 @@ func _process(delta: float) -> void:
 	mdt.commit_to_surface(arrMesh)
 
 	create_trimesh_collision()
-
+	for child in get_children():
+		if child is StaticBody3D:
+			child.transform.origin.y = -3
+	"""
 	#var float_y = get_y_at_position(sphere.global_transform.origin.x, sphere.global_transform.origin.z)
 	#sphere.transform.origin.y = float_y
+
+func get_water_height(pos: Vector3):
+	return sin(pos.z + wave.z) * height
