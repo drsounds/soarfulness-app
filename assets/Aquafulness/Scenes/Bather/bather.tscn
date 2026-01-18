@@ -17,7 +17,6 @@ material = SubResource("StandardMaterial3D_0if0t")
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7cfey"]
 
 [node name="Bather" type="CharacterBody3D"]
-motion_mode = 1
 script = ExtResource("1_fjieo")
 
 [node name="Camera3D" type="Camera3D" parent="."]

@@ -281,12 +281,11 @@ func _physics_process(delta:float) -> void:
 	#self.velocity += drag_velocity 
 		 
 	if aqua != null and aqua.enabled: 
-		if transform.origin.y <= aqua.transform.origin.y:
-			var relation = transform.origin - aqua.transform.origin
-			var position_y = aqua.get_water_height(relation)
-			var float_delta = transform.origin.y - position_y
-			if float_delta < 0:
-				velocity.y = -float_delta
+		var relation = transform.origin - aqua.transform.origin
+		var position_y = aqua.get_water_height(relation)
+		var float_delta = transform.origin.y - position_y
+		if float_delta < 0:
+			position.y = position_y
 
 	if swing != null and swing.enabled:
 		if buoy.swing == null:
@@ -304,12 +303,12 @@ func _physics_process(delta:float) -> void:
 
 		$Wave.rotation_degrees = Vector3(rotation_x, 0, 0)
 
-	if velocity.y > -15:
-		velocity.y -= 2
+	if velocity.y > -200:
+		velocity.y -= 30
 
 	movement = transform.basis * movement
 
-	velocity += movement
+	velocity += movement * delta
 	
 	var collision = move_and_slide()
 	"""
