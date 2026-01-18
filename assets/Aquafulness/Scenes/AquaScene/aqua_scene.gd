@@ -28,6 +28,7 @@ var _fog: float = 0
 
 var _flowers: float = false
 
+var aqua: AquaNode
 var _clouds: float = 0
 @export var clouds: float: get = get_clouds, set = set_clouds
 
@@ -485,7 +486,12 @@ func init():
 	$Bather.connect('moved', self._on_bather_moved)
 	aquafulness = get_tree().root.find_child('Aquafulness', true, false)
 	swing = $Swing
+	aqua = $Aqua
+	$Bather.aqua = aqua
 	$Bather.swing = swing
+	if aqua != null:
+		aqua.enabled = true
+
 	if swing != null:
 		swing.connect('swing', self._on_swing)
 		swing.connect('wave_length_changed', self._on_wave_length_changed)

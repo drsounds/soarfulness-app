@@ -182,6 +182,9 @@ func init() -> void:
 
 	scene.init()
 	load_state()
+	
+	aquafulness.hide()
+
 
 
 

@@ -19,7 +19,7 @@ script = ExtResource("1_fjieo")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 current = true
-far = 16000.0
+far = 16222.6
 script = ExtResource("2_c6aw0")
 
 [node name="Wave" type="Node3D" parent="."]

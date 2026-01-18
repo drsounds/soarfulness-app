@@ -35,7 +35,9 @@ var swim_area
 var flowers = []
 var spoonies = []
 
-var swing: Node3D
+var swing: Swing
+
+var aqua: AquaNode
 
 signal waves_changed
 
@@ -278,7 +280,21 @@ func _process(delta:float) -> void:
 
 	#self.velocity += drag_velocity
 
-	if swing != null and not noclip:
+	if aqua != null and aqua.enabled:
+		var space_state = get_world_3d().direct_space_state
+		# use global coordinates, not local to node
+		var query = PhysicsRayQueryParameters3D.create(
+			Vector3(transform.origin.x, 11, transform.origin.z),
+			Vector3(transform.origin.x, -5, transform.origin.z)
+		)
+		var result = space_state.intersect_ray(query)
+		if not result.is_empty():
+			if result.has('collider'):
+				var parent_collider = result['collider'].get_parent() 
+				if parent_collider == aqua:
+					transform.origin.y = result['position'].y
+
+	if swing != null and swing.enabled:
 		if buoy.swing == null:
 			buoy.swing = swing
 		self.velocity += swing.velocity

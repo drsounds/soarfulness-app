@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://dkgcx4oql4y03"]
+
+[ext_resource type="Texture2D" uid="uid://cy0x1ogad4udx" path="res://beach-water-nature-sand-ocean-liquid-sunlight-texture-leaf-floor-refraction-pattern-green-circle-design-flooring-light-reflects-1279284.jpg" id="1_vskng"]
+[ext_resource type="Script" uid="uid://gkn81r43nyjg" path="res://assets/Aquafulness/Scenes/Aqua/aqua.gd" id="2_vskng"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vbqw1"]
+albedo_texture = ExtResource("1_vskng")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_n4ch7"]
+material = SubResource("StandardMaterial3D_vbqw1")
+size = Vector2(1253.15, 1259.48)
+subdivide_width = 12
+subdivide_depth = 12
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vskng"]
+
+[sub_resource type="Sky" id="Sky_vbqw1"]
+sky_material = SubResource("ProceduralSkyMaterial_vskng")
+
+[sub_resource type="Environment" id="Environment_nk4k4"]
+background_mode = 2
+sky = SubResource("Sky_vbqw1")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vskng"]
+
+[node name="Surface" type="MeshInstance3D"]
+mesh = SubResource("PlaneMesh_n4ch7")
+script = ExtResource("2_vskng")
+speed = Vector3(0, 0, 1)
+enabled = true
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nk4k4")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.80342066, 0.5954119, 0, -0.5954119, 0.80342066, 0, 5.5695534, 14.075636)
+current = true
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("ConvexPolygonShape3D_vskng")

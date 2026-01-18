@@ -31,6 +31,8 @@ signal mode_changed
 signal swinging_changed
 signal interval_changed
 
+@export var enabled: bool = false
+
 @export var swinging: bool: get = get_swinging, set = set_swinging
 
 var _swinging = false
