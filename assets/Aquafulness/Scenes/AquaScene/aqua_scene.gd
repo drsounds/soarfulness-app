@@ -131,25 +131,6 @@ func get_swing():
 	return $Swing
 
 
-func get_3d_ocean() -> bool:
-	return ocean_environment != null
-
-
-func set_3d_ocean(value: bool):
-	if value:
-		$OceanFloor.visible = true
-		if ocean_environment == null:
-			var ocean_environment_scene = load('res://example/Example.tscn')
-			ocean_environment = ocean_environment_scene.instantiate()
-			add_child(ocean_environment)
-
-	else:
-		if ocean_environment != null:
-			remove_child(ocean_environment)
-
-	emit_signal('ocean_3d_changed', value)
-
-
 func expand_left():
 	swimmed_x_minus -= 10000
 	for z in range(1):
@@ -489,8 +470,6 @@ func init():
 	aqua = $Aqua
 	$Bather.aqua = aqua
 	$Bather.swing = swing
-	if aqua != null:
-		aqua.enabled = true
 
 	if swing != null:
 		swing.connect('swing', self._on_swing)
@@ -568,19 +547,21 @@ func get_ocean_type():
 func set_ocean_type(value):
 	_ocean_type = value
 
-	if value == "3d":
+	if value == "environment":
 		aquafulness.visible = false
-		$OceanFloor.visible = true
-		set_3d_ocean(true)
+		if ocean_environment == null:
+			var ocean_environment_scene = load('res://example/Example.tscn')
+			ocean_environment = ocean_environment_scene.instantiate()
+			add_child(ocean_environment)
 	else:
-		$OceanFloor.visible = false
-		set_3d_ocean(false)
+		if ocean_environment != null:
+			remove_child(ocean_environment)
 
-	if value == "imaginary":
-		aquafulness.visible = true
-		set_3d_ocean(false)
-	else:
-		$OceanFloor.visible = false
+	swing.enabled = [null, 'imaginary'].has(_ocean_type)
+
+	aqua.visible = _ocean_type == "aqua"
+	aqua.enabled = _ocean_type == "aqua"
+	aquafulness.visible = value == "imaginary"
 
 	emit_signal('ocean_type_changed', _ocean_type)
 

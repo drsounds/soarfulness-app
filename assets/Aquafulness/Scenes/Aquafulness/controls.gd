@@ -140,14 +140,13 @@ func init() -> void:
 			i
 		)
 		i = i + 1
-	
+
 	scene.wave_height = config.get_value("scene", "wave_height", 20.0)
 	scene.wave_length = config.get_value("scene", "wave_length", 5.0)
 	scene.wave_speed = config.get_value("scene", "wave_speed", 4.0)
 	scene.is_showing_ocean_floor = config.get_value("scene", "is_showing_ocean_floor", false)
 	#$Control/OceanFloorCheckButton.button_pressed = scene.is_showing_ocean_floor
 	aquafulness.seed_filename = config.get_value("aquafulness", "seed", "Vänern.ogv")
-	scene.ocean_type = config.get_value("scene", "ocean_type", "imaginary")
 	scene.flowers = config.get_value("scene", "flowers", 0.0)
 	scene.clouds = config.get_value("scene", "clouds", 0.0)
 	bather.enforce_boundaries = config.get_value("scene", "enforce_boundaries", true)
@@ -183,7 +182,7 @@ func init() -> void:
 	scene.init()
 	load_state()
 	
-	aquafulness.hide()
+	scene.ocean_type = config.get_value("scene", "ocean_type", "imaginary")
 
 
 
@@ -793,16 +792,30 @@ func _on_show_water_button_toggled(toggled_on: bool) -> void:
 	aquafulness.visible = toggled_on
 
 
+func get_ocean_type():
+	return scene.ocean_type
+
+@export var ocean_type: Variant: get = get_ocean_type, set = set_ocean_type
+
+
+func set_ocean_type(value):
+	if value == scene.ocean_type:
+		return
+
+	scene.set_ocean_type(value)
+
+	config.set_value('scene', 'ocean_type', value)
+
+
 func _on_ocean_option_button_item_selected(index: int) -> void:
-	var ocean_type = null
+	if index == 0:
+		ocean_type = null
 	if index == 1:
 		ocean_type = "imaginary"
 	elif index == 2:
-		ocean_type = "3d"
-
-	scene.set_ocean_type(ocean_type)
-
-	config.set_value('scene', 'ocean_type', ocean_type)
+		ocean_type = "aqua"
+	elif index == 3:
+		ocean_type = "environment"
 
 
 func _on_seed_option_button_item_selected(index: int) -> void:

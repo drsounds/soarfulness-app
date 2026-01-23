@@ -173,6 +173,8 @@ func _ready() -> void:
 	get_parent().swimmed_z_plus = self.transform.origin.z - 100
 
 	buoy = $SwimBouy.duplicate()
+	
+	swing = get_parent().find_child('Swing')
 
 	buoy.bather = self
 	buoy.swing = swing
@@ -287,10 +289,11 @@ func _physics_process(delta:float) -> void:
 		if float_delta < 0:
 			position.y = position_y
 
-	if swing != null and swing.enabled:
+	elif swing != null and swing.enabled:
+		self.collision_layer = 2
 		if buoy.swing == null:
 			buoy.swing = swing
-		self.velocity += swing.velocity
+		self.velocity = swing.velocity
 		if floatation_gear != null:
 			self.velocity.y += floatation_gear.transform.origin.y * 0.1
 			
@@ -303,14 +306,18 @@ func _physics_process(delta:float) -> void:
 
 		$Wave.rotation_degrees = Vector3(rotation_x, 0, 0)
 
-	if velocity.y > -200:
-		velocity.y -= 30
+	else:
+		if velocity.y > -200:
+			velocity.y -= 30
 
 	movement = transform.basis * movement
 
 	velocity += movement * delta
 	
-	var collision = move_and_slide()
+	if aqua != null and aqua.enabled: 
+		var collision = move_and_slide()
+	else:
+		transform.origin += velocity
 	"""
 	if collision != null:
 		var collider = collision.get_collider(0)
