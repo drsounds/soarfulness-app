@@ -550,6 +550,7 @@ ignore_texture_size = true
 stretch_mode = 4
 
 [node name="TextureButton2" type="TextureButton" parent="."]
+visible = false
 layout_mode = 0
 anchor_left = 1.0
 anchor_top = 1.0
