@@ -304,7 +304,7 @@ func _physics_process(delta:float) -> void:
 			var velony = (10 - abs(velocity.z)) / 10
 			if velony < 0:
 				velony = 0
-			position.y = position_y * 2.5 + 5 # * velony + 25
+			position.y = position_y * 2.8 + 5 # * velony + 25
 			#if velocity.z < aqua.wave.z:
 			#	velocity.z += aqua.wave.z * 0.01
 			#velocity.x += aqua.wave.x
