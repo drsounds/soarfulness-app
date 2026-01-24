@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpusyoydm6jem"]
+
+[ext_resource type="Shader" uid="uid://b3yj8to7lwt8h" path="res://assets/Aquafulness/Scenes/Aqua/aqua.gdshader" id="1_sblqg"]
+[ext_resource type="Texture2D" uid="uid://pxi0i6kq4x0b" path="res://assets/Aquafulness/water.png" id="2_m4toi"]
+[ext_resource type="Script" uid="uid://gkn81r43nyjg" path="res://assets/Aquafulness/Scenes/Aqua/aqua.gd" id="3_pbpoy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vskng"]
+render_priority = 0
+shader = ExtResource("1_sblqg")
+shader_parameter/time = 0.0
+shader_parameter/x = 0.0
+shader_parameter/z = 0.0
+shader_parameter/height = 47.78
+shader_parameter/text = ExtResource("2_m4toi")
+
+[sub_resource type="BoxMesh" id="BoxMesh_vbqw1"]
+material = SubResource("ShaderMaterial_vskng")
+size = Vector3(1248.56, 1253.15, 1253.15)
+subdivide_height = 111
+subdivide_depth = 17
+
+[node name="Surface" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_vbqw1")
+script = ExtResource("3_pbpoy")
+speed = Vector3(0, 0, 1)
+enabled = true
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.80342066, 0.5954119, 0, -0.5954119, 0.80342066, 0, 5.5695534, 14.075636)
+current = true

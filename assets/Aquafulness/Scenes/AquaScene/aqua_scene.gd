@@ -350,6 +350,7 @@ func get_wave_speed():
 
 func set_wave_height(value):
 	$Swing.wave_height = value
+	aqua.height = value
 
 
 var time_of_day: String = "Night"

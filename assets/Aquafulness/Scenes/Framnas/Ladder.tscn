@@ -60,7 +60,157 @@ size = Vector3(1.5927734, 0.26171875, 1)
 material = SubResource("StandardMaterial3D_qiydf")
 
 [node name="CSGBox3D16" type="CSGBox3D" parent="Node3D/StairSteps"]
-transform = Transform3D(0.99999845, 0, 0, 0, 1, 0, 0, 0, 1.0000006, 0, -28.053238, 2.5978804)
+transform = Transform3D(0.99999845, 0, 7.1054274e-15, 0, 1, 0, -1.4210855e-14, 0, 1.0000006, -2.576732e-08, -28.05324, 3.1873689)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 2.1316282e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, 2.0594882e-07, -32.079777, 2.3138819)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 2.1316282e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, 2.0594882e-07, -32.079777, 2.3138819)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 2.842171e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, 1.9451784e-07, -34.50847, 2.1227217)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 2.842171e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, 1.812233e-07, -37.71874, 2.053203)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 2.842171e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, 1.9607512e-07, -41.2823, 1.1886368)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 2.842171e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, 1.9093329e-07, -44.62611, 0.88750553)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 4.2632564e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, -0.015144668, -48.341858, 0.5443239)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 2.842171e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, 1.7058903e-07, -53.049164, 0.17870998)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D27" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 2.842171e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, 1.7058903e-07, -57.349537, -0.63130856)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D28" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 2.842171e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, 1.7058909e-07, -62.32822, -1.3047409)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D29" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 2.842171e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, 3.8447132e-07, -66.03993, -1.7702341)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D30" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 2.842171e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, 3.8447132e-07, -66.03993, -1.7702341)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D31" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 4.973799e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, 3.6840697e-07, -68.354675, -1.8553982)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D32" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 4.973799e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, 3.6840697e-07, -71.56495, -2.2290611)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D33" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 4.973799e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, 3.6840703e-07, -75.12851, -2.7538595)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D34" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 4.973799e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, 3.6840697e-07, -78.47234, -3.1726198)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D35" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 4.973799e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, 3.684071e-07, -82.15522, -3.7100306)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D36" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 4.973799e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, 3.6840697e-07, -86.89537, -4.346838)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D37" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 4.973799e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, 3.6840697e-07, -91.19575, -5.1568565)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D38" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 4.973799e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, -0.121284366, -96.24647, -5.8230715)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D39" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 5.684342e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, 5.599195e-07, -100.314896, -5.7840223)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D40" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 5.684342e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, 5.531323e-07, -100.314896, -5.628748)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D41" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 5.684342e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, 5.5313217e-07, -102.74359, -6.081419)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D42" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 5.684342e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, 5.531323e-07, -105.95385, -6.455085)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D43" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 5.684342e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, 5.531323e-07, -109.51743, -6.9798765)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D44" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 5.684342e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, 5.531323e-07, -112.861244, -7.3986425)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D45" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 5.684342e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, 5.531324e-07, -116.54416, -7.9360514)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D46" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 5.684342e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, 5.5313217e-07, -121.284294, -8.572856)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D47" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 5.684342e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, 5.5313194e-07, -125.58466, -9.382876)
+size = Vector3(1.5927734, 0.26171875, 1)
+material = SubResource("StandardMaterial3D_qiydf")
+
+[node name="CSGBox3D48" type="CSGBox3D" parent="Node3D/StairSteps"]
+transform = Transform3D(0.99999845, 0, 5.684342e-14, 0, 1, 0, -2.842171e-14, 0, 1.0000006, 5.529629e-07, -130.56335, -10.052432)
 size = Vector3(1.5927734, 0.26171875, 1)
 material = SubResource("StandardMaterial3D_qiydf")
 

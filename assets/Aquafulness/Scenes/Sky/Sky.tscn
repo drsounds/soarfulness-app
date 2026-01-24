@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://b537jlct0l7w8"]
 
 [ext_resource type="Script" uid="uid://brmy1pqpjjc2m" path="res://assets/Aquafulness/Scenes/Sky/sky.gd" id="1_gu35q"]
-[ext_resource type="Environment" uid="uid://cus80gtnew4kq" path="res://assets/Aquafulness/Scenes/Sky/Present_Day.tres" id="2_vnwj4"]
+[ext_resource type="Environment" uid="uid://cus80gtnew4kq" path="res://assets/Aquafulness/Scenes/Sky/Present_day.tres" id="2_vnwj4"]
 [ext_resource type="PackedScene" uid="uid://db0gfh3dgksql" path="res://assets/Aquafulness/Scenes/Bather/bather.tscn" id="3_vnwj4"]
 [ext_resource type="PackedScene" uid="uid://ds051alhagcog" path="res://assets/Aquafulness/Scenes/Snow/Snow.tscn" id="4_qoiki"]
 [ext_resource type="PackedScene" uid="uid://xctxfs7hg1rv" path="res://assets/Aquafulness/Scenes/Confetti/Confetti.tscn" id="5_krc48"]

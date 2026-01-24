@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://djpxbrdgwmb5w"]
+[gd_scene load_steps=6 format=3 uid="uid://djpxbrdgwmb5w"]
 
 [ext_resource type="Script" uid="uid://dcx74vvq8r8wu" path="res://assets/Aquafulness/Scenes/Aquafulness/aquafulness.gd" id="1_kj2lw"]
 [ext_resource type="VideoStream" uid="uid://bhl6cov8lwnos" path="res://Vänern.ogv" id="2_cuigj"]
+[ext_resource type="Texture2D" uid="uid://byflulcgpblr8" path="res://build/Soarfulness.png" id="3_ut41e"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kj2lw"]
 
@@ -23,11 +24,9 @@ seed_filename = "Vänern.ogv"
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.996875
-anchor_bottom = 1.0069444
-offset_right = 4.0
-offset_bottom = -5.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -42,11 +41,9 @@ metadata/_edit_use_anchors_ = true
 [node name="VideoStreamPlayer2" type="VideoStreamPlayer" parent="."]
 visible = false
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.00078125
-anchor_top = -0.0125
-anchor_right = 1.0054687
-anchor_bottom = 0.9986111
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -58,12 +55,12 @@ buffering_msec = 1000
 metadata/_edit_use_anchors_ = true
 
 [node name="Icon" type="Sprite2D" parent="."]
-visible = false
 self_modulate = Color(7.3928623, 7.3928623, 7.3928623, 0.5058824)
 top_level = true
 material = SubResource("CanvasItemMaterial_cuigj")
 position = Vector2(1798.9999, 111.00001)
 scale = Vector2(0.18055561, 0.18981478)
+texture = ExtResource("3_ut41e")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

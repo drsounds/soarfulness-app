@@ -8,6 +8,9 @@ var quad_tree_3d: QuadTree3D
 
 var floatation_gear: Node3D
 
+@export var sensitivity = 0.2
+@export var min_angle = -80
+@export var max_angle = 90
 var swimmed_z_plus = 0
 var swimmed_z_minus = 0
 var swimmed_x_minus = 0
@@ -19,7 +22,7 @@ var floating_y_minus = 0
 var location: Vector3 = Vector3(0, 0, 0)
 
 var movement: Vector3 = Vector3(0, 0, 0)
-
+var look_rot : Vector2
 signal position_changed
 signal velocity_changed
 
@@ -187,6 +190,11 @@ func _ready() -> void:
 var buoy = null
 
 func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		look_rot.y -= (event.relative.x * sensitivity)
+		look_rot.x -= (event.relative.y * sensitivity)
+		look_rot.x = clamp(look_rot.x, min_angle, max_angle)
+
 	if event is InputEventJoypadMotion:
 		if event.axis == JOY_AXIS_LEFT_X: # Left Stick X-axis
 			if event.axis_value > 0.5: velocity.x += (event.axis_value - 0.5) * 0.01
@@ -200,27 +208,27 @@ func _input(event: InputEvent) -> void:
 		self.movement.z = 0
 		self.movement.y = 0
 
-	if (event.is_action_pressed("ui_up") or event.is_action_pressed("up")) and (event.is_action_pressed("ui_down")  or event.is_action_pressed("down")) or event.is_action_pressed("stop"):
+	if event.is_action_pressed("ui_up") and event.is_action_pressed("ui_down") or event.is_action_pressed("stop"):
 		self.movement.z = 0
-	if (event.is_action_pressed("ui_left") or event.is_action_pressed("left")) and (event.is_action_pressed("ui_right") or event.is_action_pressed("right")) or event.is_action_pressed("stop"):
+	if event.is_action_pressed("ui_left") and event.is_action_pressed("ui_right") or event.is_action_pressed("stop"):
 		self.movement.x = 0
 
-	if event.is_action_pressed("ui_up") or event.is_action_pressed("up"):
+	if event.is_action_pressed("ui_up"):
 		self.movement.z -= 0.05
 		if self.movement.z < -10:
 			self.movement.z = -10
 
-	if event.is_action_pressed("ui_down") or event.is_action_pressed("down"):
+	if event.is_action_pressed("ui_down"):
 		self.movement.z += 0.05
 		if self.movement.z > 10:
 			self.movement.z = 10
 
-	if event.is_action_pressed('ui_left') or event.is_action_pressed("left"):
+	if event.is_action_pressed('ui_left'):
 		self.movement.x -= 0.05
 		if self.movement.x < -10:
 			self.movement.x = -10
 
-	if event.is_action_pressed('ui_right') or event.is_action_pressed("right"):
+	if event.is_action_pressed('ui_right'):
 		self.movement.x += 0.05
 		if self.movement.x > 10:
 			self.movement.x = 10
@@ -231,6 +239,10 @@ func set_rotation_deg(amount: Vector3):
 	
 	rotation_degrees = amount
 	emit_signal('rotated', amount)
+
+
+func triangle(x: float) -> float:
+	return 1.0 - abs(2.0 * (x - floor(x)) - 1.0)
 
 
 func _physics_process(delta:float) -> void:
@@ -284,11 +296,27 @@ func _physics_process(delta:float) -> void:
 		 
 	if aqua != null and aqua.enabled: 
 		var relation = transform.origin - aqua.transform.origin
+		aqua.transform.origin.x = transform.origin.x
+		aqua.transform.origin.z = transform.origin.z
 		var position_y = aqua.get_water_height(relation)
 		var float_delta = transform.origin.y - position_y
-		if float_delta < 0:
-			position.y = position_y
-
+		if float_delta < 0 or true:
+			var velony = (10 - abs(velocity.z)) / 10
+			if velony < 0:
+				velony = 0
+			position.y = position_y * 2.5 + 5 # * velony + 25
+			#if velocity.z < aqua.wave.z:
+			#	velocity.z += aqua.wave.z * 0.01
+			#velocity.x += aqua.wave.x
+			""""
+			var counter_current_z = triangle(time / 1) * aqua.wave.z * 1
+			print("tri", counter_current_z)
+			if counter_current_z > 0:
+				velocity.z -= counter_current_z
+			var counter_current_x = sin(time / 1) * aqua.wave.x * 1
+			if counter_current_x > 0:
+				velocity.x -= counter_current_x
+			"""
 	elif swing != null and swing.enabled:
 		self.collision_layer = 2
 		if buoy.swing == null:
@@ -313,7 +341,8 @@ func _physics_process(delta:float) -> void:
 	movement = transform.basis * movement
 
 	velocity += movement * delta
-	
+
+
 	if aqua != null and aqua.enabled: 
 		var collision = move_and_slide()
 	else:
@@ -332,3 +361,9 @@ func _physics_process(delta:float) -> void:
 	emit_signal('velocity_changed', self.velocity)
 
 	emit_signal('moved', self.transform.origin - old_transform_origin)
+
+	
+	var plat_rot = get_platform_angular_velocity()
+	look_rot.y += rad_to_deg(plat_rot.y * delta)
+	rotation_degrees.x = look_rot.x
+	rotation_degrees.y = look_rot.y

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://brd26t0cidc6n" path="res://assets/Aquafulness/Scenes/Lisch/lisch.gd" id="1_u72sl"]
 [ext_resource type="Texture2D" uid="uid://i4npwmijpt41" path="res://sand-white-texture-wave-floor-pattern-1197621-pxhere.com.jpg" id="2_6y0br"]
-[ext_resource type="Environment" uid="uid://cqh42u4gsu6mb" path="res://assets/Aquafulness/Scenes/Lisch/Present_Day.tres" id="2_g3bvu"]
+[ext_resource type="Environment" uid="uid://cqh42u4gsu6mb" path="res://assets/Aquafulness/Scenes/Lisch/present_day.tres" id="2_g3bvu"]
 [ext_resource type="PackedScene" uid="uid://db0gfh3dgksql" path="res://assets/Aquafulness/Scenes/Bather/bather.tscn" id="3_2knke"]
 [ext_resource type="Texture2D" uid="uid://cspr0457rcay" path="res://assets/Aquafulness/Scenes/Locker/Wall.png" id="3_c0y7u"]
 [ext_resource type="PackedScene" uid="uid://ds051alhagcog" path="res://assets/Aquafulness/Scenes/Snow/Snow.tscn" id="4_60imp"]

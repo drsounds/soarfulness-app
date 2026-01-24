@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cmr08ervk1ja1" path="res://assets/Aquafulness/beach-water-nature-sand-ocean-liquid-sunlight-texture-leaf-floor-refraction-pattern-green-circle-design-flooring-light-reflects-1279284.png" id="12_k4v8f"]
 [ext_resource type="PackedScene" uid="uid://b6t201nu4072p" path="res://assets/Aquafulness/Scenes/Framnas/Bottom.blend" id="15_6dq7n"]
 [ext_resource type="PackedScene" uid="uid://bnx2iv26spfup" path="res://assets/Aquafulness/Scenes/Yacht/Yacht.tscn" id="16_3t2hv"]
-[ext_resource type="PackedScene" uid="uid://dkgcx4oql4y03" path="res://assets/Aquafulness/Scenes/Aqua/Aqua.tscn" id="17_5yyik"]
+[ext_resource type="PackedScene" uid="uid://33d7xsb64pk" path="res://assets/Aquafulness/Scenes/Aqua/Aqua.tscn" id="17_5yyik"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rw81e"]
 size = Vector3(557.2794, 542.6787, 762.4247)
@@ -33,7 +33,7 @@ material = SubResource("StandardMaterial3D_6dq7n")
 script = ExtResource("1_0x1s2")
 
 [node name="Aqua" parent="." instance=ExtResource("17_5yyik")]
-height = 22.0
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -5.7799683, 0)
 
 [node name="Swing" parent="." instance=ExtResource("2_k4v8f")]
 wave_length = 1.0

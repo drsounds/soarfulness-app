@@ -14,6 +14,8 @@ func _on_stop_button_pressed() -> void:
 	$RightButton.button_pressed = false
 	bather.movement.x = 0
 	bather.movement.z = 0
+	bather.velocity.z = 0
+	bather.velocity.x = 0
 
 
 func _on_up_button_toggled(toggled_on: bool) -> void:

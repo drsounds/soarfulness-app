@@ -1,4 +1,4 @@
-extends MeshInstance3D
+extends Node3D
 class_name AquaNode
 
 var time = 0
@@ -13,6 +13,15 @@ var _enabled: bool = false
 var mdt: MeshDataTool
 func get_enabled():
 	return _enabled
+	
+func get_mesh():
+	return $Surface.mesh
+
+
+func set_mesh(value):
+	$Surface.mesh = value
+
+@export var mesh: Mesh: get = get_mesh, set = set_mesh
 
 
 func set_enabled(value):
@@ -24,12 +33,6 @@ func set_enabled(value):
 
 func _ready():
 	enabled = true
-	# create new MeshDataTool
-	mdt = MeshDataTool.new()
-	var surface_tool := SurfaceTool.new()
-	surface_tool.create_from(mesh,0)
-	var array_mesh := surface_tool.commit()
-	mesh = array_mesh
 
 
 func _process(delta: float) -> void:
@@ -45,26 +48,7 @@ func _process(delta: float) -> void:
 	mesh.surface_get_material(0).set('shader_parameter/time', time)
 	mesh.surface_get_material(0).set('shader_parameter/x', wave.x)
 	mesh.surface_get_material(0).set('shader_parameter/z', wave.z)
-	"""
-	# convert primitve to ArrayMesh
-	var arrMesh: ArrayMesh = mesh 
-	mdt.create_from_surface(mesh, 0) # Get data from a surface
-	# Modify vertices (e.g., move vertex at index 5)
-	for i in range(mdt.get_vertex_count()):
-		var vert = mdt.get_vertex(i)
-		var vert_y = sin(vert.z + wave.z) * height
-		mdt.set_vertex(i, Vector3(vert.x, vert_y, vert.z))
-	
-	arrMesh.clear_surfaces()
-	mdt.commit_to_surface(arrMesh)
 
-	create_trimesh_collision()
-	for child in get_children():
-		if child is StaticBody3D:
-			child.transform.origin.y = -3
-	"""
-	#var float_y = get_y_at_position(sphere.global_transform.origin.x, sphere.global_transform.origin.z)
-	#sphere.transform.origin.y = float_y
 
 func get_water_height(pos: Vector3):
-	return sin(pos.z + wave.z) * height
+	return sin(pos.z + wave.z - 3) + cos(pos.x + wave.z - 3) * height

@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://vqsmjqmwwcqo"]
+
+[ext_resource type="Shader" uid="uid://b3yj8to7lwt8h" path="res://assets/Aquafulness/Scenes/Aqua/aqua.gdshader" id="1_tqsmg"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vskng"]
+load_path = "res://.godot/imported/water.png-2dbae4af1d65114033079befdf372370.s3tc.ctex"
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_tqsmg")
+shader_parameter/time = 0.0
+shader_parameter/x = 0.0
+shader_parameter/z = 0.0
+shader_parameter/height = 28.49
+shader_parameter/text = SubResource("CompressedTexture2D_vskng")

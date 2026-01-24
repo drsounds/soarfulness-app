@@ -1,32 +1,36 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkgcx4oql4y03"]
+[gd_scene load_steps=5 format=3 uid="uid://33d7xsb64pk"]
 
-[ext_resource type="Shader" uid="uid://b3yj8to7lwt8h" path="res://assets/Aquafulness/Scenes/Aqua/aqua.gdshader" id="1_vskng"]
-[ext_resource type="Texture2D" uid="uid://cy0x1ogad4udx" path="res://beach-water-nature-sand-ocean-liquid-sunlight-texture-leaf-floor-refraction-pattern-green-circle-design-flooring-light-reflects-1279284.jpg" id="2_vbqw1"]
-[ext_resource type="Script" uid="uid://gkn81r43nyjg" path="res://assets/Aquafulness/Scenes/Aqua/aqua.gd" id="2_vskng"]
+[ext_resource type="Material" uid="uid://vqsmjqmwwcqo" path="res://assets/Aquafulness/Scenes/Aqua/Aqua2.tres" id="2_vskng"]
+[ext_resource type="Script" uid="uid://gkn81r43nyjg" path="res://assets/Aquafulness/Scenes/Aqua/aqua.gd" id="3_pbpoy"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vbqw1"]
-render_priority = 0
-shader = ExtResource("1_vskng")
-shader_parameter/time = 0.0
-shader_parameter/x = 0.0
-shader_parameter/z = 0.0
-shader_parameter/height = 35.63
-shader_parameter/text = ExtResource("2_vbqw1")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_n4ch7"]
-material = SubResource("ShaderMaterial_vbqw1")
-size = Vector2(1253.15, 1259.48)
+[sub_resource type="PlaneMesh" id="PlaneMesh_vbqw1"]
+material = ExtResource("2_vskng")
+size = Vector2(1248.56, 1248.56)
 subdivide_width = 12
-subdivide_depth = 12
+subdivide_depth = 28
 
-[node name="Surface" type="MeshInstance3D"]
-mesh = SubResource("PlaneMesh_n4ch7")
-script = ExtResource("2_vskng")
+[sub_resource type="BoxMesh" id="BoxMesh_nk4k4"]
+material = ExtResource("2_vskng")
+size = Vector3(1248.56, 0, 1253.15)
+subdivide_height = 12
+subdivide_depth = 17
+
+[node name="Aqua" type="Node3D"]
+script = ExtResource("3_pbpoy")
 speed = Vector3(0, 0, 1)
+height = 28.62
 enabled = true
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+[node name="Surface" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_vbqw1")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Volume" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.0894165, 0)
+visible = false
+mesh = SubResource("BoxMesh_nk4k4")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Volume"]
+
+[node name="Camera3D" type="Camera3D" parent="Volume"]
 transform = Transform3D(1, 0, 0, 0, 0.80342066, 0.5954119, 0, -0.5954119, 0.80342066, 0, 5.5695534, 14.075636)
 current = true

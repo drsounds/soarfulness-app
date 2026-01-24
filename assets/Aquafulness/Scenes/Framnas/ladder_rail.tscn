@@ -6,8 +6,8 @@ albedo_color = Color(0.639888, 0.639888, 0.6398879, 1)
 [node name="LadderRail" type="Node3D"]
 
 [node name="CSGBox3D19" type="CSGBox3D" parent="."]
-transform = Transform3D(0.99999845, 0, 0, 0, 0.99257815, -0.12160945, 0, 0.121613875, 0.99258083, 0.88272786, -12.973368, 4.723758)
-size = Vector3(0.16098022, 34.13324, 0.5274048)
+transform = Transform3D(0.99999845, 0, 0, 0, 0.99257815, -0.12160945, 0, 0.121613875, 0.99258083, 0.88272786, -70.93204, -2.3775256)
+size = Vector3(0.16098022, 150.91734, 0.5274048)
 material = SubResource("StandardMaterial3D_qiydf")
 
 [node name="CSGBox3D20" type="CSGBox3D" parent="."]
