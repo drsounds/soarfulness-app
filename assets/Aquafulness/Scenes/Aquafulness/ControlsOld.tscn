@@ -1,28 +1,28 @@
-[gd_scene load_steps=31 format=3 uid="uid://frb38tx0tt4c"]
+[gd_scene load_steps=31 format=3 uid="uid://s73eaisqwcim"]
 
-[ext_resource type="Script" uid="uid://d3qua6q1j3jxo" path="res://assets/Aquafulness/Scenes/Aquafulness/controls.gd" id="2_510mj"]
-[ext_resource type="Theme" uid="uid://dppbavpctnyxp" path="res://new_theme2.tres" id="3_qqppl"]
-[ext_resource type="PackedScene" uid="uid://nhupirheo6wb" path="res://assets/Aquafulness/Scenes/DateTimeInput.tscn" id="4_olqir"]
-[ext_resource type="Texture2D" uid="uid://mfe4b844vml0" path="res://assets/Aquafulness/cog.png" id="5_wr146"]
-[ext_resource type="Texture2D" uid="uid://hpexj2jhs2su" path="res://assets/Aquafulness/waves.png" id="6_qqppl"]
-[ext_resource type="Texture2D" uid="uid://cy7628oea8rvv" path="res://assets/Aquafulness/holiday2.png" id="7_7dhwk"]
-[ext_resource type="Texture2D" uid="uid://bhwxtw4b6kian" path="res://assets/Aquafulness/stop.png" id="9_7dhwk"]
-[ext_resource type="PackedScene" uid="uid://dxlxrqtrtbj05" path="res://assets/Aquafulness/Scenes/Aquafulness/LiveSlider.tscn" id="9_fjr8b"]
-[ext_resource type="Script" uid="uid://0eguknn5wp6o" path="res://assets/Aquafulness/Scenes/Aquafulness/Countdown.gd" id="10_8t18j"]
-[ext_resource type="PackedScene" uid="uid://bte1akycisd78" path="res://assets/Aquafulness/Scenes/Aquafulness/Spinner.tscn" id="10_fjr8b"]
-[ext_resource type="Script" uid="uid://16iexbb01rnb" path="res://assets/Aquafulness/Scenes/Aquafulness/weather_panel.gd" id="10_gl2ew"]
-[ext_resource type="Script" uid="uid://brh00g4fiq1ih" path="res://assets/Aquafulness/Scenes/Aquafulness/date_panel.gd" id="11_8iyei"]
-[ext_resource type="Texture2D" uid="uid://gjdtfx87t7oi" path="res://assets/Aquafulness/Weather.png" id="12_8iyei"]
-[ext_resource type="Texture2D" uid="uid://cb7nt5bbppi7x" path="res://assets/Aquafulness/DateTime.png" id="13_hdtcv"]
-[ext_resource type="PackedScene" uid="uid://dlywrigb0i3p1" path="res://assets/Aquafulness/Scenes/Aquafulness/audio_toggle_button.tscn" id="14_1adp4"]
-[ext_resource type="PackedScene" uid="uid://bik0m7c3v0uas" path="res://assets/Aquafulness/Scenes/Aquafulness/ControlCross.tscn" id="15_js47e"]
-[ext_resource type="Texture2D" uid="uid://cv28fl7cj1xq" path="res://assets/Aquafulness/Respawn.png" id="16_2c632"]
-[ext_resource type="Texture2D" uid="uid://dnm47msg3jkr6" path="res://assets/Aquafulness/ArrowUp.png" id="16_cvwdu"]
-[ext_resource type="Script" uid="uid://cr652bk2543qb" path="res://assets/Aquafulness/Scenes/Aquafulness/program_timer.gd" id="19_3msog"]
-[ext_resource type="Texture2D" uid="uid://c7qmodgyvwmoc" path="res://assets/Aquafulness/Scenes/Bather/textures/Swing.png" id="20_a0404"]
-[ext_resource type="Texture2D" uid="uid://df3ba0hueqskw" path="res://assets/Aquafulness/Scenes/Bather/textures/Soar.png" id="21_d40we"]
-[ext_resource type="Texture2D" uid="uid://c6fux4nvwolbs" path="res://assets/Aquafulness/Scenes/Bather/textures/Sink.png" id="22_bn2ln"]
-[ext_resource type="PackedScene" uid="uid://cbhw3esx8x6xk" path="res://assets/Aquafulness/Scenes/Aquafulness/Settings.tscn" id="23_d40we"]
+[ext_resource type="Script" uid="uid://d3qua6q1j3jxo" path="res://assets/Aquafulness/Scenes/Aquafulness/controls.gd" id="1_vpuun"]
+[ext_resource type="Texture2D" uid="uid://cb7nt5bbppi7x" path="res://assets/Aquafulness/DateTime.png" id="2_bhila"]
+[ext_resource type="Texture2D" uid="uid://gjdtfx87t7oi" path="res://assets/Aquafulness/Weather.png" id="3_cyug1"]
+[ext_resource type="Texture2D" uid="uid://hpexj2jhs2su" path="res://assets/Aquafulness/waves.png" id="4_vyny0"]
+[ext_resource type="PackedScene" uid="uid://dlywrigb0i3p1" path="res://assets/Aquafulness/Scenes/Aquafulness/audio_toggle_button.tscn" id="5_pjcqv"]
+[ext_resource type="Theme" uid="uid://dppbavpctnyxp" path="res://new_theme2.tres" id="6_kjr34"]
+[ext_resource type="PackedScene" uid="uid://nhupirheo6wb" path="res://assets/Aquafulness/Scenes/DateTimeInput.tscn" id="7_ww8cf"]
+[ext_resource type="Texture2D" uid="uid://mfe4b844vml0" path="res://assets/Aquafulness/cog.png" id="8_b5xaw"]
+[ext_resource type="Texture2D" uid="uid://cy7628oea8rvv" path="res://assets/Aquafulness/holiday2.png" id="9_gj4at"]
+[ext_resource type="Script" uid="uid://0eguknn5wp6o" path="res://assets/Aquafulness/Scenes/Aquafulness/Countdown.gd" id="10_ywwhp"]
+[ext_resource type="Texture2D" uid="uid://bhwxtw4b6kian" path="res://assets/Aquafulness/stop.png" id="11_kfkyg"]
+[ext_resource type="Script" uid="uid://16iexbb01rnb" path="res://assets/Aquafulness/Scenes/Aquafulness/weather_panel.gd" id="12_ncw46"]
+[ext_resource type="PackedScene" uid="uid://bte1akycisd78" path="res://assets/Aquafulness/Scenes/Aquafulness/Spinner.tscn" id="13_uyi2y"]
+[ext_resource type="Script" uid="uid://brh00g4fiq1ih" path="res://assets/Aquafulness/Scenes/Aquafulness/date_panel.gd" id="14_wcil4"]
+[ext_resource type="PackedScene" uid="uid://dxlxrqtrtbj05" path="res://assets/Aquafulness/Scenes/Aquafulness/LiveSlider.tscn" id="15_0b6yg"]
+[ext_resource type="Texture2D" uid="uid://dnm47msg3jkr6" path="res://assets/Aquafulness/ArrowUp.png" id="16_55tn7"]
+[ext_resource type="PackedScene" uid="uid://bik0m7c3v0uas" path="res://assets/Aquafulness/Scenes/Aquafulness/ControlCross.tscn" id="17_a6rt3"]
+[ext_resource type="Texture2D" uid="uid://cv28fl7cj1xq" path="res://assets/Aquafulness/Respawn.png" id="18_0ppk2"]
+[ext_resource type="Texture2D" uid="uid://c7qmodgyvwmoc" path="res://assets/Aquafulness/Scenes/Bather/textures/Swing.png" id="19_72axu"]
+[ext_resource type="Texture2D" uid="uid://df3ba0hueqskw" path="res://assets/Aquafulness/Scenes/Bather/textures/Soar.png" id="20_6uusg"]
+[ext_resource type="Texture2D" uid="uid://c6fux4nvwolbs" path="res://assets/Aquafulness/Scenes/Bather/textures/Sink.png" id="21_bhcs4"]
+[ext_resource type="Script" uid="uid://cr652bk2543qb" path="res://assets/Aquafulness/Scenes/Aquafulness/program_timer.gd" id="22_o1n2k"]
+[ext_resource type="PackedScene" uid="uid://cbhw3esx8x6xk" path="res://assets/Aquafulness/Scenes/Aquafulness/Settings.tscn" id="23_1u0vv"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1adp4"]
 
@@ -49,7 +49,7 @@ bg_color = Color(0, 0.72493297, 0.21746081, 1)
 offset_right = 1921.0
 offset_bottom = 1088.0
 mouse_filter = 1
-script = ExtResource("2_510mj")
+script = ExtResource("1_vpuun")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 material = SubResource("CanvasItemMaterial_1adp4")
@@ -112,7 +112,7 @@ layout_mode = 2
 modulate = Color(1, 1, 1, 0.49803922)
 custom_minimum_size = Vector2(24.14, 0)
 layout_mode = 2
-texture_normal = ExtResource("13_hdtcv")
+texture_normal = ExtResource("2_bhila")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -142,7 +142,7 @@ size_flags_horizontal = 3
 modulate = Color(1, 1, 1, 0.49803922)
 custom_minimum_size = Vector2(29.18, 0)
 layout_mode = 2
-texture_normal = ExtResource("12_8iyei")
+texture_normal = ExtResource("3_cyug1")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -168,7 +168,7 @@ size_flags_horizontal = 3
 modulate = Color(1, 1, 1, 0.49803922)
 custom_minimum_size = Vector2(29.18, 0)
 layout_mode = 2
-texture_normal = ExtResource("6_qqppl")
+texture_normal = ExtResource("4_vyny0")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -195,7 +195,7 @@ size_flags_horizontal = 3
 modulate = Color(1, 1, 1, 0.49803922)
 custom_minimum_size = Vector2(29.18, 0)
 layout_mode = 2
-texture_normal = ExtResource("6_qqppl")
+texture_normal = ExtResource("4_vyny0")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -223,7 +223,7 @@ size_flags_horizontal = 3
 modulate = Color(1, 1, 1, 0.49803922)
 custom_minimum_size = Vector2(29.18, 0)
 layout_mode = 2
-texture_normal = ExtResource("6_qqppl")
+texture_normal = ExtResource("4_vyny0")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -251,7 +251,7 @@ size_flags_horizontal = 3
 modulate = Color(1, 1, 1, 0.49803922)
 custom_minimum_size = Vector2(29.18, 0)
 layout_mode = 2
-texture_normal = ExtResource("6_qqppl")
+texture_normal = ExtResource("4_vyny0")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -277,7 +277,7 @@ size_flags_horizontal = 3
 modulate = Color(1, 1, 1, 0.49803922)
 custom_minimum_size = Vector2(29.18, 0)
 layout_mode = 2
-texture_normal = ExtResource("6_qqppl")
+texture_normal = ExtResource("4_vyny0")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -303,7 +303,7 @@ size_flags_horizontal = 3
 modulate = Color(1, 1, 1, 0.49803922)
 custom_minimum_size = Vector2(29.18, 0)
 layout_mode = 2
-texture_normal = ExtResource("6_qqppl")
+texture_normal = ExtResource("4_vyny0")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -330,7 +330,7 @@ text = "Preset"
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="AudioToggleButton" parent="." instance=ExtResource("14_1adp4")]
+[node name="AudioToggleButton" parent="." instance=ExtResource("5_pjcqv")]
 visible = false
 modulate = Color(1, 1, 1, 0.5294118)
 layout_mode = 1
@@ -393,11 +393,11 @@ offset_top = -121.0
 offset_bottom = -105.0
 grow_horizontal = 2
 grow_vertical = 0
-theme = ExtResource("3_qqppl")
+theme = ExtResource("6_kjr34")
 max_value = 366.0
 value = 17.0
 
-[node name="DateTimeInput" parent="." instance=ExtResource("4_olqir")]
+[node name="DateTimeInput" parent="." instance=ExtResource("7_ww8cf")]
 visible = false
 position = Vector2(52, 141)
 
@@ -536,7 +536,7 @@ offset_right = -98.0
 offset_bottom = -36.0
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("5_wr146")
+texture_normal = ExtResource("8_b5xaw")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -546,7 +546,7 @@ layout_mode = 0
 offset_right = 1280.0
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("5_wr146")
+texture_normal = ExtResource("8_b5xaw")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -563,7 +563,7 @@ offset_right = -145.0
 offset_bottom = -36.0
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("6_qqppl")
+texture_normal = ExtResource("4_vyny0")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -580,13 +580,13 @@ offset_right = -202.0
 offset_bottom = -40.0
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("7_7dhwk")
+texture_normal = ExtResource("9_gj4at")
 ignore_texture_size = true
 stretch_mode = 4
 
 [node name="CountdownTimer" type="Timer" parent="."]
 one_shot = true
-script = ExtResource("10_8t18j")
+script = ExtResource("10_ywwhp")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 visible = false
@@ -601,7 +601,7 @@ offset_right = 69.470825
 offset_bottom = 70.5
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("9_7dhwk")
+texture_normal = ExtResource("11_kfkyg")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -611,9 +611,9 @@ layout_mode = 0
 anchor_right = 1.0
 offset_bottom = 228.0
 grow_horizontal = 2
-script = ExtResource("10_gl2ew")
+script = ExtResource("12_ncw46")
 
-[node name="SnowAmountSpinner" parent="WeatherPanel" instance=ExtResource("10_fjr8b")]
+[node name="SnowAmountSpinner" parent="WeatherPanel" instance=ExtResource("13_uyi2y")]
 layout_mode = 0
 offset_left = 376.0
 offset_top = 120.0
@@ -622,7 +622,7 @@ offset_bottom = 120.0
 max = 1000.0
 text = "Snow amount"
 
-[node name="WaveHeightSpinner" parent="WeatherPanel" instance=ExtResource("10_fjr8b")]
+[node name="WaveHeightSpinner" parent="WeatherPanel" instance=ExtResource("13_uyi2y")]
 layout_mode = 0
 offset_left = 42.0
 offset_top = 120.0
@@ -630,7 +630,7 @@ offset_right = 42.0
 offset_bottom = 120.0
 text = "Wave Height"
 
-[node name="WaveLengthSpinner" parent="WeatherPanel" instance=ExtResource("10_fjr8b")]
+[node name="WaveLengthSpinner" parent="WeatherPanel" instance=ExtResource("13_uyi2y")]
 visible = false
 layout_mode = 0
 offset_left = 208.0
@@ -662,7 +662,7 @@ offset_right = 1280.0
 offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 0
-script = ExtResource("11_8iyei")
+script = ExtResource("14_wcil4")
 
 [node name="StartLabel" type="Label" parent="DatePanel"]
 layout_mode = 1
@@ -692,7 +692,7 @@ grow_vertical = 0
 text = "0000-00-00 --:--:--"
 horizontal_alignment = 2
 
-[node name="DaySlider" parent="DatePanel" instance=ExtResource("9_fjr8b")]
+[node name="DaySlider" parent="DatePanel" instance=ExtResource("15_0b6yg")]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -739,7 +739,7 @@ offset_right = -138.0
 offset_bottom = 22.0
 grow_horizontal = 0
 grow_vertical = 2
-texture_normal = ExtResource("16_cvwdu")
+texture_normal = ExtResource("16_55tn7")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -756,7 +756,7 @@ offset_right = -229.0
 offset_bottom = -521.0
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("16_cvwdu")
+texture_normal = ExtResource("16_55tn7")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -774,7 +774,7 @@ offset_bottom = -187.10986
 grow_horizontal = 0
 grow_vertical = 2
 rotation = -3.1415927
-texture_normal = ExtResource("16_cvwdu")
+texture_normal = ExtResource("16_55tn7")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -792,7 +792,7 @@ offset_bottom = 338.51184
 grow_horizontal = 0
 grow_vertical = 2
 rotation = -3.1415927
-texture_normal = ExtResource("16_cvwdu")
+texture_normal = ExtResource("16_55tn7")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -810,7 +810,7 @@ offset_bottom = 411.78412
 grow_horizontal = 0
 grow_vertical = 2
 rotation = -3.1415927
-texture_normal = ExtResource("16_cvwdu")
+texture_normal = ExtResource("16_55tn7")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -827,7 +827,7 @@ offset_right = -153.0
 offset_bottom = -49.856445
 grow_horizontal = 0
 grow_vertical = 2
-texture_normal = ExtResource("16_cvwdu")
+texture_normal = ExtResource("16_55tn7")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -845,7 +845,7 @@ offset_bottom = 132.74951
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(0.52, 0.32000124)
-texture_normal = ExtResource("16_cvwdu")
+texture_normal = ExtResource("16_55tn7")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -939,7 +939,7 @@ grow_horizontal = 0
 grow_vertical = 2
 rotation = -3.1415927
 scale = Vector2(1, 0.68)
-texture_normal = ExtResource("16_cvwdu")
+texture_normal = ExtResource("16_55tn7")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -974,7 +974,7 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Higher"
 
-[node name="ControlCross" parent="Control" instance=ExtResource("15_js47e")]
+[node name="ControlCross" parent="Control" instance=ExtResource("17_a6rt3")]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -999,7 +999,7 @@ offset_right = -89.0
 offset_bottom = -104.0
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("16_2c632")
+texture_normal = ExtResource("18_0ppk2")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -1078,7 +1078,7 @@ offset_right = -219.0
 offset_bottom = -13.0
 grow_horizontal = 0
 grow_vertical = 2
-texture_normal = ExtResource("6_qqppl")
+texture_normal = ExtResource("4_vyny0")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -1192,7 +1192,7 @@ offset_right = -329.0
 offset_bottom = -370.0
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("20_a0404")
+texture_normal = ExtResource("19_72axu")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -1209,7 +1209,7 @@ offset_right = -324.0
 offset_bottom = -231.0
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("20_a0404")
+texture_normal = ExtResource("19_72axu")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -1226,7 +1226,7 @@ offset_right = -332.0
 offset_bottom = -507.0
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("21_d40we")
+texture_normal = ExtResource("20_6uusg")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -1256,7 +1256,7 @@ offset_right = -415.0
 offset_bottom = -358.0
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("22_bn2ln")
+texture_normal = ExtResource("21_bhcs4")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -1360,7 +1360,7 @@ horizontal_alignment = 1
 
 [node name="ProgramTimer" type="Timer" parent="."]
 wait_time = 0.1
-script = ExtResource("19_3msog")
+script = ExtResource("22_o1n2k")
 
 [node name="IntervalProgressBar" type="ProgressBar" parent="."]
 visible = false
@@ -1396,7 +1396,7 @@ initial_position = 1
 size = Vector2i(1040, 430)
 visible = false
 
-[node name="Settings" parent="SettingsWindow" instance=ExtResource("23_d40we")]
+[node name="Settings" parent="SettingsWindow" instance=ExtResource("23_1u0vv")]
 
 [node name="SnapshotTimer" type="Timer" parent="."]
 autostart = true
