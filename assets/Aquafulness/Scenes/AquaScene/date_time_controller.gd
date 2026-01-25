@@ -2,6 +2,14 @@ extends Node3D
 
 class_name DateTimeController
 
+var environments = {
+	'Framnas': {
+		'present': {
+			'day': preload('res://assets/Aquafulness/Scenes/Framnas/present_day.tres'),
+			'night': preload('res://assets/Aquafulness/Scenes/Framnas/present_night.tres')
+		}
+	}
+}
 
 var date: Dictionary: get = get_date, set = set_date
 var real_time: bool: get = get_real_time, set = set_real_time
@@ -87,6 +95,18 @@ func set_date(value):
 			time_of_day = "Day"
 			#$Light.visible = false
 
+	var environment = null
+
+	if environments.has(scene_id):
+		if environments[scene_id].has(epoch.to_lower()):
+			if environments[scene_id].has(time_of_day.to_lower()):
+				if environments[scene_id][epoch.to_lower()].has(time_of_day.to_lower()):
+					environment = environments[scene_id][epoch.to_lower()][time_of_day.to_lower()]
+	
+	if environment != null:
+		self.emit_signal('environment_changed', environment)
+
+	"""
 	var filename = 'res://assets/Aquafulness/scenes/' + scene_id + '/' + epoch.to_lower() + '_' + time_of_day.to_lower() + '.tres'
 
 	
@@ -95,10 +115,10 @@ func set_date(value):
 
 		if environment == null:
 			print("Corrupt resource")
-
+	
 		self.emit_signal('environment_changed', environment)
 	else:
 		print(filename + ' does not exist')
-
+	"""
 	self.emit_signal('date_changed', date)
 	self.emit_signal('time_of_day_changed', time_of_day)

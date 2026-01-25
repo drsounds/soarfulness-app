@@ -2,6 +2,9 @@ extends Node3D
 
 var _date: Dictionary = Time.get_datetime_dict_from_system(true)
 
+var framnas_present_day = preload('res://assets/Aquafulness/Scenes/Framnas/present_day.tres')
+var framnas_present_night = preload('res://assets/Aquafulness/Scenes/Framnas/present_night.tres')
+
 
 @export var date: Dictionary: get = get_date, set = set_date
 @export var snow: bool: get = get_snow, set = set_snow

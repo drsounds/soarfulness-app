@@ -2,6 +2,9 @@ extends Node3D
 
 class_name AquaScene
 
+var framnas_present_day = preload('res://assets/Aquafulness/Scenes/Framnas/present_day.tres')
+var framnas_present_night = preload('res://assets/Aquafulness/Scenes/Framnas/present_night.tres')
+
 var aquafulness: Control
 
 var scene_id
