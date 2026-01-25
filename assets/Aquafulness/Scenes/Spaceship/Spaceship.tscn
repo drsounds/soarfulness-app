@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://dch3sse7fj725"]
+
+[ext_resource type="Environment" uid="uid://mjetoiv3d2im" path="res://assets/Aquafulness/Scenes/Spaceship/present_day.tres" id="1_6bh35"]
+[ext_resource type="Texture2D" uid="uid://xg83qqmr11l6" path="res://ChatGPT Image 26 jan. 2026 00_35_43.png" id="1_afyrr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_baq6d"]
+shading_mode = 0
+albedo_texture = ExtResource("1_afyrr")
+
+[sub_resource type="BoxMesh" id="BoxMesh_my13m"]
+material = SubResource("StandardMaterial3D_baq6d")
+size = Vector3(7.95, 1, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lmc77"]
+load_path = "res://.godot/imported/ChatGPT Image 26 jan. 2026 00_35_43.png-92d5f723b94e5232f8f97f2c24666082.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ktrnh"]
+shading_mode = 0
+albedo_texture = SubResource("CompressedTexture2D_lmc77")
+
+[sub_resource type="BoxMesh" id="BoxMesh_jvm61"]
+material = SubResource("StandardMaterial3D_ktrnh")
+size = Vector3(7.95, 1, 1)
+
+[node name="Spaceship" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.15056641, 0, 0, 0, 12.211399, 0, 0, 0, 20.815243, 0, 6.39122, -0.21143913)
+mesh = SubResource("BoxMesh_my13m")
+
+[node name="CSGMesh3D5" type="CSGMesh3D" parent="CSGCombiner3D"]
+transform = Transform3D(2.9777846, 0, 0, 0, 1.5330426, 0, 0, 0, 20.815243, -10.786411, 0.54056644, -0.21143913)
+mesh = SubResource("BoxMesh_my13m")
+
+[node name="CSGMesh3D6" type="CSGMesh3D" parent="CSGCombiner3D"]
+transform = Transform3D(2.9777846, 0, 0, 0, 1.5330426, 0, 0, 0, 20.815243, -10.786411, 8.576591, -0.21143913)
+mesh = SubResource("BoxMesh_my13m")
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.15056641, 0, 0, 0, 12.211399, 0, 0, 0, 20.815243, -23.440266, 6.39122, 0)
+mesh = SubResource("BoxMesh_my13m")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="CSGCombiner3D"]
+transform = Transform3D(2.7471266, 0, 0, 0, 12.211399, 0, 0, 0, 1.8547039, -11.645445, 6.39122, 11)
+mesh = SubResource("BoxMesh_my13m")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="CSGCombiner3D"]
+transform = Transform3D(2.7471266, 0, 0, 0, 12.211399, 0, 0, 0, 1.8547039, -11.645445, 6.39122, -10.943878)
+mesh = SubResource("BoxMesh_my13m")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_6bh35")
+
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.108126, 0, 0)
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="CSGCombiner3D2"]
+transform = Transform3D(0.25280425, 0, 0, 0, 12.211399, 0, 0, 0, 1.5453928, -1.2185068, 6.39122, 1.2695932)
+mesh = SubResource("BoxMesh_jvm61")
