@@ -96,12 +96,15 @@ func set_date(value):
 			#$Light.visible = false
 
 	var environment = null
+	
+	var scene_id = get_parent().scene_id
+	var epoch_id = epoch.to_lower()
+	var time_of_day_id = time_of_day.to_lower()
 
 	if environments.has(scene_id):
-		if environments[scene_id].has(epoch.to_lower()):
-			if environments[scene_id].has(time_of_day.to_lower()):
-				if environments[scene_id][epoch.to_lower()].has(time_of_day.to_lower()):
-					environment = environments[scene_id][epoch.to_lower()][time_of_day.to_lower()]
+		if environments[scene_id].has(epoch_id):
+			if environments[scene_id][epoch_id].has(time_of_day_id):
+				environment = environments[scene_id][epoch_id][time_of_day_id]
 	
 	if environment != null:
 		self.emit_signal('environment_changed', environment)
