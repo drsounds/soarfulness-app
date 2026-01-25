@@ -469,6 +469,12 @@ func init():
 	aquafulness = get_tree().root.find_child('Aquafulness', true, false)
 	swing = $Swing
 	aqua = $Aqua
+	if aqua == null:
+		var aqua_class = load('res://assets/Aquafulness/Scenes/Aqua/Aqua.tscn')
+		aqua = aqua_class.instantiate()
+		aqua.visible = false
+		get_parent().add_child(aqua)
+
 	$Bather.aqua = aqua
 	$Bather.swing = swing
 

@@ -1,38 +1,103 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxxjs2bfrspkb"]
+[gd_scene load_steps=11 format=3 uid="uid://dxxjs2bfrspkb"]
 
+[ext_resource type="Script" uid="uid://balpc77cs0fa5" path="res://assets/Aquafulness/Scenes/Aquafulness/controls_v_2.gd" id="1_kvvr8"]
 [ext_resource type="Script" uid="uid://cpbnai0xjxceg" path="res://addons/virtual_joystick/virtual_joystick.gd" id="1_wj3fq"]
 [ext_resource type="Texture2D" uid="uid://2mxov72d6wo5" path="res://addons/virtual_joystick/resources/textures/joystick_texture_5.png" id="2_do2dj"]
 [ext_resource type="Texture2D" uid="uid://kntb52ka5tmo" path="res://addons/virtual_joystick/resources/textures/stick_texture_5.png" id="3_a1ad0"]
+[ext_resource type="Texture2D" uid="uid://byflulcgpblr8" path="res://build/Soarfulness.png" id="4_do2dj"]
+[ext_resource type="Texture2D" uid="uid://cv28fl7cj1xq" path="res://assets/Aquafulness/Respawn.png" id="5_a1ad0"]
 
-[node name="ControlsV2" type="VBoxContainer"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kvvr8"]
+
+[sub_resource type="Gradient" id="Gradient_js47e"]
+colors = PackedColorArray(0, 0, 0, 0.49019608, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i5c82"]
+gradient = SubResource("Gradient_js47e")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_a1ad0"]
+
+[node name="ControlsV2" type="TextureButton"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_kvvr8")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 2
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("CanvasItemMaterial_kvvr8")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_i5c82")
 
-[node name="Label" type="Label" parent="HBoxContainer"]
-layout_mode = 2
-text = "test"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="."]
-clip_contents = true
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer2"]
-custom_minimum_size = Vector2(478.79, 0)
-layout_mode = 2
-
-[node name="VirtualJoystick" type="Control" parent="HBoxContainer2/CenterContainer"]
-layout_mode = 2
+[node name="RightJoyStick" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -579.0
+offset_top = -465.0
+offset_right = -377.0
+offset_bottom = -263.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(101, 101)
 script = ExtResource("1_wj3fq")
 joystick_texture = ExtResource("2_do2dj")
 stick_texture = ExtResource("3_a1ad0")
 metadata/_custom_type_script = "uid://cpbnai0xjxceg"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="."]
-layout_mode = 2
+[node name="LeftJoyStick" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1743.0
+offset_top = -468.0
+offset_right = -1541.0
+offset_bottom = -266.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(101, 101)
+script = ExtResource("1_wj3fq")
+joystick_texture = ExtResource("2_do2dj")
+stick_texture = ExtResource("3_a1ad0")
+metadata/_custom_type_script = "uid://cpbnai0xjxceg"
+
+[node name="Icon" type="Sprite2D" parent="."]
+self_modulate = Color(7.3928623, 7.3928623, 7.3928623, 0.5058824)
+top_level = true
+material = SubResource("CanvasItemMaterial_a1ad0")
+position = Vector2(1816, 105)
+scale = Vector2(0.18055561, 0.18981478)
+texture = ExtResource("4_do2dj")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -134.0
+offset_top = -169.0
+offset_right = -74.0
+offset_bottom = -115.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("5_a1ad0")
+ignore_texture_size = true
+stretch_mode = 4
+
+[connection signal="analogic_changed" from="RightJoyStick" to="." method="_on_right_joy_stick_analogic_changed"]
+[connection signal="analogic_changed" from="LeftJoyStick" to="." method="_on_left_joy_stick_analogic_changed"]

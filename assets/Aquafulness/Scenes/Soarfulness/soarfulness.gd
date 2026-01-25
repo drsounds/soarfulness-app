@@ -58,7 +58,16 @@ func get_scene_id():
 
 func set_scene_id(scene_name: String):
 	slot = $ViewportContainer/SubViewport
-	var scene = load('res://assets/Aquafulness/Scenes/' + scene_name + '/' + scene_name + '.tscn').instantiate()
+	var scene_filename = 'res://assets/Aquafulness/Scenes/' + scene_name + '/' + scene_name + '.tscn'
+	var scene_class = load(scene_filename)
+	if scene_class == null:
+		$Aquafulness.hide()
+		$Controls.hide()
+		$AcceptDialog.dialog_text = scene_filename
+		$AcceptDialog.show()
+		return
+		
+	var scene = scene_class.instantiate()
 	while slot.get_child_count() > 0:
 		slot.remove_child(slot.get_child(0))
 

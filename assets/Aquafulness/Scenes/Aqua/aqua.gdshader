@@ -10,7 +10,7 @@ uniform sampler2D text;
 
 void vertex() {
 	// Called for every vertex the material is visible on.
-	VERTEX.y =  VERTEX.y + sin(VERTEX.z + z) + cos(VERTEX.x + z) * height;
+	VERTEX.y =  VERTEX.y + sin(VERTEX.z + z) * height;
 }
 
 void fragment() {

@@ -27,6 +27,7 @@ grow_vertical = 2
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="ViewportContainer"]
+handle_input_locally = false
 size = Vector2i(1920, 1080)
 size_2d_override_stretch = true
 render_target_update_mode = 4
@@ -62,3 +63,7 @@ offset_bottom = 96.0
 grow_horizontal = 0
 ignore_texture_size = true
 stretch_mode = 4
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+title = "Error"
+ok_button_text = "OK"

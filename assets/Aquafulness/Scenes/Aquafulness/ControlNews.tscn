@@ -1,33 +1,28 @@
-[gd_scene load_steps=36 format=3 uid="uid://frb38tx0tt4c"]
+[gd_scene load_steps=31 format=3 uid="uid://dbupuh3jxolk2"]
 
-[ext_resource type="Script" uid="uid://d3qua6q1j3jxo" path="res://assets/Aquafulness/Scenes/Aquafulness/controls.gd" id="2_510mj"]
-[ext_resource type="Theme" uid="uid://dppbavpctnyxp" path="res://new_theme2.tres" id="3_qqppl"]
-[ext_resource type="PackedScene" uid="uid://nhupirheo6wb" path="res://assets/Aquafulness/Scenes/DateTimeInput.tscn" id="4_olqir"]
-[ext_resource type="Texture2D" uid="uid://mfe4b844vml0" path="res://assets/Aquafulness/cog.png" id="5_wr146"]
-[ext_resource type="Texture2D" uid="uid://hpexj2jhs2su" path="res://assets/Aquafulness/waves.png" id="6_qqppl"]
-[ext_resource type="Texture2D" uid="uid://cy7628oea8rvv" path="res://assets/Aquafulness/holiday2.png" id="7_7dhwk"]
-[ext_resource type="Texture2D" uid="uid://bhwxtw4b6kian" path="res://assets/Aquafulness/stop.png" id="9_7dhwk"]
-[ext_resource type="PackedScene" uid="uid://dxlxrqtrtbj05" path="res://assets/Aquafulness/Scenes/Aquafulness/LiveSlider.tscn" id="9_fjr8b"]
-[ext_resource type="Script" uid="uid://0eguknn5wp6o" path="res://assets/Aquafulness/Scenes/Aquafulness/Countdown.gd" id="10_8t18j"]
-[ext_resource type="PackedScene" uid="uid://bte1akycisd78" path="res://assets/Aquafulness/Scenes/Aquafulness/Spinner.tscn" id="10_fjr8b"]
-[ext_resource type="Script" uid="uid://16iexbb01rnb" path="res://assets/Aquafulness/Scenes/Aquafulness/weather_panel.gd" id="10_gl2ew"]
-[ext_resource type="Script" uid="uid://brh00g4fiq1ih" path="res://assets/Aquafulness/Scenes/Aquafulness/date_panel.gd" id="11_8iyei"]
-[ext_resource type="Texture2D" uid="uid://gjdtfx87t7oi" path="res://assets/Aquafulness/Weather.png" id="12_8iyei"]
-[ext_resource type="Texture2D" uid="uid://cb7nt5bbppi7x" path="res://assets/Aquafulness/DateTime.png" id="13_hdtcv"]
-[ext_resource type="PackedScene" uid="uid://dlywrigb0i3p1" path="res://assets/Aquafulness/Scenes/Aquafulness/audio_toggle_button.tscn" id="14_1adp4"]
-[ext_resource type="PackedScene" uid="uid://bik0m7c3v0uas" path="res://assets/Aquafulness/Scenes/Aquafulness/ControlCross.tscn" id="15_js47e"]
-[ext_resource type="Texture2D" uid="uid://cv28fl7cj1xq" path="res://assets/Aquafulness/Respawn.png" id="16_2c632"]
-[ext_resource type="Texture2D" uid="uid://dnm47msg3jkr6" path="res://assets/Aquafulness/ArrowUp.png" id="16_cvwdu"]
-[ext_resource type="Script" uid="uid://cr652bk2543qb" path="res://assets/Aquafulness/Scenes/Aquafulness/program_timer.gd" id="19_3msog"]
-[ext_resource type="Texture2D" uid="uid://c7qmodgyvwmoc" path="res://assets/Aquafulness/Scenes/Bather/textures/Swing.png" id="20_a0404"]
-[ext_resource type="Texture2D" uid="uid://df3ba0hueqskw" path="res://assets/Aquafulness/Scenes/Bather/textures/Soar.png" id="21_d40we"]
-[ext_resource type="Texture2D" uid="uid://b16h1he8srimp" path="res://assets/Aquafulness/IncreaseWaveHeight.png" id="22_27bdo"]
-[ext_resource type="Texture2D" uid="uid://c6fux4nvwolbs" path="res://assets/Aquafulness/Scenes/Bather/textures/Sink.png" id="22_bn2ln"]
-[ext_resource type="Texture2D" uid="uid://b8sowp50ft2io" path="res://assets/Aquafulness/DecreaseWaveLength.png" id="23_0y8fl"]
-[ext_resource type="PackedScene" uid="uid://cbhw3esx8x6xk" path="res://assets/Aquafulness/Scenes/Aquafulness/Settings.tscn" id="23_d40we"]
-[ext_resource type="Texture2D" uid="uid://btfpen5mcv2vi" path="res://assets/Aquafulness/IncreaseWaveLength.png" id="24_o74wx"]
-[ext_resource type="Texture2D" uid="uid://dur8pplruw1pw" path="res://assets/Aquafulness/DecreaseWaveSpeed.png" id="25_v0ftm"]
-[ext_resource type="Texture2D" uid="uid://cyan8u0t88lwv" path="res://assets/Aquafulness/IncreaseWaveSpeed.png" id="26_uyjtn"]
+[ext_resource type="Script" uid="uid://d3qua6q1j3jxo" path="res://assets/Aquafulness/Scenes/Aquafulness/controls.gd" id="1_t1kfc"]
+[ext_resource type="Texture2D" uid="uid://cb7nt5bbppi7x" path="res://assets/Aquafulness/DateTime.png" id="2_v1jre"]
+[ext_resource type="Texture2D" uid="uid://gjdtfx87t7oi" path="res://assets/Aquafulness/Weather.png" id="3_jhvlc"]
+[ext_resource type="Texture2D" uid="uid://hpexj2jhs2su" path="res://assets/Aquafulness/waves.png" id="4_x6jow"]
+[ext_resource type="PackedScene" uid="uid://dlywrigb0i3p1" path="res://assets/Aquafulness/Scenes/Aquafulness/audio_toggle_button.tscn" id="5_v63o2"]
+[ext_resource type="Theme" uid="uid://dppbavpctnyxp" path="res://new_theme2.tres" id="6_6u0at"]
+[ext_resource type="PackedScene" uid="uid://nhupirheo6wb" path="res://assets/Aquafulness/Scenes/DateTimeInput.tscn" id="7_g8oyc"]
+[ext_resource type="Texture2D" uid="uid://mfe4b844vml0" path="res://assets/Aquafulness/cog.png" id="8_taosf"]
+[ext_resource type="Texture2D" uid="uid://cy7628oea8rvv" path="res://assets/Aquafulness/holiday2.png" id="9_wb82y"]
+[ext_resource type="Script" uid="uid://0eguknn5wp6o" path="res://assets/Aquafulness/Scenes/Aquafulness/Countdown.gd" id="10_j252g"]
+[ext_resource type="Texture2D" uid="uid://bhwxtw4b6kian" path="res://assets/Aquafulness/stop.png" id="11_gxsjm"]
+[ext_resource type="Script" uid="uid://16iexbb01rnb" path="res://assets/Aquafulness/Scenes/Aquafulness/weather_panel.gd" id="12_adllp"]
+[ext_resource type="PackedScene" uid="uid://bte1akycisd78" path="res://assets/Aquafulness/Scenes/Aquafulness/Spinner.tscn" id="13_5cogs"]
+[ext_resource type="Script" uid="uid://brh00g4fiq1ih" path="res://assets/Aquafulness/Scenes/Aquafulness/date_panel.gd" id="14_876e1"]
+[ext_resource type="PackedScene" uid="uid://dxlxrqtrtbj05" path="res://assets/Aquafulness/Scenes/Aquafulness/LiveSlider.tscn" id="15_onla3"]
+[ext_resource type="Texture2D" uid="uid://dnm47msg3jkr6" path="res://assets/Aquafulness/ArrowUp.png" id="16_y118m"]
+[ext_resource type="PackedScene" uid="uid://bik0m7c3v0uas" path="res://assets/Aquafulness/Scenes/Aquafulness/ControlCross.tscn" id="17_xtdr5"]
+[ext_resource type="Texture2D" uid="uid://cv28fl7cj1xq" path="res://assets/Aquafulness/Respawn.png" id="18_s6tp2"]
+[ext_resource type="Texture2D" uid="uid://c7qmodgyvwmoc" path="res://assets/Aquafulness/Scenes/Bather/textures/Swing.png" id="19_2ga7b"]
+[ext_resource type="Texture2D" uid="uid://df3ba0hueqskw" path="res://assets/Aquafulness/Scenes/Bather/textures/Soar.png" id="20_hu1dc"]
+[ext_resource type="Texture2D" uid="uid://c6fux4nvwolbs" path="res://assets/Aquafulness/Scenes/Bather/textures/Sink.png" id="21_v4h8i"]
+[ext_resource type="Script" uid="uid://cr652bk2543qb" path="res://assets/Aquafulness/Scenes/Aquafulness/program_timer.gd" id="22_2j31u"]
+[ext_resource type="PackedScene" uid="uid://cbhw3esx8x6xk" path="res://assets/Aquafulness/Scenes/Aquafulness/Settings.tscn" id="23_w0b3d"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1adp4"]
 
@@ -54,7 +49,7 @@ bg_color = Color(0, 0.72493297, 0.21746081, 1)
 offset_right = 1921.0
 offset_bottom = 1088.0
 mouse_filter = 1
-script = ExtResource("2_510mj")
+script = ExtResource("1_t1kfc")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 material = SubResource("CanvasItemMaterial_1adp4")
@@ -67,6 +62,7 @@ grow_horizontal = 2
 texture = SubResource("GradientTexture2D_2c632")
 
 [node name="StatusBar" type="HBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -116,7 +112,7 @@ layout_mode = 2
 modulate = Color(1, 1, 1, 0.49803922)
 custom_minimum_size = Vector2(24.14, 0)
 layout_mode = 2
-texture_normal = ExtResource("13_hdtcv")
+texture_normal = ExtResource("2_v1jre")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -146,7 +142,7 @@ size_flags_horizontal = 3
 modulate = Color(1, 1, 1, 0.49803922)
 custom_minimum_size = Vector2(29.18, 0)
 layout_mode = 2
-texture_normal = ExtResource("12_8iyei")
+texture_normal = ExtResource("3_jhvlc")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -172,7 +168,7 @@ size_flags_horizontal = 3
 modulate = Color(1, 1, 1, 0.49803922)
 custom_minimum_size = Vector2(29.18, 0)
 layout_mode = 2
-texture_normal = ExtResource("6_qqppl")
+texture_normal = ExtResource("4_x6jow")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -199,7 +195,7 @@ size_flags_horizontal = 3
 modulate = Color(1, 1, 1, 0.49803922)
 custom_minimum_size = Vector2(29.18, 0)
 layout_mode = 2
-texture_normal = ExtResource("6_qqppl")
+texture_normal = ExtResource("4_x6jow")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -227,7 +223,7 @@ size_flags_horizontal = 3
 modulate = Color(1, 1, 1, 0.49803922)
 custom_minimum_size = Vector2(29.18, 0)
 layout_mode = 2
-texture_normal = ExtResource("6_qqppl")
+texture_normal = ExtResource("4_x6jow")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -255,7 +251,7 @@ size_flags_horizontal = 3
 modulate = Color(1, 1, 1, 0.49803922)
 custom_minimum_size = Vector2(29.18, 0)
 layout_mode = 2
-texture_normal = ExtResource("6_qqppl")
+texture_normal = ExtResource("4_x6jow")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -281,7 +277,7 @@ size_flags_horizontal = 3
 modulate = Color(1, 1, 1, 0.49803922)
 custom_minimum_size = Vector2(29.18, 0)
 layout_mode = 2
-texture_normal = ExtResource("6_qqppl")
+texture_normal = ExtResource("4_x6jow")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -307,7 +303,7 @@ size_flags_horizontal = 3
 modulate = Color(1, 1, 1, 0.49803922)
 custom_minimum_size = Vector2(29.18, 0)
 layout_mode = 2
-texture_normal = ExtResource("6_qqppl")
+texture_normal = ExtResource("4_x6jow")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -334,7 +330,7 @@ text = "Preset"
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="AudioToggleButton" parent="." instance=ExtResource("14_1adp4")]
+[node name="AudioToggleButton" parent="." instance=ExtResource("5_v63o2")]
 visible = false
 modulate = Color(1, 1, 1, 0.5294118)
 layout_mode = 1
@@ -397,11 +393,11 @@ offset_top = -121.0
 offset_bottom = -105.0
 grow_horizontal = 2
 grow_vertical = 0
-theme = ExtResource("3_qqppl")
+theme = ExtResource("6_6u0at")
 max_value = 366.0
 value = 17.0
 
-[node name="DateTimeInput" parent="." instance=ExtResource("4_olqir")]
+[node name="DateTimeInput" parent="." instance=ExtResource("7_g8oyc")]
 visible = false
 position = Vector2(52, 141)
 
@@ -540,7 +536,7 @@ offset_right = -98.0
 offset_bottom = -36.0
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("5_wr146")
+texture_normal = ExtResource("8_taosf")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -550,7 +546,7 @@ layout_mode = 0
 offset_right = 1280.0
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("5_wr146")
+texture_normal = ExtResource("8_taosf")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -567,7 +563,7 @@ offset_right = -145.0
 offset_bottom = -36.0
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("6_qqppl")
+texture_normal = ExtResource("4_x6jow")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -584,13 +580,13 @@ offset_right = -202.0
 offset_bottom = -40.0
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("7_7dhwk")
+texture_normal = ExtResource("9_wb82y")
 ignore_texture_size = true
 stretch_mode = 4
 
 [node name="CountdownTimer" type="Timer" parent="."]
 one_shot = true
-script = ExtResource("10_8t18j")
+script = ExtResource("10_j252g")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 visible = false
@@ -605,7 +601,7 @@ offset_right = 69.470825
 offset_bottom = 70.5
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("9_7dhwk")
+texture_normal = ExtResource("11_gxsjm")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -615,9 +611,9 @@ layout_mode = 0
 anchor_right = 1.0
 offset_bottom = 228.0
 grow_horizontal = 2
-script = ExtResource("10_gl2ew")
+script = ExtResource("12_adllp")
 
-[node name="SnowAmountSpinner" parent="WeatherPanel" instance=ExtResource("10_fjr8b")]
+[node name="SnowAmountSpinner" parent="WeatherPanel" instance=ExtResource("13_5cogs")]
 layout_mode = 0
 offset_left = 376.0
 offset_top = 120.0
@@ -626,7 +622,7 @@ offset_bottom = 120.0
 max = 1000.0
 text = "Snow amount"
 
-[node name="WaveHeightSpinner" parent="WeatherPanel" instance=ExtResource("10_fjr8b")]
+[node name="WaveHeightSpinner" parent="WeatherPanel" instance=ExtResource("13_5cogs")]
 layout_mode = 0
 offset_left = 42.0
 offset_top = 120.0
@@ -634,7 +630,7 @@ offset_right = 42.0
 offset_bottom = 120.0
 text = "Wave Height"
 
-[node name="WaveLengthSpinner" parent="WeatherPanel" instance=ExtResource("10_fjr8b")]
+[node name="WaveLengthSpinner" parent="WeatherPanel" instance=ExtResource("13_5cogs")]
 visible = false
 layout_mode = 0
 offset_left = 208.0
@@ -666,7 +662,7 @@ offset_right = 1280.0
 offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 0
-script = ExtResource("11_8iyei")
+script = ExtResource("14_876e1")
 
 [node name="StartLabel" type="Label" parent="DatePanel"]
 layout_mode = 1
@@ -696,7 +692,7 @@ grow_vertical = 0
 text = "0000-00-00 --:--:--"
 horizontal_alignment = 2
 
-[node name="DaySlider" parent="DatePanel" instance=ExtResource("9_fjr8b")]
+[node name="DaySlider" parent="DatePanel" instance=ExtResource("15_onla3")]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -724,48 +720,134 @@ text = "V Time"
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
-anchor_top = 0.18100001
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 10.679993
-offset_bottom = -72.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="IncreaseWaveLevelButton" type="TextureButton" parent="Control"]
+[node name="IncreaseWaveHeightButton" type="TextureButton" parent="Control"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -612.0
-offset_top = -123.803986
-offset_right = -571.0
-offset_bottom = -89.10797
+offset_left = -203.0
+offset_top = -36.0
+offset_right = -138.0
+offset_bottom = 22.0
 grow_horizontal = 0
 grow_vertical = 2
-texture_normal = ExtResource("16_cvwdu")
+texture_normal = ExtResource("16_y118m")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="IncreaseWaveLevelButton" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -290.0
+offset_top = -571.0
+offset_right = -229.0
+offset_bottom = -521.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("16_y118m")
 ignore_texture_size = true
 stretch_mode = 4
 
 [node name="DecreaseWaveLevelButton" type="TextureButton" parent="Control"]
 layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0200001
+anchor_top = 1.0
+anchor_right = 1.0200001
+anchor_bottom = 1.0
+offset_left = -285.42017
+offset_top = -257.0
+offset_right = -230.8075
+offset_bottom = -187.10986
+grow_horizontal = 0
+grow_vertical = 2
+rotation = -3.1415927
+texture_normal = ExtResource("16_y118m")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="DecreaseWaveHeightButton" type="TextureButton" parent="Control"]
+layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = 58.196045
-offset_right = -538.53613
-offset_bottom = 97.00418
+offset_left = -143.82056
+offset_top = 282.94873
+offset_right = -84.64111
+offset_bottom = 338.51184
 grow_horizontal = 0
 grow_vertical = 2
 rotation = -3.1415927
-texture_normal = ExtResource("16_cvwdu")
+texture_normal = ExtResource("16_y118m")
 ignore_texture_size = true
-stretch_mode = 4
+stretch_mode = 0
+
+[node name="DecreaseWaveSpeedButton" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -160.82056
+offset_top = 358.0
+offset_right = -132.09521
+offset_bottom = 411.78412
+grow_horizontal = 0
+grow_vertical = 2
+rotation = -3.1415927
+texture_normal = ExtResource("16_y118m")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="IncreaseWaveSpeedButton" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -192.18164
+offset_top = -98.0
+offset_right = -153.0
+offset_bottom = -49.856445
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("16_y118m")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="IncreaseWaveLengthButton" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -193.0
+offset_top = 39.0
+offset_right = -109.59021
+offset_bottom = 132.74951
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.52, 0.32000124)
+texture_normal = ExtResource("16_y118m")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Label10" type="Label" parent="Control"]
 layout_mode = 1
@@ -774,36 +856,134 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -675.0
-offset_top = -60.803955
-offset_right = -501.0
-offset_bottom = -15.803955
+offset_left = -301.0
+offset_top = 107.0
+offset_right = -250.0
+offset_bottom = 130.0
 grow_horizontal = 0
 grow_vertical = 2
-text = "Water level"
+text = "Level"
 
-[node name="Label11" type="Label" parent="Control"]
+[node name="Label7" type="Label" parent="Control"]
 layout_mode = 1
-anchors_preset = 2
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 113.0
-offset_top = -133.0
-offset_right = 200.0
-offset_bottom = -88.0
+offset_left = -135.82056
+offset_top = -226.0
+offset_right = -51.820557
+offset_bottom = -203.0
+grow_horizontal = 0
 grow_vertical = 0
-text = "Wave"
+text = "Slower"
 
-[node name="ControlCross" parent="Control" instance=ExtResource("15_js47e")]
+[node name="Label8" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -133.82056
+offset_top = 246.0
+offset_right = -49.820557
+offset_bottom = -275.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Lower"
+
+[node name="Label6" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -136.0
+offset_top = -633.0
+offset_right = -52.0
+offset_bottom = -610.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Faster"
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -121.0
+offset_top = -493.0
+offset_right = -34.0
+offset_bottom = -470.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Longer"
+
+[node name="DecreaseWaveLengthButton" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = 196.59375
+offset_right = -106.071045
+offset_bottom = 245.33136
+grow_horizontal = 0
+grow_vertical = 2
+rotation = -3.1415927
+scale = Vector2(1, 0.68)
+texture_normal = ExtResource("16_y118m")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label5" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -126.0
+offset_top = -370.0
+offset_right = -67.0
+offset_bottom = -347.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Shorter"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -133.0
+offset_top = -559.0
+offset_right = -74.0
+offset_bottom = -536.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Higher"
+
+[node name="ControlCross" parent="Control" instance=ExtResource("17_xtdr5")]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_right = 0.0
 anchor_bottom = 0.5
-offset_left = 10.0
-offset_top = -218.80399
-offset_right = 482.0
-offset_bottom = 224.19598
+offset_left = 78.0
+offset_top = -134.0
+offset_right = 361.0
+offset_bottom = 138.19604
 grow_horizontal = 1
 
 [node name="RespawnButton" type="TextureButton" parent="Control"]
@@ -813,13 +993,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -961.0
-offset_top = -432.0
-offset_right = -909.0
-offset_bottom = -378.0
+offset_left = -141.0
+offset_top = -158.0
+offset_right = -89.0
+offset_bottom = -104.0
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("16_2c632")
+texture_normal = ExtResource("18_s6tp2")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -828,10 +1008,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 423.0
-offset_top = -106.0
-offset_right = 524.0
-offset_bottom = -74.0
+offset_left = 1577.0
+offset_top = -813.0
+offset_right = 1678.0
+offset_bottom = -781.0
 grow_vertical = 0
 text = "Clouds"
 
@@ -840,10 +1020,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 1242.0
-offset_top = -54.0
-offset_right = 1520.0
-offset_bottom = 7.0
+offset_left = 164.0
+offset_top = -51.0
+offset_right = 303.0
+offset_bottom = -20.0
 grow_vertical = 0
 text = "Show water"
 
@@ -862,15 +1042,15 @@ text = "Enforce boundaries"
 
 [node name="OceanOptionButton" type="OptionButton" parent="Control"]
 layout_mode = 1
-anchors_preset = 3
+anchors_preset = -1
 anchor_left = 1.0
-anchor_top = 1.0
+anchor_top = 0.513
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -298.0
-offset_top = -144.0
-offset_right = -34.0
-offset_bottom = -83.0
+anchor_bottom = 0.513
+offset_left = -208.0
+offset_top = 91.85596
+offset_right = -76.0
+offset_bottom = 122.85596
 grow_horizontal = 0
 grow_vertical = 0
 selected = 1
@@ -898,37 +1078,37 @@ offset_right = -219.0
 offset_bottom = -13.0
 grow_horizontal = 0
 grow_vertical = 2
-texture_normal = ExtResource("6_qqppl")
+texture_normal = ExtResource("4_x6jow")
 ignore_texture_size = true
 stretch_mode = 4
 
 [node name="SetNightButton" type="Button" parent="Control"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -164.5
-offset_top = -143.0
-offset_right = -6.5
-offset_bottom = -82.0
-grow_horizontal = 2
+offset_left = -183.0
+offset_top = -781.0
+offset_right = -73.5
+offset_bottom = -750.0
+grow_horizontal = 0
 grow_vertical = 0
 text = "Set Night"
 
 [node name="SetDayButton" type="Button" parent="Control"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 30.5
-offset_top = -142.0
-offset_right = 159.5
-offset_bottom = -81.0
-grow_horizontal = 2
+offset_left = -172.0
+offset_top = -827.0
+offset_right = -70.5
+offset_bottom = -796.0
+grow_horizontal = 0
 grow_vertical = 0
 text = "Set day"
 
@@ -953,10 +1133,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -731.0
-offset_top = -143.0
-offset_right = -368.0
-offset_bottom = -82.0
+offset_left = -210.0
+offset_top = -721.0
+offset_right = -63.0
+offset_bottom = -680.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Ocean Floor"
@@ -964,26 +1144,26 @@ clip_text = true
 
 [node name="FireworksCheckButton" type="CheckButton" parent="Control"]
 layout_mode = 0
-offset_left = 586.0
-offset_top = 453.0
-offset_right = 710.0
-offset_bottom = 484.0
+offset_left = 1543.0
+offset_top = 169.0
+offset_right = 1667.0
+offset_bottom = 200.0
 text = "Fireworks"
 
 [node name="RealTimeCheckButton" type="CheckButton" parent="Control"]
 layout_mode = 0
-offset_left = 1610.0
-offset_top = 753.39197
-offset_right = 1851.0
-offset_bottom = 814.39197
+offset_left = 1721.0
+offset_top = 167.0
+offset_right = 1845.0
+offset_bottom = 198.0
 text = "Real time"
 
 [node name="IntervalProgramButton" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 108.0
-offset_top = 1.0
-offset_right = 247.0
-offset_bottom = 32.0
+offset_left = 1577.0
+offset_top = 942.0
+offset_right = 1716.0
+offset_bottom = 973.0
 toggle_mode = true
 text = "Interval program"
 flat = true
@@ -1001,52 +1181,52 @@ grow_vertical = 0
 
 [node name="SwingButton" type="TextureButton" parent="Control"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 66.5
-offset_top = -476.0
-offset_right = 170.5
-offset_bottom = -378.0
-grow_horizontal = 2
+offset_left = -433.0
+offset_top = -468.0
+offset_right = -329.0
+offset_bottom = -370.0
+grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("20_a0404")
+texture_normal = ExtResource("19_2ga7b")
 ignore_texture_size = true
 stretch_mode = 4
 
 [node name="FloatButton" type="TextureButton" parent="Control"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -119.5
-offset_top = -474.0
-offset_right = -9.5
-offset_bottom = -367.0
-grow_horizontal = 2
+offset_left = -434.0
+offset_top = -338.0
+offset_right = -324.0
+offset_bottom = -231.0
+grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("20_a0404")
+texture_normal = ExtResource("19_2ga7b")
 ignore_texture_size = true
 stretch_mode = 4
 
 [node name="SoarButton" type="TextureButton" parent="Control"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -34.5
-offset_top = -586.0
-offset_right = 59.5
-offset_bottom = -477.99997
-grow_horizontal = 2
+offset_left = -426.0
+offset_top = -615.0
+offset_right = -332.0
+offset_bottom = -507.0
+grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("21_d40we")
+texture_normal = ExtResource("20_hu1dc")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -1065,18 +1245,18 @@ step = 0.1
 
 [node name="SinkButton" type="TextureButton" parent="Control"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -33.5
-offset_top = -340.0
-offset_right = 83.5
-offset_bottom = -245.0
-grow_horizontal = 2
+offset_left = -532.0
+offset_top = -453.0
+offset_right = -415.0
+offset_bottom = -358.0
+grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("22_bn2ln")
+texture_normal = ExtResource("21_v4h8i")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -1132,10 +1312,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -219.0
-offset_top = -8.0
-offset_right = -43.0
-offset_bottom = 43.0
+offset_left = -302.0
+offset_top = 23.0
+offset_right = -126.0
+offset_bottom = 74.0
 grow_horizontal = 0
 text = "Hide controls"
 
@@ -1149,82 +1329,16 @@ offset_bottom = 373.0
 text = "z_speed"
 
 [node name="SettingsButton" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 772.0
-offset_top = 5.0
-offset_right = 842.0
-offset_bottom = 36.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.91150445
+anchor_top = 0.089154415
+anchor_right = 0.920354
+anchor_bottom = 0.1038603
+offset_right = 70.0
+offset_bottom = 31.0
 text = "Settings"
 metadata/_edit_use_anchors_ = true
-
-[node name="GridContainer" type="GridContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -433.0
-offset_top = -164.80399
-offset_right = -117.0
-offset_bottom = 130.19592
-grow_horizontal = 0
-grow_vertical = 2
-columns = 3
-
-[node name="Control" type="Control" parent="Control/GridContainer"]
-layout_mode = 2
-
-[node name="IncreaseWaveHeightButton" type="TextureButton" parent="Control/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture_normal = ExtResource("22_27bdo")
-ignore_texture_size = true
-stretch_mode = 4
-
-[node name="Control2" type="Control" parent="Control/GridContainer"]
-layout_mode = 2
-
-[node name="DecreaseWaveLengthButton" type="TextureButton" parent="Control/GridContainer"]
-layout_mode = 2
-texture_normal = ExtResource("23_0y8fl")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Control5" type="Control" parent="Control/GridContainer"]
-layout_mode = 2
-
-[node name="IncreaseWaveLengthButton" type="TextureButton" parent="Control/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture_normal = ExtResource("24_o74wx")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="DecreaseWaveSpeedButton" type="TextureButton" parent="Control/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-texture_normal = ExtResource("25_v0ftm")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="DecreaseWaveHeightButton" type="TextureButton" parent="Control/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture_normal = ExtResource("23_0y8fl")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="IncreaseWaveSpeedButton" type="TextureButton" parent="Control/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture_normal = ExtResource("26_uyjtn")
-ignore_texture_size = true
-stretch_mode = 0
 
 [node name="ProgramStatusLabel" type="Label" parent="."]
 visible = false
@@ -1246,7 +1360,7 @@ horizontal_alignment = 1
 
 [node name="ProgramTimer" type="Timer" parent="."]
 wait_time = 0.1
-script = ExtResource("19_3msog")
+script = ExtResource("22_2j31u")
 
 [node name="IntervalProgressBar" type="ProgressBar" parent="."]
 visible = false
@@ -1282,7 +1396,7 @@ initial_position = 1
 size = Vector2i(1040, 430)
 visible = false
 
-[node name="Settings" parent="SettingsWindow" instance=ExtResource("23_d40we")]
+[node name="Settings" parent="SettingsWindow" instance=ExtResource("23_w0b3d")]
 
 [node name="SnapshotTimer" type="Timer" parent="."]
 autostart = true
@@ -1325,8 +1439,14 @@ autostart = true
 [connection signal="pressed" from="WeatherPanel/Button" to="WeatherPanel" method="_on_button_pressed"]
 [connection signal="drag_ended" from="DatePanel/DaySlider" to="." method="_on_day_slider_drag_ended"]
 [connection signal="pressed" from="DatePanel/DateTimeButton" to="DatePanel" method="_on_date_time_button_pressed"]
+[connection signal="pressed" from="Control/IncreaseWaveHeightButton" to="." method="_on_increase_wave_button_pressed"]
 [connection signal="pressed" from="Control/IncreaseWaveLevelButton" to="." method="_on_increase_wave_level_button_pressed"]
 [connection signal="pressed" from="Control/DecreaseWaveLevelButton" to="." method="_on_decrease_wave_level_button_pressed"]
+[connection signal="pressed" from="Control/DecreaseWaveHeightButton" to="." method="_on_decrease_wave_button_pressed"]
+[connection signal="pressed" from="Control/DecreaseWaveSpeedButton" to="." method="_on_decrease_wave_speed_button_pressed"]
+[connection signal="pressed" from="Control/IncreaseWaveSpeedButton" to="." method="_on_increase_wave_speed_button_pressed"]
+[connection signal="pressed" from="Control/IncreaseWaveLengthButton" to="." method="_on_increase_wave_length_button_pressed"]
+[connection signal="pressed" from="Control/DecreaseWaveLengthButton" to="." method="_on_decrease_wave_length_button_pressed"]
 [connection signal="pressed" from="Control/RespawnButton" to="." method="_on_respawn_button_pressed"]
 [connection signal="toggled" from="Control/CloudsCheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="toggled" from="Control/ShowWaterButton" to="." method="_on_show_water_button_toggled"]
@@ -1349,12 +1469,6 @@ autostart = true
 [connection signal="value_changed" from="Control/WaveLengthSlider" to="." method="_on_wave_length_slider_value_changed"]
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Control/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="Control/GridContainer/IncreaseWaveHeightButton" to="." method="_on_increase_wave_button_pressed"]
-[connection signal="pressed" from="Control/GridContainer/DecreaseWaveLengthButton" to="." method="_on_decrease_wave_length_button_pressed"]
-[connection signal="pressed" from="Control/GridContainer/IncreaseWaveLengthButton" to="." method="_on_increase_wave_length_button_pressed"]
-[connection signal="pressed" from="Control/GridContainer/DecreaseWaveSpeedButton" to="." method="_on_decrease_wave_speed_button_pressed"]
-[connection signal="pressed" from="Control/GridContainer/DecreaseWaveHeightButton" to="." method="_on_decrease_wave_button_pressed"]
-[connection signal="pressed" from="Control/GridContainer/IncreaseWaveSpeedButton" to="." method="_on_increase_wave_speed_button_pressed"]
 [connection signal="interval_changed" from="ProgramTimer" to="." method="_on_program_timer_interval_changed"]
 [connection signal="tick" from="ProgramTimer" to="." method="_on_program_timer_tick"]
 [connection signal="close_requested" from="SettingsWindow" to="." method="_on_settings_window_close_requested"]

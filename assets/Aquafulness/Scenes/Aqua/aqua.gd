@@ -51,4 +51,4 @@ func _process(delta: float) -> void:
 
 
 func get_water_height(pos: Vector3):
-	return sin(pos.z + wave.z - 3) + cos(pos.x + wave.z - 3) * height
+	return sin(pos.z + wave.z - 3) * height

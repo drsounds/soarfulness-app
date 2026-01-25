@@ -35,7 +35,6 @@ ImGuiRoot="*res://addons/imgui-godot/data/ImGuiRoot.tscn"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
 window/stretch/mode="viewport"
 window/handheld/orientation=6
 
@@ -43,6 +42,7 @@ window/handheld/orientation=6
 
 movie_writer/video_quality=1.0
 movie_writer/movie_file="/Volumes/T9/macMini/Users/buddhalow/Movies/Vanern_202512241306.avi"
+export/convert_text_resources_to_binary=false
 
 [editor_plugins]
 
@@ -51,6 +51,11 @@ enabled=PackedStringArray("res://addons/SunshineVolumetricClouds/plugin.cfg", "r
 [filesystem]
 
 import/blender/enabled=false
+
+[gui]
+
+theme/default_font_antialiasing=2
+theme/default_theme_scale=2.0
 
 [input]
 

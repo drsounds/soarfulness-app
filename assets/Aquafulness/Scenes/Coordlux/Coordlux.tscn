@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ktyco5f0otlm"]
+[gd_scene load_steps=25 format=3 uid="uid://ktyco5f0otlm"]
 
 [ext_resource type="PackedScene" uid="uid://dwfgugk1tvlya" path="res://assets/Aquafulness/Scenes/Coordlux/futuristic_dome.tscn" id="1_0r8s1"]
 [ext_resource type="Script" uid="uid://bmk356m72a0q8" path="res://assets/Aquafulness/Scenes/AquaScene/aqua_scene.gd" id="1_mnt5h"]
@@ -20,9 +20,10 @@
 [ext_resource type="PackedScene" uid="uid://dcawt434tnrwa" path="res://assets/Aquafulness/Scenes/Cloud/Cloud.tscn" id="17_xv2xv"]
 [ext_resource type="Texture2D" uid="uid://cmr08ervk1ja1" path="res://assets/Aquafulness/beach-water-nature-sand-ocean-liquid-sunlight-texture-leaf-floor-refraction-pattern-green-circle-design-flooring-light-reflects-1279284.png" id="19_kxxca"]
 [ext_resource type="PackedScene" uid="uid://xctxfs7hg1rv" path="res://assets/Aquafulness/Scenes/Confetti/Confetti.tscn" id="20_i37va"]
+[ext_resource type="PackedScene" uid="uid://33d7xsb64pk" path="res://assets/Aquafulness/Scenes/Aqua/Aqua.tscn" id="21_eqllq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jh6ua"]
-size = Vector3(133.87631, 1, 518.1277)
+size = Vector3(2787.144, 952.582, 518.128)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6dq7n"]
 albedo_color = Color(1, 0.627451, 0, 0.73333335)
@@ -36,7 +37,6 @@ material = SubResource("StandardMaterial3D_6dq7n")
 script = ExtResource("1_mnt5h")
 
 [node name="Swing" parent="." instance=ExtResource("2_xv2xv")]
-swing_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5974192, -2508.0413, -0.6703954)
 
 [node name="CloudsController" type="Node" parent="." node_paths=PackedStringArray("sunLight", "worldEnvironment")]
 script = ExtResource("11_jh6ua")
@@ -168,7 +168,7 @@ transform = Transform3D(0.0060033826, 0, -0.43642613, 0, 0.3857247, 0, 0.5647896
 [node name="Boundary" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.063183, 0, -18.989853)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.242493, -61.95996, -18.989853)
 shape = SubResource("BoxShape3D_jh6ua")
 
 [node name="Flower" parent="." instance=ExtResource("16_sc3kh")]
@@ -194,3 +194,5 @@ mesh = SubResource("BoxMesh_i37va")
 
 [node name="FireworksContainer" type="Node3D" parent="."]
 transform = Transform3D(0.06944132, 0, 0, 0, 0.26692814, 0, 0, 0, 1, -142.05698, 718.19495, -1012.137)
+
+[node name="Aqua" parent="." instance=ExtResource("21_eqllq")]
