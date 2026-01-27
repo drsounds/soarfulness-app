@@ -1,8 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://8osyicjgsi5x"]
+[gd_scene load_steps=7 format=3 uid="uid://8osyicjgsi5x"]
 
 [ext_resource type="Script" uid="uid://byb2p7fo7klgv" path="res://assets/Aquafulness/Scenes/Soarfulness/soarfulness.gd" id="1_dlhdc"]
+[ext_resource type="Shader" uid="uid://brf2un1i6ymxw" path="res://color_reduction.gdshader" id="1_qyowq"]
 [ext_resource type="PackedScene" uid="uid://djpxbrdgwmb5w" path="res://assets/Aquafulness/Scenes/Aquafulness/Aquafulness.tscn" id="3_7nc36"]
 [ext_resource type="PackedScene" uid="uid://frb38tx0tt4c" path="res://assets/Aquafulness/Scenes/Aquafulness/Controls.tscn" id="4_akaao"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qyowq"]
+shader = ExtResource("1_qyowq")
+shader_parameter/colors = 16.0
+shader_parameter/dither = 0.5
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qyowq"]
 
@@ -18,6 +24,7 @@ size_flags_vertical = 3
 script = ExtResource("1_dlhdc")
 
 [node name="ViewportContainer" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_qyowq")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

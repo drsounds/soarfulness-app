@@ -35,7 +35,7 @@ transform = Transform3D(2.9777846, 0, 0, 0, 1.5330426, 0, 0, 0, 20.815243, -10.7
 mesh = SubResource("BoxMesh_my13m")
 
 [node name="CSGMesh3D6" type="CSGMesh3D" parent="CSGCombiner3D"]
-transform = Transform3D(2.9777846, 0, 0, 0, 1.5330426, 0, 0, 0, 20.815243, -10.786411, 8.576591, -0.21143913)
+transform = Transform3D(2.9777846, 0, 0, 0, 1.5330426, 0, 0, 0, 20.815243, -10.786411, 13.066201, -0.21143913)
 mesh = SubResource("BoxMesh_my13m")
 
 [node name="CSGMesh3D4" type="CSGMesh3D" parent="CSGCombiner3D"]
