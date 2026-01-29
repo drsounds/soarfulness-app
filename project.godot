@@ -48,10 +48,6 @@ export/convert_text_resources_to_binary=false
 
 enabled=PackedStringArray("res://addons/SunshineVolumetricClouds/plugin.cfg", "res://addons/gd_data_binding/plugin.cfg", "res://addons/imgui-godot/plugin.cfg", "res://addons/tessarakkt.oceanfft/plugin.cfg", "res://addons/virtual_joystick/plugin.cfg")
 
-[filesystem]
-
-import/blender/enabled=false
-
 [gui]
 
 theme/default_font_antialiasing=2

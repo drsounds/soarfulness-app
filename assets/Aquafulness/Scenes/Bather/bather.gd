@@ -247,7 +247,9 @@ func triangle(x: float) -> float:
 
 func _physics_process(delta:float) -> void:
 	time += delta
-	var boundary: Area3D = get_parent().boundary
+	var boundary: Area3D = get_parent().find_child('Boundary')
+	if boundary == null:
+		OS.crash('Boundary is missing')
 	var shape: CollisionShape3D = boundary.get_child(0)
 	var box_shape: BoxShape3D = shape.shape
 
