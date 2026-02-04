@@ -6,7 +6,7 @@
 [sub_resource type="PlaneMesh" id="PlaneMesh_vbqw1"]
 material = ExtResource("2_vskng")
 size = Vector2(1248.56, 1248.56)
-subdivide_width = 12
+subdivide_width = 28
 subdivide_depth = 28
 
 [sub_resource type="BoxMesh" id="BoxMesh_nk4k4"]

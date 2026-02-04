@@ -1,6 +1,8 @@
 extends Node3D
 class_name AquaNode
 
+var texture = preload('res://assets/Aquafulness/water.png')
+
 var time = 0
 
 @export var wave: Vector3 = Vector3(0, 0, 0)
@@ -48,6 +50,8 @@ func _process(delta: float) -> void:
 	mesh.surface_get_material(0).set('shader_parameter/time', time)
 	mesh.surface_get_material(0).set('shader_parameter/x', wave.x)
 	mesh.surface_get_material(0).set('shader_parameter/z', wave.z)
+	mesh.surface_get_material(0).set('shader_parameter/text', preload('res://assets/Aquafulness/water.png'))
+
 
 
 func get_water_height(pos: Vector3):

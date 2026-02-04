@@ -176,6 +176,7 @@ func _ready() -> void:
 	get_parent().swimmed_z_plus = self.transform.origin.z - 100
 
 	buoy = $SwimBouy.duplicate()
+	buoy.visible = false
 	
 	swing = get_parent().find_child('Swing')
 
