@@ -8,6 +8,10 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Bathing Simulator"
@@ -21,7 +25,7 @@ config/name_localized={
 config/version="1.0"
 run/main_scene="uid://fjofla0ll46s"
 run/enable_alt_space_menu=true
-config/features=PackedStringArray("4.5", "GL Compatibility")
+config/features=PackedStringArray("4.6", "GL Compatibility")
 run/max_fps=35
 run/low_processor_mode=true
 boot_splash/image="uid://cr2bwgsn60b6j"
@@ -29,7 +33,7 @@ config/icon="uid://3xybwfx44xfy"
 
 [autoload]
 
-ImGuiRoot="*res://addons/imgui-godot/data/ImGuiRoot.tscn"
+ImGuiRoot="*uid://dugmpnsxaagba"
 
 [display]
 
@@ -56,6 +60,7 @@ import/blender/enabled=false
 
 theme/default_font_antialiasing=2
 theme/default_theme_scale=2.0
+theme/custom_font="uid://cf3axhgs1gt6"
 
 [input]
 

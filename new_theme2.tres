@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://dppbavpctnyxp"]
+[gd_resource type="Theme" format=3 uid="uid://dppbavpctnyxp"]
+
+[ext_resource type="FontFile" uid="uid://cy57v42og3b8h" path="res://DM_Sans/static/DMSans-Regular.ttf" id="1_ewrig"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhsyr"]
 content_margin_left = 4.0
@@ -37,6 +39,7 @@ corner_radius_bottom_left = 4
 corner_detail = 6
 
 [resource]
+default_font = ExtResource("1_ewrig")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_qhsyr")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_2bnas")
 HSlider/styles/slider = SubResource("StyleBoxFlat_6t40w")

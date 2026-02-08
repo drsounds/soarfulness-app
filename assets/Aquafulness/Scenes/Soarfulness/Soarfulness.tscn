@@ -1,18 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://8osyicjgsi5x"]
+[gd_scene format=3 uid="uid://8osyicjgsi5x"]
 
 [ext_resource type="Script" uid="uid://byb2p7fo7klgv" path="res://assets/Aquafulness/Scenes/Soarfulness/soarfulness.gd" id="1_dlhdc"]
-[ext_resource type="Shader" uid="uid://brf2un1i6ymxw" path="res://color_reduction.gdshader" id="1_qyowq"]
 [ext_resource type="PackedScene" uid="uid://djpxbrdgwmb5w" path="res://assets/Aquafulness/Scenes/Aquafulness/Aquafulness.tscn" id="3_7nc36"]
 [ext_resource type="PackedScene" uid="uid://frb38tx0tt4c" path="res://assets/Aquafulness/Scenes/Aquafulness/Controls.tscn" id="4_akaao"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qyowq"]
-shader = ExtResource("1_qyowq")
-shader_parameter/colors = 16.0
-shader_parameter/dither = 0.5
-
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qyowq"]
 
-[node name="Soarfulness" type="Control"]
+[node name="Soarfulness" type="Control" unique_id=1620936565]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,8 +17,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_dlhdc")
 
-[node name="ViewportContainer" type="SubViewportContainer" parent="."]
-material = SubResource("ShaderMaterial_qyowq")
+[node name="ViewportContainer" type="SubViewportContainer" parent="." unique_id=1753564984]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,19 +26,19 @@ grow_horizontal = 2
 grow_vertical = 2
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="ViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="ViewportContainer" unique_id=1045022738]
 handle_input_locally = false
 size = Vector2i(1920, 1080)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
-[node name="Aquafulness" parent="." instance=ExtResource("3_7nc36")]
+[node name="Aquafulness" parent="." unique_id=1265624303 instance=ExtResource("3_7nc36")]
 modulate = Color(1, 1, 1, 0.6666667)
 show_behind_parent = false
 material = SubResource("CanvasItemMaterial_qyowq")
 layout_mode = 1
 
-[node name="Controls" parent="." instance=ExtResource("4_akaao")]
+[node name="Controls" parent="." unique_id=959368188 instance=ExtResource("4_akaao")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -56,7 +49,7 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="TextureButton" type="TextureButton" parent="." unique_id=496780788]
 self_modulate = Color(1, 1, 1, 0.49411765)
 top_level = true
 layout_mode = 1
@@ -71,6 +64,6 @@ grow_horizontal = 0
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="AcceptDialog" type="AcceptDialog" parent="."]
+[node name="AcceptDialog" type="AcceptDialog" parent="." unique_id=615970003]
 title = "Error"
 ok_button_text = "OK"

@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://vqsmjqmwwcqo"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://vqsmjqmwwcqo"]
 
 [ext_resource type="Shader" uid="uid://b3yj8to7lwt8h" path="res://assets/Aquafulness/Scenes/Aqua/aqua.gdshader" id="1_tqsmg"]
 
